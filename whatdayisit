@@ -1,0 +1,10 @@
+#!/bin/bash
+
+y=$(date --date '2012-08-13+99days' +%j)
+x=$(date +%j)
+
+((z=${y} - ${x}))
+
+echo "Today is D-${z}"
+
+exit 0

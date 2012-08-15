@@ -1,18 +1,68 @@
 % Compile with:
 % latex --halt-on-error thesis.tex && latex thesis.tex && dvips thesis.dvi && ps2pdf thesis.ps
 
-\documentclass{book}
+\documentclass{article}
 \usepackage{pstricks}
 \usepackage{amsmath}
-\newcommand{\E}[2]{\begin{align}#2\end{align}\label{eq:#1}}
+\newcommand{\E}[2]{\begin{align}#2\label{eq:#1}\end{align}}
 \newcommand{\EE}[2]{\begin{subequations}\begin{align}#2\end{align}\label{eq:#1}\end{subequations}}
 \newcommand{\curl}{\nabla\times}
 \newcommand{\eq}[1]{\eqref{eq:#1}}
-\newcommand{\fig}[1]{\ref{fig:#1}}
+\newcommand{\fig}[1]{figure~\ref{fig:#1}}
+\newcommand{\MaxwellFDS}{MaxwellFDS }
+\newcommand{\BI}{\begin{itemize}\item}
+\newcommand{\EI}{\end{itemize}}
+\newcommand{\I}{\item}
+\newcommand{\pf}[1]{\frac{\partial}{\partial #1}} % d/d_
+\newcommand{\prim}{\text{prim}}
+\newcommand{\dual}{\text{dual}}
+\newcommand{\mx}{\text{max}}
+\newcommand{\diag}{\text{diag}}
+\title{Harnessing the cloud to understand light: 
+        A whitepaper detailing the \MaxwellFDS core solver}
 \begin{document}
-\section{Solving $Ax=b$ using MaxwellFDS}
-\subsection{Theory}
-We need to solve Maxwell's equations, that is,
+\maketitle
+\tableofcontents
+
+\section*{Introduction}
+\MaxwellFDS is a cloud-powered electromagnetic solver,
+    tailored specifically to the field of nanophotonics.
+\MaxwellFDS stands for Frequency-Domain Solver.
+
+\section{Motivation: why another electromagnetic solver?}
+Although many electromagnetic simulation packages are currently available,
+    we found it necessary, for our own purposes, to create our own.
+Specifically, we desired a simulator which 
+    \BI operates in the frequency-domain, as opposed to the time-domain.
+    \I  scales to multiple high-resolution three-dimensional domains,
+    \I  is readily accessible via Matlab. \EI
+
+\subsection{The advantages of frequency-domain solutions}
+The advantages of solving Maxwell's equations in the  \emph{frequency}-domain 
+    as opposed to simulating them in the \emph{time}-domain include
+    \BI clean excitation of input modes,
+    \I  precise characterization of material dispersion,
+    \I  calculation of figure of merits outside of the simulation,
+    \I  explicit measurement of simulation error, and
+    \I  explicit calculation of eigenmodes. \EI
+
+\subsubsection{Input: clean excitation of modes}
+\subsubsection{Dispersion: precise characterization of frequency-dispersion}
+\subsubsection{Output: complete description of device performance}
+\subsubsection{Error: explicit measurement of simulation error}
+\subsubsection{Eigenmodes: explicit calculation of eigenmodes}
+
+\subsection{The advantages of simulating in the cloud}
+\subsection{The advantages of being built within Matlab}
+    
+
+\section{Harnessing the cloud to understand light}
+\subsection{Accessing }
+
+\section{Solving the electromagnetic wave equation using \MaxwellFDS}
+\subsection{Analytic derivation of the electromagnetic wave equation}
+The electromagnetic wave equation can be derived from 
+    the differential form of Maxwell's equations, that is,
 \EE {maxwell diff}
     {\curl E &= - \mu \frac{\partial H}{\partial t} \\
     \curl H &= J + \epsilon \frac{\partial E}{\partial t}, }
@@ -31,58 +81,99 @@ Assuming the time dependence $\exp(-i \omega t)$,
     which we can combine to form the time-harmonic wave equation for $E$,
     \E{maxwell wave E}
     {\curl \mu^{-1} \curl E - \epsilon \omega^2 E = -i \omega J,}
-    which we will solve using MaxwellFDS.
+    which \MaxwellFDS solves
 
 Note that the alternative wave equation for $H$,
     where we consider the magnetic current source $M$
     instead of $J$,
 \E  {maxwell wave H}
     {\curl \epsilon^{-1} \curl H - \mu \omega^2 H = -i \omega M,}
-    can also be solved using MaxwellFDS.
+    can also be solved using \MaxwellFDS.
 
-\subsection{Numerical}
-To solve \eq{maxwell wave E} we discretize our vector fields on the Yee grid
-    as shown in \fig{yee grid}.
+\subsection{Numerical discretization of the wave equation}
+\subsubsection{Use of the Yee cell}
+To solve \eq{maxwell wave E} we discretize our vector fields 
+    based on a primitive Yee cell, as shown in \fig{yee cell}. % Ref.
+Similarly to the finite-difference time-domain simulation technique,
+    the use of the Yee cell allows the $\curl$ operators to be well-defined.
 
-
-
-\begin{figure}[h]\begin{center}
-\psset{gridcolor=green, subgridcolor=yellow}
-\begin{pspicture}(-2,-2)(7,7)
-    \let\psgrid\relax
-    
-    % Origin.
-    \psdot(0,0) \rput[br](-0.1,0.1){$(0,0,0)$}
-
-    % Principle axes.
-    \psline[linestyle=dotted](-1,0)(6,0) \rput(6.3,0){$x$}
-    \psline[linestyle=dotted](0,-1)(0,6) \rput(0,6.3){$z$}
-    \psline[linestyle=dotted](-0.8,-0.6)(4.8,3.6) \rput(5.05,3.75){$y$}
-
-    % Intermediate axes.
-    \psline[linestyle=dotted](0,3)(3,3) % Hy point.
-    \psline[linestyle=dotted](3,3)(3,0)
-
-    \psline[linestyle=dotted](0,3)(2.4,4.8) % Hx point.
-    \psline[linestyle=dotted](2.4,4.8)(2.4,1.8)
-
-    \psline[linestyle=dotted](2.4,1.8)(5.4,1.8) % Hz point.
-    \psline[linestyle=dotted](5.4,1.8)(3,0)
-
-    % E-field vectors.
-    \psline{->}(2.6,0)(3.4,0) \rput(3,-0.4){$E_x$}
-    \psline{->}(0,2.6)(0,3.4) \rput(-0.4,3){$E_z$}
-    \psline{->}(2.1,1.55)(2.7,2.05) \rput(2.05,2.05){$E_z$}
-
-    % H-field vectors.
-    \psline{->}(2,4.8)(2.8,4.8) \rput(2.4,5.2){$H_x$}
-    \psline{->}(5.4,1.4)(5.4,2.2) \rput(5.8,1.8){$H_z$}
-    \psline{->}(2.7,2.75)(3.3,3.25) \rput(2.7,3.3){$H_y$}
-\end{pspicture}
-\end{center}
-\caption{Primitive Yee cell}
+\begin{figure}[ht]\begin{center}
+    \input{yee-fig.tex}
+    \end{center}
+    \caption{   The primitive Yee cell. 
+                The computational grid is formed by tiling this pattern
+                    in three dimensions such that no two field components
+                    of $E$ or $H$ are co-located. % Ref to Yee.
+                The grid used in \MaxwellFDS has periodic ``wrap-around''
+                    boundary conditions, and 
+                    the relevant distances between adjacent field components
+                    are denoted by $d^\prim_{x,y,z}$ and 
+                    $d^\dual_{x,y,z}$.}
+    \label{fig:yee cell}
 \end{figure}
 
+In this configuration, the $E$, $J$, and $\epsilon$ vector fields
+    are positioned on the $E_{x,y,z}$ locations 
+    while the $H$, $M$ (in the case of \eq{maxwell wave H}) , and $\mu$
+    vector fields are placed on the $H_{x,y,z}$ locations.
+
+To define the distances between adjacent field components,
+    \MaxwellFDS uses the following convention:
+    \BI $d^\prim_{w}$ denotes the distance in the direction $i$
+        between $E_w$ components for $w = x, y, z$, and
+    \I  $d^\dual_{w}$ denotes the distance in the direction $i$
+        between $H_w$ components for $w = x, y, z$. \EI
+This definition allows us to precisely define the numerical derivatives
+    found in the $\curl$ operators.
     
+\subsubsection{Use of a periodic ``wrap-around'' grid}
+\MaxwellFDS features periodic ``wrap-around'' boundary conditions
+    in the definition of the $\curl$ operators in \eq{maxwell wave E}.
+For example, this means that the operation $\pf{x}H_y$ is still well-defined
+    at the $x=0$ boundary as 
+    $(H_y|^{x=0} - H_y|^{x = x_\mx}) / d^\prim_x$.
+
+More specifically, \MaxwellFDS calls the elements 
+    in the Yee cell at $(i,j,k)$ as $E_x(i,j,k)$, $E_y(i,j,k)$, \ldots 
+    and then denotes 
+\BI $d^\prim_x(0)$ as the distance 
+    between $E_x(x_\mx,j,k)$ and $E_x(0,j,k)$,
+\I  $d^\prim_y(0)$ as the distance 
+    between $E_y(i,y_\mx,k)$ and $E_y(i,0,k)$,
+\I  $d^\prim_z(0)$ as the distance 
+    between $E_z(i,j,z_\mx)$ and $E_y(i,j,0)$,
+\I  $d^\dual_x(x_\mx)$ as the distance 
+    between $H_x(x_\mx,j,k)$ and $H_x(0,j,k)$,
+\I  $d^\dual_y(y_\mx)$ as the distance 
+    between $H_y(i,y_\mx,k)$ and $H_y(i,0,k)$, and
+\I  $d^\dual_z(z_\mx)$ as the distance 
+    between $H_z(i,j,z_\mx)$ and $H_y(i,j,0)$. \EI
+
+It should be noted that \MaxwellFDS's strictly periodic grid still
+    allows the use of Bloch periodic, mirror and perfectly-matched layer
+    boundary conditions.
+This is accomplished by setting the $d^{\prim,\dual}$ values to 
+    the appropriate complex values or even $\infty$,
+    both of which \MaxwellFDS is able to understand.
+    
+\subsubsection{The wave equation in terms of matrices and vectors}
+With these definitions we now can see how \MaxwellFDS
+    formulates the wave equation in the language of linear algebra.
+Specifically, \MaxwellFDS formulates \eq{maxwell wave E} as
+\E  {maxwell wave E discretized}
+    {(A_1 \diag(\mu^{-1}) A_2 - \omega^2 \diag(\epsilon)) x = b,}
+    where
+    \BI $A_1$ and $A_2$ represent the first and second $\curl$ operators
+        respectively,
+    \I  $x \to E$, and
+    \I  $b \to -i \omega J$. \EI
+
+The vector fields $E$ is converted into vector $x$ as
+\E{}{x = \begin{bmatrix} e_x \\ e_y \\ e_z \end{bmatrix}}
+    where
+\E{}{e_w = \begin{bmatrix} E_w(0,0,0) \\ E_w(1,0,0) \\
+                        \vdots \\ E_w(x_\mx, y_\mx, z_\mx) \end{bmatrix},}
+and so on for all vector fields.
+
 
 \end{document}

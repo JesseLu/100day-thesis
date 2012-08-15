@@ -47,16 +47,140 @@ The advantages of solving Maxwell's equations in the  \emph{frequency}-domain
     \I  explicit calculation of eigenmodes. \EI
 
 \subsubsection{Input: clean excitation of modes}
+A clean input excitation is typically quite complex to set up
+    in a time-domain simulation,
+    often requiring an auxiliary simulation to be run in parallel.
+The finite bandwidth of the excitation makes the calculation
+    of the mode profile problematic, while
+    the need to suppress transients requires the use of 
+    long ``build-up'' excitations.
+These difficulties are illustrated in \fig{time domain diagram}
+    where the inputs at the various frequencies of interest
+    must be combined and converted into the time-domain.
+
+However, in a frequency-domain simulation, 
+    since $\omega$ is explicitly defined and has no bandwidth,
+    one can accurately compute the correct input mode.
+Additionally, since one does not need to deal with transient excitations,
+    the input mode can be inserted directly into the simulation
+    without skilled ``tweaking'' on the part of the user,
+    as illustrated in \fig{frequency domain diagram}
+    where each frequency of interest is given it's own simulation.
+ 
+\begin{figure}[ht]\begin{center}
+\input{tds-fig.tex}
+\caption{The difficulties of working in the time-domain.
+        On the input side, the various input modes must be
+            combined and converted to the time-domain.
+        At the same time, the output measures of performance 
+            must be extracted from the time-domain output
+            while the simulation is still running.}
+\label{fig:time domain diagram}
+\end{center} \end{figure}
+
+\begin{figure}[ht]\begin{center}
+\input{fds-fig.tex}
+\caption{Using a frequency domain solver,
+            the various input modes and output measures
+            are computed independently of one another,
+            greatly simplifying the user's workflow.}
+\label{fig:frequency domain diagram}
+\end{center} \end{figure}
+
 \subsubsection{Dispersion: precise characterization of frequency-dispersion}
+In a similar vein, the explicitness of $\omega$ means that
+    parameters which depend upon frequency can be accurately simulated
+    by simply supplying the correct value of the parameter at the 
+    chosen frequency.
+
+This is in contrast to time-domain solutions,
+    which rely on running integrals to approximate such behavior.
+    
 \subsubsection{Output: complete description of device performance}
+An additional advantage to frequency-domain solutions
+    is that all the information concerning the solution
+    is contained in the output field.
+This means that the calculation of figures of merit and 
+    any possible measure of performance happens only
+    after the solver has completed, 
+    as shown in \fig{frequency domain diagram}.
+
+This is in contrast to time-domain simulations,
+    where such calculations must occur as the simulation proceeds, 
+    as shown in \fig{time domain diagram},
+    since the entire field at every point in time cannot be stored in memory.
+
 \subsubsection{Error: explicit measurement of simulation error}
+Yet another advantage of frequency-domain solutions is the ability
+    to explicitly calculate the error in the solution fields,
+    which is impossible to do with time-domain simulations.
+
 \subsubsection{Eigenmodes: explicit calculation of eigenmodes}
+Explicitly calculating the error also allows one 
+    to explicitly calculate eigenmode solutions
+    using frequency-domain solvers.
+This is particularly useful when one is attempting to
+    discriminate between closely spaced modes,
+    which is very difficult using time-domain approaches.
 
 \subsection{The advantages of simulating in the cloud}
+The primary usefulness of the cloud in a simulation context
+    is that it allows one to save both money and time.
+
+\subsubsection{Cloud computing allows for ``free'' parallelism}
+The most fundamental difference in running simulations
+    in a cloud computing environment is its cost structure.
+Specifically, in the cloud, 
+    one is billed based on the amount of computational resources used
+    and the time which one uses those resources.
+In contrast, the cost of simulating on one's own hardware
+    depends most heavily on the amount of hardware needed,
+    at least in most scientific environments.
+
+The disruptive cost structure of cloud environments 
+    has profound effects on scientific workloads 
+    as illustrated in \fig{cloud vs traditional};
+    in essence, allowing scientific workloads access
+    to ``free'' parallelism.
+The parallelism is free in the sense that 
+    the cost of running $N$ jobs sequentially on $1$ computer is equivalent to 
+    the cost of running $N$ jobs in parallel on $N$ computers.
+
+\begin{figure}[ht]\begin{center}
+\input{cloud-fig.tex}
+\caption{The fundamental difference in going to the cloud
+            is that both sequential and parallel workloads
+            cost the same amount of money,
+            since one is billed based on time $\times$ resources.
+        In contrast, simulating on one's own hardware would 
+            mean that parallel workloads are much more expensive
+            since one is billed on resources alone.
+        In essence, therefore, cloud computing allows for 
+            parallelism at no cost.}
+\label{fig:cloud vs traditional}
+\end{center} \end{figure}
+
+\subsubsection{Cloud computing takes care of all messy hardware details}
+A secondary benefit in using cloud computing 
+    is that many details no longer need to be handled such as
+    \BI physically installing, maintaining, and fixing computational hardware,
+    \I  ensuring identical software configurations on every cluster node, and 
+    \I  installing and configuring the cluster networking. \EI
+
+Of course, these conveniences come at the expense of 
+    being able to customize hardware, and networking resources
+    to ideally suit an application's needs.
+However, considering that most scientific folk
+    are not experts in these issues,
+    this can be considered a very small disadvantage.
+
 \subsection{The advantages of being built within Matlab}
+\MaxwellFDS was designed to not only be scalable (in the cloud),
+    but accessible as well.
+For this reason, we have allowed
     
 
-\section{Harnessing the cloud to understand light}
+\section{Harnessing Amazon's Elastic Compute Cloud} 
 \subsection{Accessing }
 
 \section{Solving the electromagnetic wave equation using \MaxwellFDS}

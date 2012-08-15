@@ -1,0 +1,26 @@
+\begin{pspicture}(6,4)(-6,-2)
+    \let\psgrid\relax
+
+    \psframe[fillstyle=none](-1,2)(1,3)
+    \rput(0,2.5){\textrm{FDS}}
+    \psline(-2.4,2.5)(-1,2.5)
+    \rput(-3.2,2.5){$X(\omega_1)$}
+    \psline(2.4,2.5)(1,2.5)
+    \rput(3.2,2.5){$Y(\omega_1)$}
+
+    \psframe[fillstyle=none](-1,0.6)(1,1.6)
+    \rput(0,1.1){\textrm{FDS}}
+    \psline(-2.4,1.1)(-1,1.1)
+    \rput(-3.2,1.1){$X(\omega_2)$}
+    \psline(2.4,1.1)(1,1.1)
+    \rput(3.2,1.1){$Y(\omega_2)$}
+
+    \rput(0,0.2){$\vdots$}
+
+    \psframe[fillstyle=none](-1,-0.4)(1,-1.4)
+    \rput(0,-0.9){\textrm{FDS}}
+    \psline(-2.4,-0.9)(-1,-0.9)
+    \rput(-3.2,-0.9){$X(\omega_n)$}
+    \psline(2.4,-0.9)(1,-0.9)
+    \rput(3.2,-0.9){$Y(\omega_n)$}
+\end{pspicture}

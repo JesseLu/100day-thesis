@@ -1,0 +1,33 @@
+\psset{gridcolor=green, subgridcolor=yellow}
+\begin{pspicture}(-2,-2)(7,7)
+    \let\psgrid\relax
+    
+    % Origin.
+    \psdot(0,0) \rput[br](-0.1,0.1){$(0,0,0)$}
+
+    % Principle axes.
+    \psline[linestyle=dotted](-1,0)(6,0) \rput(6.3,0){$x$}
+    \psline[linestyle=dotted](0,-1)(0,6) \rput(0,6.3){$z$}
+    \psline[linestyle=dotted](-0.8,-0.6)(4.8,3.6) \rput(5.05,3.75){$y$}
+
+    % Intermediate axes.
+    \psline[linestyle=dotted](0,3)(3,3) % Hy point.
+    \psline[linestyle=dotted](3,3)(3,0)
+
+    \psline[linestyle=dotted](0,3)(2.4,4.8) % Hx point.
+    \psline[linestyle=dotted](2.4,4.8)(2.4,1.8)
+
+    \psline[linestyle=dotted](2.4,1.8)(5.4,1.8) % Hz point.
+    \psline[linestyle=dotted](5.4,1.8)(3,0)
+
+    % E-field vectors.
+    \psline{->}(2.6,0)(3.4,0) \rput(3,-0.4){$E_x$}
+    \psline{->}(0,2.6)(0,3.4) \rput(-0.4,3){$E_z$}
+    \psline{->}(2.1,1.55)(2.7,2.05) \rput(2.05,2.05){$E_z$}
+
+    % H-field vectors.
+    \psline{->}(2,4.8)(2.8,4.8) \rput(2.4,5.2){$H_x$}
+    \psline{->}(5.4,1.4)(5.4,2.2) \rput(5.8,1.8){$H_z$}
+    \psline{->}(2.7,2.75)(3.3,3.25) \rput(2.7,3.3){$H_y$}
+\end{pspicture}
+

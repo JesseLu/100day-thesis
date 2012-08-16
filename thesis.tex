@@ -27,7 +27,14 @@
 \section*{Introduction}
 \MaxwellFDS is a cloud-powered electromagnetic solver,
     tailored specifically to the field of nanophotonics.
-\MaxwellFDS stands for Frequency-Domain Solver.
+\MaxwellFDS stands for Frequency-Domain Solver
+    and delivers frequency-domain solutions to the electromagnetic wave equation
+    directly to the Matlab programming environment,
+    and does so in a scalable manner by harnessing the power
+    of the Amazon Elastic Compute Cloud.
+
+In this whitepaper, the core \MaxwellFDS solver is introduced.
+
 
 \section{Motivation: why another electromagnetic solver?}
 Although many electromagnetic simulation packages are currently available,
@@ -124,8 +131,9 @@ This is particularly useful when one is attempting to
     which is very difficult using time-domain approaches.
 
 \subsection{The advantages of simulating in the cloud}
-The primary usefulness of the cloud in a simulation context
-    is that it allows one to save both money and time.
+Although running scientific workloads in public cloud environments
+    has not yet become the de facto standard,
+    doing so provides many significant advantages.
 
 \subsubsection{Cloud computing allows for ``free'' parallelism}
 The most fundamental difference in running simulations
@@ -175,10 +183,27 @@ However, considering that most scientific folk
     this can be considered a very small disadvantage.
 
 \subsection{The advantages of being built within Matlab}
-\MaxwellFDS was designed to not only be scalable (in the cloud),
-    but accessible as well.
-For this reason, we have allowed
+The primary advantage of building \MaxwellFDS within Matlab is accessibility.
+
+Often simulation packages are run as stand-alone programs
+    which are controlled either by custom user interfaces
+    or custom input and output file formats.
+The result of this approach, however, is 
+    \BI a steep learning curve for the user,
+    \I  the need to create ``connection'' software
+            in order to link the simulation package with
+            the other packages or environments the user needs, and  
+    \I  increased unreliablility, since the simulation software
+            is inevitably less ``bullet-proof'' than standard
+            platforms such as Matlab. \EI
     
+For these reasons, the core solver of \MaxwellFDS is built
+    \BI to resemble a simple Matlab command,
+    \I  never requires the user to leave the Matlab environment
+            (assuming the user has a valid Amazon Web Services ID). \EI
+
+\MaxwellFDS was built with extreme simplicity in mind,
+    so much so that its core solver is even contained in a single Matlab file,
 
 \section{Harnessing Amazon's Elastic Compute Cloud} 
 \subsection{Accessing }

@@ -1,0 +1,143 @@
+\documentclass{book}
+\usepackage{amsmath}
+% \usepackage{hyperref}
+
+\input ../defs.tex
+\newcommand{\T}{^\dagger}
+\newcommand{\reals}{{\mbox{\bf R}}}
+\newcommand{\comps}{{\mbox{\bf C}}}
+
+\title{Objective-First Nanophotonic Design Plan} 
+\author{Jesse Lu}
+\begin{document}
+\maketitle
+\tableofcontents
+
+
+\chapter{Introduction}
+\section{Problem statement}
+Our goal is to create a software package 
+    to enable the design of nanophotonic devices.
+Presently, almost all nanophotonic devices are designed
+    by guessing what a good design might look like,
+    based on intuition and experience,
+    and then optimizing it by trial-and-error.
+In contrast, we want to enable the \emph{inverse design}
+    of nanophotonic devices;
+    that is, to design devices by simply describing the 
+    desired performance that it must achieve.
+
+To put things mathematically, we want to create software 
+    to solve the following problem,
+    \EE {the plan (single mode)}
+        {\minimize&  f(x) + g(z) \\
+        \subto&     A(z)x - b(z) = 0}
+    where 
+    \BI $x$ and $z$ are the variables representing 
+            the field device our device produces and
+            the structure of the device respectively,
+    \I  $f(x)$ and $g(z)$ are our \emph{design objectives},
+            which tell us the desirable properties 
+            that we would like our device to achieve, and
+    \I  $A(z)x - b(z)$ is the \emph{physics residual},
+            the underlying physical laws which must be met. \EI
+
+In general, we need to consider multiple fields produced 
+    by the device.
+Our problem statement is then
+    \EE {the plan (multi-mode)}
+        {\minimize&  \sum_i^N f_i(x_i) + g(z) \\
+        \subto&     A_i(z)x_i - b_i(z) = 0,\quad\text{for $i = 1, \ldots, N.$}}
+
+\section{Capabilities of our software}
+We have implemented various 
+    \emph{optimization paradigms} and \emph{structure parameterizations}
+    which a user can arbitrarily combine in order to 
+    design nanophotonic devices.
+
+Specifically, the user can choose to work in either
+    a \emph{local} or \emph{global} optimization paradigm:
+    \BI the local paradigm uses the adjoint method
+            to find small changes in the structure which
+            will decrease the design objective;
+    \I  the global paradigm uses the objective-first method
+            to arrive at a structure by forcing
+            the design objective to be met from the start. \EI
+
+And the user can also choose between the various structure parameterizations 
+    which include density, boundary, 
+    continuous, and combinatoric parameterizations.
+These parameterizations describe the structure as either
+    \BI a material density at every point in space;
+    \I  a boundary between objects of different materials;
+    \I  a set of continuously variable user-defined parameters; or 
+    \I  a combination of user-defined objects. \EI
+
+\chapter{Theory}
+\section{Mathematically rigorous statement of the problem}
+As previously stated, the problem we want to solve is 
+    \EE {rigorous problem statement}
+        {\minimize&  \sum_i^N f_i(x_i) + g(z) \\
+        \subto&     A_i(z)x_i - b_i(z) = 0,\quad\text{for $i = 1, \ldots, N.$}}
+To now be more precise,
+    \BI $x_i \in \comps^m$ are the field variables,
+    \I  $z \in \reals^n$ is the structure variable,
+    \I  $f_i(x_i) \in \comps^m \to \reals$ are the field design objectives,
+    \I  $g(z) \in \reals^n \to \reals$ is the structure design objective,
+    \I  $A_i(z)x_i - b_i(z)$ are the physics residuals, with
+    \I  $A_i(z) \in \comps^{m \times m}$ and
+    \I  $b_i(z) \in \comps^m$. \EI
+
+\subsection{Definition of physics residual}
+The physics residual corresponds to the electromagnetic wave equation
+    \E  {wave equation in E}
+        {(\curl \mu^{-1} \curl - \omega^2 \epsilon) E = -i \omega J}
+    which is described as $A_i(z)x_i - b_i(z)$ via
+    \BI $\curl \mu^{-1} \curl - \omega^2 \epsilon \to A_i(z)$,
+    \I  $\epsilon \in z$,
+    \I  $E \to x_i$, and
+    \I  $-i \omega J \to b_i(z)$. \EI
+
+\subsection{Bi-affine property of the physics residual}
+Critically, \eq{wave equation in E} is not only linear in $E$,
+    but is also affine in $\epsilon$.
+This allows us to form the following relationship,
+    \E  {bi-affine}
+        {A_i(z)x_i - b_i(z) = B(x_i)z - d(x_i) = 0,}
+    which will prove to be very useful.
+    
+
+\subsection{Definition of the field design objective}
+Although $f_i(x_i)$ can take on virtually any form,
+    we choose to define it very specifically as
+    \E  {field design objective definition}
+        {f_i(x_i) = \sum_j I_+(|c_{ij}\T x_i| - \alpha_{ij})
+            + I_+(\beta_{ij} - |c_{ij}\T x_i|),}
+    where $c_{ij} \in \comps^m$ and 
+    $I_+$ is the indicator function on nonnegative reals,
+    \E{}{I_+(u) = \begin{cases} 0 & u \ge 0, \\ 
+                                \infty & u < 0. \end{cases}}
+
+Such a design objective implements the constraints 
+    $\alpha_{ij} \le |c_{ij}\T x_i| \le \beta_{ij}$
+    which can be interpreted physically as 
+    constraining the power emitted into the optical modes
+    represented by $c_{ij}$.
+
+\subsection{Choice of the structure design objective}
+In contrast to the narrow definition of the field design objective,
+    the structure design objective is relatively unconstrained;
+    taking on various forms to best suit the needs of
+    the structure parameterization in use.
+
+\section{Properties of the problem}
+\subsection{nonconvexity}
+\subsection{optimality condition}
+
+\section{General strategy to solve the problem}
+\subsection{Field update}
+Give the \emph{specific} interfaces here. 
+What exactly gets input and what does each update output?
+\subsection{Structure update}
+
+\end{document}

@@ -49,7 +49,7 @@ Our problem statement is then
         {\minimize&  \sum_i^N f_i(x_i) + g(z) \\
         \subto&     A_i(z)x_i - b_i(z) = 0,\quad\text{for $i = 1, \ldots, N.$}}
 
-\section{Capabilities of our software}
+\section{Capabilities of our software}\label{capabilities of our software}
 We have implemented various 
     \emph{optimization paradigms} and \emph{structure parameterizations}
     which a user can arbitrarily combine in order to 
@@ -94,7 +94,7 @@ The physics residual corresponds to the electromagnetic wave equation
         {(\curl \mu^{-1} \curl - \omega^2 \epsilon) E = -i \omega J}
     which is described as $A_i(z)x_i - b_i(z)$ via
     \BI $\curl \mu^{-1} \curl - \omega^2 \epsilon \to A_i(z)$,
-    \I  $\epsilon \in z$,
+    \I  $\epsilon \to z$,
     \I  $E \to x_i$, and
     \I  $-i \omega J \to b_i(z)$. \EI
 
@@ -102,7 +102,7 @@ The physics residual corresponds to the electromagnetic wave equation
 Critically, \eq{wave equation in E} is not only linear in $E$,
     but is also affine in $\epsilon$.
 This allows us to form the following relationship,
-    \E  {bi-affine}
+    \E  {bi-affine property}
         {A_i(z)x_i - b_i(z) = B(x_i)z - d(x_i) = 0,}
     which will prove to be very useful.
     
@@ -131,7 +131,49 @@ In contrast to the narrow definition of the field design objective,
     the structure parameterization in use.
 
 \section{Properties of the problem}
-\subsection{nonconvexity}
+We now examine the general mathematical properties 
+    of the stated problem \eq{rigorous problem statement}.
+
+\subsection{Convexity analysis}
+% \subsubsection{Joint non-convexity}
+First we note that, as presented, 
+    \eq{rigorous problem statement} is non-convex 
+    in the variables $x_i$ and $z$. % Ref boyd book
+Not only are the physics residuals $A_i(z)x_i - b_i(z)$ non-convex,
+    but the field design objective, in that it implements the 
+    $ \alpha_{ij} \le |c_{ij}\T x_i| $ constraint, is non-convex as well.
+
+That our problem is non-convex means that it is fundamentally hard to solve
+    because of the existence of multiple local minima.
+Additionally, even if we were to arrive at the global maxima,
+    we would not have a straightforward way to verify global optimality.
+Lastly, fast convergence even to local minima may be difficult
+    because methods such as Newton's method
+    can not be directly applied to non-convex problems.
+
+% \subsubsection{Separable convexity}
+That said, \eq{rigorous problem statement} is \emph{separably convex} 
+    in $x_i$ and $z$ if we ignore the non-convexity
+    in the field design objectives, $f_i(x_i)$, and
+    assume that the structure design objective, $g(z)$, is convex as well.
+This is given because of the bi-affine property
+    of the physics residual, as shown in \eq{bi-affine property}.
+
+The separably convex, or \emph{bi-convex}, properties of our problem
+    open the door for the use of alternating direction algorithms,
+    and specifically the alternating directions 
+    methods of multipliers (ADMM), % Ref. 
+    for the implementation of a global optimization paradigm,
+    as referred to in section \ref{capabilities of our software}.
+Of course, in this context we do not use the term ``global'' rigorously,
+    but only to differentiate it from strategies that rely
+    purely on local information.
+
+Lastly, since our problem is not bi-convex 
+    in the case of non-convex field or structure design objectives,
+    simple extensions to alternating direction algorithms are employed.
+
+
 \subsection{optimality condition}
 
 \section{General strategy to solve the problem}

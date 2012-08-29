@@ -6,9 +6,6 @@
 \usepackage{amsmath}
 \input ../defs.tex
 \newcommand{\MaxwellFDS}{MaxwellFDS }
-\newcommand{\BI}{\begin{itemize}\item}
-\newcommand{\EI}{\end{itemize}}
-\newcommand{\I}{\item}
 \newcommand{\pf}[1]{\frac{\partial}{\partial #1}} % d/d_
 \newcommand{\prim}{\text{prim}}
 \newcommand{\dual}{\text{dual}}
@@ -46,6 +43,7 @@ The advantages of solving Maxwell's equations in the  \emph{frequency}-domain
     \BI clean excitation of input modes,
     \I  precise characterization of material dispersion,
     \I  calculation of figure of merits outside of the simulation,
+    \I  using a variable-resolution rectangular grid,
     \I  explicit measurement of simulation error, and
     \I  explicit calculation of eigenmodes. \EI
 
@@ -112,6 +110,19 @@ This is in contrast to time-domain simulations,
     where such calculations must occur as the simulation proceeds, 
     as shown in \fig{time domain diagram},
     since the entire field at every point in time cannot be stored in memory.
+
+\subsubsection{Grid: efficient, variable-resolution rectangular grid}
+Frequency-domain simulations allow for efficient variable-resolution
+    rectangular grids which are not possible using time-domain simulations.
+
+In time-domain simulations, changing the grid size imposes a large 
+    computational penalty in that the time step of the entire simulation
+    must be reduced in order to satisfy the Courant condition at the
+    point of highest resolution.
+In contrast, a frequency-domain simulation does not even need
+    to consider the idea of a time-step, and 
+    so is free from this constraint.
+
 
 \subsubsection{Error: explicit measurement of simulation error}
 Yet another advantage of frequency-domain solutions is the ability
@@ -206,11 +217,47 @@ In this section, we give an overview of how \MaxwellFDS utilizes
     the Amazon Elastic Compute Cloud service to 
     provide nearly unlimited scalability when running electromagnetic simulations.
 
-\subsection{Reserving instances}
+\subsection{Instance type used}
+\MaxwellFDS builds a cluster
+    using Amazon's cluster GPU instances (\texttt{cg1.4xlarge}),
+    which each contain two M2050 Nvidia Tesla GPUs.
+Therefore, an $N$-node \MaxwellFDS cluster will contain $2N$ GPUs.
+
+\MaxwellFDS is built on Nvidia Tesla technology in order 
+    to take care of the immense processing power available
+    for parallelizable problems.
+
+Additionally, all of a cluster's instances are launched
+    in a single placement group, % Ref!
+    which allows for faster communication between nodes.
+    
 \subsection{Use of spot instances}
-Talk about pricing and how one can be kicked off.
+Because scientific workloads are almost always of a batch nature
+    (e.g. many simulations run at once),
+    \MaxwellFDS takes advantage of Amazone EC2 spot instances
+    in order to drastically lower the cost of using \MaxwellFDS.
+Spot instances cost much less than reserved instances,
+    and can typically be requested in much larger numbers.
+
+To request a spot instance, one must submit a bid price
+    for the desired instance.
+Amazon will then allocate the desired instance for the user
+    as long as the bid price is above the market price.
+If the market price exceeds the bid price,
+    the instance will be shut down and the user will no longer be billed.
+
+Although large fluctuations in market price are not common,
+    \MaxwellFDS uses a large bid price (currently 2 USD) close to the
+    reserved instance price for \texttt{cg1.4xlarge} 
+    in order to ensure that nearly all spot instance bids will be successful.
 
 \subsection{Web console for manual monitoring/shutdown}
+Of course, there is no need to trust what \MaxwellFDS is doing behind the scenes
+    because Amazon provides a web console for monitoring and 
+    manually controlling all instances reserved and in use by the user.
+
+The web console for ec2 can be accessed from \texttt{console.aws.amazon.com}.
+Of particular interest will be ``spot instance requests'' and ``instances''.
 
 \section{Solving the electromagnetic wave equation using \MaxwellFDS}
 \subsection{Analytic derivation of the electromagnetic wave equation}
@@ -327,6 +374,13 @@ The vector fields $E$ is converted into vector $x$ as
 \E{}{e_w = \begin{bmatrix} E_w(0,0,0) \\ E_w(1,0,0) \\
                         \vdots \\ E_w(x_\mx, y_\mx, z_\mx) \end{bmatrix},}
 and so on for all vector fields.
+
+\subsubsection{Mathematical definition of simulation error}
+From \eq{maxwell wave E discretized} we derive the mathematical expression for 
+    the simulation error which is simply    
+    \E  {maxwell error}
+        {\text{error} = \|Ax-b\|_2 / \|b\|_2,}
+    where $A = A_1 \diag(\mu^{-1}) A_2 - \omega^2 \diag(\epsilon)$.
 
 
 \end{document}

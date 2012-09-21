@@ -35,8 +35,8 @@ To put things mathematically, we want to create software
         \subto&     A(z)x - b(z) = 0}
     where 
     \BI $x$ and $z$ are the variables representing 
-            the field device our device produces and
-            the structure of the device respectively,
+            the \emph{field} our device produces and
+            the \emph{structure} of the device respectively,
     \I  $f(x)$ and $g(z)$ are our \emph{design objectives},
             which tell us the desirable properties 
             that we would like our device to achieve, and
@@ -54,7 +54,7 @@ Our problem statement is then
 We have implemented various 
     \emph{optimization paradigms} and \emph{structure parameterizations}
     which a user can arbitrarily combine in order to 
-    design nanophotonic devices.
+    to solve \eq{the plan (multi-mode)}.
 
 Specifically, the user can choose to work in either
     a \emph{local} or \emph{global} optimization paradigm:
@@ -65,14 +65,14 @@ Specifically, the user can choose to work in either
             to arrive at a structure by forcing
             the design objective to be met from the start. \EI
 
-And the user can also choose between the various structure parameterizations 
+Also, the user can choose between the various structure parameterizations 
     which include density, boundary, 
     continuous, and combinatoric parameterizations.
 These parameterizations describe the structure as either
     \BI a material density at every point in space;
     \I  a boundary between objects of different materials;
     \I  a set of continuously variable user-defined parameters; or 
-    \I  a combination of user-defined objects. \EI
+    \I  a selective combination of user-defined objects. \EI
 
 \chapter{Theory}
 \section{Mathematically rigorous statement of the problem}
@@ -109,7 +109,8 @@ This allows us to form the extremely useful relationship,
     
 
 \subsection{Definition of the field design objective}
-Although $f_i(x_i)$ can take on virtually any form,
+Although the field design objective $f_i(x_i)$ 
+    can take on virtually any form,
     we choose to define it very specifically as
     \E  {field design objective definition}
         {f_i(x_i) = \sum_j I_+(|c_{ij}\T x_i| - \alpha_{ij})
@@ -197,6 +198,7 @@ Otherwise known as the Karush-Kuhn-Tucker (KKT) conditions, % Ref boyd
 
 \section{General strategy to solve the problem}
 
+\begin{figure}[ht]\begin{center}
 \begin{pspicture}(6,5)(-6,-2)
 \psset{gridcolor=green, subgridcolor=yellow}
     \let\psgrid\relax
@@ -214,23 +216,34 @@ Otherwise known as the Karush-Kuhn-Tucker (KKT) conditions, % Ref boyd
 
     % Parameterization
     \psframe(-.8,0.8)(.8,-0.4) 
-    \rput(0,-0.7){\parbox{5cm}{\center structure\\ parameterization}}
+    \rput[t](0,-0.6){\parbox{3cm}{\center structure\\ parameterization}}
 
     % Arrows
-    \rput[r](-1.9,0.8){into sp}
+    \rput[r](-4.3,3){$z_\text{guess}$}
+    \psline{->}(-4,3)(-2.4,3)
+
+    \rput[r](-1.9,0.8){$Q(z)$}
     \psline(-1.6,1.8)(-1.6,0.2)
     \psline{->}(-1.6,0.2)(-1,0.2)
 
-    \rput[l](1.9,0.8){out of sp}
+    \rput[l](1.9,0.8){$\text{argmin}\, Q(z) + g(z)$}
     \psline(1.6,0.2)(1,0.2)
     \psline{<-}(1.6,1.8)(1.6,0.2)
 
-    \rput[r](-4.3,3){initial input}
-    \psline{->}(-4,3)(-2.4,3)
 
-    \rput[l](4.3,3){output}
+    \rput[l](4.3,3){$z_\text{final}$}
     \psline{<-}(4,3)(2.4,3)
 \end{pspicture}
+\caption{Basic layout of our software.
+        At the most basic level, the chosen optimization paradigm 
+            accepts an initial structure $z_\text{guess}$
+            and returns a final, optimized structure $z_\text{final}$.
+        This is accomplished by repeatedly passing quadratic functions $Q(z)$ 
+            to the structure parameterization,
+            which returns an updated structure $z$
+            which minimizes $Q(z) + g(z)$.}
+\label{fig:strategy}
+\end{center} \end{figure}
 
 \subsection{Field update}
 Give the \emph{specific} interfaces here. 

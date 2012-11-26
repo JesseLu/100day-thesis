@@ -4,9 +4,6 @@
 \usepackage{pstricks}
 
 \input ../defs.tex
-\newcommand{\T}{^\dagger}
-\newcommand{\reals}{{\mbox{\bf R}}}
-\newcommand{\comps}{{\mbox{\bf C}}}
 
 \title{Objective-First Nanophotonic Design Plan} 
 \author{Jesse Lu}
@@ -55,7 +52,7 @@ Our problem statement is then
         \subto&     A_i(z)x_i - b_i(z) = 0,\quad\text{for $i = 1, \ldots, N.$}}
 
 \section{Structure of our software}
-In reality, our software package consists of various modules
+Our software package consists of various modules
     which are designed to be maximally orthogonal.
 The various modules are illustrated in \fig{structure}.
 
@@ -98,13 +95,13 @@ As previously stated, the problem we want to solve is
         {\minimize&  \sum_i^N f_i(x_i) + g(z) \\
         \subto&     A_i(z)x_i - b_i(z) = 0,\quad\text{for $i = 1, \ldots, N.$}}
 To now be more precise,
-    \BI $x_i \in \comps^m$ are the field variables,
+    \BI $x_i \in \comps^n$ are the field variables,
     \I  $z \in \reals^n$ is the structure variable,
-    \I  $f_i(x_i) \in \comps^m \to \reals$ are the field design objectives,
+    \I  $f_i(x_i) \in \comps^n \to \reals$ are the field design objectives,
     \I  $g(z) \in \reals^n \to \reals$ is the structure design objective,
     \I  $A_i(z)x_i - b_i(z)$ are the physics residuals, with
-    \I  $A_i(z) \in \comps^{m \times m}$ and
-    \I  $b_i(z) \in \comps^m$. \EI
+    \I  $A_i(z) \in \comps^{n \times n}$ and
+    \I  $b_i(z) \in \comps^n$. \EI
 
 \subsection{Definition of physics residual}
 The physics residual, $A_i(z)x_i - b_i(z)$, 
@@ -122,8 +119,9 @@ Critically, \eq{wave equation in E} is not only linear in $E$,
 This allows us to form the extremely useful relationship,
     \E  {bi-affine property}
         {A_i(z)x_i - b_i(z) = B_i(x_i)z - d_i(x_i) = 0,}
-    where $B(x_i) \in \comps^{n \times n}$ and $d(x_i) \in \comps^n$.
-   % TODO: Show what B_i and d_i are explicitly. 
+    where $B(x_i) \in \comps^{n \times n}$, $d(x_i) \in \comps^n$ and
+    \BI $-\omega^2 E \to B_i(x_i)$, 
+    \I  $\curl \mu^{-1} \curl E \to d_i(x_i)$. \EI
 
 \subsection{Definition of the field design objective}
 Although the field design objective $f_i(x_i)$ 
@@ -353,7 +351,47 @@ In order to guarantee a well-defined value of $\pd f_i(x_i) / \pd x_i$ even for 
 
 
 \subsection{The global optimization paradigm}
+In contrast to the local paradigm, 
+    the global optimization paradigm utilizes an objective-first strategy
+    in the design process.
+Although such a strategy is not technically global,
+    it is differentiated from local strategies because
+    it strictly enforces all design objectives,
+    even at the expense of non-zero physics residuals.
+
+The optimization paradigm utilizes 
+    the alternating directions method of multipliers\cite{ADMM} (ADMM) optimization technique, 
+    which casts \eq{rigorous problem statement} in terms of the following augmented Lagrangians, 
+    \E{}{\Lag(x, z, y) = \sum_i^N f_i(x_i) + 
+            \frac{\rho}{2} \norm{A_i(z) x_i - b_i(z)}^2 
+            +\real\left[y_i^\cT (A_i(z)x_i-b_i(z))\right] + g(z),}
+    where $\rho$ is a constant scalar and 
+    $y_i$ are dual variables.
+
+ADMM obtains the solutions for $x$ and $z$ via
+    \EE{}{  x_i &\gets \argmin_{x_i} \Lag(x, z, y), \quad i = 1,\ldots,N \\
+            z &\gets \argmin_{z} \Lag(x, z, y), \\
+            y_i &\gets y_i + \rho (A_i(x_i) z - b(x_i)), \quad i = 1,\ldots,N.}
+
+To obtain the correct $Q(z)$ which should be passed to the structure submodule,
+    we use \eq{bi-affine property} to write
+    \E{}{\argmin_z \Lag = \argmin_z g(z) 
+            + \sum_i^N \frac{\rho}{2} \norm{B_i(x_i) z - d(x_i)}^2 
+            + \real\left[ y_i^\cT ( B_i(x_i) z - d_i(x_i))\right]}
+    which means that
+    \E{}{Q(z) = \sum_i^N \frac{\rho}{2} \norm{B_i(x_i) z - d(x_i)}^2 
+            + \real\left[ y_i^\cT ( B_i(x_i) z - d_i(x_i))\right].}
+
+\subsubsection{Computation of $\argmin_{x_i} \Lag$}
+Updating $x_i$, which is left to the paradigm submodule,
+    involves solving $\argmin_{x_i} \Lag(x, z, y)$ for all $i = 1, \ldots, N$.
+This can be accomplished via
+    \E{}{\grad_{x_i}\Lag = \grad_{x_i} f_i(x_i) + }
 
 \section{The structure submodule}
 
+
+\begin{thebibliography}{99}
+\bibitem{ADMM} Boyd group ADMM paper
+\end{thebibliography}
 \end{document}

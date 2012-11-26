@@ -362,31 +362,81 @@ Although such a strategy is not technically global,
 The optimization paradigm utilizes 
     the alternating directions method of multipliers\cite{ADMM} (ADMM) optimization technique, 
     which casts \eq{rigorous problem statement} in terms of the following augmented Lagrangians, 
-    \E{}{\Lag(x, z, y) = \sum_i^N f_i(x_i) + 
-            \frac{\rho}{2} \norm{A_i(z) x_i - b_i(z)}^2 
+    \E{}{\Lag(x, z, y) = \sum_i^N f_i(x_i) 
+            + \frac{\rho}{2} \norm{A_i(z) x_i - b_i(z)}^2 
             +\real\left[y_i^\cT (A_i(z)x_i-b_i(z))\right] + g(z),}
     where $\rho$ is a constant scalar and 
-    $y_i$ are dual variables.
+    $y_i$ are dual variables. If we introduce $u_i = y_i / \rho$, then 
+    \E{}{\Lag(x,z,u) = \sum_i^N f_i(x_i)
+            + \frac{\rho}{2} \norm{A_i(z) x_i - b_i(z) + u_i}^2 
+            - \frac{\rho}{2} \norm{u_i}^2 + g(z).}
 
 ADMM obtains the solutions for $x$ and $z$ via
-    \EE{}{  x_i &\gets \argmin_{x_i} \Lag(x, z, y), \quad i = 1,\ldots,N \\
-            z &\gets \argmin_{z} \Lag(x, z, y), \\
-            y_i &\gets y_i + \rho (A_i(x_i) z - b(x_i)), \quad i = 1,\ldots,N.}
+    \EE{}{  x_i &\gets \argmin_{x_i} \Lag(x, z, u), \quad i = 1,\ldots,N \\
+            z &\gets \argmin_{z} \Lag(x, z, u), \\
+            u_i &\gets u_i + (A_i(x_i) z - b(x_i)), \quad i = 1,\ldots,N.}
 
 To obtain the correct $Q(z)$ which should be passed to the structure submodule,
     we use \eq{bi-affine property} to write
     \E{}{\argmin_z \Lag = \argmin_z g(z) 
-            + \sum_i^N \frac{\rho}{2} \norm{B_i(x_i) z - d(x_i)}^2 
-            + \real\left[ y_i^\cT ( B_i(x_i) z - d_i(x_i))\right]}
+            + \sum_i^N \frac{\rho}{2} \norm{B_i(x_i) z - d(x_i) + u_i}^2}
     which means that
-    \E{}{Q(z) = \sum_i^N \frac{\rho}{2} \norm{B_i(x_i) z - d(x_i)}^2 
-            + \real\left[ y_i^\cT ( B_i(x_i) z - d_i(x_i))\right].}
+    \E{}{Q(z) = \sum_i^N \frac{\rho}{2} \norm{B_i(x_i) z - d(x_i) + u_i}^2}
 
 \subsubsection{Computation of $\argmin_{x_i} \Lag$}
 Updating $x_i$, which is left to the paradigm submodule,
-    involves solving $\argmin_{x_i} \Lag(x, z, y)$ for all $i = 1, \ldots, N$.
-This can be accomplished via
-    \E{}{\grad_{x_i}\Lag = \grad_{x_i} f_i(x_i) + }
+    involves solving $\argmin_{x_i} \Lag(x, z, u)$ via Newton's method for all $i = 1, \ldots, N$.
+This can be accomplished via the gradient with respect to $x_i$
+    \E{}{\grad_{x_i}\Lag(x, z, u) = \grad_{x_i} f_i(x_i)
+                + \rho A_i(z)\T (A_i(z) x_i - b_i(z) + u_i),}
+    as well as the Hessian with respect to $x_i$
+    \E{}{\grad^2_{x_i}\Lag(x, z, u) = \grad^2_{x_i} f_{x_i} + \rho A_i(z)\T A_i(z),}
+    which can be combined to determine the direction of a step in Newton's method,
+    \E{}{\Delta x_i = - \grad^2_{x_i} \Lag^{-1} \grad_{x_i} \Lag.}
+
+Solving $\argmin_{x_i} \Lag(x, z, u)$ from an initial $x_i$ thus proceeds by
+    repeatedly computing $\Delta x_i$ and then performing a line search along that direction,
+    until some convergence criterion is met, typically
+    \E{}{\frac{1}{2} \grad_{x_i}\Lag\T \grad^2_{x_i} \Lag^{-1} \grad_{x_i} \Lag \le \text{error threshold}.}
+
+\subsubsection{Relaxation of $f_i(x_i)$}
+In order to compute $\Delta x_i$ we relax the design objectives, $f_i(x_i)$, to a differentiable, and convex form.
+Specifically, the upper bound constraint is relaxed via
+    \E{}{I_+(\beta_{ij} - |c\T_{ij} x_i|) \to -\frac{1}{t} \ln (\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2),}
+    where $t$ is a real positive scalar. The lower bound constraint is relaxed via
+    \E{}{I_+(|c\T_{ij} x_i| - \alpha_{ij}) \to -\frac{1}{t} \ln (\real[e^{i\phi}c\T_{ij} x_i] - \alpha_{ij}),}
+     where $e^{i\phi}$ is a phase factor on $c\T_{ij} x_i$.
+
+The gradient can now be obtained as
+% \footnote{
+%     \EE{}{\grad_{x_i} f_i(x_i) &= \frac{1}{t(\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2)} c_{ij}c\T_{ij} x_i
+%                             - \frac{1}{t(\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij})} e^{i\phi}c_{ij} \\
+%                         &= \frac{1}{t} \left( \frac{c\T_{ij} x_i}{\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2} 
+%                             - \frac{e^{i\phi}}{\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij}} \right)
+%                         c_{ij}}
+% 
+%     
+%     \E{}{\grad_{x_i}^2 f_i(x_i) = \frac{1}{t} \left(
+%                 \frac{1}{\beta_{ij} - \norm{c\T_{ij} x_i}^2}
+%                 + \frac{\norm{c\T_{ij} x_i}^2}{(\beta_{ij} - \norm{c\T_{ij} x_i}^2)^2}
+%                 + \frac{1}{(\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij})^2} \right)
+%                 c_{ij} c\T_{ij}}}
+
+    \E{}{\grad_{x_i} f_i(x_i) = \frac{s_1}{t} c_{ij}}
+    where
+    \E{}{s_1 = \frac{c\T_{ij} x_i}{\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2} 
+                - \frac{e^{i\phi}}{\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij}},}
+    and the Hessian as 
+    \E{}{\grad_{x_i}^2 f_i(x_i) = \frac{s_2}{t} c_{ij} c\T_{ij}}
+    where
+    \E{}{s_2 = \frac{1}{\beta_{ij} - \norm{c\T_{ij} x_i}^2}
+                + \frac{\norm{c\T_{ij} x_i}^2}{(\beta_{ij} - \norm{c\T_{ij} x_i}^2)^2}
+                + \frac{1}{(\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij})^2}.}
+
+
+
+\subsubsection{Computation of $\Delta x_i$}
+We now show how $\Delta x_i$ may be efficiently computed.
 
 \section{The structure submodule}
 

@@ -422,14 +422,14 @@ The gradient can now be obtained as
 %                 + \frac{1}{(\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij})^2} \right)
 %                 c_{ij} c\T_{ij}}}
 
-    \E{}{\grad_{x_i} f_i(x_i) = \frac{s_1}{t} c_{ij}}
+    \E{}{\grad_{x_i} f_i(x_i) = \sum_j \frac{r_j}{t} c_{ij}}
     where
-    \E{}{s_1 = \frac{c\T_{ij} x_i}{\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2} 
+    \E{}{r_j = \frac{c\T_{ij} x_i}{\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2} 
                 - \frac{e^{i\phi}}{\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij}},}
     and the Hessian as 
-    \E{}{\grad_{x_i}^2 f_i(x_i) = \frac{s_2}{t} c_{ij} c\T_{ij}}
+    \E{}{\grad_{x_i}^2 f_i(x_i) = \sum_j \frac{s_j}{t} c_{ij} c\T_{ij}}
     where
-    \E{}{s_2 = \frac{1}{\beta_{ij} - \norm{c\T_{ij} x_i}^2}
+    \E{}{s_j = \frac{1}{\beta_{ij} - \norm{c\T_{ij} x_i}^2}
                 + \frac{\norm{c\T_{ij} x_i}^2}{(\beta_{ij} - \norm{c\T_{ij} x_i}^2)^2}
                 + \frac{1}{(\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij})^2}.}
 

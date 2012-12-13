@@ -334,7 +334,7 @@ Assuming that physics is already satisfied, $A_i(z) x_i - b_i(z) = 0$,
 Efficient calculation of $dx/dz$ is almost always impossible since $B_i(x_i) \in \comps^{n \times n}$.
 At the same time, since ${\pd f_i}/{\pd x_i} \in \comps^{1 \times m}$, we instead compute $df_i(x_i)/dz$ via
     \E{}{\frac{d}{dz} f_i(x_i) = -\frac{\pd f_i}{\pd x_i} A_i(z)^{-1} B_i(x_i) = 
-        -\left(A_i(z)^\cT \frac{\pd f_i}{\pd x_i}^\cT\right)^\cT B_i(x_i)}
+        -\left(A_i(z)^{-\cT} \frac{\pd f_i}{\pd x_i}^\cT\right)^\cT B_i(x_i)}
     which requires only one solve of $A_i^\cT$ as opposed to $n$ solves of $A_i$.
 
 \subsubsection{Computation of $\pd f_i(x_i) / \pd x_i$}

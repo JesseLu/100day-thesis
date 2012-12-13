@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{pstricks}
+
+\input ../defs.tex
+
+\title{Notes on Adjoint Solves using \sc{Maxwell}}
+\author{Jesse Lu}
+\begin{document}
+\maketitle
+
+Maxwell solves $(\curl\mu^{-1}\curl - \omega^2\epsilon)E = i\omega J$, or 
+    \E{}{Ax = b,}
+    where
+    \BI $\curl\mu^{-1}\curl - \omega^2\epsilon \to A$,
+    \I  $E \to x$,
+    \I  $i\omega J \to b$. \EI
+In many cases, however, one requires the solution to the \emph{adjoint} or conjugate-transpose of $A$, namely
+    \E{}{A\T y = d.}
+
+To do so, we introduce a diagonal symmetrization matrix, $S$, which has the property
+    \E{}{SA = A^T S,}
+    and is defined as $S = \text{diag}([ s_x, s_y, s_z])$ where
+    \EE{}{  s_x &= s_x^\text{dual} s_y^\text{prim} s_z^\text{prim}, \\
+            s_y &= s_x^\text{prim} s_y^\text{dual} s_z^\text{prim}, \\
+            s_z &= s_x^\text{prim} s_y^\text{prim} s_z^\text{dual}.}
+
+Using $S$, we perform the following operations on $Ax=b$,
+    \EE{}{  SAx &= Sb \\
+            A^T Sx &= Sb \\
+            A\T S^\ast x^\ast &= S^\ast b^\ast \\
+            A\T y &= d,}
+    from which we conclude that $y = S^\ast x^\ast$ and $d = S^\ast b^\ast$.
+
+Therefore, in order to solve for $A\T y = d$ given $d$ using Maxwell, we simply compute
+    \E{}{y = S^\ast (A^{-1} (S^{-1} d^\ast))^\ast.}
+
+Lastly, we may also consider the case where $\omega$ is an eigenfrequency and $v$ is an eigenmode
+    in the simulation domain, then
+    \E{}{Av = 0, \quad v \ne 0.}
+We simply remark that in this case, a corresponding right eigenvector $w$ may be found via
+    \E{}{w = S v}
+    since 
+    \EE{}{  w^T A &= 0 \\
+            v^T S A &= 0 \\
+            v^T A^T S &= 0 \\
+            S A v &= 0 \\
+            Av &= 0.}
+
+        
+
+    
+\end{document}

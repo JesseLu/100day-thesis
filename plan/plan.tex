@@ -404,34 +404,22 @@ In order to compute $\Delta x_i$ we relax the design objectives, $f_i(x_i)$, to 
 Specifically, the upper bound constraint is relaxed via
     \E{}{I_+(\beta_{ij} - |c\T_{ij} x_i|) \to -\frac{1}{t} \ln (\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2),}
     where $t$ is a real positive scalar. The lower bound constraint is relaxed via
-    \E{}{I_+(|c\T_{ij} x_i| - \alpha_{ij}) \to -\frac{1}{t} \ln (\real[e^{i\phi}c\T_{ij} x_i] - \alpha_{ij}),}
-     where $e^{i\phi}$ is a phase factor on $c\T_{ij} x_i$.
+    \E{}{I_+(|c\T_{ij} x_i| - \alpha_{ij}) \to -\frac{1}{t} \ln (\real[e^{-i\phi_{ij}}c\T_{ij} x_i] - \alpha_{ij}),}
+     where $e^{-i\phi_{ij}}$ is a phase factor on $c\T_{ij} x_i$.
+The convention of $\phi_{ij} = \text{angle}(c\T_{ij} x_i)$ is often used
+    to determine $\phi_{ij}$ before optimizing for $x_i$.
 
 The gradient can now be obtained as
-% \footnote{
-%     \EE{}{\grad_{x_i} f_i(x_i) &= \frac{1}{t(\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2)} c_{ij}c\T_{ij} x_i
-%                             - \frac{1}{t(\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij})} e^{i\phi}c_{ij} \\
-%                         &= \frac{1}{t} \left( \frac{c\T_{ij} x_i}{\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2} 
-%                             - \frac{e^{i\phi}}{\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij}} \right)
-%                         c_{ij}}
-% 
-%     
-%     \E{}{\grad_{x_i}^2 f_i(x_i) = \frac{1}{t} \left(
-%                 \frac{1}{\beta_{ij} - \norm{c\T_{ij} x_i}^2}
-%                 + \frac{\norm{c\T_{ij} x_i}^2}{(\beta_{ij} - \norm{c\T_{ij} x_i}^2)^2}
-%                 + \frac{1}{(\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij})^2} \right)
-%                 c_{ij} c\T_{ij}}}
-
-    \E{}{\grad_{x_i} f_i(x_i) = \sum_j \frac{r_j}{t} c_{ij}}
+    \E{}{\grad_{x_i} f_i(x_i) = \sum_j \frac{r_{ij}}{t} c_{ij}}
     where
-    \E{}{r_j = \frac{c\T_{ij} x_i}{\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2} 
-                - \frac{e^{i\phi}}{\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij}},}
+    \E{}{r_{ij} = \frac{2c\T_{ij} x_i}{\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2} 
+                - \frac{e^{i\phi_{ij}}}{\real[e^{-i\phi_{ij}} c\T_{ij} x_i] - \alpha_{ij}},}
     and the Hessian as 
-    \E{}{\grad_{x_i}^2 f_i(x_i) = \sum_j \frac{s_j}{t} c_{ij} c\T_{ij}}
+    \E{}{\grad_{x_i}^2 f_i(x_i) = \sum_j \frac{s_{ij}}{t} c_{ij} c\T_{ij}}
     where
-    \E{}{s_j = \frac{1}{\beta_{ij} - \norm{c\T_{ij} x_i}^2}
-                + \frac{\norm{c\T_{ij} x_i}^2}{(\beta_{ij} - \norm{c\T_{ij} x_i}^2)^2}
-                + \frac{1}{(\real[e^{i\phi} c\T_{ij} x_i] - \alpha_{ij})^2}.}
+    \E{}{s_{ij} = \frac{2}{\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2}
+                + \frac{4\norm{c\T_{ij} x_i}^2}{(\beta_{ij}^2 - \norm{c\T_{ij} x_i}^2)^2}
+                + \frac{1}{(\real[e^{-i\phi_{ij}} c\T_{ij} x_i] - \alpha_{ij})^2}.}
 
 
 

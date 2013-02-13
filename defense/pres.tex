@@ -73,11 +73,97 @@ device mux2
     out1 <= freq1
     out2 <= freq2
 \end{verbatim}
-
-\myfig{placeholder}
 \EI
+\myfig{placeholder}
 
 \oursection{Part 2: Theory}
+
+\BI First, cast electromagnetic wave equation into linear algebra terms
+\BE (\nabla\times\mu^{-1}_0\nabla\times - \omega^2\epsilon)E + i\omega J = 0
+    \longrightarrow A(z)x - b = 0
+\EE
+where
+\begin{align*}
+    E &\to x \\
+    \epsilon &\to z \\
+    \nabla\times\mu^{-1}_0\nabla\times - \omega^2\epsilon &\to A(z) \\
+    -i\omega J &\to b
+\end{align*}
+\I  $A(z)x - b$ is called the \emph{physics residual}
+\vfill
+\newpage
+
+\I  Secondly, formulate our optimization objective
+\BE f(x) = (\alpha - |c\T x|)^2 \EE
+\I  $c\T x$ is equivalent to overlap integral $\int E_t^* E$
+\I  To design linear devices, objective chosen to be 
+    overlap integral with target field at output port
+\I  $f(x)$ is called the \emph{field design objective}
+\vfill
+\newpage
+
+\I  Typically,
+\begin{align*}
+    \minimize & (\alpha - |c\T x|)^2 \\
+    \subto & A(z)x - b = 0
+\end{align*}
+% \I  Proceed by updating $z$ via steepest-descent,
+% \BE z_\text{next} = z_\text{curr} - \kappa \frac{df(x)}{dz} \EE
+\myfig{placeholder}
+\I  Efficient algorithm known as the \emph{adjoint method}
+\newpage
+
+\I  Our alternative formulation, known as \emph{objective-first}
+\begin{align*}
+    \minimize & \|A(z)x - b\|^2 \\
+    \subto & |c\T x| = \alpha 
+\end{align*}
+\myfig{placeholder}
+\I  Perfect performance always enforced, 
+    even at the expense of breaking physical laws
+\newpage
+
+\I  Results in \emph{soft-physics} solves
+\myfig{placeholder}
+\I  Key insight: soft-physics solution suggests optimal structure
+\newpage
+
+\begin{align*}
+    \minimize & \|A(z)x - b\|^2 \\
+    \subto & |c\T x| = \alpha 
+\end{align*}
+\I  Could be solved by iteratively solving for $x$ and $z$
+    \BI Known as \emph{alternating directions}
+    \I  Takes advantage of bi-linearity of the physics residual,
+    \BE A(z)x - b = B(x)z - d(x) \EE \EI
+\I  \emph{Alternating directions method of multipliers (ADMM)}
+    gives much faster convergence
+    \BI Due to introduction of dual variable \EI
+\vfill
+\newpage
+
+\I  Full problem is multi-mode and multi-output
+\I  Objective-first formulation:
+\begin{align*}
+    \minimize & \sum_i^M \|A_i(z)x_i - b_i\|^2 \\
+    \subto & \alpha_{ij} \le |c_{ij}\T x_i| \le \beta_{ij}, \quad
+        \text{for $i = 1, \ldots, M$ and $j = 1, \ldots, N_i$}
+\end{align*}
+\I  Adjoint method formulation:
+\begin{align*}
+    \minimize & \sum_{ij}^{M,N_i} \max\{\alpha_{ij}-|c_{ij}\T x_i|, 
+                                        |c_{ij}\T x_i|-\beta_{ij}, 0\} \\
+    \subto & A_i(z) x_i - b_i = 0, \quad
+        \text{for $i = 1, \ldots, M$}
+\end{align*}
+\newpage
+
+\oursection{Part 3: Method}
+
+\oursection{Part 4: Results}
+
+    
+\EI 
 
     
 %     

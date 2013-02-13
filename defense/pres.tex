@@ -156,14 +156,42 @@ where
     \subto & A_i(z) x_i - b_i = 0, \quad
         \text{for $i = 1, \ldots, M$}
 \end{align*}
+\EI
 \newpage
 
-\oursection{Part 3: Method}
+\oursection{Part 3: Implementation}
+\BI Implementation in Matlab (github.com/JesseLu/lumos)
+\I  x is 3D and about a million variables
+    \BI $A_i(z)^{-1}$ Solved in the cloud (AWS), scales arbitrary modes. \EI
+\myfig{placeholder}
+\I  z is about a thousand variables and can be solved locally
+\newpage
+
+\I  Both objective-first and adjoint methods implemented
+\I  Designs produced using a combination of steps
+\I  Initial structure...
+\newpage
+
+\I  Step 1: ob-1 with density
+\myfig{placeholder}
+\newpage
+
+\I  Step 2: adjoint with density
+\myfig{placeholder}
+\newpage
+
+\I  Step 3: adjoin with level-set
+\myfig{placeholder}
+\newpage
+
+\I  Verification with larger simulation
+\myfig{placeholder}
+\EI 
+
 
 \oursection{Part 4: Results}
 
     
-\EI 
 
     
 %     

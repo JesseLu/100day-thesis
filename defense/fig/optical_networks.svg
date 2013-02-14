@@ -15,9 +15,25 @@
    sodipodi:version="0.32"
    inkscape:version="0.46"
    sodipodi:docname="optical_networks.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/optical_networks.png"
+   inkscape:export-xdpi="80"
+   inkscape:export-ydpi="80">
   <defs
      id="defs4">
+    <marker
+       inkscape:stockid="StopL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="StopL"
+       style="overflow:visible">
+      <path
+         id="path4166"
+         d="M 0.0,5.65 L 0.0,-5.65"
+         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8)" />
+    </marker>
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
        inkscape:vp_x="0 : 526.18109 : 1"
@@ -46,6 +62,35 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 526.18109 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2733"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2851"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3193"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <filter
+       inkscape:collect="always"
+       id="filter3979">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="15"
+         id="feGaussianBlur3981" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -58,8 +103,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="-23.532955"
-     inkscape:cy="520"
+     inkscape:cx="1153.479"
+     inkscape:cy="-2411.134"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -83,6 +128,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="opacity:0.80000000000000004;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.50000000000000000;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:3, 6;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3979)"
+       id="rect3199"
+       width="1000"
+       height="1000"
+       x="-742.89105"
+       y="2981.2231" />
     <image
        y="-106.13784"
        x="-1806.3126"
@@ -93,7 +145,7 @@
        xlink:href="transocean1.jpg" />
     <image
        y="-106.13784"
-       x="-299.00864"
+       x="-300.5802"
        id="image2601"
        height="1000"
        width="820"
@@ -101,11 +153,199 @@
        xlink:href="draka1.jpg" />
     <image
        y="-106.13784"
-       x="543.84845"
+       x="543.84827"
        id="image2685"
        height="1000"
        width="1011.8044"
        sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/fermi.jpg"
        xlink:href="fermi.jpg" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-543.42798"
+       y="883.94373"
+       id="text2395"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2397"
+         x="-543.42798"
+         y="883.94373">cogentco.com</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="341.58759"
+       y="874.21753"
+       id="text2399"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2401"
+         x="341.58759"
+         y="874.21753"
+         style="fill:#ffffff">draka.com</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#800000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="1389.7278"
+       y="875.98212"
+       id="text2403"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2405"
+         x="1389.7278"
+         y="875.98212"
+         style="fill:#800000">pcper.com</tspan></text>
+    <image
+       y="1586.8466"
+       x="-1401.4977"
+       id="image2735"
+       height="1000"
+       width="661.62573"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/Fibreoptic.jpg"
+       xlink:href="Fibreoptic.jpg"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80" />
+    <image
+       y="1586.8466"
+       x="-717.13269"
+       id="image2853"
+       height="1000"
+       width="1264.2858"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/nature11727-f1.2.jpg"
+       xlink:href="nature11727-f1.2.jpg"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-980.48938"
+       y="2570.1152"
+       id="text2857"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"><tspan
+         sodipodi:role="line"
+         id="tspan2859"
+         x="-980.48938"
+         y="2570.1152">wikipedia.com</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="347.22412"
+       y="2567.6992"
+       id="text2861"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"><tspan
+         sodipodi:role="line"
+         id="tspan2863"
+         x="347.22412"
+         y="2567.6992">nature.com</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-642.49017"
+       y="2571.6992"
+       id="text2865"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"><tspan
+         sodipodi:role="line"
+         id="tspan2867"
+         x="-642.49017"
+         y="2571.6992">Sun et al (2013)</tspan></text>
+    <image
+       y="2976.126"
+       x="-2038.2751"
+       id="image2869"
+       height="1000"
+       width="1264.2858"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/nature11727-f1.2.jpg"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"
+       xlink:href="Swg_with_inset.jpg" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-973.9184"
+       y="3956.9785"
+       id="text2871"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"><tspan
+         sodipodi:role="line"
+         id="tspan2873"
+         x="-973.9184"
+         y="3956.9785">nature.com</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-1963.6326"
+       y="3960.9785"
+       id="text2875"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"><tspan
+         sodipodi:role="line"
+         id="tspan2877"
+         x="-1963.6326"
+         y="3960.9785">Sun et al (2013)</tspan></text>
+    <image
+       y="2981.2231"
+       x="-742.89105"
+       id="image3195"
+       height="1000"
+       width="1000"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/S_inset_with_pink.png"
+       xlink:href="S_inset_with_pink.png" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M -1553.6146,3519.1547 L -759.63471,3012.0581"
+       id="path3983" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="168.00003"
+       y="3191.5049"
+       id="text3985"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3987"
+         x="168.00003"
+         y="3191.5049"
+         style="font-size:48px;text-align:end;text-anchor:end">100 nm x 100 nm</tspan><tspan
+         sodipodi:role="line"
+         x="168.00003"
+         y="3251.5049"
+         style="font-size:48px;text-align:end;text-anchor:end"
+         id="tspan3989">pixel</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#StopL);marker-end:url(#StopL);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 297.14286,2986.9374 L 297.14286,3975.5089"
+       id="path3991" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="324.4108"
+       y="3190.5908"
+       id="text5286"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="324.4108"
+         y="3190.5908"
+         style="font-size:48px;text-align:start;text-anchor:start"
+         id="tspan5290">1500 nm x 1500 nm</tspan><tspan
+         sodipodi:role="line"
+         x="324.4108"
+         y="3250.5908"
+         style="font-size:48px;text-align:start;text-anchor:start"
+         id="tspan5300">area</tspan></text>
   </g>
 </svg>

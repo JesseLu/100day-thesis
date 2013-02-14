@@ -13,6 +13,11 @@
     \centerline{\includegraphics[height=6.5cm]{fig/#1.jpg}}
     \end{figure}
 }
+\newcommand{\medfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=10cm]{fig/#1.jpg}}
+    \end{figure}
+}
 \newcommand{\bigfig}[1]{
     \begin{figure}[!h]
     \centerline{\includegraphics[height=12cm]{fig/#1.jpg}}
@@ -208,13 +213,46 @@ where
 \newpage
 
 \I  Spatial mode splitter
-\bigfig{spl_modal}
-\I  Efficiency: 76.9\%
-\I  Power in rejection mode (transmitted fundamental): 1.0\%
+\BI  Efficiency: 88.7\%, 77.4\% (0.27\%, 0.20\%) \EI
+\medfig{spl_modal}
 \newpage
 
+\I  TE/TM splitter
+\BI  Efficiency: 87.6\%, 88.8\% (1.06\%, 0.58\%) \EI
+\medfig{spl_tetm}
+\newpage
 
+\I  Wavelength splitter
+\BI  Efficiency: 83.2\%, 78.7\% (0.49\%, 1.66\%) \EI
+\medfig{spl_wdm}
+\newpage
+
+\I 3x3 hub (88.6\%, 90.6\%, 87.3\% efficiency)
+\bigfig{hub_3x3}
+\newpage
+
+\I 4x4 hub
+\bigfig{hub_4x4_eps}
+\newpage
+
+\I Efficiency: 85.9\%, 88.1\%, 85.4\%, 84.3\%
+\bigfig{hub_4x4}
+\newpage
+
+\I 4x4 compacted hub (77.6\%, 73.7\%, 75.7\%, 75.2\% efficiency)
+\bigfig{hub_2x2x2}
+\newpage
 \EI
+
+\oursection{Summary}
+\myfig{takeaway}
+\BI Developed a system to design three-dimensional, multi-mode, 
+    linear nanophotonic devices
+    \BI Compact nanophotonic designs which open up the full parameter space 
+    \I  Key enabler for future dense integrated optical systems \EI
+\EI
+
+
 
     
 

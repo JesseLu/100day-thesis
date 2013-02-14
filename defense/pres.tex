@@ -1,7 +1,7 @@
 \documentclass[landscape]{foils}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\usepackage{hyperref}
+
 \input defs.tex
 \raggedright
 \special{! TeXDict begin /landplus90{true}store end }
@@ -11,6 +11,11 @@
 \newcommand{\myfig}[1]{
     \begin{figure}[!h]
     \centerline{\includegraphics[height=6.5cm]{fig/#1.jpg}}
+    \end{figure}
+}
+\newcommand{\bigfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=12cm]{fig/#1.jpg}}
     \end{figure}
 }
 \newcommand{\BI}{\begin{itemize}\item}
@@ -139,7 +144,7 @@ where
     \BI Known as \emph{alternating directions}
     \I  Takes advantage of bi-linearity of the physics residual,
     \BE A(z)x - b = B(x)z - d(x) \EE \EI
-\I  \emph{Alternating directions method of multipliers (ADMM)}
+\I  \emph{Alternating directions method of multipliers (ADMM)}\footnote{S. Boyd et al, Foundations and Trends in Machine Learning (2011)}
     gives much faster convergence
     \BI Due to introduction of dual variable \EI
 \vfill
@@ -163,31 +168,28 @@ where
 \newpage
 
 \oursection{Part 3: Implementation}
-\BI Implementation in Matlab: \texttt{github.com/JesseLu/lumos}
-\I Primary is $A_i(z)^{-1}$ ...
-\I  x is 3D and about a million variables
-    \BI $A_i(z)^{-1}$ Solved in the cloud (AWS), scales arbitrary modes. \EI
-\I  z is about a thousand variables and can be solved locally
+\BI Both objective-first and adjoint methods implemented in Matlab: 
+    \texttt{github.com/JesseLu/lumos}
+\I  In both cases, solving for 
+    $A_i(z) \in \comps^{\text{millions}\times\text{millions}}$ 
+    dominates computation
+    \BI $A_i(z)^{-1}$ solved iteratively\footnote{W. Shin, J. of Computational Physics, (2012)} 
+    \I  Accelerated on GPUs and brought to scale in the cloud (EC2)
+    \I  Allows for arbitrarily large number of modes 
+        without sacrificing runtime (in theory) \EI
 
-\I  Both objective-first and adjoint methods implemented
-\I  Designs produced using a combination of steps
-\I  Initial structure...
 \newpage
 
-\I  Step 1: ob-1 with density
-\myfig{placeholder}
+\I  Design phase I: Objective-first method with density parameterization
+\bigfig{stepA}
 \newpage
 
-\I  Step 2: adjoint with density
-\myfig{placeholder}
-\newpage
-
-\I  Step 3: adjoin with level-set
-\myfig{placeholder}
+\I  Design phase II: Adjoint method with boundary parameterization
+\bigfig{stepB}
 \newpage
 
 \I  Verification with larger simulation
-\myfig{placeholder}
+\myfig{takeaway}
 \EI 
 
 

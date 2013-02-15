@@ -5,10 +5,17 @@
 \input defs.tex
 \raggedright
 \special{! TeXDict begin /landplus90{true}store end }
+\newcommand{\nextpage}{\vfill\newpage}
 \renewcommand{\oursection}[1]{
 \foilhead[-1.0cm]{#1}
 }
-\newcommand{\myfig}[1]{
+\newcommand{\myfig}[2]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=#2cm]{fig/#1.jpg}}
+    \end{figure}
+}
+
+\newcommand{\smallfig}[1]{
     \begin{figure}[!h]
     \centerline{\includegraphics[height=6.5cm]{fig/#1.jpg}}
     \end{figure}
@@ -46,28 +53,40 @@
 % \item results
 % \EIT
 
-\vfill
-\newpage
+\nextpage
 
 Goal: Show you how to design \emph{any} linear nanophotonic device
-\myfig{takeaway}
-
+\smallfig{takeaway}
 \pause
 \BI Physics Advisory: 
     \begin{quote}CONTAINS INVOLVED MATHEMATICAL CONTENT\end{quote}
-
 \pause
 \I  Math Advisory: 
     \begin{quote}CONTAINS INVOLVED NANOPHOTONIC CONTENT\end{quote}
-\vfill
-\newpage
+\nextpage
 
 \oursection{Given a field, can we find its structure?}
-\myfig{thedefinition}
-\I  Electromagnetic wave equation 
-    ($\text{field}\to E$, $\text{structure}\to\epsilon$)
+\smallfig{def_bare}
+\stepwise{
+\step{\I  Equivalently, find $\epsilon$ (structure) given $E$ (field)
     \BE \nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E = 
-        -i \omega J \EE
+        -i \omega J \EE}
+\step{\I  If possible, we can design \emph{any} nanophotonic/optical component!}
+}
+\nextpage
 
-\EI
+\I Answer: Yes
+    \stepwise{
+    \begin{align*} 
+    \step{\nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E &= 
+        -i \omega J }\\
+    \step{\omega^2 \epsilon E &= \nabla\times\mu_0^{-1}\nabla\times E + 
+        i \omega J }\\
+    \step{\omega^2 E \epsilon &= \nabla\times\mu_0^{-1}\nabla\times E + 
+        i \omega J }\\
+    \step{\epsilon &= (\nabla\times\mu_0^{-1}\nabla\times E + 
+        i \omega J)/ \omega^2 E} 
+    \end{align*}
+    }
+    \EI
 \end{document}

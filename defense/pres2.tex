@@ -1,0 +1,73 @@
+\documentclass[landscape]{foils}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\input defs.tex
+\raggedright
+\special{! TeXDict begin /landplus90{true}store end }
+\renewcommand{\oursection}[1]{
+\foilhead[-1.0cm]{#1}
+}
+\newcommand{\myfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=6.5cm]{fig/#1.jpg}}
+    \end{figure}
+}
+\newcommand{\medfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=10cm]{fig/#1.jpg}}
+    \end{figure}
+}
+\newcommand{\bigfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=12cm]{fig/#1.jpg}}
+    \end{figure}
+}
+\newcommand{\BI}{\begin{itemize}\item}
+\newcommand{\I}{\item}
+\newcommand{\EI}{\end{itemize}}
+
+\title{Nanophotonic Computational Design}
+\author{Jesse Lu}
+\MyLogo{Jesse Lu PhD defense, Jelena Vuckovic group, Stanford University}
+\date{February 25, 2013}
+
+% \usepackage{pause}
+\usepackage[display]{texpower}
+
+
+\begin{document}
+\setlength{\parskip}{0cm}
+\maketitle
+
+% \BIT \itemsep -1pt
+% \item motivation
+% \item theory
+% \item results
+% \EIT
+
+\vfill
+\newpage
+
+Goal: Show you how to design \emph{any} linear nanophotonic device
+\myfig{takeaway}
+
+\pause
+\BI Physics Advisory: 
+    \begin{quote}CONTAINS INVOLVED MATHEMATICAL CONTENT\end{quote}
+
+\pause
+\I  Math Advisory: 
+    \begin{quote}CONTAINS INVOLVED NANOPHOTONIC CONTENT\end{quote}
+\vfill
+\newpage
+
+\oursection{Given a field, can we find its structure?}
+\myfig{thedefinition}
+\I  Electromagnetic wave equation 
+    ($\text{field}\to E$, $\text{structure}\to\epsilon$)
+    \BE \nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E = 
+        -i \omega J \EE
+
+\EI
+\end{document}

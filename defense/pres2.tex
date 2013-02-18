@@ -114,6 +114,8 @@ Goal: Show you how to design \emph{any} linear nanophotonic device
     \quad\longrightarrow\quad
     \underbrace{A(z)x = b}_\text{linear algebra}
     \EE
+    }
+    \step{
     \begin{align*}
     E &\to x \\
     \epsilon &\to z \\
@@ -123,6 +125,40 @@ Goal: Show you how to design \emph{any} linear nanophotonic device
     }
 \step{\I  Key: If $A(z)$ is linear in $z$ then $A(z)x=b$ is as well!}
     }
+
+\oursection{Direct design of structure in 1D}
+\I  Chose $x$ (field) and solved for $z$ (structure)
+\smallfig{1d_leastsquares}
+\pause
+\I  Perfect performance but unmanufacturable structure
+\nextpage
+
+% \bigfig{1d_regularized}
+\smallfig{1d_regularized_1}
+\smallfig{1d_regularized_2}
+\I  Regularization on $z$ decreases performance 
+\nextpage
+
+\I  We know that there exist $x$ which produce well-behaved $z$
+\I  However, choosing such $x$ is next to impossible
+\I  Therefore, a practical design tool must include $x$-search
+\nextpage
+
+\oursection{Iterative design of structure in 1D}
+\I  
+\I  Insight: Solving for well-behaved $z$ requires fortuitous selection of $x$
+\I  Therefore, vary $x$ in order to allow for well-behaved $z$
+\smallfig{1d_alternate}
+\I  Variation in $x$ allows $z$ to be better behaved
+\nextpage
+
+\I  Alternately solve for $x$ and $z$:
+    \begin{align*} 
+    \minimize_z & \|A(z)x - b\|^2 + \eta_1\|z - z_0\|^2 \\
+    \minimize_x & \|A(z)x - b\|^2 + \eta_0\|x - x_0\|^2 
+    \end{align*}
+\smallfig{1d_alternate}
+
 
 
 

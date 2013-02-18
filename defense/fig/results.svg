@@ -371,8 +371,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.263038"
-     inkscape:cx="156.02402"
-     inkscape:cy="-822.23499"
+     inkscape:cx="-20.72953"
+     inkscape:cy="167.58489"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -2008,7 +2008,7 @@
          id="tspan7246"
          x="-29.722649"
          y="959.3252"
-         style="font-size:5px;fill:#000000">30</tspan></text>
+         style="font-size:5px;fill:#000000">15</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
@@ -2107,7 +2107,7 @@
          id="tspan7272"
          x="-136.01028"
          y="958.97162"
-         style="font-size:5px;fill:#000000">30</tspan></text>
+         style="font-size:5px;fill:#000000">15</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
@@ -2454,7 +2454,7 @@
            height="217.5"
            x="-308"
            y="1001.3622" /></flowRegion><flowPara
-         id="flowPara7366"></flowPara></flowRoot>    <rect
+         id="flowPara7366" /></flowRoot>    <rect
        style="opacity:0.8;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3620)"
        id="rect7690"
        width="114"

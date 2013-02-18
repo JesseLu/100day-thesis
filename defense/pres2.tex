@@ -58,7 +58,20 @@
 Goal: Show you how to design \emph{any} linear nanophotonic device
 \smallfig{takeaway}
 \pause
-\BI Physics Advisory: 
+\BI Device properties: 
+    \BI Full 3D
+    \I  Compact
+    \I  Efficient
+    \I  Multi-mode 
+    \I  Multi-functional \EI
+\nextpage
+
+\I  Developed by
+    \BI applying (convex) optimization techniques (math)
+    \I  to the area of nanophotonics (physics)
+    \I  and implementing in software (programming) \EI
+\pause
+\I  Physics Advisory: 
     \begin{quote}CONTAINS INVOLVED MATHEMATICAL CONTENT\end{quote}
 \pause
 \I  Math Advisory: 
@@ -75,7 +88,7 @@ Goal: Show you how to design \emph{any} linear nanophotonic device
 }
 \nextpage
 
-\I Answer: Yes (trivial!)
+\I Answer: Yes, given $E$ we \emph{can} solve for $\epsilon$ (trivial!)
     \stepwise{
     \begin{align*} 
     \nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E &= 
@@ -88,5 +101,31 @@ Goal: Show you how to design \emph{any} linear nanophotonic device
         i \omega J)/ \omega^2 E} 
     \end{align*}
     }
-    \EI
+\I  Solving for $\epsilon$ actually way faster than simulation (solving for $E$)!
+\nextpage
+
+\I  Obvious and well-known from a mathematical perspective
+    \BI Pre-requisite (200-level) class in optimization curriculum
+    \I  Not yet taught (I think) in optics/photonics at Stanford \EI
+    \stepwise{\step{
+    \BE
+    \underbrace{\nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E = 
+                -i \omega J }_\text{physics}
+    \quad\longrightarrow\quad
+    \underbrace{A(z)x = b}_\text{linear algebra}
+    \EE
+    \begin{align*}
+    E &\to x \\
+    \epsilon &\to z \\
+    \nabla\times\mu_0^{-1}\nabla\times - \omega^2 \epsilon &\to A(z) \\
+    -i\omega J &\to b
+    \end{align*}
+    }
+\step{\I  Key: If $A(z)$ is linear in $z$ then $A(z)x=b$ is as well!}
+    }
+
+
+
+
+\EI
 \end{document}

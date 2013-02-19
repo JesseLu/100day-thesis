@@ -91,6 +91,13 @@
          stdDeviation="15"
          id="feGaussianBlur3981" />
     </filter>
+    <inkscape:perspective
+       id="perspective2686"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -102,9 +109,9 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="1153.479"
-     inkscape:cy="-2411.134"
+     inkscape:zoom="0.175"
+     inkscape:cx="-1892.6318"
+     inkscape:cy="-1156.1662"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -134,7 +141,10 @@
        width="1000"
        height="1000"
        x="-742.89105"
-       y="2981.2231" />
+       y="2981.2231"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/des_complexity.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80" />
     <image
        y="-106.13784"
        x="-1806.3126"
@@ -196,17 +206,6 @@
          style="fill:#800000">pcper.com</tspan></text>
     <image
        y="1586.8466"
-       x="-1401.4977"
-       id="image2735"
-       height="1000"
-       width="661.62573"
-       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/Fibreoptic.jpg"
-       xlink:href="Fibreoptic.jpg"
-       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
-       inkscape:export-xdpi="80"
-       inkscape:export-ydpi="80" />
-    <image
-       y="1586.8466"
        x="-717.13269"
        id="image2853"
        height="1000"
@@ -218,37 +217,9 @@
        inkscape:export-ydpi="80" />
     <text
        xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
-       x="-980.48938"
-       y="2570.1152"
-       id="text2857"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
-       inkscape:export-xdpi="80"
-       inkscape:export-ydpi="80"><tspan
-         sodipodi:role="line"
-         id="tspan2859"
-         x="-980.48938"
-         y="2570.1152">wikipedia.com</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
-       x="347.22412"
-       y="2567.6992"
-       id="text2861"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
-       inkscape:export-xdpi="80"
-       inkscape:export-ydpi="80"><tspan
-         sodipodi:role="line"
-         id="tspan2863"
-         x="347.22412"
-         y="2567.6992">nature.com</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
-       x="-642.49017"
-       y="2571.6992"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="51.795547"
+       y="2565.9849"
        id="text2865"
        sodipodi:linespacing="125%"
        inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
@@ -256,8 +227,8 @@
        inkscape:export-ydpi="80"><tspan
          sodipodi:role="line"
          id="tspan2867"
-         x="-642.49017"
-         y="2571.6992">Sun et al (2013)</tspan></text>
+         x="51.795547"
+         y="2565.9849">Sun et al, Nature, (2013)</tspan></text>
     <image
        y="2976.126"
        x="-2038.2751"
@@ -265,38 +236,10 @@
        height="1000"
        width="1264.2858"
        sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/nature11727-f1.2.jpg"
-       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/des_complexity.png"
        inkscape:export-xdpi="80"
        inkscape:export-ydpi="80"
        xlink:href="Swg_with_inset.jpg" />
-    <text
-       xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
-       x="-973.9184"
-       y="3956.9785"
-       id="text2871"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
-       inkscape:export-xdpi="80"
-       inkscape:export-ydpi="80"><tspan
-         sodipodi:role="line"
-         id="tspan2873"
-         x="-973.9184"
-         y="3956.9785">nature.com</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
-       x="-1963.6326"
-       y="3960.9785"
-       id="text2875"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
-       inkscape:export-xdpi="80"
-       inkscape:export-ydpi="80"><tspan
-         sodipodi:role="line"
-         id="tspan2877"
-         x="-1963.6326"
-         y="3960.9785">Sun et al (2013)</tspan></text>
     <image
        y="2981.2231"
        x="-742.89105"
@@ -304,18 +247,27 @@
        height="1000"
        width="1000"
        sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/S_inset_with_pink.png"
-       xlink:href="S_inset_with_pink.png" />
+       xlink:href="S_inset_with_pink.png"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/des_complexity.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="M -1553.6146,3519.1547 L -759.63471,3012.0581"
-       id="path3983" />
+       id="path3983"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/des_complexity.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80" />
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
        x="168.00003"
        y="3191.5049"
        id="text3985"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/des_complexity.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"><tspan
          sodipodi:role="line"
          id="tspan3987"
          x="168.00003"
@@ -329,14 +281,20 @@
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#StopL);marker-end:url(#StopL);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 297.14286,2986.9374 L 297.14286,3975.5089"
-       id="path3991" />
+       id="path3991"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/des_complexity.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80" />
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
        x="324.4108"
        y="3190.5908"
        id="text5286"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/des_complexity.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"><tspan
          sodipodi:role="line"
          x="324.4108"
          y="3190.5908"
@@ -347,5 +305,44 @@
          y="3250.5908"
          style="font-size:48px;text-align:start;text-anchor:start"
          id="tspan5300">area</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-1262.0377"
+       y="3961.5393"
+       id="text2601"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/des_complexity.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"><tspan
+         sodipodi:role="line"
+         id="tspan2603"
+         x="-1262.0377"
+         y="3961.5393">Sun et al, Nature, (2013)</tspan></text>
+    <image
+       y="1586.8466"
+       x="-2113.7927"
+       id="image2688"
+       height="1000"
+       width="1345.8213"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/ring300.jpg"
+       xlink:href="ring300.jpg"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-1240.4868"
+       y="2560.7283"
+       id="text2692"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/integrated_circuit.png"
+       inkscape:export-xdpi="80"
+       inkscape:export-ydpi="80"><tspan
+         sodipodi:role="line"
+         id="tspan2694"
+         x="-1240.4868"
+         y="2560.7283">Xu et al, Nature, (2005)</tspan></text>
   </g>
 </svg>

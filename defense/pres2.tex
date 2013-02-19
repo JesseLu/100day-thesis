@@ -55,10 +55,27 @@
 
 \nextpage
 
+\oursection{Introduction}
+\smallfig{optical_networks}
+\BI  Bring the optical network onto a computer chip
+\nextpage
+
+\smallfig{integrated_circuit}
+\I  Currently designed by hand, handful of parameters
+\I  Design by computer, using the full design parameters
+\nextpage
+
+\I  Increasing design complexity requires additional degrees of freedom
+\I  Fortunately, we have a virtually unlimited amount
+\smallfig{des_complexity}
+\I  Include/exclude per pixel gives us $2^{(15^2)} = 2^{225}$ possibilities, 
+    uncountable
+\nextpage
+
 Goal: Show you how to design \emph{any} linear nanophotonic device
 \smallfig{takeaway}
 \pause
-\BI Device properties: 
+\I Device properties: 
     \BI Full 3D
     \I  Compact
     \I  Efficient
@@ -126,36 +143,69 @@ Goal: Show you how to design \emph{any} linear nanophotonic device
 \step{\I  Key: If $A(z)$ is linear in $z$ then $A(z)x=b$ is as well!}
     }
 
-\oursection{Direct design of structure in 1D}
-\I  Chose $x$ (field) and solved for $z$ (structure)
+\oursection{Direct design of nanophotonic devices}
+\I  Choose $x$ (field) and solve for $z$ (structure)
 \smallfig{1d_leastsquares}
-\pause
-\I  Perfect performance but unmanufacturable structure
+\I  Perfect performance!\ldots But unmanufacturable structure
 \nextpage
 
-\bigfig{1d_regularized}
+\bigfig{1d_regularized_23}
 \I  Regularization on $z$ decreases performance 
 \nextpage
 
-\I  We know that there exist $x$ which produce well-behaved $z$
-\I  However, choosing such $x$ is next to impossible
-\I  Therefore, a practical design tool must include $x$-search
+\I  Conclusion: 
+    \BI Directly solving for $z$ (structure) is easy
+    \I  Solving for manufacturable $z$ is hard \EI
+% \smallfig{1d_regularized_2}
+\I  However, we know that there exist some $x$ (fields) 
+    which produce well-behaved $z$ (structure)
+    \BI But, cannot ask the user to choose such $x$ \EI
 \nextpage
 
-\oursection{Iterative design of structure in 1D}
-\I  
-\I  Insight: Solving for well-behaved $z$ requires fortuitous selection of $x$
-\I  Therefore, vary $x$ in order to allow for well-behaved $z$
-\smallfig{1d_alternate}
-\I  Variation in $x$ allows $z$ to be better behaved
-\nextpage
+\oursection{Iterative design of nanophotonic devices}
+\I  Key lesson: Nanophotonic design involves 
+    optimizing \emph{both} $x$ (field) and $z$ (structure)
 
-\I  Alternately solve for $x$ and $z$:
+\I  New algorithm: Iteratively solve for $x$ and $z$
     \begin{align*} 
-    \minimize_z & \|A(z)x - b\|^2 + \eta_1\|z - z_0\|^2 \\
-    \minimize_x & \|A(z)x - b\|^2 + \eta_0\|x - x_0\|^2 
+    \minimize_z & \|A(z)x - b\|^2 + \eta_0\|z - z_0\|^2 \\
+    \minimize_x & \|A(z)x - b\|^2 + \eta_1\|x - x_0\|^2 
     \end{align*}
+
+\I  Here, $\eta_{0,1}$ are \emph{regularization} parameters
+\nextpage
+
+\I  Iterative strategy produces $z$ (structure) that 
+    \BI is better behaved
+    \I  more accurately produces $x$ \EI
 \smallfig{1d_alternate}
+\nextpage
+
+\I  We can also put hard limits on $z$
+    \begin{align*} 
+    \minimize_z & \|A(z)x - b\|^2 \\
+    \subto & z_0 \le z \le z_1 \\ \\
+    \minimize_x & \|A(z)x - b\|^2 + \eta_1\|x - x_0\|^2 
+    \end{align*}
+\I  $z_0 \le z \le z_1$ constraint better represents manufacturability constraint
+    \BI Corresponds to a minimum and maximum allowable permittivity ($\epsilon$) \EI
+\nextpage
+
+\smallfig{1d_hardlimit}
+\I  Getting close!
+\nextpage
+
+\I  higher dimensions
+\myfig{2d_circ}{5}
+\myfig{25d_circ}{5}
+\nextpage
+
+\oursection{Objective-first design of nanophotonic devices}
+\I  Next step in our thinking is that for most devices only some parts of the field matter
+\I  waveguiding devices
+\medfig{ob1_wg}
+
+\oursection{Design of 3D nanophotonic devices}
 
 
 

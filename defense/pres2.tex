@@ -57,30 +57,34 @@
 
 \oursection{Introduction}
 \smallfig{optical_networks}
-\BI  Bring the optical network onto a computer chip
+\BI As information grows, optical networks needed
+    \BI across continents
+    \I  within a datacenter
+    \I  between chips and on-chip \EI
 \nextpage
 
+\I  On-chip optical components are currently designed
+    by tuning a small number of design parameters
 \smallfig{integrated_circuit}
-\I  Currently designed by hand, handful of parameters
-\I  Design by computer, using the full design parameters
-\nextpage
-
-\I  Increasing design complexity requires additional degrees of freedom
-\I  Fortunately, we have a virtually unlimited amount
-\smallfig{des_complexity}
-\I  Include/exclude per pixel gives us $2^{(15^2)} = 2^{225}$ possibilities, 
-    uncountable
-\nextpage
-
-Goal: Show you how to design \emph{any} linear nanophotonic device
-\smallfig{takeaway}
 \pause
-\I Device properties: 
-    \BI Full 3D
-    \I  Compact
-    \I  Efficient
-    \I  Multi-mode 
-    \I  Multi-functional \EI
+\I  What happens when we use the \emph{full} parameter space
+    for nanophotonic design?
+\nextpage
+
+\I  The full parameter space is \emph{vast}
+\smallfig{des_complexity}
+\I  Include/exclude per pixel gives us $2^{(15^2)} = 2^{225}$ possibilities
+    \BI A virtually uncountable number 
+    \I  Can only be design by a computer \EI
+\nextpage
+
+\smallfig{takeaway}
+\I  Our work: Software to design full 3D, multi-mode, and multi-functional
+    linear nanophotonic devices---using the fully available parameter space \pause
+\I  Many of these devices are
+    \BI Completely novel (no previously known designs)
+    \I  Extremely compact (footprints of a few vacuum wavelengths)
+    \I  High efficiency ($>80\%$ transmission) \EI
 \nextpage
 
 \I  Developed by
@@ -144,55 +148,94 @@ Goal: Show you how to design \emph{any} linear nanophotonic device
     }
 
 \oursection{Direct design of nanophotonic devices}
-\I  Choose $x$ (field) and solve for $z$ (structure)
+\I  Let's try it already! 
+    \BI Choose $x$ (field) 
+    \I  Solve for $z$ (structure) by minimizing the \emph{physics residual},
+        $A(z)x-b$\EI
+    \pause
+    \BE \minimize_z \|A(z)x - b\|^2 \EE
+\pause
+\I  Global minimum where $A(z)x - b = 0$ can be computed in one step
+    \BE \epsilon = (\nabla\times\mu_0^{-1}\nabla\times E + i \omega J)
+                    / \omega^2 E \EE
+    where $\epsilon \to z$
+\nextpage
+
+\I  Choose canonical 1D cavity field for $x$
+\I  Solve for $z$ (structure) and check design fidelity with simulation
 \smallfig{1d_leastsquares}
-\I  Perfect performance!\ldots But unmanufacturable structure
+\pause
+\I  Result
+    \BI Perfect performance
+    \I  But unmanufacturable structure ($z$ not well-behaved) \EI
 \nextpage
 
-\bigfig{1d_regularized_23}
-\I  Regularization on $z$ decreases performance 
+\oursection{Direct design with regularization}
+\I  Direct design ``works'' but not practical
+    \BE \minimize_z \|A(z)x - b\|^2 \EE
+\I  So, let's add a \emph{regularization} term to $z$ and solve the following instead 
+    \BE \minimize_z \|A(z)x - b\|^2 + \eta\|z-z_0\|^2 \EE
+    \BI  $\|z-z_0\|^2$ term keeps $z$ close to $z_0$
+    \I  $\eta$ controls the strength of the regularization \EI
+\I  Solution can still be computed in one step
 \nextpage
 
-\I  Conclusion: 
-    \BI Directly solving for $z$ (structure) is easy
-    \I  Solving for manufacturable $z$ is hard \EI
-% \smallfig{1d_regularized_2}
-\I  However, we know that there exist some $x$ (fields) 
-    which produce well-behaved $z$ (structure)
-    \BI But, cannot ask the user to choose such $x$ \EI
+\bigfig{1d_regularized_12}
+\I  Unfortunately, regularization on $z$ decreases performance 
+\nextpage
+
+\smallfig{1d_regularized_3}
+    \BE \minimize_z \|A(z)x - b\|^2 + \eta\|z-z_0\|^2 \EE
+\I  Decreased performance a result of non-zero physics residual at optimum
+\nextpage
+
+\I  How to overcome the apparent trade-off between manufacturability ($z$)
+    and performance ($x$)?
+\pause
+\I  Realized that there do exist some $x$ (fields)
+    which result from manufacturable $z$ (structures)
+    \BI These can be produced via simulation
+    \I  However, it's not useful to ask the user to choose such $x$ \EI
+\pause
+\I  Therefore, a \emph{useful} tool would optimize for \emph{both} $x$ and $z$
 \nextpage
 
 \oursection{Iterative design of nanophotonic devices}
-\I  Key lesson: Nanophotonic design involves 
-    optimizing \emph{both} $x$ (field) and $z$ (structure)
-
-\I  New algorithm: Iteratively solve for $x$ and $z$
+\I  New algorithm: Iteratively solve for $x$ (field) and $z$ (structure)
     \begin{align*} 
     \minimize_z & \|A(z)x - b\|^2 + \eta_0\|z - z_0\|^2 \\
     \minimize_x & \|A(z)x - b\|^2 + \eta_1\|x - x_0\|^2 
     \end{align*}
-
-\I  Here, $\eta_{0,1}$ are \emph{regularization} parameters
+\I  Takes advantage of the \emph{bi-linearity} of the physics residual
+    \BI Jointly solving for $x$ and $z$ is a non-convex problem \EI
 \nextpage
 
+\I  More concisely, we iteratively solve the following
+    \BE \minimize_\text{alternately $x$ then $z$} 
+        \|A(z)x - b\|^2 + \eta_0\|z - z_0\|^2 + \eta_1\|x-x_0\|^2 \EE
+\I  Design process now consists of \emph{multiple} computational steps
+    \BI $\eta_0, \eta_1$ gradually decreased to bring physics residual toward 0 \EI
+\nextpage
+
+\smallfig{1d_alternate}
 \I  Iterative strategy produces $z$ (structure) that 
     \BI is better behaved
     \I  more accurately produces $x$ \EI
-\smallfig{1d_alternate}
 \nextpage
 
-\I  We can also put hard limits on $z$
+\oursection{Iterative design with hard constraints on $z$}
+\I  We can also put hard limits on $z$ (structure)
     \begin{align*} 
-    \minimize_z & \|A(z)x - b\|^2 \\
-    \subto & z_0 \le z \le z_1 \\ \\
-    \minimize_x & \|A(z)x - b\|^2 + \eta_1\|x - x_0\|^2 
+    \minimize & \|A(z)x - b\|^2 + \eta_1\|x - x_0\|^2\\
+    \subto & z_\text{min} \le z \le z_\text{max}
     \end{align*}
-\I  $z_0 \le z \le z_1$ constraint better represents manufacturability constraint
+\I  $z_\text{min} \le z \le z_\text{max}$ constraint 
+    better represents manufacturability constraint
     \BI Corresponds to a minimum and maximum allowable permittivity ($\epsilon$) \EI
 \nextpage
 
 \smallfig{1d_hardlimit}
-\I  Getting close!
+\I  Final  
 \nextpage
 
 \I  higher dimensions

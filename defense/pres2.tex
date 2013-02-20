@@ -75,12 +75,12 @@
 \smallfig{des_complexity}
 \I  Include/exclude per pixel gives us $2^{(15^2)} = 2^{225}$ possibilities
     \BI A virtually uncountable number 
-    \I  Can only be design by a computer \EI
+    \I  Can only be leveraged computationally \EI
 \nextpage
 
 \smallfig{takeaway}
-\I  Our work: Software to design full 3D, multi-mode, and multi-functional
-    linear nanophotonic devices---using the fully available parameter space \pause
+\I  Our work: Software to design 3D linear nanophotonic devices using 
+    the full available parameter space \pause
 \I  Many of these devices are
     \BI Completely novel (no previously known designs)
     \I  Extremely compact (footprints of a few vacuum wavelengths)
@@ -262,6 +262,21 @@
     at the boundary to be equal to the ideal case ($\hat{x}$)
 \nextpage
 
+\I  Called \emph{objective-first} design because the design objective 
+    is prioritized above the physics residual
+    \begin{align*} 
+    \minimize & \|A(z)x - b\|^2 \\
+    \subto & x_\text{boundary} - \hat{x}_\text{boundary} = 0 \\
+        & z_\text{min} \le z \le z_\text{max}
+    \end{align*}
+% \I  In contrast, the typical formulation is 
+%     \begin{align*} 
+%     \minimize & \|x_\text{boundary} - \hat{x}_\text{boundary}\|^2 \\
+%     \subto & A(z)x - b  = 0 \\
+%         & z_\text{min} \le z \le z_\text{max}
+%     \end{align*}
+\nextpage
+
 \I  Applied to the design of 2D waveguide mode couplers
 \smallfig{ob1_explanation}
 \I  Produced designs which exhibited
@@ -284,7 +299,7 @@
 \pause
     \BI Fully three-dimensional (no approximations)
     \I  Multi-mode
-    \I  Discrete, manufacturable structure \EI
+    \I  Discrete, planar, manufacturable structure \EI
 \nextpage
 
 \I  Problem: Did not know how to solve $A(z)x - b = 0$ (simulation) in 3D
@@ -300,6 +315,7 @@
     using Amazon Web Services 
     \BI GPU-accelerated implementation of Wonseok's algorithm
     \I  Cluster scales automatically to tens of nodes \EI
+\smallfig{maxwell}
 \nextpage
 
 \I  Scalable
@@ -311,9 +327,25 @@
     \BI Installs with a single Matlab command
     \I  Solves completed with a single Matlab command: \verb+maxwell(...);+ \EI
 
-\I  The key technological enabler ...
+\I  The key technological enabler in achieving 3D design
+\nextpage
 
+\oursection{3D design: problem statement}
+\begin{align*}
+    \minimize & \sum_i^M \|A_i(z)x_i - b_i\|^2 \\
+    \subto & \alpha_{ij} \le |c_{ij}\T x_i| \le \beta_{ij}, \quad
+        \text{for $i = 1, \ldots, M$ and $j = 1, \ldots, N_i$} \\
+        &   z_\text{min} \le z \le z_\text{max}
+\end{align*}
+\I  $M$ modes with $N_i$ monitored output modes each
+    \BI $b_i$ is the input excitation for each mode
+    \I  $|c_{ij}\T x_i|$ is the field overlap with output mode $c_{ij}$
+    \I  $\alpha_{ij}$ and $\beta_{ij}$ is the design range for the overlap \EI
+\nextpage
 
+\I  Show input and output modes here as explanation of problem statement
+\I  Use 3D model of wgc_te as example.
+\nextpage
 
 \EI
 \end{document}

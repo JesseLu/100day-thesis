@@ -203,8 +203,8 @@
 \oursection{Iterative design of nanophotonic devices}
 \I  New algorithm: Iteratively solve for $x$ (field) and $z$ (structure)
     \begin{align*} 
-    \minimize_z & \|A(z)x - b\|^2 + \eta_0\|z - z_0\|^2 \\
-    \minimize_x & \|A(z)x - b\|^2 + \eta_1\|x - x_0\|^2 
+    \minimize_z & \|A(z)x - b\|^2 + \eta_0\|z - z_\text{prev}\|^2 \\
+    \minimize_x & \|A(z)x - b\|^2 + \eta_1\|x - x_\text{prev}\|^2 
     \end{align*}
 \I  Takes advantage of the \emph{bi-linearity} of the physics residual
     \BI Jointly solving for $x$ and $z$ is a non-convex problem \EI
@@ -212,7 +212,8 @@
 
 \I  More concisely, we iteratively solve the following
     \BE \minimize_\text{alternately $x$ then $z$} 
-        \|A(z)x - b\|^2 + \eta_0\|z - z_0\|^2 + \eta_1\|x-x_0\|^2 \EE
+        \|A(z)x - b\|^2 + \eta_0\|z - z_\text{prev}\|^2
+                        + \eta_1\|x-x_\text{prev}\|^2 \EE
 \I  Design process now consists of \emph{multiple} computational steps
     \BI $\eta_0, \eta_1$ gradually decreased to bring physics residual toward 0 \EI
 \nextpage
@@ -226,7 +227,7 @@
 \oursection{Iterative design with hard constraints on $z$}
 \I  We can also put hard limits on $z$ (structure)
     \begin{align*} 
-    \minimize & \|A(z)x - b\|^2 + \eta_1\|x - x_0\|^2\\
+    \minimize & \|A(z)x - b\|^2 + \eta_1\|x - x_\text{prev}\|^2\\
     \subto & z_\text{min} \le z \le z_\text{max}
     \end{align*}
 \I  $z_\text{min} \le z \le z_\text{max}$ constraint 
@@ -235,22 +236,82 @@
 \nextpage
 
 \smallfig{1d_hardlimit}
-\I  Final  
+\I  Well-behaved, manufacturable $z$ (structure)
+\I  Final $x$ (field) accurately reproduced
+\I  Majority of elements of $z$ are fortuitously at one limit or the other!
 \nextpage
 
-\I  higher dimensions
-\myfig{2d_circ}{5}
-\myfig{25d_circ}{5}
+\I  Can be used to create 2D resonators
+\smallfig{2d_circ}
 \nextpage
 
-\oursection{Objective-first design of nanophotonic devices}
-\I  Next step in our thinking is that for most devices only some parts of the field matter
-\I  waveguiding devices
+\I  3D resonators can be designed using a ``2.5D'' approximation
+\smallfig{25d_circ}
+\nextpage
+
+\oursection{Objective-first design of linear devices}
+\I  Next realization: for linear components, 
+    only certain elements of $x$ (field) matter
+    \BI Specifically, the elements of $x$ at the input/output ports \EI
+    \begin{align*} 
+    \minimize & \|A(z)x - b\|^2 \\
+    \subto & x_\text{boundary} - \hat{x}_\text{boundary} = 0 \\
+        & z_\text{min} \le z \le z_\text{max}
+    \end{align*}
+\I  Instead of regularization term, we force the elements of $x$
+    at the boundary to be equal to the ideal case ($\hat{x}$)
+\nextpage
+
+\I  Applied to the design of 2D waveguide mode couplers
+\smallfig{ob1_explanation}
+\I  Produced designs which exhibited
+    \BI High efficiency ($\sim 98\%$)
+    \I  Small device footprints ($1.5-4$ square vacuum wavelengths) \EI
+\nextpage
+
+\I  Coupler to wide, low-index waveguide
 \medfig{ob1_wg}
+\nextpage
 
-\oursection{Design of 3D nanophotonic devices}
+\I  Coupler from fundamental to second-order waveguide mode
+\medfig{ob1_wg2}
+\nextpage
 
+\oursection{Design of 3D linear nanophotonic devices}
+\I  Finally, enough understanding to tackle the \emph{real} design problem
+\pause
+\I  Goal: Software to design \emph{all} linear nanophotonic devices
+\pause
+    \BI Fully three-dimensional (no approximations)
+    \I  Multi-mode
+    \I  Discrete, manufacturable structure \EI
+\nextpage
 
+\I  Problem: Did not know how to solve $A(z)x - b = 0$ (simulation) in 3D
+    \BI Millions of variables
+    \I  Famously ill-conditioned 
+    \I  No known commercial \emph{solvers} that can handle arbitrary structures \EI
+\pause
+\smallfig{wonseok}
+\I  Fortunately, Wonseok had already solved this problem
+
+\oursection{Maxwell: Light-simulation supercomputer}
+\I  Partnered with Wonseok to develop a cloud-based electromagnetic solver 
+    using Amazon Web Services 
+    \BI GPU-accelerated implementation of Wonseok's algorithm
+    \I  Cluster scales automatically to tens of nodes \EI
+\nextpage
+
+\I  Scalable
+    \BI Far outstrips computing clusters such as Teragrid
+    \I  Can perform multiple solves in parallel, on a single Matlab instance 
+    \I  All computation is performed externally (in the cloud) \EI
+
+\I  Easy to use
+    \BI Installs with a single Matlab command
+    \I  Solves completed with a single Matlab command: \verb+maxwell(...);+ \EI
+
+\I  The key technological enabler ...
 
 
 

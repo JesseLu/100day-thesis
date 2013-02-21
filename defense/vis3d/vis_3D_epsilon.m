@@ -1,4 +1,4 @@
-function [dims] = vis_3D_epsilon(A, mat_index, skim, alpha)
+function vis_3D_epsilon(A, mat_index, skim, alpha)
     s = skim+1;
     dims = size (A);
     A = A(:,dims(2):-1:1,:);
@@ -14,13 +14,16 @@ function [dims] = vis_3D_epsilon(A, mat_index, skim, alpha)
     isonormals(x,y,z,v,hpatch)
     set(hpatch,'FaceAlpha', alpha, 'FaceColor',120*[1 1 1]./255,'EdgeColor','none')
 
-    my_make_pretty(dims);
+    my_make_pretty(dims, alpha);
 
-function my_make_pretty (dims)
+function my_make_pretty (dims, alpha)
+
     grid on
     daspect([1,1,1])
     axis tight
-    camlight left; lighting phong
+    if alpha == 1 % If alpha not equal to 1, don't add lighting
+        camlight left; lighting phong
+    end
     % make it more visually intuitive
     axis tight
     axis ([0 dims(2) 0 dims(1) 0 dims(3)]);
@@ -29,5 +32,6 @@ function my_make_pretty (dims)
     set (H, 'WindowStyle', 'docked');
     view(0, 45);
     grid off;
+    set(gca, 'XTick', [], 'YTick', [], 'ZTick', [], 'Visible', 'off')
 
 

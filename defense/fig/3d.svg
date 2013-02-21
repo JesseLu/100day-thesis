@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="3d.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="DotS"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="DotS"
+       style="overflow:visible">
+      <path
+         id="path4977"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;marker-end:none"
+         transform="scale(0.2) translate(7.4, 1)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective2447"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2497"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3569"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3619"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5749"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <filter
+       inkscape:collect="always"
+       id="filter5801">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="5.7997412"
+         id="feGaussianBlur5803" />
+    </filter>
+    <inkscape:perspective
+       id="perspective6008"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.22640699"
+     inkscape:cx="-2233.608"
+     inkscape:cy="-1338.2079"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showborder="false"
+     inkscape:window-width="1398"
+     inkscape:window-height="1048"
+     inkscape:window-x="0"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0.39484977;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect5849"
+       width="2402"
+       height="1221"
+       x="-2711"
+       y="841.86218"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/3D_fib_te.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <g
+       id="g5893"
+       transform="matrix(1.107097,0,0,1.107097,91.93067,-155.54364)">
+      <image
+         style="opacity:1"
+         xlink:href="visuals/fib_te_verify/3D.png"
+         sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/hub_3x3_verify/3D.png"
+         width="1817.6666"
+         height="1363.25"
+         id="image5851"
+         x="-2420.8333"
+         y="770.73718" />
+      <image
+         xlink:href="fiber3D.png"
+         style="opacity:0.9"
+         sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/hub_3x3_verify/3D.png"
+         width="1817.6666"
+         height="1363.25"
+         id="image5891"
+         x="-2420.8333"
+         y="770.73718" />
+    </g>
+    <rect
+       style="opacity:0.39484977;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect5757"
+       width="2402"
+       height="1221"
+       x="-2822"
+       y="-1176.4659"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/3D_hub_2x2x2.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <image
+       y="-1247.5909"
+       x="-2529.8333"
+       id="image3621"
+       height="1363.25"
+       width="1817.6666"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/hub_3x3_verify/3D.png"
+       xlink:href="visuals/hub_2x2x2_verify/3D.png"
+       style="opacity:1" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-start:url(#DotS)"
+       d="M -2190.625,-681.07532 L -2190.625,-1019.5128 L -2378.9063,-1019.5128"
+       id="path4395"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-2634.6562"
+       y="-1001.7629"
+       id="text5684"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5686"
+         x="-2634.6562"
+         y="-1001.7629">inputs</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-785.97266"
+       y="-1001.7629"
+       id="text5811"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5813"
+         x="-785.97266"
+         y="-1001.7629">outputs</tspan></text>
+    <g
+       id="g5833">
+      <rect
+         y="-945.02844"
+         x="-2717.9922"
+         height="386.6377"
+         width="386.66113"
+         id="rect5759"
+         style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate" />
+      <image
+         style="opacity:1"
+         xlink:href="wg_lores_single_te0_Ey.png"
+         sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+         width="386.66016"
+         height="386.66016"
+         id="image5751"
+         x="-2721.9922"
+         y="-949.02454" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5815"
+         y="-581.05237"
+         x="-2717.9761"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           y="-581.05237"
+           x="-2717.9761"
+           id="tspan5817"
+           sodipodi:role="line">Ey</tspan></text>
+    </g>
+    <g
+       id="g5827"
+       transform="translate(5.852344,-14.069824)">
+      <rect
+         y="-930.95862"
+         x="-862.33057"
+         height="386.6377"
+         width="386.66113"
+         id="rect5819"
+         style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate" />
+      <image
+         style="opacity:1"
+         xlink:href="wg_lores_single_te0_Ey.png"
+         sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+         width="386.66016"
+         height="386.66016"
+         id="image5821"
+         x="-866.33057"
+         y="-934.95471" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5823"
+         y="-566.98254"
+         x="-862.31445"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           y="-566.98254"
+           x="-862.31445"
+           id="tspan5825"
+           sodipodi:role="line">Ey</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -2190.625,-521.07532 L -2190.625,-1019.5128 L -2378.9063,-1019.5128"
+       id="path5839"
+       sodipodi:nodetypes="ccc" />
+    <g
+       id="g5845"
+       transform="matrix(-1,0,0,1,-2410.957,-121.43125)">
+      <path
+         sodipodi:nodetypes="ccc"
+         id="path5841"
+         d="M -1408.9843,-559.64407 L -1408.9843,-898.08155 L -1597.2656,-898.08155"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccc"
+         id="path5843"
+         d="M -1408.9843,-399.64407 L -1408.9843,-898.08155 L -1597.2656,-898.08155"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -1553.8462,1060.8153 L -2157.9063,1060.8153"
+       id="path5853"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-2413.6562"
+       y="1078.5652"
+       id="text5855"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5857"
+         x="-2413.6562"
+         y="1078.5652">inputs</tspan></text>
+    <rect
+       style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate"
+       id="rect5865"
+       width="386.66113"
+       height="386.6377"
+       x="-2496.9922"
+       y="1135.2997" />
+    <image
+       y="1131.3036"
+       x="-2500.9922"
+       id="image5867"
+       height="386.66016"
+       width="386.66016"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+       xlink:href="wg_fiber_1550_ypol_Ey.png" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-2488.1423"
+       y="1905.6237"
+       id="text5869"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5871"
+         x="-2488.1423"
+         y="1905.6237">Ey</tspan></text>
+    <g
+       id="g5899">
+      <text
+         sodipodi:linespacing="125%"
+         id="text5859"
+         y="1016.5652"
+         x="-676.97266"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           y="1016.5652"
+           x="-676.97266"
+           id="tspan5861"
+           sodipodi:role="line">outputs</tspan></text>
+      <g
+         transform="translate(114.85235,2004.2583)"
+         id="g5873">
+        <rect
+           style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate"
+           id="rect5875"
+           width="386.66113"
+           height="386.6377"
+           x="-862.33057"
+           y="-930.95862" />
+        <image
+           y="-934.95471"
+           x="-866.33057"
+           id="image5877"
+           height="386.66016"
+           width="386.66016"
+           sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+           xlink:href="wg_lores_single_te0_Ey.png"
+           style="opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+           x="-862.31445"
+           y="-566.98254"
+           id="text5879"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan5881"
+             x="-862.31445"
+             y="-566.98254">Ey</tspan></text>
+      </g>
+      <path
+         sodipodi:nodetypes="ccc"
+         id="path5887"
+         d="M -892.9727,1406.5028 L -892.9727,998.81535 L -704.6914,998.81535"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <rect
+       style="opacity:0.39484977;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect6014"
+       width="2402"
+       height="1221"
+       x="-2614.3838"
+       y="3851.6509"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/3D_fib_wdm.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <image
+       y="3707.5259"
+       x="-2491.5505"
+       id="image6018"
+       height="1509.25"
+       width="2012.3333"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/hub_3x3_verify/3D.png"
+       xlink:href="visuals/fib_wdm_verify/3D.png" />
+    <image
+       y="3707.5259"
+       x="-2491.5505"
+       id="image6020"
+       height="1509.25"
+       width="2012.3333"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/hub_3x3_verify/3D.png"
+       style="opacity:0.9"
+       xlink:href="fiber3D.png" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -1457.2301,4070.6041 L -2061.2902,4070.6041"
+       id="path6022"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-2317.04"
+       y="4088.3538"
+       id="text6024"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6026"
+         x="-2317.04"
+         y="4088.3538">inputs</tspan></text>
+    <rect
+       style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate"
+       id="rect6028"
+       width="386.66113"
+       height="386.6377"
+       x="-2400.376"
+       y="4145.0884" />
+    <image
+       y="4141.0923"
+       x="-2404.376"
+       id="image6030"
+       height="386.66016"
+       width="386.66016"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+       xlink:href="wg_fiber_1550_ypol_Ey.png" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-2400.3599"
+       y="4509.0645"
+       id="text6032"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6034"
+         x="-2400.3599"
+         y="4509.0645">Ey</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-580.35657"
+       y="4026.354"
+       id="text6038"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6040"
+         x="-580.35657"
+         y="4026.354">outputs</tspan></text>
+    <g
+       id="g6042"
+       transform="translate(211.46842,5014.0471)">
+      <rect
+         y="-930.95862"
+         x="-862.33057"
+         height="386.6377"
+         width="386.66113"
+         id="rect6044"
+         style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate" />
+      <image
+         style="opacity:1"
+         xlink:href="wg_lores_single_te0_Ey.png"
+         sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+         width="386.66016"
+         height="386.66016"
+         id="image6046"
+         x="-866.33057"
+         y="-934.95471" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text6048"
+         y="-566.98254"
+         x="-862.31445"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           y="-566.98254"
+           x="-862.31445"
+           id="tspan6050"
+           sodipodi:role="line">Ey</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -796.35663,4493.0339 L -796.35663,4008.6041 L -608.07533,4008.6041"
+       id="path6052"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -796.35663,4335.6846 L -796.35663,4008.6041 L -608.07533,4008.6041"
+       id="path6064"
+       sodipodi:nodetypes="ccc" />
+    <rect
+       style="opacity:0.39484977;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect6086"
+       width="2609.5908"
+       height="1221"
+       x="-2866.1428"
+       y="2111.4219"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/3D_fib_pol.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <image
+       y="1967.297"
+       x="-2535.7188"
+       id="image6088"
+       height="1509.25"
+       width="2012.3333"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/hub_3x3_verify/3D.png"
+       xlink:href="visuals/fib_wdm_verify/3D.png" />
+    <image
+       y="1967.297"
+       x="-2535.7188"
+       id="image6090"
+       height="1509.25"
+       width="2012.3333"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/hub_3x3_verify/3D.png"
+       style="opacity:0.9"
+       xlink:href="fiber3D.png" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -1501.3985,2330.3752 L -2105.4586,2330.3752"
+       id="path6092"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-2361.2083"
+       y="2348.1248"
+       id="text6094"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6096"
+         x="-2361.2083"
+         y="2348.1248">inputs</tspan></text>
+    <rect
+       style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate"
+       id="rect6098"
+       width="386.66113"
+       height="386.6377"
+       x="-2444.5442"
+       y="2404.8594" />
+    <image
+       y="2400.8633"
+       x="-2448.5442"
+       id="image6100"
+       height="386.66016"
+       width="386.66016"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+       xlink:href="wg_fiber_1550_ypol_Ey.png" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-2444.5281"
+       y="2768.8354"
+       id="text6102"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6104"
+         x="-2444.5281"
+         y="2768.8354">Ey</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-624.52484"
+       y="2286.125"
+       id="text6106"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6108"
+         x="-624.52484"
+         y="2286.125">outputs</tspan></text>
+    <g
+       id="g6110"
+       transform="translate(167.30008,3273.8182)">
+      <rect
+         y="-930.95862"
+         x="-862.33057"
+         height="386.6377"
+         width="386.66113"
+         id="rect6112"
+         style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate" />
+      <image
+         style="opacity:1"
+         xlink:href="wg_lores_single_te0_Ey.png"
+         sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+         width="386.66016"
+         height="386.66016"
+         id="image6114"
+         x="-866.33057"
+         y="-934.95471" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text6116"
+         y="-566.98254"
+         x="-862.31445"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           y="-566.98254"
+           x="-862.31445"
+           id="tspan6118"
+           sodipodi:role="line">Ey</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -840.52497,2752.805 L -840.52497,2268.3752 L -652.24367,2268.3752"
+       id="path6120"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker-start:url(#DotS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -840.52497,2595.4557 L -840.52497,2268.3752 L -652.24367,2268.3752"
+       id="path6122"
+       sodipodi:nodetypes="ccc" />
+    <rect
+       style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate"
+       id="rect6124"
+       width="386.66113"
+       height="386.6377"
+       x="-2825.5103"
+       y="2844.1956" />
+    <image
+       y="2840.1995"
+       x="-2829.5103"
+       id="image6126"
+       height="386.66016"
+       width="386.66016"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+       xlink:href="wg_fiber_1310_circ_Ex.png" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-2825.4941"
+       y="3208.1716"
+       id="text6128"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6130"
+         x="-2825.4941"
+         y="3208.1716">Ex</tspan></text>
+    <rect
+       style="opacity:0.82832618;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter5801);enable-background:accumulate"
+       id="rect6132"
+       width="386.66113"
+       height="386.6377"
+       x="-2423.5791"
+       y="2844.1956" />
+    <image
+       y="2840.1995"
+       x="-2427.5791"
+       id="image6134"
+       height="386.66016"
+       width="386.66016"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/wg_lores_single_te0_Ey.png"
+       xlink:href="wg_fiber_1310_circ_Ey.png" />
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-2423.563"
+       y="3208.1716"
+       id="text6136"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6138"
+         x="-2423.563"
+         y="3208.1716">Ey</tspan></text>
+  </g>
+</svg>

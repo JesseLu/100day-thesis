@@ -171,13 +171,16 @@
 \nextpage
 
 \oursection{Direct design with regularization}
+\stepwise{
 \I  Direct design ``works'' but not practical
     \BE \minimize_z \|A(z)x - b\|^2 \EE
-\I  So, let's add a \emph{regularization} term to $z$ and solve the following instead 
-    \BE \minimize_z \|A(z)x - b\|^2 + \eta\|z-z_0\|^2 \EE
-    \BI  $\|z-z_0\|^2$ term keeps $z$ close to $z_0$
+\step{\I  So, let's add a \emph{regularization} term to $z$ and solve the following instead 
+    \BE \minimize_z \|A(z)x - b\|^2 + \eta\|z-z_0\|^2 \EE}
+    \step{\BI  $\|z-z_0\|^2$ term keeps $z$ close to $z_0$
     \I  $\eta$ controls the strength of the regularization \EI
-\I  Solution can still be computed in one step
+
+\I  Solution can still be computed in one step}
+}
 \nextpage
 
 \bigfig{1d_regularized_12}
@@ -202,10 +205,12 @@
 
 \oursection{Iterative design of nanophotonic devices}
 \I  New algorithm: Iteratively solve for $x$ (field) and $z$ (structure)
+    \pause
     \begin{align*} 
     \minimize_z & \|A(z)x - b\|^2 + \eta_0\|z - z_\text{prev}\|^2 \\
     \minimize_x & \|A(z)x - b\|^2 + \eta_1\|x - x_\text{prev}\|^2 
     \end{align*}
+    \pause
 \I  Takes advantage of the \emph{bi-linearity} of the physics residual
     \BI Jointly solving for $x$ and $z$ is a non-convex problem \EI
 \nextpage
@@ -226,10 +231,12 @@
 
 \oursection{Iterative design with hard constraints on $z$}
 \I  We can also put hard limits on $z$ (structure)
+    \pause
     \begin{align*} 
     \minimize & \|A(z)x - b\|^2 + \eta_1\|x - x_\text{prev}\|^2\\
     \subto & z_\text{min} \le z \le z_\text{max}
     \end{align*}
+    \pause
 \I  $z_\text{min} \le z \le z_\text{max}$ constraint 
     better represents manufacturability constraint
     \BI Corresponds to a minimum and maximum allowable permittivity ($\epsilon$) \EI
@@ -250,16 +257,21 @@
 \nextpage
 
 \oursection{Objective-first design of linear devices}
+\stepwise{
 \I  Next realization: for linear components, 
     only certain elements of $x$ (field) matter
-    \BI Specifically, the elements of $x$ at the input/output ports \EI
+\step{\BI Specifically, the elements of $x$ at the input/output ports \EI}
+\step{
     \begin{align*} 
     \minimize & \|A(z)x - b\|^2 \\
     \subto & x_\text{boundary} - \hat{x}_\text{boundary} = 0 \\
         & z_\text{min} \le z \le z_\text{max}
     \end{align*}
+}
+\step{
 \I  Instead of regularization term, we force the elements of $x$
-    at the boundary to be equal to the ideal case ($\hat{x}$)
+    at the boundary to be equal to the ideal case ($\hat{x}$)}
+}
 \nextpage
 
 \I  Called \emph{objective-first} design because the design objective 
@@ -318,35 +330,45 @@
 \smallfig{maxwell}
 \nextpage
 
+
 \I  Scalable
     \BI Far outstrips computing clusters such as Teragrid
     \I  Can perform multiple solves in parallel, on a single Matlab instance 
     \I  All computation is performed externally (in the cloud) \EI
-
+\pause
 \I  Easy to use
     \BI Installs with a single Matlab command
     \I  Solves completed with a single Matlab command: \verb+maxwell(...);+ \EI
-
+\pause
 \I  The key technological enabler in achieving 3D design
 \nextpage
 
 \oursection{3D design: problem statement}
+\stepwise{
+    \step{
 \begin{align*}
     \minimize & \sum_i^M \|A_i(z)x_i - b_i\|^2 \\
     \subto & \alpha_{ij} \le |c_{ij}\T x_i| \le \beta_{ij}, \quad
         \text{for $i = 1, \ldots, M$ and $j = 1, \ldots, N_i$} \\
         &   z_\text{min} \le z \le z_\text{max}
 \end{align*}
-\I  $M$ modes with $N_i$ monitored output modes each
-    \BI $b_i$ is the input excitation for each mode
+    }
+\step{
+\I  $M$ modes with $N_i$ monitored output modes each}
+    \step{\BI $b_i$ is the input excitation for each mode
     \I  $|c_{ij}\T x_i|$ is the field overlap with output mode $c_{ij}$
-    \I  $\alpha_{ij}$ and $\beta_{ij}$ is the design range for the overlap \EI
+    \I  $\alpha_{ij}$ and $\beta_{ij}$ is the design range for the overlap \EI}
+}
 \nextpage
 
-\I  Show input and output modes here as explanation of problem statement
-\I  Use 3D model of wgc te as example.
 \medfig{3D_wgc_te}
+\I  Input mode is excited using current source ($b_i$ or $-i\omega J$)
+\I  Output mode is enforced using overlap integrals
+    ($c_{ij}\T x_i$ or $\int \hat{E_{ij}} E$)
 \nextpage
+
+% \oursection{Structure of 3D designs}
+% \I  250 nm silicon slab surrounded by silica
 
 \I TE mode converter
 \smallfig{takeaway}

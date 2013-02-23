@@ -113,28 +113,30 @@ device mux2
 \I  Realization: Design-by-description is \emph{extremely powerful}
 \pause
     \BI The description (or function) of all useful devices is known
-    \I  Therefore, design-by-description will allow us to design \emph{everything} 
+    \I  Therefore, design-by-description enables the design of \emph{everything} 
     \EI
 \pause
-\I  Assumes that design-by-description can actually be made to work
+\I  Assumption: Design-by-description can actually be made to work
 \pause
-\I  Our goal: Make it work
+\I  Our goal: Make it work!
 
 \nextpage
 
 \oursection{Summary}
 \smallfig{takeaway}
-\I  Our work: Software to design 3D linear nanophotonic devices using 
-    the full available parameter space \pause
+\I  Our work: Designed 3D linear nanophotonic devices
+    \BI Using the full parameter space
+    \I  Using design-by-description \EI
 \nextpage
 
 \I  Many of these devices are
     \BI Completely novel (no previously known designs)
     \I  Extremely compact (footprints of a few vacuum wavelengths)
-    \I  High efficiency ($>80\%$ transmission) \EI
+    \I  High efficiency ($>80\%$ transmission) 
+    \I  Manufacturable \EI
 \pause
 
-\I  Developed by
+\I  Our approach:
     \BI applying (convex) optimization techniques (math)
     \I  to the area of nanophotonics (physics)
     \I  and implementing in software (programming) \EI
@@ -144,17 +146,18 @@ device mux2
     \begin{quote}CONTAINS INVOLVED MATHEMATICAL CONTENT\end{quote}
 \nextpage
 
-\oursection{Given a field, can we find its structure?}
+\oursection{Given a field, can we find its device/structure?}
 \smallfig{my_definition}
 \stepwise{
 \step{\I  Equivalently, find $\epsilon$ (structure) given $E$ (field)
     \BE \nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E = 
-        -i \omega J \EE}
-\step{\I  If possible, we can design \emph{any} nanophotonic/optical component!}
+        -i \omega J \EE
+where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 }
 \nextpage
 
-\I Answer: Yes, given $E$ we \emph{can} solve for $\epsilon$ (trivial!)
+\oursection{Given a field, can we find its device/structure?}
+\I  Answer: Yes, given $E$ we \emph{can} solve for $\epsilon$ (trivial!) \\
     \stepwise{
     \begin{align*} 
     \nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E &= 
@@ -166,8 +169,12 @@ device mux2
     \step{\epsilon &= (\nabla\times\mu_0^{-1}\nabla\times E + 
         i \omega J)/ \omega^2 E} 
     \end{align*}
-    }
+    (Reminder, $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$)
+\step{
 \I  Solving for $\epsilon$ actually way faster than simulation (solving for $E$)!
+}
+
+    }
 \nextpage
 
 \I  Obvious and well-known from a mathematical perspective
@@ -210,9 +217,10 @@ device mux2
 \I  Solve for $z$ (structure) and check design fidelity with simulation
 \smallfig{1d_leastsquares}
 \pause
-\I  Result
-    \BI Perfect performance
-    \I  But unmanufacturable structure ($z$ not well-behaved) \EI
+
+\let\thefootnote\relax\footnotetext{Footnotetext without footnote mark} 
+\I  Result\footnote{Lu et al, Optics Express (2010)}: 
+    Perfect performance, but unmanufacturable structure ($z$)
 \nextpage
 
 \oursection{Direct design with regularization}

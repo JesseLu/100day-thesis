@@ -600,7 +600,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \step{
 \I  Design-by-description is a key enabler
     \BI All 11 final results achieved in only 3 weeks
-    \I  Of course, 7 years of development and 18 monts of programming\ldots \EI
+    \I  Of course, 7 years of development and 18 months of programming\ldots \EI
 }
 \step{
 \I  Individual design runtimes between 8-80 hours
@@ -610,8 +610,56 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \oursection{One more thing\ldots}
 \pause
 \medfig{spl_wdm}
-\I  Let's revisit our wavelength splitter 
+\I  Let's revisit our wavelength splitter (result 5)
 \nextpage
 
+\I  Take original structure and perform a broadband wavelength analysis
+\threeDfig{analysis_spl_only}
+\pause
+\I  Analysis shows that broadband response can be improved
+\I  Already supported by our problem formulation
+    \BI Through the use of ``supermodes'' \EI
+\nextpage
+
+\I  Use 5 modes (instead of 1) at each central wavelength
+\threeDfig{analysis_top}
+\I  \bold{Result}: Use of 5-fold, spectrally-broad supermodes
+    produces broadband response 
+\nextpage
+
+\oursection{Result 12: Broadband wavelength splitter}
+\medfig{top_wdm_comp}
+\I  Broadband design uses original structure as starting point
+\nextpage
+
+\oursection{Result 12-1: Broadband splitter temperature dependence}
+\I  Futher analysis of performance with temperature shift
+\pause
+\I  We use
+    \BI $\Delta n_\text{Si} / \Delta T = 1.85 \cdot 10^{-4} K^{-1}$ 
+    \I  $\Delta n_{\text{SiO}_2} / \Delta T = 0$ \EI
+\pause
+\I  Important since robustness to thermal shift 
+    is critical for practical devices
+\nextpage
+
+\I  \bold{Result}: Stable over $> 900$K thermal shifts
+\threeDfig{analysis_temp_shift2}
+\I  $\Delta T = 905$K point marks refractive index shift from 3.5 to 3.67 (huge!)
+\I  Potentially means that networks with no need for thermal tuning are possible
+    \BI Occurs when thermal robustness $>$ thermal swing \EI
+\nextpage
+
+\oursection{Result 12-2: Broadband splitter fabrication robustness}
+\I  Further analysis of performance with over-/under-etching of the device
+\medfig{top_wdm_overunder}
+\nextpage
+
+\I  \bold{Result}: Stable to $\sim$8 nm over-/under-etch 
+\threeDfig{analysis_fab_shift2}
+\I  Wavelength adjustment not needed in this case
+\I  \bold{Key}: Shows that robustness to variation in wavelength 
+    is a good heuristic for thermal and fabrication robustness
+    \BI Designs using thermal and fabrication supermodes also possible\EI
 \EI
 \end{document}

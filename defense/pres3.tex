@@ -51,7 +51,8 @@
 \date{February 25, 2013}
 
 % \usepackage{pause}
-\usepackage[display]{texpower}
+\usepackage[display]{texpower} % For presentation
+% \usepackage[printout]{texpower} % For print-out
 
 % No mark footnotes.
 \let\thefootnote\relax
@@ -534,7 +535,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 
 \oursection{Result 7: 4x4 hub}
 \threeDfig{3Db_hub_4x4}
-\I  Pop quiz: Can you guess which trace goes where?
+\I  Pop quiz: Can you tell which trace goes where?
 \nextpage
 
 \I  Formulate answer as a 4-digit number 
@@ -643,9 +644,11 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     is critical for practical devices
 \nextpage
 
-\I  \bold{Result}: Stable over $> 900$K thermal shifts
+\I  \bold{Result}: Stable wavelengths available even up to $905$K shifts!
 \threeDfig{analysis_temp_shift2}
+\pause
 \I  $\Delta T = 905$K point marks refractive index shift from 3.5 to 3.67 (huge!)
+\pause
 \I  Potentially means that networks with no need for thermal tuning are possible
     \BI Occurs when thermal robustness $>$ thermal swing \EI
 \nextpage
@@ -658,8 +661,58 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \I  \bold{Result}: Stable to $\sim$8 nm over-/under-etch 
 \threeDfig{analysis_fab_shift2}
 \I  Wavelength adjustment not needed in this case
+\pause
 \I  \bold{Key}: Shows that robustness to variation in wavelength 
     is a good heuristic for thermal and fabrication robustness
     \BI Designs using thermal and fabrication supermodes also possible\EI
+\nextpage
+
+\I  Robustness likely due to a combination of 
+    small device footprint,
+    broadband wavelength response, and
+    low-intensity field in device
+\medfig{top_wdm}
+\nextpage
+
+\oursection{Conclusion}
+\footnotetext{$^\ast$maybe}
+\I  How to design any$^\ast$ linear multi-mode nanophotonic device
+    \BI using the full parameter space
+    \I  simply by describing its operation \EI
+\pause
+\I  Our method results in designs which are
+    \BI extremely compact
+    \I  manufacturable \EI
+\pause
+\I  Devices can be designed which are robust to
+    \BI wavelength shifts
+    \I  thermal shifts 
+    \I  fabrication error \EI
+\oursection{Acknowledgements}
+\begin{quote}
+Not unto us, O Lord, not unto us, \\
+But to Your name give glory, \\
+Because of Your mercy, \\
+Because of Your truth. (Psalm 115:1)
+\end{quote}
+\stepwise{
+\step{Mom, Dad, }
+\step{Jennifer, }
+\step{Eli, }
+\step{Seth, Lieven, Kelley,}
+\step{Shanhui, Mark,}
+\step{David,}
+\step{Jelena,}
+\step{Stephen,}
+\step{Maria, Yiyang, Szu-lin, Gary,}
+\step{JVgroup,}
+\step{Owen, Paul,}
+\step{Wonseok,}
+\step{Ingrid,}
+\step{Church family,}
+\step{Sandy, Josiah}
+
+\step{\begin{center}Thank you\end{center}}
+}
 \EI
 \end{document}

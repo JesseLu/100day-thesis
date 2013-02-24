@@ -6,7 +6,7 @@
 \raggedright
 \special{! TeXDict begin /landplus90{true}store end }
 \newcommand{\nextpage}{\vfill\newpage}
-
+\newcommand{\bold}{\textbf}
 \renewcommand{\oursection}[1]{
 \foilhead[-1.0cm]{#1}
 }
@@ -36,6 +36,11 @@
     \centerline{\includegraphics[height=12cm]{fig/#1.jpg}}
     \end{figure}
 }
+\newcommand{\threeDfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[width=20cm]{fig/#1.jpg}}
+    \end{figure}
+}
 \newcommand{\BI}{\begin{itemize}\item}
 \newcommand{\I}{\item}
 \newcommand{\EI}{\end{itemize}}
@@ -54,19 +59,12 @@
 \begin{document}
 \setlength{\parskip}{0cm}
 \maketitle
-\begin{itemize} \itemsep -1pt
-\I  Introduction
-\I  Summary
-\I  Incremental results
-\I  Final result
-\EI
-
-% \BIT \itemsep -1pt
-% \item motivation
-% \item theory
-% \item results
-% \EIT
-
+% \begin{itemize} \itemsep -1pt
+% \I  Introduction
+% \I  Summary
+% \I  Incremental results
+% \I  Final result
+% \EI
 \nextpage
 
 \oursection{Introduction}
@@ -81,7 +79,7 @@
     by tuning a small number of design parameters
 \smallfig{integrated_circuit}
 \pause
-\I  Our idea: Design using \emph{all} available parameters
+\I  \bold{Our idea}: Design using \emph{all} available parameters
     \BI If successful, full-parameter design \emph{guarantees} better devices 
     \I  i.e. We can do better by using \emph{all} the design parameters \EI
 
@@ -96,7 +94,7 @@
 \I  Include/exclude per pixel gives us $2^{(15^2)} = 2^{225}$ possibilities
     \BI $2^{225} = 67$-digit number, uncountable \EI
 \pause
-\I  Realization: Hand-tuning won't work for full-parameter design
+\I  \bold{Realization}: Hand-tuning won't work for full-parameter design
 \nextpage
 
 \I  Full-parameter design must be \emph{design-by-description}
@@ -112,21 +110,21 @@ device mux2
 \smallfig{thesolution}
 \nextpage
 
-\I  Realization: Design-by-description is \emph{extremely powerful}
+\I  \bold{Realization}: Design-by-description is \emph{extremely powerful}
 \pause
     \BI The description (or function) of all useful devices is known
     \I  Therefore, design-by-description enables the design of \emph{everything} 
     \EI
 \pause
-\I  Assumption: Design-by-description can actually be made to work
+\I  \bold{Assumption}: Design-by-description can actually be made to work
 \pause
-\I  Our goal: Make it work!
+\I  \bold{Our goal}: Make it work!
 
 \nextpage
 
 \oursection{Summary}
 \smallfig{takeaway}
-\I  Our work: Designed 3D linear nanophotonic devices
+\I  Designed 3D linear nanophotonic devices
     \BI Using the full parameter space
     \I  Using design-by-description \EI
 \nextpage
@@ -138,7 +136,7 @@ device mux2
     \I  Manufacturable \EI
 \pause
 
-\I  Our approach:
+\I  \bold{Our approach}:
     \BI applying (convex) optimization techniques (math)
     \I  to the area of nanophotonics (physics)
     \I  and implementing in software (programming) \EI
@@ -159,7 +157,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \nextpage
 
 \oursection{Given a field, can we find its device/structure?}
-\I  Answer: Yes, given $E$ we \emph{can} solve for $\epsilon$ (trivial!) \\
+\I  \bold{Answer}: Yes, given $E$ we \emph{can} solve for $\epsilon$ (trivial!) \\
     \stepwise{
     \begin{align*} 
     \nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E &= 
@@ -198,7 +196,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     -i\omega J &\to b
     \end{align*}
     }
-\step{\I  Key: If $A(z)$ is linear in $z$ then $A(z)x=b$ is as well!}
+\step{\I  \bold{Key}: If $A(z)$ is linear in $z$ then $A(z)x=b$ is as well!}
     }
 
 \oursection{Direct design of nanophotonic devices}
@@ -220,7 +218,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \I  Solve for $z$ (structure) and check design fidelity with simulation
 \smallfig{1d_leastsquares}
 \pause
-\I  Result: Perfect performance, but unmanufacturable structure ($z$)
+\I  \bold{Result}: Perfect performance, but unmanufacturable structure ($z$)
 \nextpage
 
 \oursection{Direct design with regularization}
@@ -236,8 +234,8 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 }
 \nextpage
 
+\I  \bold{Regularized direct solve result}: decreased performance
 \myfig{1d_regularized_12}{11.5}
-\I  Unfortunately, regularization on $z$ decreases performance 
 \footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
@@ -247,8 +245,8 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
-\I  How to overcome the apparent trade-off between manufacturability ($z$)
-    and performance ($x$)?
+\I  \bold{Problem}: How to overcome the apparent trade-off 
+    between manufacturability ($z$) and performance ($x$)?
 \pause
 \I  Realized that there do exist some $x$ (fields)
     which result from manufacturable $z$ (structures)
@@ -259,7 +257,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \nextpage
 
 \oursection{Iterative design of nanophotonic devices}
-\I  New algorithm: Iteratively solve for $x$ (field) and $z$ (structure)
+\I  \bold{New algorithm}: Iteratively solve for $x$ (field) and $z$ (structure)
     \pause
     \begin{align*} 
     \minimize_z & \|A(z)x - b\|^2 + \eta_0\|z - z_\text{prev}\|^2 \\
@@ -278,10 +276,10 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     \BI $\eta_0, \eta_1$ gradually decreased to bring physics residual toward 0 \EI
 \nextpage
 
-\smallfig{1d_alternate}
-\I  Iterative strategy produces $z$ (structure) that 
+\I  \bold{Result of iterative strategy}: $z$ (structure) that 
     \BI is better behaved
     \I  more accurately produces $x$ \EI
+\smallfig{1d_alternate}
 \footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
@@ -298,20 +296,22 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     \BI Corresponds to a minimum and maximum allowable permittivity ($\epsilon$) \EI
 \nextpage
 
-\smallfig{1d_hardlimit}
-\I  Well-behaved, manufacturable $z$ (structure)
+\I  \bold{Result of iterative design with hard constraints on $z$}:
+\BI Well-behaved, manufacturable $z$ (structure)
 \I  Final $x$ (field) accurately reproduced
-\I  Majority of elements of $z$ are fortuitously at one limit or the other!
+\I  Majority of elements of $z$ are fortuitously at one limit or the other \EI
+\smallfig{1d_hardlimit}
 \footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
-\I  Can be used to create 2D resonators
+\I  \bold{Extension}: Iterative design can be used to create 2D resonators as well
 \smallfig{2d_circ}
 \footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
-\I  3D resonators can be designed using a ``2.5D'' approximation
+\I  \bold{Extension}: 3D resonators can be designed using a ``2.5D'' approximation
 \smallfig{25d_circ}
+\myfig{25d_approx}{4}
 \footnotetext{J. Lu, S. Boyd, J. Vuckovic, Optics Express (2011)}
 \nextpage
 
@@ -330,6 +330,8 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \step{
 \I  Instead of regularization term, we force the elements of $x$
     at the boundary to be equal to the ideal case ($\hat{x}$)}
+\footnotetext{D. A. B. Miller, ``All linear optical devices are mode converters,''
+    Optics Express (2012)}
 }
 \nextpage
 
@@ -356,59 +358,67 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \footnotetext{J. Lu, J. Vuckovic, Optics Express (2012)}
 \nextpage
 
-\I  Coupler to wide, low-index waveguide
+\I  \bold{2D objective-first result}: Coupler to wide, low-index waveguide
+    \BI Efficiency: 99.8\%
+    \I  Footprint: 1.5 square vacuum wavelengths \EI
 \medfig{ob1_wg}
 \footnotetext{J. Lu, J. Vuckovic, Optics Express (2012)}
 \nextpage
 
-\I  Coupler from fundamental to second-order waveguide mode
+\I  \bold{2D objective-first result}: Coupler to second-order waveguide mode
+    \BI Efficiency: 98.0\%
+    \I  Footprint: 1.5 square vacuum wavelengths \EI
 \medfig{ob1_wg2}
 \footnotetext{J. Lu, J. Vuckovic, Optics Express (2012)}
 \nextpage
 
-\oursection{Design of 3D linear nanophotonic devices}
+\oursection{Final result: Design of 3D linear nanophotonic devices}
 \I  Finally, enough understanding to tackle the \emph{real} design problem
 \pause
-\I  Goal: Software to design \emph{all} linear nanophotonic devices
+\I  \bold{Goal}: Software to design \emph{all} linear nanophotonic devices
 \pause
-    \BI Fully three-dimensional (no approximations)
+    \BI Design-by-description (objective-first)
+    \I  Uses the full parameter space
+    \I  High efficiency
+    \I  Fully three-dimensional (no approximations)
     \I  Multi-mode
     \I  Discrete, planar, manufacturable structure \EI
-\footnotetext{D. A. B. Miller, ``All linear optical devices are mode converters,''
-    Optics Express (2012)}
 \nextpage
 
-\I  Problem: Did not know how to solve $A(z)x - b = 0$ (simulation) in 3D
+\I  \bold{Problem}: Did not know how to solve $A(z)x - b = 0$ (simulation) in 3D
     \BI Millions of variables
     \I  Famously ill-conditioned 
     \I  No known commercial \emph{solvers} that can handle arbitrary structures \EI
 \pause
 \smallfig{wonseok}
-\I  Fortunately, Wonseok had already solved this problem
+\I  Fortunately, Wonseok Shin (Fan group) had already solved this problem
 \footnotetext{W. Shin, S. Fan, ``Choice of the perfectly matched layer boundary condition for frequency-domain Maxwell’s equations solvers,'' J. Comp. Phys. (2012)}
 
 \oursection{Maxwell: Light-simulation supercomputer}
-\I  Partnered with Wonseok to develop a cloud-based electromagnetic solver 
-    using Amazon Web Services 
+\I  Partnered with Wonseok to develop electromagnetic solver-as-a-service 
     \BI GPU-accelerated implementation of Wonseok's algorithm
-    \I  Cluster scales automatically to tens of nodes \EI
+    \I  Cluster scales automatically in the cloud (Amazon Web Services)\EI
 \smallfig{maxwell}
 \nextpage
 
 
-\I  Scalable
+\I  Accuracy 
+    \BI Solves the frequency domain problem directly 
+    \I  Allows for precise input excitation and output monitoring \EI
+\pause
+\I  Scalability
     \BI Far outstrips computing clusters such as Teragrid
-    \I  Can perform multiple solves in parallel, on a single Matlab instance 
+    \I  Can perform multiple solves in parallel, from a single Matlab instance 
     \I  All computation is performed externally (in the cloud) \EI
 \pause
-\I  Easy to use
+\I  Ease-of-use
     \BI Installs with a single Matlab command
     \I  Solves completed with a single Matlab command: \verb+maxwell(...);+ \EI
 \pause
-\I  The key technological enabler in achieving 3D design
+\I  \bold{The key technological enabler in achieving 3D design}
 \nextpage
 
-\oursection{3D design: problem statement}
+\oursection{Final result: Problem statement}
 \stepwise{
     \step{
 \begin{align*}
@@ -426,14 +436,36 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 }
 \nextpage
 
-\medfig{3D_wgc_te}
+\I  Problem statement in physics language
+\threeDfig{3Db_wgc_te}
 \I  Input mode is excited using current source ($b_i$ or $-i\omega J$)
 \I  Output mode is enforced using overlap integrals
     ($c_{ij}\T x_i$ or $\int \hat{E_{ij}} E$)
 \nextpage
 
-% \oursection{Structure of 3D designs}
-% \I  250 nm silicon slab surrounded by silica
+\oursection{Final result: Method}
+\footnotetext{S. Boyd et al, Foundations and Trends in Machine Learning (2011)}
+\I  Objective-first problem solved using 
+    alternating directions method of moments (ADMM)
+    \BI Addition of dual variable greatly accelerates convergence \EI
+\pause
+\I  After objective-first solution
+    \BI $z$ is converted to boundary parameterization for manufacturability
+    \I  Steepest-descent used in secondary optimization step \EI
+\pause
+\I  Basic device structure:
+    \BI 250 nm silicon slab surrounded by silica
+    \I  Permittivity: 12.25 (Si), 2.25 (SiO$_2$) \EI
+\nextpage
+
+\oursection{Result 1: Mode converter (TE)}
+\threeDfig{3Db_wgc_te}
+% \I  Converts from fundamental TE (in-plane polarized) mode to 
+%     second-order mode
+\I  Performance description at output waveguide:
+    \BI Power in second-order mode: 90\% to 100\%
+    \I  Power in first-order mode: 0\% to 1\% (rejection) \EI
+\nextpage
 
 \I TE mode converter
 \smallfig{takeaway}
@@ -442,7 +474,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \I  250 nm silicon slab surrounded by silica
 \newpage
 
-\medfig{3D_wgc_tm}
+\threeDfig{3Db_wgc_tm}
 \nextpage
 
 \I TM mode converter
@@ -451,7 +483,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \I  Power in rejection mode (transmitted fundamental): 1.0\%
 \newpage
 
-\medfig{3D_spl_modal}
+\threeDfig{3Db_spl_modal}
 \nextpage
 
 \I  Spatial mode splitter
@@ -459,7 +491,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \medfig{spl_modal}
 \newpage
 
-\medfig{3D_spl_tetm}
+\threeDfig{3Db_spl_tetm}
 \nextpage
 
 \I  TE/TM splitter
@@ -467,7 +499,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \medfig{spl_tetm}
 \newpage
 
-\medfig{3D_spl_wdm}
+\threeDfig{3Db_spl_wdm}
 \nextpage
 
 \I  Wavelength splitter
@@ -475,14 +507,14 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \medfig{spl_wdm}
 \newpage
 
-\medfig{3D_hub_3x3}
+\threeDfig{3Db_hub_3x3}
 \nextpage
 
 \I 3x3 hub (88.6\%, 90.6\%, 87.3\% efficiency)
 \bigfig{hub_3x3}
 \newpage
 
-\medfig{3D_hub_4x4}
+\threeDfig{3Db_hub_4x4}
 \nextpage
 
 \I 4x4 hub
@@ -493,28 +525,28 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \bigfig{hub_4x4}
 \newpage
 
-\medfig{3D_hub_2x2x2}
+\threeDfig{3Db_hub_2x2x2}
 \nextpage
 
 \I 2x2x2 hub (77.6\%, 73.7\%, 75.7\%, 75.2\% efficiency)
 \bigfig{hub_2x2x2}
 \newpage
 
-\medfig{3D_fib_te}
+\threeDfig{3Db_fib_te}
 \nextpage
 
 \I fiber coupler (51.5\%)
 \medfig{fib_te}
 \newpage
 
-\medfig{3D_fib_pol}
+\threeDfig{3Db_fib_pol}
 \nextpage
 
 \I fiber coupler mode splitter (32.6\%, 22.7\%)
 \bigfig{fib_pol}
 \newpage
 
-\medfig{3D_fib_wdm}
+\threeDfig{3Db_fib_wdm}
 \nextpage
 
 \I fiber coupler wdm (31.6\%, 28.6\%)

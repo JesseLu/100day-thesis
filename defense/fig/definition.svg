@@ -210,32 +210,30 @@
          x="-43.243801"
          y="466.49704"
          style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L">design</tspan></text>
-    <g
-       id="g2987-3"
-       transform="translate(70.454419,28.07772)">
-      <text
-         id="text4706-8-5-9"
-         y="114.36219"
-         x="-576.41711"
-         style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
-         xml:space="preserve"><tspan
-           style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
-           y="114.36219"
-           x="-576.41711"
-           id="tspan4708-3-0-6"
-           sodipodi:role="line">structure</tspan></text>
-      <text
-         id="text4706-8-5-6-7"
-         y="115.97018"
-         x="387.46136"
-         style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
-         xml:space="preserve"><tspan
-           style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
-           y="115.97018"
-           x="387.46136"
-           id="tspan4708-3-0-9-3"
-           sodipodi:role="line">field</tspan></text>
-    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-505.96271"
+       y="56.439911"
+       id="text4706-8-5-9"><tspan
+         sodipodi:role="line"
+         id="tspan4708-3-0-6"
+         x="-505.96271"
+         y="56.439911"
+         style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L">structure (<tspan
+   style="-inkscape-font-specification:Standard Symbols L;font-family:Standard Symbols L;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+   id="tspan6637">ε</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="457.91577"
+       y="58.047897"
+       id="text4706-8-5-6-7"><tspan
+         sodipodi:role="line"
+         id="tspan4708-3-0-9-3"
+         x="457.91577"
+         y="58.047897"
+         style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L">field (E)</tspan></text>
     <image
        y="1204.505"
        x="-896.14288"

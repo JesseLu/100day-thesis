@@ -116,6 +116,8 @@ device mux2
     \I  Therefore, design-by-description enables the design of \emph{everything} 
     \EI
 \pause
+\I  Also, does not require nanophotonic expertise
+\pause
 \I  \bold{Assumption}: Design-by-description can actually be made to work
 \pause
 \I  \bold{Our goal}: Make it work!
@@ -467,90 +469,149 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     \I  Power in first-order mode: 0\% to 1\% (rejection) \EI
 \nextpage
 
-\I TE mode converter
+\I  Final design, with actual (simulated) field
 \smallfig{takeaway}
-\I  Efficiency: 86.4\%
-\I  Power in rejection mode (transmitted fundamental): 0.7\%
-\I  250 nm silicon slab surrounded by silica
+\I  Efficiency: 86.4\% (rejection: 0.7\%)
+\I  Discrepancy in efficiency likely due to evanescent modes
+\I  3D proof-of-principle for multi-mode on-chip components
+    \BI with \emph{extremely} small device footprints \EI
 \newpage
 
+\oursection{Result 2: Mode converter (TM)}
 \threeDfig{3Db_wgc_tm}
+\I  Analogous to previous result, but with opposite polarization
+\I  Demonstrates that we can work with (multiple) TM modes as well 
 \nextpage
 
-\I TM mode converter
+\I  Efficiency: 76.9\% (rejection: 1.0\%)
 \smallfig{wgc_tm}
-\I  Efficiency: 76.9\%
-\I  Power in rejection mode (transmitted fundamental): 1.0\%
+\I  Lower efficiency likely due to poor confinement of TM-polarized field
+\I  Previously not demonstrated in litterature
 \newpage
 
+\oursection{Result 3: Spatial mode splitter}
 \threeDfig{3Db_spl_modal}
+\I  Key component needed to achieve multi-mode on-chip optics
 \nextpage
 
-\I  Spatial mode splitter
-\BI  Efficiency: 88.7\%, 77.4\% (0.27\%, 0.20\%) \EI
+\I  Efficiency: 88.7\%, 77.4\% (rejection: 0.27\%, 0.20\%)
 \medfig{spl_modal}
+\I  Previous designs in 2D, first design in 3D
+\footnotetext{Y. Jiao, S. Fan, D. A. B.  Miller, Optics Letters (2005)}
 \newpage
 
+\oursection{Result 4: TE/TM splitter}
 \threeDfig{3Db_spl_tetm}
+\I  Shows that both polarizations can be controlled simultaneously
+\I  Never before demonstrated, existence somewhat doubtful
+    
 \nextpage
 
-\I  TE/TM splitter
-\BI  Efficiency: 87.6\%, 88.8\% (1.06\%, 0.58\%) \EI
+\I  Efficiency: 87.6\%, 88.8\% (1.06\%, 0.58\%)
 \medfig{spl_tetm}
 \newpage
 
+\oursection{Result 5: Wavelength splitter}
 \threeDfig{3Db_spl_wdm}
+\I  Splits 1550 nm and 1310 nm waveguide modes
+\I  Large wavelength separation allows for small device footprint
 \nextpage
 
-\I  Wavelength splitter
-\BI  Efficiency: 83.2\%, 78.7\% (0.49\%, 1.66\%) \EI
+\I  Efficiency: 83.2\%, 78.7\% (0.49\%, 1.66\%)
 \medfig{spl_wdm}
 \newpage
 
+\oursection{Result 6: 3x3 hub}
 \threeDfig{3Db_hub_3x3}
+\I  Allows for overlapping ``optical traces''
+\I  First demonstration in a single device
 \nextpage
 
-\I 3x3 hub (88.6\%, 90.6\%, 87.3\% efficiency)
+\I  Efficiency: 88.6\%, 90.6\%, 87.3\%
 \bigfig{hub_3x3}
+\I  Rejection modes no longer used for computational efficiency 
 \newpage
 
+\oursection{Result 7: 4x4 hub}
 \threeDfig{3Db_hub_4x4}
+\I  Pop quiz: Can you guess which trace goes where?
 \nextpage
 
-\I 4x4 hub
+\I  Formulate answer as a 4-digit number 
 \bigfig{hub_4x4_eps}
 \newpage
 
-\I Efficiency: 85.9\%, 88.1\%, 85.4\%, 84.3\%
+\I  Efficiency: 85.9\%, 88.1\%, 85.4\%, 84.3\% (Answer: 3241)
 \bigfig{hub_4x4}
 \newpage
 
+\oursection{Result 8: 2x2x2 hub}
 \threeDfig{3Db_hub_2x2x2}
+\I  Demonstrates that switching mechanism can be separately engineered 
+    for different wavelengths (1550 nm and 1310 nm)
+\I  2x2x2 = 2 inputs, 2 outputs, and 2 wavelengths
 \nextpage
 
-\I 2x2x2 hub (77.6\%, 73.7\%, 75.7\%, 75.2\% efficiency)
+\I Efficiency: 77.6\%, 73.7\%, 75.7\%, 75.2\% 
 \bigfig{hub_2x2x2}
 \newpage
 
+\oursection{Result 9: Compact fiber coupler}
 \threeDfig{3Db_fib_te}
+\I  Compact fiber core (2 um) used for computational efficiency
+    \BI Refractive indices of fiber: $n_\text{core} = 1.6$, 
+                                    $n_\text{cladding} = 1.5$ \EI
+\I  Membrane etched halfway to increase out-of-plane symmetry breaking
 \nextpage
 
-\I fiber coupler (51.5\%)
-\medfig{fib_te}
+\I  Efficiency: 51.5\%
+\smallfig{fib_te_short}
+\I  Highest efficiency compact fiber coupler
+\I  Compact: Device combines coupling and focusing functions
 \newpage
 
+\oursection{Result 10: Mode-splitting fiber coupler}
 \threeDfig{3Db_fib_pol}
+\I  Both couples and splits linear and circular polarizations
+    \BI 1310 nm wavelength used to make fiber multi-modal \EI
 \nextpage
 
-\I fiber coupler mode splitter (32.6\%, 22.7\%)
+\I Efficiency: 32.6\%, 22.7\%
 \bigfig{fib_pol}
 \newpage
 
+\oursection{Result 11: Wavelength-splitting fiber coupler}
 \threeDfig{3Db_fib_wdm}
+\I  A fusion of result 9 (fiber coupler) and result 5 (wavelength splitter)
+\I  Shows the power of full-parameter design-by-description
 \nextpage
 
-\I fiber coupler wdm (31.6\%, 28.6\%)
+\I  Efficiency: 31.6\%, 28.6\%
 \bigfig{fib_wdm}
 \newpage
+
+\oursection{Results summary}
+\stepwise{
+\I  Variety of devices suggests all devices possible
+    \BI Converters: both TE and TM polarizations
+    \I  Splitters: spatial, polarization, wavelength
+    \I  Hubs: 3x3, 4x4, 2x2x2
+    \I  Fiber couplers: compact, mode-splitting, wavelength-splitting \EI
+\step{
+\I  Design-by-description is a key enabler
+    \BI All 11 final results achieved in only 3 weeks
+    \I  Of course, 7 years of development and 18 monts of programming\ldots \EI
+}
+\step{
+\I  Individual design runtimes between 8-80 hours
+    \BI Many future speedups possible at all levels \EI
+}}
+
+\oursection{One more thing\ldots}
+\pause
+\medfig{spl_wdm}
+\I  Let's revisit our wavelength splitter 
+\nextpage
+
 \EI
 \end{document}

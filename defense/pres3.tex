@@ -48,6 +48,8 @@
 % \usepackage{pause}
 \usepackage[display]{texpower}
 
+% No mark footnotes.
+\let\thefootnote\relax
 
 \begin{document}
 \setlength{\parskip}{0cm}
@@ -213,14 +215,12 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     where $\epsilon \to z$
 \nextpage
 
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \I  Choose canonical 1D cavity field for $x$
 \I  Solve for $z$ (structure) and check design fidelity with simulation
 \smallfig{1d_leastsquares}
 \pause
-
-\let\thefootnote\relax\footnotetext{Footnotetext without footnote mark} 
-\I  Result\footnote{Lu et al, Optics Express (2010)}: 
-    Perfect performance, but unmanufacturable structure ($z$)
+\I  Result: Perfect performance, but unmanufacturable structure ($z$)
 \nextpage
 
 \oursection{Direct design with regularization}
@@ -236,13 +236,15 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 }
 \nextpage
 
-\bigfig{1d_regularized_12}
+\myfig{1d_regularized_12}{11.5}
 \I  Unfortunately, regularization on $z$ decreases performance 
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
 \smallfig{1d_regularized_3}
     \BE \minimize_z \|A(z)x - b\|^2 + \eta\|z-z_0\|^2 \EE
 \I  Decreased performance a result of non-zero physics residual at optimum
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
 \I  How to overcome the apparent trade-off between manufacturability ($z$)
@@ -280,6 +282,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \I  Iterative strategy produces $z$ (structure) that 
     \BI is better behaved
     \I  more accurately produces $x$ \EI
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
 \oursection{Iterative design with hard constraints on $z$}
@@ -299,14 +302,17 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \I  Well-behaved, manufacturable $z$ (structure)
 \I  Final $x$ (field) accurately reproduced
 \I  Majority of elements of $z$ are fortuitously at one limit or the other!
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
 \I  Can be used to create 2D resonators
 \smallfig{2d_circ}
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
 \nextpage
 
 \I  3D resonators can be designed using a ``2.5D'' approximation
 \smallfig{25d_circ}
+\footnotetext{J. Lu, S. Boyd, J. Vuckovic, Optics Express (2011)}
 \nextpage
 
 \oursection{Objective-first design of linear devices}
@@ -347,14 +353,17 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \I  Produced designs which exhibited
     \BI High efficiency ($\sim 98\%$)
     \I  Small device footprints ($1.5-4$ square vacuum wavelengths) \EI
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2012)}
 \nextpage
 
 \I  Coupler to wide, low-index waveguide
 \medfig{ob1_wg}
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2012)}
 \nextpage
 
 \I  Coupler from fundamental to second-order waveguide mode
 \medfig{ob1_wg2}
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2012)}
 \nextpage
 
 \oursection{Design of 3D linear nanophotonic devices}
@@ -365,6 +374,8 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     \BI Fully three-dimensional (no approximations)
     \I  Multi-mode
     \I  Discrete, planar, manufacturable structure \EI
+\footnotetext{D. A. B. Miller, ``All linear optical devices are mode converters,''
+    Optics Express (2012)}
 \nextpage
 
 \I  Problem: Did not know how to solve $A(z)x - b = 0$ (simulation) in 3D
@@ -374,6 +385,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \pause
 \smallfig{wonseok}
 \I  Fortunately, Wonseok had already solved this problem
+\footnotetext{W. Shin, S. Fan, ``Choice of the perfectly matched layer boundary condition for frequency-domain Maxwell’s equations solvers,'' J. Comp. Phys. (2012)}
 
 \oursection{Maxwell: Light-simulation supercomputer}
 \I  Partnered with Wonseok to develop a cloud-based electromagnetic solver 

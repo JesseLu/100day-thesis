@@ -7445,5 +7445,350 @@
          x="-102.83043"
          y="4439.4209"
          style="font-size:8px;fill:#000000">8nm over-etch</tspan></text>
+    <rect
+       style="opacity:0.8;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.30000001;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4414"
+       width="280"
+       height="154"
+       x="-375.08221"
+       y="4642.9985"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/top_wdm.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <rect
+       style="opacity:0.8;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3620)"
+       id="rect4416"
+       width="114"
+       height="114"
+       x="-329.07095"
+       y="4663.4053"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <image
+       y="4662.9985"
+       x="-329.07095"
+       id="image4418"
+       height="114"
+       width="114"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/spl_modal_verify/epsilon1zabsz_stepV.png"
+       xlink:href="eps0.png" />
+    <image
+       y="4646.6196"
+       x="-206.31358"
+       id="image4420"
+       height="70"
+       width="70"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/spl_modal_verify/E1yabsz_stepV.png"
+       xlink:href="visuals/top_wdm_verify/E3yabsz_stepV.png" />
+    <image
+       y="4723.3774"
+       x="-206.31358"
+       id="image4422"
+       height="70"
+       width="70"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/spl_modal_verify/E2yabsz_stepV.png"
+       xlink:href="visuals/top_wdm_verify/E8yabsz_stepV.png" />
+    <g
+       inkscape:export-ydpi="600"
+       inkscape:export-xdpi="600"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+       transform="matrix(0.5103331,0,0,0.5103331,-452.78047,4485.3667)"
+       id="g4424">
+      <text
+         inkscape:export-ydpi="300"
+         inkscape:export-xdpi="300"
+         inkscape:export-filename="/home/toutpourlui/pres/muri_pres/fig/target.png"
+         id="text4426"
+         y="568.25714"
+         x="271.57809"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           y="568.25714"
+           x="271.57809"
+           id="tspan4428"
+           sodipodi:role="line"
+           style="font-size:8px">x</tspan></text>
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#TriangleInS);marker-end:url(#TriangleOutS);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 269.05649,566.96398 L 250.23739,566.96398 L 250.23739,548.14488"
+         id="path4430"
+         sodipodi:nodetypes="ccc" />
+      <text
+         inkscape:export-ydpi="300"
+         inkscape:export-xdpi="300"
+         inkscape:export-filename="/home/toutpourlui/pres/muri_pres/fig/target.png"
+         id="text4432"
+         y="544.43298"
+         x="248.53928"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           y="544.43298"
+           x="248.53928"
+           id="tspan4434"
+           sodipodi:role="line"
+           style="font-size:8px">y</tspan></text>
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.0825758;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4436"
+         sodipodi:cx="780.69348"
+         sodipodi:cy="645.92212"
+         sodipodi:rx="15.447512"
+         sodipodi:ry="14.000921"
+         d="M 796.14099,645.92212 A 15.447512,14.000921 0 1 1 765.24597,645.92212 A 15.447512,14.000921 0 1 1 796.14099,645.92212 z"
+         transform="matrix(0.156517,0,0,0.1726885,128.02144,455.41579)" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.0825758;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4438"
+         sodipodi:cx="780.69348"
+         sodipodi:cy="645.92212"
+         sodipodi:rx="15.447512"
+         sodipodi:ry="14.000921"
+         d="M 796.14099,645.92212 A 15.447512,14.000921 0 1 1 765.24597,645.92212 A 15.447512,14.000921 0 1 1 796.14099,645.92212 z"
+         transform="matrix(5.9555867e-2,0,0,6.5709242e-2,203.71836,524.51606)" />
+      <text
+         inkscape:export-ydpi="300"
+         inkscape:export-xdpi="300"
+         inkscape:export-filename="/home/toutpourlui/pres/muri_pres/fig/target.png"
+         id="text4440"
+         y="565.60406"
+         x="253.26462"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           y="565.60406"
+           x="253.26462"
+           id="tspan4442"
+           sodipodi:role="line"
+           style="font-size:8px">z</tspan></text>
+    </g>
+    <g
+       id="g4444"
+       transform="translate(-80.954654,3349.5287)">
+      <g
+         transform="translate(-45.25649,1258.4617)"
+         inkscape:export-ydpi="600"
+         inkscape:export-xdpi="600"
+         inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+         id="g4446">
+        <rect
+           style="opacity:0.8;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3594)"
+           id="rect4448"
+           width="4"
+           height="70"
+           x="-212.45363"
+           y="76.688087" />
+        <image
+           y="76.688087"
+           x="-212.45363"
+           id="image4450"
+           height="70"
+           width="4"
+           sodipodi:absref="/home/toutpourlui/objective-first/fig/cloak1/c_cbar.png"
+           xlink:href="/home/toutpourlui/objective-first/fig/cloak1/c_cbar.png" />
+      </g>
+      <text
+         inkscape:export-ydpi="600"
+         inkscape:export-xdpi="600"
+         inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="125%"
+         id="text4452"
+         y="-263.23639"
+         x="-1383.4242"
+         style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           style="font-size:5px;fill:#000000"
+           y="-263.23639"
+           x="-1383.4242"
+           id="tspan4454"
+           sodipodi:role="line">permittivity</tspan></text>
+      <text
+         inkscape:export-ydpi="600"
+         inkscape:export-xdpi="600"
+         inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+         sodipodi:linespacing="125%"
+         id="text4456"
+         y="1406.7056"
+         x="-270.94431"
+         style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           style="font-size:5px;fill:#000000"
+           y="1406.7056"
+           x="-270.94431"
+           id="tspan4458"
+           sodipodi:role="line">2.25</tspan></text>
+      <text
+         inkscape:export-ydpi="600"
+         inkscape:export-xdpi="600"
+         inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+         sodipodi:linespacing="125%"
+         id="text4460"
+         y="1337.4138"
+         x="-273.39548"
+         style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           style="font-size:5px;fill:#000000"
+           y="1337.4138"
+           x="-273.39548"
+           id="tspan4462"
+           sodipodi:role="line">12.25</tspan></text>
+    </g>
+    <path
+       style="fill:#808080;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M -242.7349,4774.7393 L -217.7349,4774.7393"
+       id="path4464"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <text
+       xml:space="preserve"
+       style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-236.73828"
+       y="4772.5835"
+       id="text4466"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan4468"
+         x="-236.73828"
+         y="4772.5835"
+         style="font-size:5px;fill:#000000">1 um</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-204.99442"
+       y="4714.6914"
+       id="text4470"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan4472"
+         x="-204.99442"
+         y="4714.6914"
+         style="font-size:6px;fill:#ffffff">Ey</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-163.58511"
+       y="4714.8535"
+       id="text4474"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan4476"
+         x="-163.58511"
+         y="4714.8535"
+         style="font-size:6px;fill:#ffffff">1550 nm</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-204.77348"
+       y="4791.2012"
+       id="text4479"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan4481"
+         x="-204.77348"
+         y="4791.2012"
+         style="font-size:6px;fill:#ffffff">Ey</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+       x="-163.80606"
+       y="4791.3633"
+       id="text4483"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan4485"
+         x="-163.80606"
+         y="4791.3633"
+         style="font-size:6px;fill:#ffffff">1310 nm</tspan></text>
+    <g
+       id="g4487"
+       transform="translate(-52.454654,3333.6361)">
+      <g
+         inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+         transform="translate(-98.055737,1274.159)"
+         inkscape:export-ydpi="600"
+         inkscape:export-xdpi="600"
+         id="g4489">
+        <rect
+           style="opacity:0.8;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3602)"
+           id="rect4492"
+           width="4"
+           height="70"
+           x="17.175404"
+           y="76.688087" />
+        <image
+           y="76.688087"
+           x="17.888184"
+           id="image4494"
+           height="70"
+           width="4"
+           sodipodi:absref="/home/toutpourlui/objective-first/fig/cloak1/d_cbar.png"
+           xlink:href="/home/toutpourlui/objective-first/fig/cloak1/d_cbar.png" />
+      </g>
+      <text
+         inkscape:export-ydpi="600"
+         inkscape:export-xdpi="600"
+         inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+         transform="matrix(0,1,-1,0,0,0)"
+         sodipodi:linespacing="125%"
+         id="text4496"
+         y="69.504669"
+         x="1359.5195"
+         style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           style="font-size:5px;fill:#000000"
+           y="69.504669"
+           x="1359.5195"
+           id="tspan4498"
+           sodipodi:role="line">field amplitude (a.u.)</tspan></text>
+      <text
+         inkscape:export-ydpi="600"
+         inkscape:export-xdpi="600"
+         inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+         sodipodi:linespacing="125%"
+         id="text4500"
+         y="1422.1855"
+         x="-73.347115"
+         style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           style="font-size:5px;fill:#000000"
+           y="1422.1855"
+           x="-73.347115"
+           id="tspan4502"
+           sodipodi:role="line">0</tspan></text>
+      <text
+         inkscape:export-ydpi="600"
+         inkscape:export-xdpi="600"
+         inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/wgc_tm.png"
+         sodipodi:linespacing="125%"
+         id="text4504"
+         y="1352.8939"
+         x="-73.404617"
+         style="font-size:5px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Bookman L;-inkscape-font-specification:URW Bookman L"
+         xml:space="preserve"><tspan
+           style="font-size:5px;fill:#000000"
+           y="1352.8939"
+           x="-73.404617"
+           id="tspan4506"
+           sodipodi:role="line">1</tspan></text>
+    </g>
   </g>
 </svg>

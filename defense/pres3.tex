@@ -256,7 +256,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     \BI These can be produced via simulation
     \I  However, it's not useful to ask the user to choose such $x$ \EI
 \pause
-\I  Therefore, a \emph{useful} tool would optimize for \emph{both} $x$ and $z$
+\I  \bold{Realization}: A \emph{useful} tool must optimize for \emph{both} $x$ and $z$
 \nextpage
 
 \oursection{Iterative design of nanophotonic devices}
@@ -443,7 +443,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \threeDfig{3Db_wgc_te}
 \I  Input mode is excited using current source ($b_i$ or $-i\omega J$)
 \I  Output mode is enforced using overlap integrals
-    ($c_{ij}\T x_i$ or $\int \hat{E_{ij}} E$)
+    ($c_{ij}\T x_i$ or $\int \hat{E}_{ij} E$)
 \nextpage
 
 \oursection{Final result: Method}
@@ -633,6 +633,10 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
 \I  Broadband design uses original structure as starting point
 \nextpage
 
+\I  Broadband design still high efficiency 
+\I  Efficiency (1310 nm and 1550 nm): 84.2\%, 82.3\% (0.09\%, 1.41\%)
+\medfig{top_wdm}
+
 \oursection{Result 12-1: Broadband splitter temperature dependence}
 \I  Futher analysis of performance with temperature shift
 \pause
@@ -644,7 +648,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     is critical for practical devices
 \nextpage
 
-\I  \bold{Result}: Stable wavelengths available even up to $905$K shifts!
+\I  \bold{Result}: Stable wavelengths available even up to $\sim1000$K shifts!
 \threeDfig{analysis_temp_shift2}
 \pause
 \I  $\Delta T = 905$K point marks refractive index shift from 3.5 to 3.67 (huge!)
@@ -685,8 +689,7 @@ where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
     \I  manufacturable \EI
 \pause
 \I  Devices can be designed which are robust to
-    \BI wavelength shifts
-    \I  thermal shifts 
+    \BI wavelength and temperature shifts 
     \I  fabrication error \EI
 \oursection{Acknowledgements}
 \begin{quote}

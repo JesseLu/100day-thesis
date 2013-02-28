@@ -1,0 +1,132 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage{graphicx}
+\usepackage{opex3}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\title{Nanophotonic Computational Design}
+\author{Jesse Lu$^\ast$ and Jelena Vu\v{c}kovi\'{c}}
+\address{Stanford University, Stanford, California, USA.}
+\email{jesselu@stanford.edu}
+
+\begin{abstract}
+In contrast to designing nanophotonic devices 
+    by tuning a handful of device parameters, 
+    we have developed a computational method 
+    which utilizes the full parameter space to design linear nanophotonic devices.
+We show that our method may indeed be capable of designing 
+    any linear nanophotonic device by demonstrating designed structures which
+    are fully three-dimensional and multi-modal,
+    exhibit novel functionality,
+    have very compact footprints,
+    exhibit high efficiency, and
+    are manufacturable.
+In addition, we also demonstrate the ability to produce structures
+    which are strongly robust to wavelength and temperature shift,
+    as well as fabrication error.
+Critically, we show that our method 
+    does not require the user to be a nanophotonic expert or 
+    to perform any manual tuning. 
+Instead, we are able to design devices 
+    solely based on the user's desired performance specification for the device.
+\end{abstract}
+\ocis{230.75370, 130.3990.}
+
+\begin{thebibliography}{99}
+% \bibitem{fibergrating} Y. Tang, Z. Wang, L. Wosinski, U. Westergren, and S. He,
+%     ``Highly efficient nonuniform grating coupler for silicon-on-insulator 
+%     nanophotonic circuits,''
+%     Opt. Lett. \textbf{35}, 1290-1292 (2010).
+% \bibitem{ridge}  K. K. Lee, D. R. Lim, L.C. Kimerling, J. Shin, and F. Cerrina, 
+%     ``Fabrication of ultralow-loss Si/SiO2 waveguides by roughness reduction,''
+%     Opt. Lett. \textbf{26}, 1888-1890 (2001).
+% \bibitem{pcslow} Y. A. Vlasov, M. O'Boyle, H. F. Hamann, and S. J. McNab,
+%     ``Active control of slow light on a chip with photonic crystal waveguides,''
+%     Nature \textbf{438}, 65-69 (2005).
+% \bibitem{slotfocus} M. Lipson, 
+%     ``Guiding, modulating, and emitting light on 
+%     silicon-challenges and opportunities,'' 
+%     J. Lightwave Technol. \textbf{23}, 4222-4238 (2005).
+% \bibitem{active} J. Van Campenhout, P. Rojo Romeo, P. Regreny, C. Seassal, 
+%     D. Van Thourhout, S. Verstuyft, L. Di Cioccio, J.-M. Fedeli, 
+%     C. Lagahe, and R. Baets, 
+%     ``Electrically pumped InP-based microdisk lasers integrated with a 
+%     nanophotonic silicon-on-insulator waveguide circuit,'' 
+%     Opt. Express \textbf{15}, 6744-6749 (2007).
+% \bibitem{metallic} L. Tang, S. E. Kocabas, S. Latif, A. K. Okyay, 
+%     D. S. Ly-Gagnon, K. C. Saraswat, and D. A. B. Miller, 
+%     ``Nanometre-scale germanium photodetector enhanced by a 
+%     near-infrared dipole antenna,'' 
+%     Nature Photonics \textbf{2}, 226-229 (2008).
+% % \bibitem{fwadia} V. R. Almeida, R. R. Panepucci, and M. Lipson, 
+% %     ``Nanotaper for compact mode conversion,'' 
+% %     Opt. Lett. \textbf{28}, 1302-1304 (2003) 
+% % \bibitem{wwadia} S. G. Johnson, P. Bienstman,  M. A. Skorobogatiy, 
+% %     M. Ibanescu1, E. Lidorikis, and J. D. Joannopoulos,
+% %     ``Adiabatic theorem and continuous coupled-mode theory for 
+% %     efficient taper transitions in photonic crystals,''
+% %     Phys. Rev. E \textbf{66}, 066608 (2002)
+% % \bibitem{deriv} F. Wang, J. S. Jensen, O. Sigmund, 
+% %     ``Robust topology optimization of photonic crystal waveguides with 
+% %     tailored dispersion properties.'' 
+% %     J. Opt. Soc. Am. B \textbf{28}, 387-397 (2011)
+% % \bibitem{boydbook} S. Boyd, and L. Vandenberghe, 
+% %     \emph{Convex Optimization} 
+% %     (Cambridge University Press, 2004)
+% \bibitem{prevwork} J. Lu, S. Boyd, and J. Vuckovic, 
+%     ``Inverse design of a three-dimensional nanophotonic resonator,''
+%     Opt. Express \textbf{19}, 10563-10750 (2011). 
+% \bibitem{veronis} G. Veronis, and S. Fan, 
+%     ``Theoretical investigations of compact couplers between dielectric slab 
+%     waveguides and two-dimensional metal-dielectric-metal plasmonic waveguides,'' 
+%     Opt. Express \textbf{15}, 1211-1221 (2007).
+% \bibitem{yang} R. Yang, R. A. Wahsheh, Z. Lu, and M. A. G. Abushagur, 
+%     ``Efficient light coupling between dielectric slot waveguide and plasmonic
+%     slot waveguide,'' Opt. Lett. \textbf{35}, 649-651 (2010).
+% \bibitem{code} \url{www.github.com/JesseLu/objective-first}
+\end{thebibliography}
+
+\section{Introduction}
+Currently, almost all nanophotonic components are designed 
+    by hand-tuning a small number of parameters 
+    (e.g. waveguide widths and gaps, hole and ring sizes).
+However, the realization of 
+    increasingly complex, dense, and robust on-chip optical networks
+    will require utilizing increasing numbers of parameters
+    when designing nanophotonic components.
+
+Opening the design space to include many more parameters
+    allows for smaller footprint, higher performance devices by definition;
+    since original designs are still included in this parameter space.
+Unfortunately, the lack of intuition for what such designs might look like and
+    the inability to manually search such a large parameter space
+    have greatly hindered the ability to employ 
+    anything even close to the available parameter space
+    for designing nanophotonic components.
+
+For this reason, we have developed and implemented a computational method
+    which is able to use the full parameter space 
+    to design linear nanophotonic components in three dimensions.
+Critically, our method requires no user intervention or manual tuning.
+Instead, a \emph{design-by-specification} scheme is used 
+    to produce designs based solely on a user's performance specification.
+
+We show that our method can indeed produce designs 
+    which are extremely compact, and, at the same time, highly efficient.
+Furthermore, we demonstrate that devices with novel functionality
+    are easily designed.
+We also show that our method can be used to produce designs
+    with extreme robustness to wavelength and temperature shift,
+    as well as fabrication error.
+
+Lastly, since all our results are produced by simply specifying
+    the functionality and performance of the desired device,
+    our results suggest that our method may indeed by able
+    to design \emph{all} linear nanophotonic devices.
+
+\section{Method}
+
+\section{Results}
+
+\section{Conclusion}
+
+\end{document}

@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage{opex3}
 \usepackage{amsmath,amssymb}
+\input defs.tex
 \begin{document}
 \title{Nanophotonic Computational Design}
 \author{Jesse Lu$^\ast$ and Jelena Vu\v{c}kovi\'{c}}
@@ -124,6 +125,15 @@ Lastly, since all our results are produced by simply specifying
     to design \emph{all} linear nanophotonic devices.
 
 \section{Method}
+% Problem statement 
+\begin{subequations}\begin{align}
+    \minimize & \sum_i^M \|A_i(z)x_i - b_i\|^2 \\
+    \subto & \alpha_{ij} \le |c_{ij}\T x_i| \le \beta_{ij}, \quad
+        \text{for $i = 1, \ldots, M$ and $j = 1, \ldots, N_i$} \\
+        &   z_\text{min} \le z \le z_\text{max}
+\end{align}\end{subequations}
+% how we solved it
+% Maxwell
 
 \section{Results}
 

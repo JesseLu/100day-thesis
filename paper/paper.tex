@@ -236,7 +236,57 @@ Lastly, in order to arrive at fully discrete, manufacturable structures,
     and tune our structure using a steepest-descent method.
 
 \section{Results}
+We demonstrate the effectiveness of our design method 
+    by produce designs for a variety of nanophotonic devices.
+
+All of our results are in three dimensions
+    and consist of a 250 nm etched silicon slab
+    completely surrounded by silica.
+The permittivity values of silicon and silica used
+    were $\epsilon_\text{Si} = 12.25$ and $\epsilon_\text{SiO$_2$} = 2.25$
+    respectively.
+
+Many, if not all, of the produced designs exhibit 
+    novel functionality, high efficiency ($>80\%$), and 
+    very compact footprints of only a few square vacuum wavelengths;
+    while still remaining manufacturable.
+We also show that many devices can be designed
+    to exhibit different functionality for different input excitations.
+Additionally, we show that devices can be designed with large tolerances for
+    errors in wavelength, temperature and fabrication.
+
+% Runtimes for the design process ranged from 8-80 hours 
+%     based on the size of the design space.
+
+\subsection{TE mode converter}
+Our first result was a mode conversion device operating in the TE polarization,
+    which we define as that mode where the primary E-field component
+    of the waveguide mode is polarized in the plane of the structure.
+
+Our performance specification (\fig{3Db_wgc_te}) 
+    for the device was for 90\% to 100\% of the 
+    input power to be transferred from the fundamental waveguide mode,
+    to the second-order waveguide mode.
+At the same time, we specified that no more than 1\% of the input power
+    was to remain in the transmitted fundamental mode.
+
+\myfig{3Db_wgc_te}
+    {Perfomance specification of the TE mode converter.
+    Input mode is the fundamental TE-polarized mode on the left.
+    Primary output mode is the second-order mode on the right.
+    Output power in the transmitted fundamental mode on the right 
+    above 1\% is to be rejected.
+    The structure shown is the final three-dimensional design.
+    }
+
+\myfig{takeaway}
+    {Structure and E-field at the central plane of the device.
+    The conversion efficiency into the second-order mode is 86.4\%,
+    while the power into the rejection mode (fundamental) is 0.7\%.}
+
+    
 
 \section{Conclusion}
+Conclusion
 
 \end{document}

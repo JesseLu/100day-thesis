@@ -1,7 +1,17 @@
 \usepackage{amsmath}
 % \usepackage[retainorgcmds]{IEEEtrantools}
 
+\newcommand{\myfig}[2]{
+    \begin{figure}[!h]
+    \begin{centering}
+    \includegraphics[width=0.8\textwidth]{fig/#1.jpg}
+    \caption{#2}\label{#1}
+    \end{centering}
+    \end{figure}
+}
+
 \newcommand{\eq}[1]{eq.~\eqref{#1}}
+\newcommand{\fig}[1]{fig.~\ref{#1}}
 \newcommand{\BI}{\begin{itemize}\item}
 \newcommand{\I}{\item}
 \newcommand{\EI}{\end{itemize}}

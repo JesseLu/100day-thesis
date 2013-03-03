@@ -213,9 +213,27 @@ The explanation for the various terms in \eq{problem} follows:
 \section{Method of solution}
 We employed the alternating directions method of multipliers (ADMM) algorithm % Ref!
     in order to solve \eq{problem}.
-ADMM, at its core, solves \eq{problem} by iteratively solving for 
+The ADMM algorithm solves \eq{problem} by iteratively solving for 
     $x_i$, $z$, and a dual variable $u_i$.
 
+Since we are working in three dimensions, solving \eq{problem} for $x_i$ 
+    is non-trivial in that it involves millions of variables and
+    requires solving for the ill-conditioned $A_i(z)$ matrix.
+For this reason, we use a home-built
+    finite-difference frequency-domain (FDFD) solver which 
+    implements a hardware-accelerated iterative solver % Ref!
+    on Amazon's Elastic Compute Cloud.
+Critically, our cloud-based solver allows us to scale to solve problems
+    with arbitrarily-large number of modes,
+    with no significant penalty in runtime.
+
+In contrast to solving for $x_i$, solving for $z$ is much simpler since we
+    only consider planar structures;
+    thereby limiting $z$ to have only thousands of variables.
+
+Lastly, in order to arrive at fully discrete, manufacturable structures,
+    we convert $z$ to a boundary parameterization % Ref!
+    and tune our structure using a steepest-descent method.
 
 \section{Results}
 

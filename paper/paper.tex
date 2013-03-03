@@ -124,7 +124,7 @@ Lastly, since all our results are produced by simply specifying
     our results suggest that our method may indeed by able
     to design \emph{all} linear nanophotonic devices.
 
-\section{Method}
+\section{Problem formulation}
 % Problem statement 
 In order to produce designs which utilize the full parameter space,
     and are based solely on the user's performance specification,
@@ -136,7 +136,7 @@ In order to produce designs which utilize the full parameter space,
         &   z_\text{min} \le z \le z_\text{max}
 \end{align} \label{problem}\end{subequations}
 
-The explanation for the various terms in \eqref{problem} follows:
+The explanation for the various terms in \eq{problem} follows:
 \begin{enumerate}
 \item 
     $A_i(z)x_i - b_i$ is the \emph{physics residual} for the $i$th mode.
@@ -173,12 +173,49 @@ The explanation for the various terms in \eqref{problem} follows:
         with an E-field of the user's choice ($c_{ij}$),
         where the additional subscript $j$ allows the user
         to include multiple such fields.
+    The amplitude of the overlap integral is then forced to reside between
+        $\alpha_{ij}$ and $\beta_{ij}$.
 
-    The amplitude of the overlap integral is then forced
+    This mechanism allows the user to express 
+        the desired performance of the device
+        as a combination of field amplitudes in various output field patterns.
+    These outputs would be in response to a predefined input excitation,
+        which is determined by the current excitation $b_i$ ($-i\omega_i J_i$)
+        in the physics residual of each mode.
 
+    As an example of a design objective for some mode 1 
+        a user might choose to have the majority of the output power
+        reside in some output pattern 1,
+        while ensuring that only a small amount of power 
+        be transferred to some output pattern 2.
+    In this case the user would use 
+        $0.9 \le |c_{11}\T x_1| \le 1.0$ for the former.
+        and then $0.0 \le |c_{12}\T x_1| \le 0.01$ for the latter;
+        where $c_{11}$ and $c_{12}$ are representative of 
+        output patterns 1 and 2 respectively.
+        
+    Finally, we note again that the design objective in our formulation
+        is actually a hard constraint.
+    This means that it is \emph{always satisfied}, 
+        even to the extent of allowing for an unphysical field 
+        (since the physics residual will not be exactly 0).
+    It is for this reason that we call such a formulation ``objective-first''.
+
+\item 
+    The final term in \eq{problem}, $z_\text{min} \le z \le z_\text{max}$,
+        is the structure design objective.
+    It is used as a relaxation of the binary constraint,
+        $z \in {z_\text{min}, z_\text{max}}$,
+        which would ensure that the final design be composed 
+        of two discrete materials.
 \end{enumerate}
-% how we solved it
-% Maxwell
+
+\section{Method of solution}
+We employed the alternating directions method of multipliers (ADMM) algorithm % Ref!
+    in order to solve \eq{problem}.
+ADMM, at its core, solves \eq{problem} by iteratively solving for 
+    $x_i$, $z$, and a dual variable $u_i$.
+
 
 \section{Results}
 

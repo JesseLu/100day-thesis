@@ -262,6 +262,13 @@ Additionally, we show that devices can be designed with large tolerances for
 Our first result was a mode conversion device operating in the TE polarization,
     which we define as that mode where the primary E-field component
     of the waveguide mode is polarized in the plane of the structure.
+Such a device is significant because 
+    it demonstrates the feasibility of muli-mode on-chip optical networks
+    by showing that high-efficiency mode conversion 
+    can readily be achieved in planar on-chip nanophotonic structures.
+Furthermore, this device also demonstrates that this can be achieved
+    within very small device footprints 
+    ($1.6 \times 2.4$ microns for this device in particular).
 
 Our performance specification (\fig{3Db_wgc_te}) 
     for the device was for 90\% to 100\% of the 
@@ -285,15 +292,58 @@ The conversion efficiency into the second-order mode is lower
     this may be due to evanescent modes ``interfering'' 
     with the output field overlap calculation.
 
-
-
-
 \myfig{takeaway}
     {Structure and E-field at the central plane of the device.
     The conversion efficiency into the second-order mode is 86.4\%,
     while the power into the rejection mode (fundamental) is 0.7\%.}
 
+
+\subsection{TM mode converter}
+
+In addition to mode conversion in the TE polarization (E-field in-plane),
+    we show that TM polarization (E-field out-of-plane) mode converters
+    can be designed as well.
+This example shows that full three-dimensional structures 
+    truly are possible,
+    and that no approximations are needed for our method.
+
+Since our method is design-by-specification, 
+    the design of a TM mode converter requires only
+    a small modification to the performance specification of the device;
+    namely the polarization of the input and output modes (\fig{wgc_tm}).
+Specifically, we still design for 
+    $\ge 90\%$ conversion into the second-order mode and 
+    a $\le 1\%$ allowance for the fundamental mode to be transmitted.
+
+\myfig{3Db_wgc_tm}
+    {Perfomance specification of the TM mode converter.
+    Input mode is the fundamental TM-polarized mode on the left.
+    Primary output mode is the second-order mode on the right.
+    Output power in the transmitted fundamental mode on the right 
+    above 1\% is to be rejected.
+    The structure shown is the final three-dimensional design.}
     
+The performance of the device is shown in \fig{wgc_tm}.
+The lower conversion efficiency of 76.9\% in contrast to the TE mode converter
+    may be attributed to the lower confinement of the TM waveguide modes.
+However, good rejection of only 1\% is still achieved.
+
+\myfig{wgc_tm}
+    {Structure and E-field at the central plane of the device.
+    The conversion efficiency into the second-order mode is 76.9\%,
+    while the power into the rejection mode (fundamental) is 1.0\%.}
+
+\subsection{Spatial, polarization, and wavelength splitters}
+Next, we demonstrate the design of nanophotonic waveguide mode splitters.
+Such devices can be used as multiplexors or demultiplexors and
+    are the key component in utilizing a single waveguide to transmit 
+    multiple optical signals.
+
+As a demonstration of the versatility of our method, 
+    we show that it is capable of designing mode splitting devices 
+    based on either the spatial profile, the polarization, or the wavelength
+    of the input modes.
+
 
 \section{Conclusion}
 Conclusion

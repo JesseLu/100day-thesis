@@ -257,8 +257,8 @@ Additionally, we show that devices can be designed with large tolerances for
 
 % Runtimes for the design process ranged from 8-80 hours 
 %     based on the size of the design space.
-
-\subsection{TE mode converter}
+\subsection{Mode converters}
+\subsubsection{TE mode converter}
 Our first result was a mode conversion device operating in the TE polarization,
     which we define as that mode where the primary E-field component
     of the waveguide mode is polarized in the plane of the structure.
@@ -295,10 +295,11 @@ The conversion efficiency into the second-order mode is lower
 \myfig{takeaway}
     {Structure and E-field at the central plane of the device.
     The conversion efficiency into the second-order mode is 86.4\%,
-    while the power into the rejection mode (fundamental) is 0.7\%.}
+    while the power into the rejection mode (fundamental) is 0.7\%.
+    Device footprint is $1.6\times2.4$ microns.}
 
 
-\subsection{TM mode converter}
+\subsubsection{TM mode converter}
 
 In addition to mode conversion in the TE polarization (E-field in-plane),
     we show that TM polarization (E-field out-of-plane) mode converters
@@ -331,9 +332,10 @@ However, good rejection of only 1\% is still achieved.
 \myfig{wgc_tm}
     {Structure and E-field at the central plane of the device.
     The conversion efficiency into the second-order mode is 76.9\%,
-    while the power into the rejection mode (fundamental) is 1.0\%.}
+    while the power into the rejection mode (fundamental) is 1.0\%.
+    Device footprint is $1.6\times2.4$ microns.}
 
-\subsection{Spatial, polarization, and wavelength splitters}
+\subsection{Splitters}
 Next, we demonstrate the design of nanophotonic waveguide mode splitters.
 Such devices can be used as multiplexors or demultiplexors and
     are the key component in utilizing a single waveguide to transmit 
@@ -344,6 +346,75 @@ As a demonstration of the versatility of our method,
     based on either the spatial profile, the polarization, or the wavelength
     of the input modes.
 
+The performance specification for each device is simply to convert
+    90\% of the input power in a particular input mode into
+    either one of the output modes.
+At the same time, we specify that the transmission into the other output mode 
+    be kept below 1\% of input power.
+
+\subsubsection{Spatial mode splitter}
+We demonstrate what is, to our knowledge, 
+    the first design for a three-dimensional
+    nanophotonic spatial mode splitter.
+Such a device is the key enabler for multi-mode on-chip optical circuits,
+    and we show here that they can be designed to be highly efficient
+    while utilizing a very small device footprint ($2.8\times2.8$ microns). 
+The performance specification is shown in \fig{3Db_spl_modal},
+    and the final results is shown in \fig{spl_modal}.
+
+\myfig{3Db_spl_modal}
+    {Input mode is either the fundamental or second-order
+        TE-polarized mode on the left.
+    Output modes are the fundamental waveguide modes of either output 
+        waveguide on the right.
+    Output power into the desired output arm is specified to be greater than 90\%,
+        while power into the opposing arm is set to below 1\%.}
+\myfig{spl_modal}
+    {The conversion efficiencies into the upper and lower output arms
+        are 88.7\% and 77.4\% respectively, 
+        while the rejection powers for the same modes are 0.27\% and 0.20\%.
+    Device footprint is $2.8\times2.8$ microns.}
+
+\subsubsection{TE/TM splitter}
+In addition to splitting different spatial modes, 
+    we show that different polarization can also be split.
+\Fig{3Db_spl_tetm} shows the performance specification of a 
+    device which is able to separate fundamental TE- and TM-polarized
+    waveguide modes into separate arms.
+The final, verified result is shown in \fig{spl_tetm}.
+
+Not only is this result the first of its kind,
+    it is the first in the device category where a single device
+    is able to control both polarizations within the same device footprint.
+This shows the versatility and broad applicability of our method.
+
+\myfig{3Db_spl_tetm}
+    {Input mode is either the fundamental TE- or TM-polarized 
+        mode on the left.
+    Output power into the desired output arm is specified to be greater than 90\%,
+        while power into the opposing arm is set to below 1\%.}
+\myfig{spl_tetm}
+    {The conversion efficiencies into the upper and lower output arms
+        are 87.6\% and 88.8\% respectively, 
+        while the rejection powers for the same modes are 1.06\% and 0.58\%.
+    Device footprint is $2.8\times2.8$ microns.}
+
+\subsubsection{Wavelength splitter}
+Traditional wavelength splitting devices can also be designed using our method.
+Here, we show that the 1550 nm and 1310 nm wavelengths can be split
+    in a very small device footprint ($2.8\times2.8$ microns).
+\myfig{3Db_spl_wdm}
+    {Input mode is the fundamental TE-polarized mode on the left at 
+        a wavelength of either 1550 nm or 1330 nm.
+    Output modes are the fundamental waveguide modes of either output 
+        waveguide on the right.
+    Output power into the desired output arm is specified to be greater than 90\%,
+        while power into the opposing arm is set to below 1\%.}
+\myfig{spl_wdm}
+    {The conversion efficiencies into the upper and lower output arms
+        are 83.2\% and 78.7\% respectively, 
+        while the rejection powers for the same modes are 0.49\% and 1.66\%.
+    Device footprint is $2.8\times2.8$ microns.}
 
 \section{Conclusion}
 Conclusion

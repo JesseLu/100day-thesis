@@ -603,13 +603,75 @@ The final result for the broadband wavelength splitter is shown in \fig{top_wdm}
     allows for 
     high-efficiency operation is achieved across a wide bandwidth.}
 \myfig{top_wdm}
-    {Broadband wavelength splitter final result.}
-\myfig{analysis_temp_shift2}{}
-\myfig{analysis_fab_shift2}{}
-\myfig{top_wdm_overunder}{}
+    {Broadband wavelength splitter final result.
+    The efficiencies at the central target wavelengths of 1550 nm and 1310 nm
+    exceed those of its narrowband counterpart (\fig{spl_wdm}).}
 
+\subsubsection{Temperature-robustness of broadband wavelength splitter}
+We can now perform a temperature analysis of our broadband wavelength splitter,
+    using $\Delta n_\text{Si} / \Delta T = 1.85 \cdot 10^{-4} K^{-1}$ 
+    and $\Delta n_{\text{SiO}_2} / \Delta T = 0$ 
+    (no refractive index shift for silica).
+This analysis, shown in \fig{analysis_temp_shift2},
+    reveals that stable operating points exist
+    over a temperature range of nearly 1000 K.
+Such a result is telling in that it demonstrates
+    that on-chip optical devices can be designed to be \emph{passively} stable
+    to temperature shifts which would typically be present in CPUs,
+    since these are much less than 1000 K.
+\myfig{analysis_temp_shift2}
+    {Temperature analysis of the broadband wavelength splitter.
+    Stable operating points (defined as efficiency $\ge$ 80\%)
+    exist over a temperature shift of 905K.}
+
+\subsubsection{Fabrication-robustness of broadband wavelength splitter}
+A analysis with regard to fabrication-error
+    was also performed on the broadband wavelength splitter.
+The specific fabrication error was a general over- or under-etch
+    of the device (input and output waveguides unaffected).
+\Fig{analysis_fab_shift2} reveals that up to 8 nm of over- or under-etching
+    can be sustained before performance falls below 70\%, at the central
+    operating wavelengths.
+The structural variations at 8 nm of etch error are shown in \fig{top_wdm_overunder}.
+    
+\myfig{analysis_fab_shift2}
+    {Analysis of fabrication-error on the performance of the broadband 
+    wavelength splitter.
+    Original central wavelengths are shown to hold greater than 70\% efficiency,
+    in spite of up to 8 nm of over- or under-etch error.}
+\myfig{top_wdm_overunder}
+    {Comparison of under-etched, as-designed, and over-etched structures.
+    Differences are subtle since the pixel size is 40 nm and the
+    fabrication error is 8 nm.}
+
+This result is significant in that it demonstrates
+    that the design of broadband devices
+    seems to be a valid heuristic in the search for 
+    devices which are tolerant to temperature shifts and fabrication error.
+Note, however, that our method, as formulated, is also able to
+    deal with temperature and fabrication shifts explicitly as well;
+    although such results are not demonstrated here.
 
 \section{Conclusion}
-Conclusion
+We have developed and implemented a method to design linear nanophotonic structures
+    which are fully three-dimensional and multi-modal,
+    have very compact footprints,
+    exhibit high efficiency, and
+    are manufacturable.
+We demonstrate this capability by designing various nanophotonic mode converters,
+    splitters, hubs, and fiber couplers.
+Critically, many, if not all, of these devices have never been demonstrated before
+    and are not able to be designed by hand.
+In contrast, our method allows user to easily design such devices
+    by virtue of our design-by-specification scheme.
 
+In addition, we demonstrate the design of a broadband device 
+    which is strongly robust to wavelength and temperature shift,
+    as well as fabrication error.
+We show that such a device has stable operating wavelengths 
+    over temperature shifts as large as 905 K,
+    or over-/under-etching error of up to 8 nm.
+We suggest, based on this design, that wavelength tolerance
+    may be a good heuristic to the design of temperature and fabrication-error
+    tolerant nanophotonic devices.
 \end{document}

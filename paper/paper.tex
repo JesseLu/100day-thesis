@@ -258,17 +258,24 @@ Additionally, we show that devices can be designed with large tolerances for
 % Runtimes for the design process ranged from 8-80 hours 
 %     based on the size of the design space.
 \subsection{Mode converters}
+
+Our first devices consisted of waveguide mode converters.
+Such devices are simple in that they are single-input, single-output devices.
+At the same time, such a device is significant because 
+    it demonstrates the feasibility of muli-mode on-chip optical networks
+    by showing that high-efficiency mode conversion 
+    can readily be achieved in planar on-chip nanophotonic structures.
+
+We show, through the design of mode converters for both the TE- and TM-polarized
+    waveguide modes, 
+    that our method is indeed fully three-dimensional.
+Additionally, the devices also demonstrate very small device footprints 
+    ($1.6 \times 2.4$ microns for this device in particular).
+
 \subsubsection{TE mode converter}
 Our first result was a mode conversion device operating in the TE polarization,
     which we define as that mode where the primary E-field component
     of the waveguide mode is polarized in the plane of the structure.
-Such a device is significant because 
-    it demonstrates the feasibility of muli-mode on-chip optical networks
-    by showing that high-efficiency mode conversion 
-    can readily be achieved in planar on-chip nanophotonic structures.
-Furthermore, this device also demonstrates that this can be achieved
-    within very small device footprints 
-    ($1.6 \times 2.4$ microns for this device in particular).
 
 Our performance specification (\fig{3Db_wgc_te}) 
     for the device was for 90\% to 100\% of the 
@@ -293,7 +300,7 @@ The conversion efficiency into the second-order mode is lower
     with the output field overlap calculation.
 
 \myfig{takeaway}
-    {Structure and E-field at the central plane of the device.
+    {Structure and E-field at the central plane of the TE mode converter.
     The conversion efficiency into the second-order mode is 86.4\%,
     while the power into the rejection mode (fundamental) is 0.7\%.
     Device footprint is $1.6\times2.4$ microns.}
@@ -330,7 +337,7 @@ The lower conversion efficiency of 76.9\% in contrast to the TE mode converter
 However, good rejection of only 1\% is still achieved.
 
 \myfig{wgc_tm}
-    {Structure and E-field at the central plane of the device.
+    {Structure and E-field at the central plane of the TM mode converter.
     The conversion efficiency into the second-order mode is 76.9\%,
     while the power into the rejection mode (fundamental) is 1.0\%.
     Device footprint is $1.6\times2.4$ microns.}
@@ -363,14 +370,16 @@ The performance specification is shown in \fig{3Db_spl_modal},
     and the final results is shown in \fig{spl_modal}.
 
 \myfig{3Db_spl_modal}
-    {Input mode is either the fundamental or second-order
+    {Spatial mode splitter performance specification.
+    Input mode is either the fundamental or second-order
         TE-polarized mode on the left.
     Output modes are the fundamental waveguide modes of either output 
         waveguide on the right.
     Output power into the desired output arm is specified to be greater than 90\%,
         while power into the opposing arm is set to below 1\%.}
 \myfig{spl_modal}
-    {The conversion efficiencies into the upper and lower output arms
+    {Spatial mode splitter final result.
+    The conversion efficiencies into the upper and lower output arms
         are 88.7\% and 77.4\% respectively, 
         while the rejection powers for the same modes are 0.27\% and 0.20\%.
     Device footprint is $2.8\times2.8$ microns.}
@@ -389,12 +398,14 @@ Not only is this result the first of its kind,
 This shows the versatility and broad applicability of our method.
 
 \myfig{3Db_spl_tetm}
-    {Input mode is either the fundamental TE- or TM-polarized 
+    {TE/TM splitter performance specification.
+    Input mode is either the fundamental TE- or TM-polarized 
         mode on the left.
     Output power into the desired output arm is specified to be greater than 90\%,
         while power into the opposing arm is set to below 1\%.}
 \myfig{spl_tetm}
-    {The conversion efficiencies into the upper and lower output arms
+    {TE/TM splitter final result.
+    The conversion efficiencies into the upper and lower output arms
         are 87.6\% and 88.8\% respectively, 
         while the rejection powers for the same modes are 1.06\% and 0.58\%.
     Device footprint is $2.8\times2.8$ microns.}
@@ -403,18 +414,200 @@ This shows the versatility and broad applicability of our method.
 Traditional wavelength splitting devices can also be designed using our method.
 Here, we show that the 1550 nm and 1310 nm wavelengths can be split
     in a very small device footprint ($2.8\times2.8$ microns).
+The performance specification is shown in \fig{3Db_spl_wdm}, 
+    and the final result is shown in \fig{spl_wdm}.
 \myfig{3Db_spl_wdm}
-    {Input mode is the fundamental TE-polarized mode on the left at 
+    {Wavelength splitter performance specification.
+    Input mode is the fundamental TE-polarized mode on the left at 
         a wavelength of either 1550 nm or 1330 nm.
     Output modes are the fundamental waveguide modes of either output 
         waveguide on the right.
     Output power into the desired output arm is specified to be greater than 90\%,
         while power into the opposing arm is set to below 1\%.}
 \myfig{spl_wdm}
-    {The conversion efficiencies into the upper and lower output arms
+    {Wavelength splitter final result.
+    The conversion efficiencies into the upper and lower output arms
         are 83.2\% and 78.7\% respectively, 
         while the rejection powers for the same modes are 0.49\% and 1.66\%.
     Device footprint is $2.8\times2.8$ microns.}
+
+\subsection{Hubs}
+We continue to demonstrate the capabilities of our method
+    by designing multi-input, multi-output devices which we call \emph{hubs}.
+Such devices essentially re-arrange modes in the waveguides,
+    and may be thought of as general cross-connect structures.
+Critically, the successful design of such structures 
+    shows that efficiently routing overlapping signals can be 
+    accomplished in a single layer for nanophotonic circuits.
+
+\subsubsection{3$\times$3 hub}
+We first design a hub with three inputs and outputs.
+The performance specification is shown in \fig{3Db_hub_3x3},
+    and the final result is shown in \fig{hub_3x3}.
+
+\myfig{3Db_hub_3x3}
+    {3$\times$3 hub performance specification.
+    Input and output modes all consist of the fundamental TE-polarized mode.
+    Output power into the desired output arm is specified to be greater than 90\%,
+        no rejection modes are used for computational efficiency.}
+\myfig{hub_3x3}
+    {3$\times$3 hub final result.
+    The conversion efficiencies into the selected output arms
+        are 88.6\%, 90.6\%, and 87.3\% for 
+        input arms 1, 2, and 3 respectively (top to bottom).}
+
+\subsubsection{4$\times$4 hub}
+We extend our previous result to design a hub with four inputs and outputs.
+The performance specification is shown in \fig{3Db_hub_4x4},
+    and the final result is shown in \fig{hub_4x4_comb}.
+
+\myfig{3Db_hub_4x4}
+    {4$\times$4 hub performance specification.
+    Input and output modes all consist of the fundamental TE-polarized mode.
+    Output power into the desired output arm is specified to be greater than 90\%,
+        no rejection modes are used for computational efficiency.}
+\myfig{hub_4x4_comb}
+    {4$\times$4 hub final result.
+    The conversion efficiencies into the selected output arms
+        are 85.9\%, 88.1\%, 85.4\%, and 84.3\% for
+        input arms 1, 2, 3, and 4 respectively (top to bottom).}
+
+\subsubsection{2$\times$2$\times$2 hub}
+We can now design a hub that performs 
+    different switching functions for different wavelengths.
+Specifically, we use two input waveguides, two output waveguides,
+    and two wavelengths (hence the name 2$\times$2$\times$2).
+
+Our performance specification (\fig{3Db_hub_2x2x2}) is
+    to cross-couple the waveguides at the 1310 nm wavelength,
+    but to uncouple the waveguides at the 1550 nm wavelength.
+The final result is shown in \fig{hub_2x2x2}.
+\myfig{3Db_hub_2x2x2}
+    {2$\times$2$\times$2 hub performance specification.
+    Input and output modes all consist of the fundamental TE-polarized mode
+        at either 1550 nm or 1310 nm wavelengths.
+    Output power into the desired output arm is specified to be greater than 80\%,
+        no rejection modes are used for computational efficiency.}
+\myfig{hub_2x2x2}
+    {2$\times$2$\times$2 hub final result.
+    The conversion efficiencies at the 1550 nm wavelength 
+        are 77.6\% and 73.7\% respectively for the top and bottom inputs.
+    At 1310 nm, the respective efficiencies are 75.7\% and 75.2\%.}
+
+\subsection{Fiber couplers}
+The capabilities of our method are further demonstrated
+    in the design of nanophotonic fiber couplers,
+    which couple light from an optical fiber at normal incidence
+    into an in-plane waveguide.
+
+The structure of the optical fibers used was a 2 micron diameter core with 
+    refractive index $n_\text{core} = 1.6$,
+    surrounded by a cladding with refractive index $n_\text{cladding}=1.5$.
+The reduced size of the fiber core was employed in order
+    to keep the device footprint small.
+Additionally, the fiber coupler devices were only etched to half the membrane depth,
+    in order to increase the asymmetry in the device structure.
+
+\subsubsection{Compact fiber coupler}
+We first present the design of a compact fiber coupler.
+Such a device is said to be compact in that the functions
+    of coupling into the plane, and focusing into a narrow waveguide
+    are overlapped in the same device footprint.
+
+Although the performance specification (\fig{3Db_fib_te})
+    desired a coupling efficiency above 90\%,
+    only 51.5\% efficiency was achieved (\fig{fib_te});
+    however, this likely remains the highest efficiency demonstrated
+    in a compact fiber coupler.
+
+\myfig{3Db_fib_te}
+    {Compact fiber coupler performance specification.
+    Input mode consists of the $E_y$-polarized fundamental fiber mode.
+    Output mode is the fundamental TE-polarized mode of the in-plane waveguide.
+    Output power into the desired output arm is specified to be greater than 90\%.}
+\myfig{fib_te}
+    {Compact fiber coupler final result.
+    The conversion efficiency into the in-plane waveguide mode is 51.5\%.}
+
+\subsubsection{Mode-splitting fiber coupler}
+We now continue to show how different functionalities
+    can be incorporated into a single device,
+    by virtue of our design-by-specification scheme.
+
+Here, we show how the functionality of a fiber coupler
+    can be combined with that of a spatial mode splitter.
+Specifically, the performance specification (\fig{3Db_fib_pol})
+    determines that different fiber spatial modes
+    by split into different in-plane nanophotonic waveguides.
+
+The final result (\fig{fib_pol}) has lower efficiencies;
+    however, the result is still useful 
+    in that no device with such a functionality has previously been demonstrated.
+
+\myfig{3Db_fib_pol}
+    {Mode-splitting fiber coupler performance specification.
+    Input mode consists of the fundamental fiber mode or 
+        the third-order, circularly polarized fiber mode.
+    Output mode is the fundamental TE-polarized mode of either in-plane waveguide.
+    Output power into the desired output arm is specified to be greater than 90\%.}
+\myfig{fib_pol}
+    {Mode-splitting fiber coupler final result.
+    The conversion efficiency for the fundamental fiber mode input is 32.6\% 
+        (top plot).
+    The conversion efficiency for the third-order fiber mode input is 22.7\% 
+        (bottom plot).}
+
+\subsubsection{Wavelength-splitting fiber coupler}
+Another example of a functionality-combining device is the wavelength-splitting
+    fiber coupler.
+Here, fiber modes of different wavelengths are coupled in-plane
+    and then split into different nanophotonic waveguides (\fig{3Db_fib_wdm}).
+Once again, efficiencies are low (\fig{fib_wdm}),
+    but no such device has previously been demonstrated.
+
+\myfig{3Db_fib_wdm}
+    {Wavelength-splitting fiber coupler performance specification.
+    Input mode consists of the $E_y$-polarized fundamental fiber mode at either
+        the 1310 nm or 1550 nm wavelengths.
+    Output mode is the fundamental TE-polarized mode of either in-plane waveguide.
+    Output power into the desired output arm is specified to be greater than 90\%.}
+\myfig{fib_wdm}
+    {Wavelength-splitting fiber coupler final result.
+    The conversion efficiency into the in-plane waveguide mode at 1550 nm is 31.6\%.
+    The conversion efficiency into the in-plane waveguide mode at 1310 nm is 28.6\%.}
+
+\subsection{Broadband wavelength splitter}
+We continue to investigate the capabilites of our method
+    by attempting the design of a broadband wavelength splitter.
+
+First, we revisit our wavelength splitter result (\fig{spl_wdm})
+    and perform a broadband analysis, 
+    the results of which are shown in \fig{analysis_spl_only}.
+This analysis reveals that device performance quickly drops off
+    as one moves away from the target wavelengths.
+\myfig{analysis_spl_only}
+    {Broadband analysis of previously design wavelength splitter (\fig{spl_wdm}).
+    Although high-efficiency operation is achieved, 
+    the performance quickly drops off away from the target wavelengths 
+    (denoted by arrows).}
+
+In order to design a broadband wavelength splitter,
+    we modify our performance specification to include multiple target 
+    wavelengths (with identical desired performance) around the 
+    original target wavelengths, as seen in \fig{analysis_top}
+    which reveals that broadband operation has been achieved.
+The final result for the broadband wavelength splitter is shown in \fig{top_wdm}.
+\myfig{analysis_top}
+    {Broadband analysis of broadband wavelength splitter.
+    The addition of multiple target wavelengths (vertical arrows)
+    allows for 
+    high-efficiency operation is achieved across a wide bandwidth.}
+\myfig{top_wdm}
+    {Broadband wavelength splitter final result.}
+\myfig{analysis_temp_shift2}{}
+\myfig{analysis_fab_shift2}{}
+\myfig{top_wdm_overunder}{}
+
 
 \section{Conclusion}
 Conclusion

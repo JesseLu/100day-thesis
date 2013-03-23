@@ -1,0 +1,6 @@
+#! /bin/sh
+
+for f in `ls *.jpg`; do
+    name=`basename $f .jpg`
+    sam2p $name.jpg $name.eps
+done

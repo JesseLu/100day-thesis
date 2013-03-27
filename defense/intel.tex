@@ -1,0 +1,691 @@
+\documentclass[landscape]{foils}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\input defs.tex
+\raggedright
+\special{! TeXDict begin /landplus90{true}store end }
+\newcommand{\nextpage}{\vfill\newpage}
+\newcommand{\bold}{\textbf}
+\renewcommand{\oursection}[1]{
+\foilhead[-1.0cm]{#1}
+}
+
+\newcommand{\smalltitle}[1]{
+    \begin{center}{\large #1}\end{center}
+}
+
+\newcommand{\myfig}[2]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=#2cm]{fig/#1.jpg}}
+    \end{figure}
+}
+
+\newcommand{\smallfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=6.5cm]{fig/#1.jpg}}
+    \end{figure}
+}
+\newcommand{\medfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=10cm]{fig/#1.jpg}}
+    \end{figure}
+}
+\newcommand{\bigfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[height=12cm]{fig/#1.jpg}}
+    \end{figure}
+}
+\newcommand{\threeDfig}[1]{
+    \begin{figure}[!h]
+    \centerline{\includegraphics[width=20cm]{fig/#1.jpg}}
+    \end{figure}
+}
+\newcommand{\BI}{\begin{itemize}\item}
+\newcommand{\I}{\item}
+\newcommand{\EI}{\end{itemize}}
+
+\title{Nanophotonic Computational Design}
+\author{Jesse Lu}
+\MyLogo{Jesse Lu, Jelena Vuckovic group, Stanford University}
+\date{March 29, 2013}
+
+% \usepackage{pause}
+\usepackage[display]{texpower} % For presentation
+% \usepackage[printout]{texpower} % For print-out
+
+% No mark footnotes.
+\let\thefootnote\relax
+
+\begin{document}
+\setlength{\parskip}{0cm}
+\maketitle
+% \begin{itemize} \itemsep -1pt
+% \I  Introduction
+% \I  Summary
+% \I  Incremental results
+% \I  Final result
+% \EI
+\nextpage
+
+\oursection{Introduction}
+\smallfig{optical_networks}
+\BI As information grows, optical networks needed
+    \BI across continents
+    \I  within a datacenter
+    \I  between chips and on-chip \EI
+\nextpage
+
+\I  On-chip optical components are currently designed
+    by tuning a small number of design parameters
+\smallfig{integrated_circuit}
+\pause
+\I  \bold{Our idea}: Design using \emph{all} available parameters
+    \BI If successful, full-parameter design \emph{guarantees} better devices 
+    \I  i.e. We can do better by using \emph{all} the design parameters \EI
+
+\nextpage
+
+% \I  The full parameter space for nanophotonic design is \emph{vast}
+% \I  How big is the full design space for nanophotonic devices?
+\I The number of available design parameters for nanophotonic devices
+    is \emph{enormous}
+\smallfig{des_complexity}
+\pause
+\I  Include/exclude per pixel gives us $2^{(15^2)} = 2^{225}$ possibilities
+    \BI $2^{225} = 67$-digit number, uncountable \EI
+\pause
+\I  \bold{Realization}: Hand-tuning won't work for full-parameter design
+\nextpage
+
+\I  Full-parameter design must be \emph{design-by-specification}
+\pause
+\begin{verbatim}
+\\ Human specifiy performance here.
+device mux2 
+    in: {freq1, freq2}
+    out1 <= freq1
+    out2 <= freq2
+\end{verbatim}
+\pause
+\smallfig{thesolution}
+\nextpage
+
+\I  \bold{Realization}: Design-by-specification is \emph{extremely powerful}
+\pause
+    \BI The specification (or function) of all useful devices is known
+    \I  Therefore, design-by-specification enables the design of \emph{everything} 
+    \EI
+\pause
+\smallfig{profs}
+\I  \bold{Approach}: Apply basic optimization concepts to nanophotonic design
+
+\nextpage
+
+\oursection{Summary}
+\smallfig{takeaway}
+\I  Designed 3D linear nanophotonic devices
+    \BI Using the full parameter space
+    \I  Using design-by-specification\EI
+\nextpage
+
+\I  Many of these devices are
+    \BI Completely novel (no previously known designs)
+    \I  Extremely compact (footprints of a few vacuum wavelengths)
+    \I  High efficiency ($>80\%$ transmission) 
+    \I  Manufacturable \EI
+\pause
+
+\I  \bold{Our approach}:
+    \BI applying (convex) optimization techniques (math)
+    \I  to the area of nanophotonics (physics)
+    \I  and implementing in software (programming) \EI
+\pause
+
+\I  Physics Advisory: 
+    \begin{quote}CONTAINS INVOLVED MATHEMATICAL CONTENT\end{quote}
+\nextpage
+
+\oursection{Given a field, can we find its device/structure?}
+\smallfig{my_definition}
+\stepwise{
+\step{\I  Equivalently, find $\epsilon$ (structure) given $E$ (field)
+    \BE \nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E = 
+        -i \omega J \EE
+where $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$}
+}
+\nextpage
+
+\oursection{Given a field, can we find its device/structure?}
+\I  \bold{Answer}: Yes, given $E$ we \emph{can} solve for $\epsilon$ (trivial!) \\
+    \stepwise{
+    \begin{align*} 
+    \nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E &= 
+        -i \omega J \quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\\
+    \step{\omega^2 \epsilon E &= \nabla\times\mu_0^{-1}\nabla\times E + 
+        i \omega J }\\
+    \step{\omega^2 E \epsilon &= \nabla\times\mu_0^{-1}\nabla\times E + 
+        i \omega J }\\
+    \step{\epsilon &= (\nabla\times\mu_0^{-1}\nabla\times E + 
+        i \omega J)/ \omega^2 E} 
+    \end{align*}
+    (Reminder, $\epsilon = \vec{\epsilon}(r), E=\vec{E}(r), J = \vec{J}(r)$)
+\step{
+\I  Solving for $\epsilon$ actually way faster than simulation (solving for $E$)!
+}
+
+    }
+\nextpage
+
+\I  Obvious and well-known from a mathematical perspective
+    \BI Pre-requisite (200-level) class in optimization curriculum
+    \I  Not yet taught (I think) in optics/photonics at Stanford \EI
+    \stepwise{\step{
+    \BE
+    \underbrace{\nabla\times\mu_0^{-1}\nabla\times E - \omega^2 \epsilon E = 
+                -i \omega J }_\text{physics}
+    \quad\longrightarrow\quad
+    \underbrace{A(z)x = b}_\text{linear algebra}
+    \EE
+    }
+    \step{
+    \begin{align*}
+    E &\to x \\
+    \epsilon &\to z \\
+    \nabla\times\mu_0^{-1}\nabla\times - \omega^2 \epsilon &\to A(z) \\
+    -i\omega J &\to b
+    \end{align*}
+    }
+\step{\I  \bold{Key}: If $A(z)$ is linear in $z$ then $A(z)x=b$ is as well!}
+    }
+
+\oursection{Direct design of nanophotonic devices}
+\I  Let's try it already! 
+    \BI Choose $x$ (field) 
+    \I  Solve for $z$ (structure) by minimizing the \emph{physics residual},
+        $A(z)x-b$\EI
+    \pause
+    \BE \minimize_z \|A(z)x - b\|^2 \EE
+\pause
+\I  Global minimum where $A(z)x - b = 0$ can be computed in one step
+    \BE \epsilon = (\nabla\times\mu_0^{-1}\nabla\times E + i \omega J)
+                    / \omega^2 E \EE
+    where $\epsilon \to z$
+\nextpage
+
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
+\I  Choose canonical 1D cavity field for $x$
+\I  Solve for $z$ (structure) and check design fidelity with simulation
+\smallfig{1d_leastsquares}
+\pause
+\I  \bold{Result}: Perfect performance, but unmanufacturable structure ($z$)
+\nextpage
+
+\oursection{Direct design with regularization}
+\stepwise{
+\I  Direct design ``works'' but not practical
+    \BE \minimize_z \|A(z)x - b\|^2 \EE
+\step{\I  So, let's add a \emph{regularization} term to $z$ and solve the following instead 
+    \BE \minimize_z \|A(z)x - b\|^2 + \eta\|z-z_0\|^2 \EE}
+    \step{\BI  $\|z-z_0\|^2$ term keeps $z$ close to $z_0$
+    \I  $\eta$ controls the strength of the regularization \EI
+
+\I  Solution can still be computed in one step}
+}
+\nextpage
+
+\I  \bold{Regularized direct solve result}: decreased performance
+\myfig{1d_regularized_12}{11.5}
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
+\nextpage
+
+\smallfig{1d_regularized_3}
+    \BE \minimize_z \|A(z)x - b\|^2 + \eta\|z-z_0\|^2 \EE
+\I  Decreased performance a result of non-zero physics residual at optimum
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
+\nextpage
+
+\I  \bold{Problem}: How to overcome the apparent trade-off 
+    between manufacturability ($z$) and performance ($x$)?
+\pause
+\I  Realized that there do exist some $x$ (fields)
+    which result from manufacturable $z$ (structures)
+    \BI These can be produced via simulation
+    \I  However, it's not useful to ask the user to choose such $x$ \EI
+\pause
+\I  \bold{Realization}: A \emph{useful} tool must optimize for \emph{both} $x$ and $z$
+\nextpage
+
+\oursection{Iterative design of nanophotonic devices}
+\I  \bold{New algorithm}: Iteratively solve for $x$ (field) and $z$ (structure)
+    \pause
+    \begin{align*} 
+    \minimize_z & \|A(z)x - b\|^2 + \eta_0\|z - z_\text{prev}\|^2 \\
+    \minimize_x & \|A(z)x - b\|^2 + \eta_1\|x - x_\text{prev}\|^2 
+    \end{align*}
+    \pause
+\I  Takes advantage of the \emph{bi-linearity} of the physics residual
+    \BI Jointly solving for $x$ and $z$ is a non-convex problem \EI
+\nextpage
+
+\I  More concisely, we iteratively solve the following
+    \BE \minimize_\text{alternately $x$ then $z$} 
+        \|A(z)x - b\|^2 + \eta_0\|z - z_\text{prev}\|^2
+                        + \eta_1\|x-x_\text{prev}\|^2 \EE
+\I  Design process now consists of \emph{multiple} computational steps
+    \BI $\eta_0, \eta_1$ gradually decreased to bring physics residual toward 0 \EI
+\nextpage
+
+\I  \bold{Result of iterative strategy}: $z$ (structure) that 
+    \BI is better behaved
+    \I  more accurately produces $x$ \EI
+\smallfig{1d_alternate}
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
+\nextpage
+
+\oursection{Iterative design with hard constraints on $z$}
+\I  We can also put hard limits on $z$ (structure)
+    \pause
+    \begin{align*} 
+    \minimize & \|A(z)x - b\|^2 + \eta_1\|x - x_\text{prev}\|^2\\
+    \subto & z_\text{min} \le z \le z_\text{max}
+    \end{align*}
+    \pause
+\I  $z_\text{min} \le z \le z_\text{max}$ constraint 
+    better represents manufacturability constraint
+    \BI Corresponds to a minimum and maximum allowable permittivity ($\epsilon$) \EI
+\nextpage
+
+\I  \bold{Result of iterative design with hard constraints on $z$}:
+\BI Well-behaved, manufacturable $z$ (structure)
+\I  Final $x$ (field) accurately reproduced
+\I  Majority of elements of $z$ are fortuitously at one limit or the other \EI
+\smallfig{1d_hardlimit}
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
+\nextpage
+
+\I  \bold{Extension}: Iterative design can be used to create 2D resonators as well
+\smallfig{2d_circ}
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2010)}
+\nextpage
+
+\I  \bold{Extension}: 3D resonators can be designed using a ``2.5D'' approximation
+\smallfig{25d_circ}
+\myfig{25d_approx}{4}
+\footnotetext{J. Lu, S. Boyd, J. Vuckovic, Optics Express (2011)}
+\nextpage
+
+\oursection{Objective-first design of linear devices}
+\stepwise{
+\I  Next realization: for linear components, 
+    only certain elements of $x$ (field) matter
+\step{\BI Specifically, the elements of $x$ at the input/output ports \EI}
+\step{
+    \begin{align*} 
+    \minimize & \|A(z)x - b\|^2 \\
+    \subto & x_\text{boundary} - \hat{x}_\text{boundary} = 0 \\
+        & z_\text{min} \le z \le z_\text{max}
+    \end{align*}
+}
+\step{
+\I  Instead of regularization term, we force the elements of $x$
+    at the boundary to be equal to the ideal case ($\hat{x}$)}
+\footnotetext{D. A. B. Miller, ``All linear optical devices are mode converters,''
+    Optics Express (2012)}
+}
+\nextpage
+
+\I  Called \emph{objective-first} design because the design objective 
+    is prioritized above the physics residual
+    \begin{align*} 
+    \minimize & \|A(z)x - b\|^2 \\
+    \subto & x_\text{boundary} - \hat{x}_\text{boundary} = 0 \\
+        & z_\text{min} \le z \le z_\text{max}
+    \end{align*}
+% \I  In contrast, the typical formulation is 
+%     \begin{align*} 
+%     \minimize & \|x_\text{boundary} - \hat{x}_\text{boundary}\|^2 \\
+%     \subto & A(z)x - b  = 0 \\
+%         & z_\text{min} \le z \le z_\text{max}
+%     \end{align*}
+\nextpage
+
+\I  Applied to the design of 2D waveguide mode couplers
+\smallfig{ob1_explanation}
+\I  Produced designs which exhibited
+    \BI High efficiency ($\sim 98\%$)
+    \I  Small device footprints ($1.5-4$ square vacuum wavelengths) \EI
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2012)}
+\nextpage
+
+\I  \bold{2D objective-first result}: Coupler to wide, low-index waveguide
+    \BI Efficiency: 99.8\%
+    \I  Footprint: 1.5 square vacuum wavelengths \EI
+\medfig{ob1_wg}
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2012)}
+\nextpage
+
+\I  \bold{2D objective-first result}: Coupler to second-order waveguide mode
+    \BI Efficiency: 98.0\%
+    \I  Footprint: 1.5 square vacuum wavelengths \EI
+\medfig{ob1_wg2}
+\footnotetext{J. Lu, J. Vuckovic, Optics Express (2012)}
+\nextpage
+
+\oursection{Final result: Design of 3D linear nanophotonic devices}
+\I  Finally, enough understanding to tackle the \emph{real} design problem
+\pause
+\I  \bold{Goal}: Software to design \emph{all} linear nanophotonic devices
+\pause
+    \BI Design-by-specification (objective-first)
+    \I  Uses the full parameter space
+    \I  High efficiency
+    \I  Fully three-dimensional (no approximations)
+    \I  Multi-mode
+    \I  Discrete, planar, manufacturable structure \EI
+\nextpage
+
+\I  \bold{Problem}: Did not know how to solve $A(z)x - b = 0$ (simulation) in 3D
+    \BI Millions of variables
+    \I  Famously ill-conditioned 
+    \I  No known commercial \emph{solvers} that can handle arbitrary structures \EI
+\pause
+\smallfig{wonseok}
+\I  Fortunately, Wonseok Shin (Fan group) had already solved this problem
+\footnotetext{W. Shin, S. Fan, ``Choice of the perfectly matched layer boundary condition for frequency-domain Maxwell’s equations solvers,'' J. Comp. Phys. (2012)}
+
+\oursection{Maxwell: Light-simulation supercomputer}
+\I  Partnered with Wonseok to develop electromagnetic solver-as-a-service 
+    \BI GPU-accelerated implementation of Wonseok's algorithm
+    \I  Cluster scales automatically in the cloud (Amazon Web Services)\EI
+\smallfig{maxwell}
+\nextpage
+
+
+\I  Accuracy 
+    \BI Solves the frequency domain problem directly 
+    \I  Allows for precise input excitation and output monitoring \EI
+\pause
+\I  Scalability
+    \BI Far outstrips computing clusters such as Teragrid
+    \I  Can perform multiple solves in parallel, from a single Matlab instance 
+    \I  All computation is performed externally (in the cloud) \EI
+\pause
+\I  Ease-of-use
+    \BI Installs with a single Matlab command
+    \I  Solves completed with a single Matlab command: \verb+maxwell(...);+ \EI
+\pause
+\I  \bold{The key technological enabler in achieving 3D design}
+\nextpage
+
+\oursection{Final result: Problem statement}
+\stepwise{
+    \step{
+\begin{align*}
+    \minimize & \sum_i^M \|A_i(z)x_i - b_i\|^2 \\
+    \subto & \alpha_{ij} \le |c_{ij}\T x_i| \le \beta_{ij}, \quad
+        \text{for $i = 1, \ldots, M$ and $j = 1, \ldots, N_i$} \\
+        &   z_\text{min} \le z \le z_\text{max}
+\end{align*}
+    }
+\step{
+\I  $M$ modes with $N_i$ monitored output modes each}
+    \step{\BI $b_i$ is the input excitation for each mode
+    \I  $|c_{ij}\T x_i|$ is the field overlap with output mode $c_{ij}$
+    \I  $\alpha_{ij}$ and $\beta_{ij}$ is the design range for the overlap \EI}
+}
+\nextpage
+
+\I  Problem statement in physics language
+\threeDfig{3Db_wgc_te}
+\I  Input mode is excited using current source ($b_i$ or $-i\omega J$)
+\I  Output mode is enforced using overlap integrals
+    ($c_{ij}\T x_i$ or $\int \hat{E}_{ij} E$)
+\nextpage
+
+\oursection{Final result: Method}
+\footnotetext{S. Boyd et al, Foundations and Trends in Machine Learning (2011)}
+\I  Objective-first problem solved using 
+    alternating directions method of moments (ADMM)
+    \BI Addition of dual variable greatly accelerates convergence \EI
+\pause
+\I  After objective-first solution
+    \BI $z$ is converted to boundary parameterization for manufacturability
+    \I  Steepest-descent used in secondary optimization step \EI
+\pause
+\I  Basic device structure:
+    \BI 250 nm silicon slab surrounded by silica
+    \I  Permittivity: 12.25 (Si), 2.25 (SiO$_2$) \EI
+\nextpage
+
+\oursection{Result 1: Mode converter (TE)}
+\threeDfig{3Db_wgc_te}
+% \I  Converts from fundamental TE (in-plane polarized) mode to 
+%     second-order mode
+\I  Performance specification at output waveguide:
+    \BI Power in second-order mode: 90\% to 100\%
+    \I  Power in first-order mode: 0\% to 1\% (rejection) \EI
+\nextpage
+
+\I  Final design, with actual (simulated) field
+\smallfig{takeaway}
+\I  Efficiency: 86.4\% (rejection: 0.7\%)
+\I  Discrepancy in efficiency likely due to evanescent modes
+\I  3D proof-of-principle for multi-mode on-chip components
+    \BI with \emph{extremely} small device footprints \EI
+\newpage
+
+\oursection{Result 2: Mode converter (TM)}
+\threeDfig{3Db_wgc_tm}
+\I  Analogous to previous result, but with opposite polarization
+\I  Demonstrates that we can work with (multiple) TM modes as well 
+\nextpage
+
+\I  Efficiency: 76.9\% (rejection: 1.0\%)
+\smallfig{wgc_tm}
+\I  Lower efficiency likely due to poor confinement of TM-polarized field
+\I  Previously not demonstrated in litterature
+\newpage
+
+\oursection{Result 3: Spatial mode splitter}
+\threeDfig{3Db_spl_modal}
+\I  Key component needed to achieve multi-mode on-chip optics
+\nextpage
+
+\I  Efficiency: 88.7\%, 77.4\% (rejection: 0.27\%, 0.20\%)
+\medfig{spl_modal}
+\I  Previous designs in 2D, first design in 3D
+\footnotetext{Y. Jiao, S. Fan, D. A. B.  Miller, Optics Letters (2005)}
+\newpage
+
+\oursection{Result 4: TE/TM splitter}
+\threeDfig{3Db_spl_tetm}
+\I  Shows that both polarizations can be controlled simultaneously
+\I  Never before demonstrated, existence somewhat doubtful
+    
+\nextpage
+
+\I  Efficiency: 87.6\%, 88.8\% (1.06\%, 0.58\%)
+\medfig{spl_tetm}
+\newpage
+
+\oursection{Result 5: Wavelength splitter}
+\threeDfig{3Db_spl_wdm}
+\I  Splits 1550 nm and 1310 nm waveguide modes
+\I  Large wavelength separation allows for small device footprint
+\nextpage
+
+\I  Efficiency: 83.2\%, 78.7\% (0.49\%, 1.66\%)
+\medfig{spl_wdm}
+\newpage
+
+\oursection{Result 6: 3x3 hub}
+\threeDfig{3Db_hub_3x3}
+\I  Allows for overlapping ``optical traces''
+\I  First demonstration in a single device
+\nextpage
+
+\I  Efficiency: 88.6\%, 90.6\%, 87.3\% (Rejection modes no longer used)
+\bigfig{hub_3x3}
+\newpage
+
+\oursection{Result 7: 4x4 hub}
+\threeDfig{3Db_hub_4x4}
+\I  Pop quiz: Can you tell which trace goes where?
+\nextpage
+
+\I  Formulate answer as a 4-digit number 
+\bigfig{hub_4x4_eps}
+\newpage
+
+\I  Efficiency: 85.9\%, 88.1\%, 85.4\%, 84.3\% (Answer: 3241)
+\bigfig{hub_4x4}
+\newpage
+
+\oursection{Result 8: 2x2x2 hub}
+\threeDfig{3Db_hub_2x2x2}
+\I  Demonstrates that switching mechanism can be separately engineered 
+    for different wavelengths (1550 nm and 1310 nm)
+\I  2x2x2 = 2 inputs, 2 outputs, and 2 wavelengths
+\nextpage
+
+\I Efficiency: 77.6\%, 73.7\%, 75.7\%, 75.2\% 
+\bigfig{hub_2x2x2}
+\newpage
+
+\oursection{Result 9: Compact fiber coupler}
+\threeDfig{3Db_fib_te}
+\I  Compact fiber core (2 um) used for computational efficiency
+    \BI Refractive indices of fiber: $n_\text{core} = 1.6$, 
+                                    $n_\text{cladding} = 1.5$ \EI
+\I  Membrane etched halfway to increase out-of-plane symmetry breaking
+\nextpage
+
+\I  Efficiency: 51.5\%
+\smallfig{fib_te_short}
+\I  Highest efficiency compact fiber coupler
+\I  Compact: Device combines coupling and focusing functions
+\newpage
+
+\oursection{Result 10: Mode-splitting fiber coupler}
+\threeDfig{3Db_fib_pol}
+\I  Both couples and splits linear and circular polarizations
+    \BI 1310 nm wavelength used to make fiber multi-modal \EI
+\nextpage
+
+\I Efficiency: 32.6\%, 22.7\%
+\bigfig{fib_pol}
+\newpage
+
+\oursection{Result 11: Wavelength-splitting fiber coupler}
+\threeDfig{3Db_fib_wdm}
+\I  A fusion of result 9 (fiber coupler) and result 5 (wavelength splitter)
+\I  Shows the power of full-parameter design-by-specification
+\nextpage
+
+\I  Efficiency: 31.6\%, 28.6\%
+\bigfig{fib_wdm}
+\newpage
+
+\oursection{Results summary}
+\stepwise{
+\I  Variety of devices suggests all devices possible
+    \BI Converters: both TE and TM polarizations
+    \I  Splitters: spatial, polarization, wavelength
+    \I  Hubs: 3x3, 4x4, 2x2x2
+    \I  Fiber couplers: compact, mode-splitting, wavelength-splitting \EI
+\step{
+\I  Design-by-specification is a key enabler
+    \BI All 11 final results achieved in only 3 weeks
+    \I  Of course, 7 years of development and 18 months of programming\ldots \EI
+}
+\step{
+\I  Individual design runtimes between 8-80 hours
+    \BI Many future speedups possible at all levels \EI
+}}
+
+\oursection{One more thing\ldots}
+\pause
+\medfig{spl_wdm}
+\I  Let's revisit our wavelength splitter (result 5)
+\nextpage
+
+\I  Take original structure and perform a broadband wavelength analysis
+\threeDfig{analysis_spl_only}
+\pause
+\I  Analysis shows that broadband response can be improved
+\I  Already supported by our problem formulation
+    \BI Through the use of ``supermodes'' \EI
+\nextpage
+
+\I  Use 5 modes (instead of 1) at each central wavelength
+\threeDfig{analysis_top}
+\I  \bold{Result}: Use of 5-fold, spectrally-broad supermodes
+    produces broadband response 
+\nextpage
+
+\oursection{Result 12: Broadband wavelength splitter}
+\medfig{top_wdm_comp}
+\I  Broadband design uses original structure as starting point
+\nextpage
+
+\I  Broadband design still high efficiency 
+\I  Efficiency (1310 nm and 1550 nm): 84.2\%, 82.3\% (0.09\%, 1.41\%)
+\medfig{top_wdm}
+
+\oursection{Result 12-1: Broadband splitter temperature dependence}
+\I  Futher analysis of performance with temperature shift
+\pause
+\I  We use
+    \BI $\Delta n_\text{Si} / \Delta T = 1.85 \cdot 10^{-4} K^{-1}$ 
+    \I  $\Delta n_{\text{SiO}_2} / \Delta T = 0$ \EI
+\pause
+\I  Important since robustness to thermal shift 
+    is critical for practical devices
+\nextpage
+
+\I  \bold{Result}: Stable wavelengths available even up to $\sim1000$K shifts!
+\threeDfig{analysis_temp_shift2}
+\pause
+\I  $\Delta T = 905$K point marks refractive index shift from 3.5 to 3.67 (huge!)
+\pause
+\I  Potentially means that networks with no need for thermal tuning are possible
+    \BI Occurs when thermal robustness $>$ thermal swing \EI
+\nextpage
+
+\oursection{Result 12-2: Broadband splitter fabrication robustness}
+\I  Further analysis of performance with over-/under-etching of the device
+\medfig{top_wdm_overunder}
+\nextpage
+
+\I  \bold{Result}: Stable to $\sim$8 nm over-/under-etch 
+\threeDfig{analysis_fab_shift2}
+\I  Wavelength adjustment not needed in this case
+\pause
+\I  \bold{Key}: Shows that robustness to variation in wavelength 
+    is a good heuristic for thermal and fabrication robustness
+    \BI Designs using thermal and fabrication supermodes also possible\EI
+\nextpage
+
+\I  Robustness likely due to a combination of 
+    small device footprint,
+    broadband wavelength response, and
+    low-intensity field in device
+\medfig{top_wdm}
+\nextpage
+
+\oursection{Conclusion}
+\footnotetext{$^\ast$maybe}
+\I  How to design any$^\ast$ linear multi-mode nanophotonic device
+    \BI using the full parameter space
+    \I  simply by describing its operation \EI
+\pause
+\I  Our method results in designs which are
+    \BI extremely compact
+    \I  manufacturable \EI
+\pause
+\I  Devices can be designed which are robust to
+    \BI wavelength and temperature shifts 
+    \I  fabrication error \EI
+\EI
+\end{document}

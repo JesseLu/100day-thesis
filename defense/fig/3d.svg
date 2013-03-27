@@ -184,9 +184,9 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.32018784"
-     inkscape:cx="-4188.6048"
-     inkscape:cy="3117.0675"
+     inkscape:zoom="0.16009392"
+     inkscape:cx="-3275.9641"
+     inkscape:cy="-3315.2853"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -210,6 +210,16 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="opacity:0.39484977;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect2549"
+       width="1178.5396"
+       height="766.06708"
+       x="-4831.6299"
+       y="3953.2378"
+       inkscape:export-filename="/home/toutpourlui/100day-thesis/defense/fig/3D_fib_wdm_bare.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
     <rect
        style="opacity:0.39484977;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        id="rect5849"
@@ -839,5 +849,22 @@
            sodipodi:role="line"
            style="font-size:8px">z</tspan></text>
     </g>
+    <image
+       y="3654.5239"
+       x="-5427.4082"
+       id="image2545"
+       height="1509.25"
+       width="2012.3333"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/hub_3x3_verify/3D.png"
+       xlink:href="visuals/fib_wdm_verify/3D.png" />
+    <image
+       y="3654.5239"
+       x="-5427.4082"
+       id="image2547"
+       height="1509.25"
+       width="2012.3333"
+       sodipodi:absref="/home/toutpourlui/100day-thesis/defense/fig/visuals/hub_3x3_verify/3D.png"
+       style="opacity:0.9"
+       xlink:href="fiber3D.png" />
   </g>
 </svg>

@@ -1,0 +1,94 @@
+\relax 
+\bibcite{Yee66}{1}
+\bibcite{AB74}{2}
+\bibcite{GA79}{3}
+\bibcite{Lon09}{4}
+\bibcite{Sch02}{5}
+\bibcite{Nod05}{6}
+\bibcite{Lip08}{7}
+\bibcite{SD05}{8}
+\bibcite{Sig04}{9}
+\bibcite{Vuc05}{10}
+\bibcite{cholmod}{11}
+\bibcite{mycomp}{12}
+\bibcite{JJ99}{13}
+\bibcite{BV04}{14}
+\bibcite{CVX}{15}
+\bibcite{Hen06}{16}
+\bibcite{Aka05}{17}
+\bibcite{Riv09}{18}
+\citation{Yee66}
+\citation{AB74}
+\citation{GA79}
+\citation{Lon09}
+\citation{Sch02}
+\citation{Nod05}
+\citation{Lip08}
+\citation{SD05}
+\citation{Sig04}
+\citation{Vuc05}
+\citation{Yee66}
+\citation{JJ99}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Numerical Setup}{2}}
+\newlabel{trad ev}{{1}{2}}
+\newlabel{lin ev}{{2}{2}}
+\newlabel{inv ls}{{3}{2}}
+\citation{mycomp}
+\citation{mycomp}
+\citation{cholmod}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Least-Squares Method in 1D}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Least-Squares}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Inverse design of a one-dimensional structure using the unmodified least-squares method. The target field is a sinusoid within a Gaussian envelope. The computed dielectric structure (green area) supports a field (red circles) that exactly matches the target field (blue line). The entire design process is also extremely fast and takes less than $1$ second to complete on a generic desktop computer\nobreakspace  {}\cite  {mycomp}. The periodic singularities in the dielectric structure are non-physical and will be addressed later in the article.}}{3}}
+\newlabel{ls pic}{{1}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Regularized Least-Squares}{3}}
+\newlabel{regls alt}{{4}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Inverse design of one-dimensional structures using the regularized least-squares method. The same target field is used as in Fig.\nobreakspace  {}1\hbox {}, and the computation time remains below $1$ second. As the regularization parameter, $\eta $, is increased, $\epsilon $ is increasingly constrained to a chosen constant value of $10$. At the same time, the mismatch between target and actual fields increases markedly. This illustrates the apparent trade-off between producing reasonable structures and accurately reproducing a fixed target field.}}{4}}
+\newlabel{regls pic}{{2}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Complementary Optimization in 1D}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Motivation for a Complementary Optimization Strategy}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Complementary Optimization}{5}}
+\newlabel{sec:comp}{{4.2}{5}}
+\newlabel{comp1}{{5}{5}}
+\newlabel{comp2}{{6}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Inverse design of a one-dimensional structure using the complementary optimization method. The target field in Figs 1\hbox {} and 2\hbox {} is used as the initial target field. The rates of change for both $\epsilon $ and $H$ are controlled by regularization parameters $\eta _1=10^{-4}$ and $\eta _2=10^{-3}$ respectively. The $400$ iterations used to achieve this result took $60$ seconds to compute. This method results in a well-behaved $\epsilon $ that actually produces a field very similar to the original target field. Interestingly, the formation of a ``steady-state'' periodic structure toward the sides of the structure has emerged.}}{5}}
+\newlabel{comp pic}{{3}{5}}
+\citation{BV04}
+\citation{CVX}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Complementary Optimization with Bounded $\epsilon $}{6}}
+\newlabel{bc1}{{7}{6}}
+\newlabel{bc2}{{8}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Inverse design of a one-dimensional structure using the complementary optimization method with bounded $\epsilon $. The parameters are identical to those used to produce Fig.\nobreakspace  {}3\hbox {} with the exception that only one regularization term is now needed ($\eta _2=10^{-3}$). The algorithm was run for $100$ iterations, which took $100$ seconds. The structure turns out to be almost completely binary-valued and looks like a periodic structure with tapered duty cycle. It produces an actual field which very closely matches the final target field.}}{6}}
+\newlabel{bounded comp pic}{{4}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Inverse design of an ``S'' resonator using the complementary optimization method without bounds on $\epsilon $. The design was initialized by specifying an initial dielectric structure ($\epsilon =1$ everywhere) and a resonant field in the shape of an ``S''. The final dielectric structure was produced after $50$ iterations which took $90$ seconds to complete in total. The grid size was $80\times 120$. The final dielectric structure is quite unintuive, and yet reproduces the target field surprisingly well. This example demonstrates the versatility of the complementary optimization method in producing designs, from very simple specifications, which otherwise could be attained only with considerable difficulty.}}{7}}
+\newlabel{S pic}{{5}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Complementary Optimization in 2D}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}``S'' Resonator}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Multi-Mode Inverse Design}{7}}
+\citation{Hen06}
+\citation{Hen06}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Inverse design of a doubly-resonant, degenerate ``X'' resonator produced by the complementary optimization method with unbounded $\epsilon $. As in Fig.\nobreakspace  {}5\hbox {} the initial value of $\epsilon $ was $1$ everywhere. The two initial target fields used are only slightly perturbed and are very similar to the two final actual target fields. Computationally, this design took $5$ minutes to complete on a $120\times 120$ grid and required $40$ iterations. This example shows that the complementary optimization strategy can be extended to produce dielectric structures with multiple resonances. Such an ``X'' resonator is useful for polarization-entangled single-photon sources for example\cite  {Hen06}.}}{8}}
+\newlabel{X pic}{{6}{8}}
+\newlabel{mm1}{{9}{8}}
+\newlabel{mm2}{{10}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Design of Waveguiding Devices}{8}}
+\citation{Vuc05}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Inverse design of a single-to-dual beam waveguide coupler using the complementary optimization method without bounds on $\epsilon $. Two degenerate modes with opposite symmetry (sine and cosine) are used as target fields. Only $4$ iterations ($14$ seconds) are needed to achieve this solution on a $240\times 55$ grid. This is a simple demonstration showing that the complementary optimization method can also be extended to design waveguiding devices.}}{9}}
+\newlabel{wg pic}{{7}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Complementary Optimization with Bounded $\epsilon $ in 2D}{9}}
+\newlabel{sec:2Dbounded}{{6}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Numerical Method}{9}}
+\newlabel{sec:2Dnum}{{6.1}{9}}
+\newlabel{be1}{{11}{9}}
+\newlabel{be2}{{12}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Circular Grating Resonator}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Inverse design of a two-dimensional resonator using the complementary optimization method with strict bounds on $\epsilon $. The initial specification is very simple and consists an initial dielectric structure ($\epsilon =12.25$ everywhere), the frequency and mode-volume of the resonance field as well as a weighting factor, $\eta $, to avoid leaky field Fourier components. Additionally, the values of $\epsilon $ are only allowed to be modified within a central circular region and must be kept between $1$ and $12.25$. After $40$ iterations on a $160 \times 160$ grid, which took $7$ minutes to complete, a discrete structure emerged with excellent match between the predicted ($x_{40}$) and actual fields. The structure resembles a circular grating with a bowtie-like central structure for focusing the resonant energy to a single point.}}{10}}
+\newlabel{circle pic}{{8}{10}}
+\citation{Lip08}
+\citation{Vuc05}
+\citation{Aka05}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Beam Resonator}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Inverse design of a beam resonator in two dimensions using the complementary optimization method with bounded $\epsilon $. The initial conditions are identical to those for Fig.\nobreakspace  {}8\hbox {}, except that the initial dielectric structure is an unbroken waveguide, and $\epsilon $ can only be modified within that waveguide. The structure emerged after $40$ iterations on a $320\times 40$ grid, which took $5$ minutes of computation. The bowtie-like structure has reappeared in the center. Interestingly, the effect of the Fourier term in Eq.\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces 11\hbox {}\unskip \@@italiccorr )}}, is seen in the outward tapering of the holes.}}{11}}
+\newlabel{line pic}{{9}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions and Outlook}{11}}
+\citation{Riv09}

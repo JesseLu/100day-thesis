@@ -1,4 +1,29 @@
 \chapter{Introduction}
-And now for an introduction...
-\myfig{integrated_circuit}{}
-\myfig{des_complexity}{}
+Currently, nanophotonic devices are designed by tuning
+    a handful of design parameters (\fig{integrated_circuit}).
+The goal of this work is nanophotonic design software
+    so that this will no longer be the case.
+\myfig{integrated_circuit}
+    {Examples of hand-tuned nanophotonic devices.
+    Device performance is tuned by varying the sizes of and spacing between
+    a handful of elements (waveguides, resonators, gratings, \ldots).}
+
+Specifically, our goal is to be able to utilize the full parameter space
+    (which is enormous, \fig{des_complexity})
+    to enable compact, high-efficiency designs
+    which may even exhibit novel functionality.
+To achieve this, we have embarked on a quest 
+    to enable nanophotonic \emph{design-by-specification}--that is,
+    software which is able to design a nanophotonic device
+    solely based on the desired performance specification given to it.
+This thesis is a synopsis of the steps that we have taken to achieve this goal.
+\myfig{des_complexity}
+    {The parameter space for nanophotonic design is enormous and largely untapped.
+    Here, we show that, 
+        limited to including or excluding 100 nm square areas,
+        a 1500 nm $\times$ 1500 nm area already contains $2^{225}$ 
+        (an uncountable number) possible designs.}
+
+The organization of this thesis is straightforward: 
+    chapters 2-4 detail the incremental steps in achieving
+    our final result, which is presented in chapter 5.

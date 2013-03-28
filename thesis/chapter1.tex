@@ -23,70 +23,134 @@
 % \bibitem{Riv09} K.~Rivoire, Z.~Lin, F.~Hatami, W.~Ted Masselink, and J.~Vuckovic, ``Second harmonic generation in gallium phosphide photonic crystal nanocavities with ultralow continuous wave pump power,'' Optics Express \textbf{17}, 22609-22615 (2009).
 % \end{thebibliography}
 % 
-\chapter{Direct design}
-\section{Introduction}
-Numerous numerical methods have been devised to solve Maxwell's equations in both time\cite{Yee66} and frequency\cite{AB74,GA79} domains. We refer to these schemes as direct solvers, since they compute the electric and magnetic fields based on current sources, charge distributions and surrounding dielectric and/or metallic structures. While extremely useful in simulating optical components, using direct methods to design optical components, especially in two or three dimensions,  typically requires an extremely time-consuming direct search in a large parameter space\cite{Lon09,Sch02,Nod05,Lip08,SD05}.
+\chapter{Direct design}\label{direct}
+% Numerous numerical methods have been devised to solve Maxwell's equations in both time\cite{Yee66} and frequency\cite{AB74,GA79} domains. We refer to these schemes as direct solvers, since they compute the electric and magnetic fields based on current sources, charge distributions and surrounding dielectric and/or metallic structures. While extremely useful in simulating optical components, using direct methods to design optical components, especially in two or three dimensions,  typically requires an extremely time-consuming direct search in a large parameter space\cite{Lon09,Sch02,Nod05,Lip08,SD05}.
+% 
+% On the other hand, an inverse solver would be much more adept in such design and optimization problems\cite{Sig04,Vuc05}. In this work, we define the inverse problem as that where the electromagnetic field is known, but the surrounding structure is not known. The goal in the inverse problem is, then, to find a dielectric structure that will produce that specific electromagnetic field profile.
+% 
+% We show that one can design nanophotonic resonators by specifying the electromagnetic field and its desirable characteristics (such as cavity quality (Q) factor and/or mode volume) and then using an inverse solver to find the corresponding dielectric structure. We show that the inverse method used is not only computationally-fast, but is also able to optimize for multiple device characteristics and produce multiple resonances, both of which are very difficult using direct methods. 
+% 
 
-On the other hand, an inverse solver would be much more adept in such design and optimization problems\cite{Sig04,Vuc05}. In this work, we define the inverse problem as that where the electromagnetic field is known, but the surrounding structure is not known. The goal in the inverse problem is, then, to find a dielectric structure that will produce that specific electromagnetic field profile.
+\section{Problem formulation}
+This work was originally sparked by the realization that 
+    the electromagnetic wave equation was not only linear in the field variable,
+    but also in the structure variable.
+Specifically, that
+    \BE \nabla \times \mu_0^{-1} \nabla \times E - \omega^2 \epsilon E = 
+        -i\omega J \label{p1:wave} \EE
+    is \emph{bi-linear} in both $E$ and $\epsilon$.
 
-We show that one can design nanophotonic resonators by specifying the electromagnetic field and its desirable characteristics (such as cavity quality (Q) factor and/or mode volume) and then using an inverse solver to find the corresponding dielectric structure. We show that the inverse method used is not only computationally-fast, but is also able to optimize for multiple device characteristics and produce multiple resonances, both of which are very difficult using direct methods. 
+We now make the following substitution in order to represent \eq{p1:wave}
+    in linear algebra notation:
+    \BI $E \to x$, 
+    \I  $\epsilon \to z$,
+    \I  $\nabla\times\mu_0^{-1}\nabla\times - \omega^2 \epsilon \to A(z)$, and
+    \I  $-i\omega J \to b$. \EI
+The electromagnetic wave equation (\eq{p1:wave}) can now be expressed simply as
+    \BE A(z)x = b, \label{p1:axb} \EE
+    which is not only linear in $x$, but also in $z$, 
+    since $A(z)$ is linear with respect to $z$.
 
-\section{Numerical Setup}
-We start from the time-harmonic eigenvalue equation 
-\begin{equation}
-\nabla \times \epsilon^{-1} \nabla \times H = \left(\frac{\omega}{c}\right)^2 H
-\label{trad ev}\end{equation}
-where $H$, $\epsilon$, $\omega$ and $c$ are the magnetic field, relative permittivity, resonance frequency and speed of light respectively. To solve the problem numerically, $H$ and $\epsilon$ are discretized in space using the standard Yee cell used in finite difference methods\cite{Yee66}. Also, the curl operators, since they are linear, are represented by the matrix $A$. Eq.~\eqref{trad ev} can now be written as 
-\begin{equation}
-A Y A x = \xi x
-\label{lin ev}\end{equation}
-where
-\begin{align*}
-&A \text{ is the discretized curl operator,} \\
-&Y = \text{diag}(\epsilon^{-1}) \text{ is the diagonal matrix representing the dielectric structure,} \\
-&x \text{ is a vector representing $H$, and} \\
-&\xi =  \left(\frac{\omega}{c}\right)^2. 
-\end{align*}
-In this form, given $Y$, we can solve the direct problem by computing $x$ using an eigenvalue solver\cite{JJ99}. However, we note that eq.~\eqref{lin ev} is also linear in $Y$, which allows us, if $x$ is held constant, to solve the inverse problem by expressing eq.~\eqref{trad ev} as
-\begin{equation}
-By = d
-\label{inv ls}\end{equation}
-where
-\begin{align*}
-&B = A \cdot \text{diag}(Ax), \\
-&d = \xi x\text{, and} \\
-&y = 
-\begin{bmatrix}
-\epsilon_1^{-1} \\ \epsilon_2^{-1} \\ \vdots
-\end{bmatrix} \text{ the variable for which we solve.}
-\end{align*}
-Here, $\text{diag}(Ax)$ is the matrix with the values of $Ax$ along the main diagonal and zeros elsewhere.
+The linearity of the electromagnetic wave equation with respect to
+    the structure variable suggests the following direct design method:
+    \begin{enumerate}
+    \item choose the electromagnetic field you wish the structure to produce, and
+    \item solve the electromagnetic wave equation for the structure variable. 
+    \end{enumerate}
 
-\section{Least-Squares Method in 1D}
-\subsection{Least-Squares}
+In the language of physics, this amounts to computing
+    \BE \epsilon = (\nabla\times\mu_0^{-1}\nabla\times E + 
+        i \omega J)/ \omega^2 E \EE
+    given $E$. 
+
+In the language of linear algebra, we have formulated the following problem:
+    \BE \minimize_z \|A(z)x - b\|^2. \label{p1:problem}\EE
+    
+\section{Implementation}
+To solve \eq{p1:axb} numerically, $x$ (field) and $z$ (structure) variables
+    are discretized in space using the standard Yee cell 
+    used in finite difference methods\cite{Yee66}. 
+The matrix $A(z)$ is contructed in Matlab and solved using 
+    the standard built-in function.
+Because this implementation was only in 1D,
+    all the computation needed to perform the direct design
+    was completed in under one second 
+    on a standard desktop computer.
+
+For verification purposes, 
+    a finite-difference time-domain (FDTD) solver was used 
+    to obtain the actual field produced by the structure and 
+    to verify the accuracy of the design.  
+
+\section{Results}
+We now solve \eq{p1:problem} to design nanophotonic resonators in 1D.
+We use the magnetic field formulation of the electromagnetic equation
+    in the following examples;
+    analogous results for the original $E$-field formulation (\eq{p1:wave})
+    are expected.
+
+The chosen value for the $x$ (field) is a canonical resonator field; 
+    a sinusoid in a Gaussian envelope.
+As the result in fig.~\ref{p1:direct} shows,
+    the direct method is able to perfectly reproduce the target field;
+    however, the resulting structure features
+    periodic singularities which render it unmanufacturable.
+
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/leastsquares}
-\caption{Inverse design of a one-dimensional structure using the unmodified least-squares method. The target field is a sinusoid within a Gaussian envelope. The computed dielectric structure (green area) supports a field (red circles) that exactly matches the target field (blue line). The entire design process is also extremely fast and takes less than $1$ second to complete on a generic desktop computer~\cite{mycomp}. The periodic singularities in the dielectric structure are non-physical and will be addressed later in the article.}
-\label{ls pic}\end{figure}
-The result of applying this method to a simple one-dimensional problem is shown in Fig.~\ref{ls pic}. A generic least-squares solver~\cite{cholmod} was used to find the dielectric structure, $y$ (green region), that exactly produces the target field, $x$ (blue line), using eq.~\eqref{lin ev}. Using a generic desktop computer, the solution was obtained in less than a second. Then a finite-difference time-domain (FDTD) solver was used to obtain the actual field (red circles) produced by the structure and to verify the accuracy of $y$.  
+\caption{Design of a one-dimensional structure using the direct design method.
+    The target field is a sinusoid within a Gaussian envelope. 
+    The computed dielectric structure (green area) supports 
+        a field (red circles) that exactly matches the target field (blue line). 
+    The entire design process is extremely fast and takes less than 
+        $1$ second to complete on a generic desktop computer~\cite{mycomp}. 
+    Unfortunately, the periodic singularities in the dielectric structure 
+        mean that such a structure is unrealizable in practice.}
+\label{p1:direct}\end{figure}
 
-As expected, Fig.~\ref{ls pic} shows that the target field is reproduced exactly by the dielectric structure. However, the resulting structure is full of undesireable singularities. The rest of the section focuses on producing a well-behaved dielectric structure that still reproduces the target field accurately.
+\chapter{Regularized direct design}\label{regularized}
+\section{Problem formulation}
+The simplest way to produce a well-behaved dielectric structure is 
+    to add a regularization term to our direct formulation (\eq{p1:axb}),
+    \BE \minimize_z \|A(z)x - b\|^2 + \eta \|z - z_0\|^2. \label{reg:problem}\EE
+Here, the regularization term $\eta \|z - z_0\|^2$
+    serves to keep $z$ from straying too far from $z_0$, which we choose.
+The coefficient $\eta$, then, serves as a knob to control the
+    strength of the regularization term.
 
-\subsection{Regularized Least-Squares}
-The simplest way to produce a well-behaved dielectric structure is to add a regularization term to our least-squares problem, 
-% \begin{equation}
-% \begin{bmatrix} B \\ \sqrt{\eta} I \end{bmatrix} y = \begin{bmatrix} d \\ \sqrt{\eta}y_0 \end{bmatrix}
-% \label{regls}\end{equation}
-which is equivalent to solving the following optimization problem
-\begin{equation}
-\minimize_{y}\quad \|By-d\|^2 + \eta\|y-y_0\|^2.
-\label{regls alt} \end{equation}
-Here $y_0$ represents some initial guess for the dielectric structure, which we want the values of $y$ to stay close to, and $\eta>0$ is a parameter used to trade off fit, i.e. $\|By-d\|^2$, and deviation from $y_0$, i.e. $\|y-y_0\|^2$.
+\section{Implementation}
+\Eq{reg:problem} can still be computed in one step
+    since the regularization term does not add any computational complexity.
+Thus the implementation is only a slight modification
+    from that of chapter~\ref{direct}.
 
-We chose to constrain $\epsilon$ around a constant value of $\epsilon_0 = 10$ and solved the least-squares system for $\eta=10^{-8}$, $10^{-6}$, and $10^{-4}$. The results, each still obtained in under a second, are shown in Fig.~\ref{regls pic} and illustrate the trade-off between constraining $\epsilon$ and accurately reproducing $H$.
+\section{Results}
+We chose to constrain the values of $z$ ($\epsilon$) 
+    around a constant value of $z_0, \epsilon_0 = 10$ and 
+    solved \eq{reg:problem} for $\eta=10^{-8}$, $10^{-6}$, and $10^{-4}$;
+    the results of which are shown in fig.~\ref{regls pic}.
+    
+Critically, fig.~\ref{regls pic} shows that there seems
+    to be an inherent trade-off between 
+        constraining the structure ($z$) 
+        and accurately reproducing the field ($x$).
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/regularized}
-\caption{Inverse design of one-dimensional structures using the regularized least-squares method. The same target field is used as in Fig.~\ref{ls pic}, and the computation time remains below $1$ second. As the regularization parameter, $\eta$, is increased, $\epsilon$ is increasingly constrained to a chosen constant value of $10$. At the same time, the mismatch between target and actual fields increases markedly. This illustrates the apparent trade-off between producing reasonable structures and accurately reproducing a fixed target field.}
+\caption{Regularized design of one-dimensional structures. 
+    The same target field is used as in Fig.~\ref{p1:direct}, 
+        and the computation time remains below $1$ second. 
+    As the regularization parameter, $\eta$, is increased, 
+        $\epsilon$ is increasingly constrained to 
+        a chosen constant value of $10$. 
+    At the same time, the mismatch between target and actual fields 
+        increases markedly. 
+    This illustrates the apparent trade-off between 
+        producing reasonable structures and 
+        accurately reproducing a fixed target field.}
 \label{regls pic}
 \end{figure}
+
+
+
+

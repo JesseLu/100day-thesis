@@ -20,6 +20,15 @@
 \usepackage{suthesis-2e}
 
 %% load other packages you need
+\input defs
+\usepackage{suthesis-2e,graphicx,subfigure,setspace, topcapt,amssymb,amsmath}
+%\usepackage{site} %did not work with hyperref
+\usepackage{natbib} %works with hyperref
+\usepackage[pdftex,bookmarks=true, colorlinks=true,linkcolor=blue,
+pdfpagemode=UseOutlines, citecolor=blue, backref=page,
+linktocpage=true ]{hyperref}
+\usepackage[all]{hypcap} %to link to top of figure, not to top of caption
+
 
 %% uncomment the following and create mythesis-macros.sty for all your
 %% own macros.  This keeps this top level file looking fairly neat.
@@ -34,7 +43,7 @@
 
     \title{Nanophotonic Computational Design}
     \author{Jesse Ying-Shou Lu}
-%\dept{} % default is Computer Science, uncomment for other departments
+    \dept{Electrical Engineering}
     \principaladviser{Jelena Vuckovic}
 % \coprincipaladvisor{}
     \firstreader{David Miller}
@@ -81,10 +90,11 @@
 
 % this includes chapter1.tex which should start with a \chapter{...}
 % command 
-% \include{chapter1}
-% \include{chapter2}
-% \include{chapter3}
-% \include{chapter4}
+\include{intro}
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
 % \include{chapter5}
 
 % and the end material

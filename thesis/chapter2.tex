@@ -96,17 +96,30 @@ This modification takes us one step closer to producing manufacturable structure
     which must be discretely valued.
 
 \section{Implementation} 
-In this algorithm, \eq{bounded problem} is no longer linear in a convex optimization problem\cite{BV04}. This allows us to impose hard constraints on $\epsilon$, which in turn allows us to remove the regularization term present in eq.~\eqref{comp1}. The \emph{CVX} package\cite{CVX}, a Matlab-based modeling system for convex optimization, is used to solve eq.~\eqref{bc1}, with each iteration of the algorithm now requiring roughly $1$ second of computation time.
+In this algorithm, \eq{bounded problem} is no longer linear in $z$
+    but is still convex\cite{BV04}.
+For this reason, the \emph{CVX} package\cite{CVX}, 
+    a Matlab-based modeling system for convex optimization, 
+    is now used to solve \eq{bounded problem} for $z$.
+
+\section{Results}
+\subsection{1D}
+Once again, we attempt the design of a one-dimensional resonator
+    and find thata nearly binary-valued dielectric structure is obtained,
+    as seen in fig.~\ref{bounded comp pic}.
+Note that the the directly discreteness of $z$ was not enforced (since that would make the problem non-convex); 
+    however, a discrete, binary-valued structure arose fortuitously. 
+Critically, this dielectric structure accurately produces the final target field. 
+
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/bounded}
-\caption{Inverse design of a one-dimensional structure using the complementary optimization method with bounded $\epsilon$. The parameters are identical to those used to produce Fig.~\ref{comp pic} with the exception that only one regularization term is now needed ($\eta_2=10^{-3}$). The algorithm was run for $100$ iterations, which took $100$ seconds. The structure turns out to be almost completely binary-valued and looks like a periodic structure with tapered duty cycle. It produces an actual field which very closely matches the final target field.}
+\caption{Iterative design of a one-dimensional structure with bounded $\epsilon$. 
+    The parameters are identical to those used to produce Fig.~\ref{comp pic} with the exception that only one regularization term is now needed ($\eta_2=10^{-3}$). The algorithm was run for $100$ iterations, which took $100$ seconds. The structure turns out to be almost completely binary-valued and looks like a periodic structure with tapered duty cycle. It produces an actual field which very closely matches the final target field.}
 \label{bounded comp pic}
 \end{figure}
 
-A nearly binary-valued dielectric structure is obtained in Fig.~\ref{bounded comp pic}, which accurately produces the final target field. This is very useful for the design of practical structures, since they usually consist of two or three different materials at most. Interestingly, although the directly discreteness of $\epsilon$ was not enforced (since that would make the problem non-convex), a discrete, binary-valued structure has still arisen. 
+\subsection{2D}
 
-\section{Complementary Optimization in 2D}
-\subsection{Numerical Method}\label{sec:2Dnum}
 We now use the complementary optimization method to design resonators with discrete, binary $\epsilon$ in two dimensions. At the same time, the algorithm is modified so that we no longer specify an initial target field; instead, only an initial dielectric structure and the maximum desired mode volume (i.e. mode area in 2D) are specified. In addition, the optimization process attempts to maximize the Q-factor. Such an algorithm now consists of iteratively solving two convex optimization problems,
 \begin{align}
 &\text{choose $y_0$} \nonumber \\

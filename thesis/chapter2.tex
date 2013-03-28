@@ -1,39 +1,102 @@
-\chapter{Iterative design}
-\section{Complementary Optimization in 1D}
-\subsection{Motivation for a Complementary Optimization Strategy}
-The fundamental problem in the previous examples is actually not in the methods themselves, but in the improper selection of a target field. In fact, it is very difficult to select a suitable target resonant field because not every resonant mode even has a corresponding dielectric structure that is able to reproduce it. Furthermore, it is nearly impossible to select a multi-dimensional field which corresponds to a well-behaved, isotropic and discretely-valued $\epsilon$, as would be needed for practical structures. 
+\chapter{Iterative design} \label{iterative}
+% \section{Motivation for a Complementary Optimization Strategy}
+The fundamental problem in the examples 
+    in chapters \ref{direct} and \ref{regularized}
+    is actually not in the methods themselves, 
+    but in the improper selection of a target field. 
+In fact, it is very difficult to select a suitable target field 
+    because not every field even has a manufacturable dielectric structure 
+    that is able to reproduce it. 
+Furthermore, it is nearly impossible to select a multi-dimensional field 
+    which corresponds to a well-behaved, isotropic and 
+    discretely-valued $\epsilon$, 
+    as would be needed for practical structures. 
 
-For this reason, a successful method must be allowed to either modify the target field, or specify it completely, in which case the user would only determine certain characteristics (e.g. mode-volume, Q-factor) that the target field should have. The former strategy is developed in both one and two dimensions, while the latter strategy is implemented in Section \ref{sec:2Dbounded} in order to design two-dimensional resonators with discrete values of $\epsilon$.
+What we realized was that a successful method 
+    must be allowed to modify the target field as well as 
+    its dielectric structure.
+This realization led us to an iterative design strategy for nanophotonic devices.
 
-\subsection{Complementary Optimization}\label{sec:comp}
-We start with the same target field as in the previous examples but we now formulate a method that allows for it to be modified during the design process. The formulation chosen is a complementary optimization routine, where we continually alternate between modifying $\epsilon$ to better fit the field, and then modifying the field to better fit $\epsilon$. Here, we use the term ``fit'' to mean that either $\epsilon$ or $H$ is solved so that the residual error from eq.~\eqref{trad ev} is minimized. Additionally, both iterations are regularized in order to stably approach a solution. This algorithm can be summarized as follows, 
-\begin{align}
-&\text{choose $x_0$ and $y_0$} \nonumber \\
-&\text{for } i = 1, 2, \ldots \nonumber \\
-&\quad\minimize_{y_i}\quad \|B_{i-1} y_i-d_{i-1}\|^2 + \eta_1\|y_i-y_{i-1}\|^2 \label{comp1}\\
-&\quad\minimize_{x_i}\quad \|A Y_i A x_i - \xi x_{i-1}\|^2 + \eta_2\|x_i-x_{i-1}\|^2 \label{comp2}
-\end{align}
-where $Y_i = \text{diag}(y_i)$, $B_i = A \cdot \text{diag}(A x_i)$ and $d_i = \xi x_i$. $\|A Y_i A x_i - \xi x_{i-1}\|^2$ is used instead of $\|A Y_i A x_i - \xi x_{i}\|^2$ to avoid the trivial $x_i = 0$ solution and does not affect the overall accuracy since $x$ changes very slowly. 
+\section{Problem formulation}
+We start with the same target field as in the previous examples 
+    but we now allow for it to be modified during the design process. 
+Specifically, we alternate between modifying $z$ (structure) 
+    to better fit $x$ (field), 
+    and then modifying the $x$ (field) to better fit $z$ (structure):
+    \begin{subequations}\begin{align} 
+    \minimize_z & \|A(z)x - b\|^2 + \eta_0\|z - z_\text{prev}\|^2 \\
+    \minimize_x & \|A(z)x - b\|^2 + \eta_1\|x - x_\text{prev}\|^2,
+    \end{align}\end{subequations}
+which can be more succintly expressed as 
+    \BE \minimize_\text{alternately $x$ then $z$} 
+        \|A(z)x - b\|^2 + \eta_0\|z - z_\text{prev}\|^2
+                        + \eta_1\|x-x_\text{prev}\|^2. \label{iterative problem}\EE
+
+In this formulation, both structure ($z$) and field ($x$) variables
+    have regularization terms.
+In order to avoid the performance/manufacturability trade-off 
+    encountered in chapter~\ref{regularized},
+    we decrease the values of $\eta_0$ and $\eta_1$ at each subsequent iteration.
+
+\section{Implementation}
+The most notable implementation difference is that,
+    in contrast to direct design,
+    \eq{iterative problem} must be solved multiple times
+    in order to arrive at a good design.
+Thus, design times now increase from seconds to minutes.
+
+Note that, in order to design two-dimensional structures,
+    \eq{iterative problem} is only modified in the
+    definition of its constituent vectors and matrices,
+    the formulation remains the same.
+
+
+\section{Results}
+\subsection{1D}
+Fig.~\ref{comp pic} shows that the iterative algorithm, after $400$ iterations and with the correct choice of regularization parameters $\eta_0$ and $\eta_1$, results in a well-behaved structure that is able to closely reproduce the modified target field. 
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/complementary}
-\caption{Inverse design of a one-dimensional structure using the complementary optimization method. The target field in Figs \ref{ls pic} and \ref{regls pic} is used as the initial target field. The rates of change for both $\epsilon$ and $H$ are controlled by regularization parameters $\eta_1=10^{-4}$ and $\eta_2=10^{-3}$ respectively. The $400$ iterations used to achieve this result took $60$ seconds to compute. This method results in a well-behaved $\epsilon$ that actually produces a field very similar to the original target field. Interestingly, the formation of a ``steady-state'' periodic structure toward the sides of the structure has emerged.}
+\caption{Iterative design of a one-dimensional resonator. 
+    The target field in Figs \ref{p1:direct} and \ref{regls pic} is used as the initial target field. The rates of change for both $\epsilon$ and $H$ are controlled by regularization parameters $\eta_0=10^{-4}$ and $\eta_1=10^{-3}$ respectively. The $400$ iterations used to achieve this result took $60$ seconds to compute. This method results in a well-behaved $\epsilon$ that actually produces a field very similar to the original target field. Interestingly, the formation of a ``steady-state'' periodic structure toward the sides of the structure has emerged.}
 \label{comp pic}
 \end{figure}
 
-Fig.~\ref{comp pic} shows that the complementary optimization algorithm, after $400$ iterations and with the correct choice of regularization parameters $\eta_1$ and $\eta_2$, results in a well-behaved structure that is able to closely reproduce the modified target field. Numerically, the least-squares problem must now be solved numerous times, which increases the computational time needed to around $60$ seconds. 
+\subsection{2D}
+The iterative design method can also be extended to two dimensions.
+We demonstrate this using an S-shaped target field 
+    which is non-trivial to reproduce. 
+The design result is shown in fig.~\ref{S pic}. 
+    The resulting dielectric structure is continuous, unbounded and 
+    contains very few singularities (white dots), 
+    but the final target and actual fields match up well. 
+Also, the computational cost remains quite reasonable; the $50$ iterations needed required only $5$ minutes of computation time. 
+\begin{figure}\centering
+\includegraphics[width=\textwidth]{p1/S}
+\caption{Iterative design of an ``S'' resonator. 
+The design was initialized by specifying an initial dielectric structure ($\epsilon=1$ everywhere) and a resonant field in the shape of an ``S''. 
+The final dielectric structure was produced after $50$ iterations which took $90$ seconds to complete in total. The grid size was $80\times 120$. The final dielectric structure is quite unintuive, and yet reproduces the target field surprisingly well. This example demonstrates the versatility of the iterative design method in producing designs, from very simple specifications, which otherwise could be attained only with considerable difficulty.}
+\label{S pic}
+\end{figure}
 
-\subsection{Complementary Optimization with Bounded $\epsilon$}
-In order to achieve a more practical, discretely-valued dielectric structure, we can impose strict upper- and lower-bounds on $\epsilon$. To this end, we modify our algorithm as such,
-\begin{align}
-&\text{choose $x_0$ and $y_0$} \nonumber \\
-&\text{for } i = 1, 2, \ldots \nonumber \\
-&\quad\minimize_{y_i}\quad \|B_{i-1} y_i-d_{i-1}\|^2 \nonumber \\
-&\quad\text{subject to}\quad \epsilon_\text{max}^{-1} \leq y_i \leq \epsilon_\text{min}^{-1} \label{bc1} \\
-\nonumber \\
-&\quad\minimize_{x_i}\quad \|A Y_i A x_i - \xi x_{i-1}\|^2 + \eta_2\|x_i-x_{i-1}\|^2. \label{bc2}
-\end{align}
-In this algorithm, eq.~\eqref{bc1} is a convex optimization problem\cite{BV04}. This allows us to impose hard constraints on $\epsilon$, which in turn allows us to remove the regularization term present in eq.~\eqref{comp1}. The \emph{CVX} package\cite{CVX}, a Matlab-based modeling system for convex optimization, is used to solve eq.~\eqref{bc1}, with each iteration of the algorithm now requiring roughly $1$ second of computation time.
+\chapter{Iterative design with bounded $\epsilon$} \label{bounded}
+\section{Problem formulation}
+In order to achieve a more practical, discretely-valued dielectric structure, we can impose strict upper- and lower-bounds on the structure ($z$). 
+To this end, we can modify \eq{iterative problem} as such,
+    \begin{subequations}
+    \begin{align} 
+    \minimize & \|A(z)x - b\|^2 + \eta_1\|x - x_\text{prev}\|^2\\
+    \subto & z_\text{min} \le z \le z_\text{max}. 
+    \end{align}\label{bounded problem}
+    \end{subequations}
+Here, the regularization term for $z$ has been replaced by hard constraints
+    on the values that $z$ can take on.
+
+This modification takes us one step closer to producing manufacturable structures,
+    which must be discretely valued.
+
+\section{Implementation} 
+In this algorithm, \eq{bounded problem} is no longer linear in a convex optimization problem\cite{BV04}. This allows us to impose hard constraints on $\epsilon$, which in turn allows us to remove the regularization term present in eq.~\eqref{comp1}. The \emph{CVX} package\cite{CVX}, a Matlab-based modeling system for convex optimization, is used to solve eq.~\eqref{bc1}, with each iteration of the algorithm now requiring roughly $1$ second of computation time.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/bounded}
 \caption{Inverse design of a one-dimensional structure using the complementary optimization method with bounded $\epsilon$. The parameters are identical to those used to produce Fig.~\ref{comp pic} with the exception that only one regularization term is now needed ($\eta_2=10^{-3}$). The algorithm was run for $100$ iterations, which took $100$ seconds. The structure turns out to be almost completely binary-valued and looks like a periodic structure with tapered duty cycle. It produces an actual field which very closely matches the final target field.}
@@ -43,43 +106,6 @@ In this algorithm, eq.~\eqref{bc1} is a convex optimization problem\cite{BV04}. 
 A nearly binary-valued dielectric structure is obtained in Fig.~\ref{bounded comp pic}, which accurately produces the final target field. This is very useful for the design of practical structures, since they usually consist of two or three different materials at most. Interestingly, although the directly discreteness of $\epsilon$ was not enforced (since that would make the problem non-convex), a discrete, binary-valued structure has still arisen. 
 
 \section{Complementary Optimization in 2D}
-\subsection{``S'' Resonator}
-We now demonstrate that the complementary optimization method is versatile and can be scaled to multiple dimensions. To ensure that $\epsilon$ is well-behaved we use a point-spread function which does not allow $\epsilon$ to change at a certain point in space without affecting the values surrounding it. 
-
-In order to show that our method can produce complex designs, we choose an S-shaped target field which is non-trivial to reproduce. The optimization results, using the complementary optimization method from Section \ref{sec:comp}, are shown in Fig.~\ref{S pic}. The resulting dielectric structure is continuous, unbounded and contains some singularities (white dots), but the final target and actual fields match up well. Also, the computational cost remains quite reasonable; the $50$ iterations needed required only $5$ minutes of computation time. The resulting structure is completely unintuitive, and illustrates the kind of new capabilities offered by the inverse design strategy. Specifically, that a complex, intricate structure can be designed just by specifying the shape and frequency of a rather simple electromagnetic mode.
-\begin{figure}\centering
-\includegraphics[width=\textwidth]{p1/S}
-\caption{Inverse design of an ``S'' resonator using the complementary optimization method without bounds on $\epsilon$. The design was initialized by specifying an initial dielectric structure ($\epsilon=1$ everywhere) and a resonant field in the shape of an ``S''. The final dielectric structure was produced after $50$ iterations which took $90$ seconds to complete in total. The grid size was $80\times 120$. The final dielectric structure is quite unintuive, and yet reproduces the target field surprisingly well. This example demonstrates the versatility of the complementary optimization method in producing designs, from very simple specifications, which otherwise could be attained only with considerable difficulty.}
-\label{S pic}
-\end{figure}
-
-\subsection{Multi-Mode Inverse Design}
-The complementary optimization method can also be extended to produce dielectric structures with multiple resonances. To do so, multiple initial target fields are specified. The dielectric structure is first modified to simultaneously fit all target fields using a multi-objective least-squares method. Then each target field is individually modified to fit the structure; and we continue alternating between optimizing $\epsilon$ and $H^{(j)}$ in this way. A benefit of this scheme is that only the $\epsilon$ optimization increases in size, so the design process remains computationally tractable, even for several resonant fields. This algorithm can be summarized as follows,
-\begin{align}
-&\text{choose $y_0$, $x^{(1)}_0$, $x^{(2)}_0$, \ldots} \nonumber \\
-&\text{for } i = 1, 2, \ldots \nonumber \\
-&\quad\minimize_{y_i}\quad \eta_1\|y_i-y_{i-1}\|^2 + \sum_j \|B^{(j)}_{i-1} y_i-d^{(j)}_{i-1}\|^2  \label{mm1}\\
-&\quad\text{for } j = 1, 2, \ldots \nonumber \\
-&\quad\quad\minimize_{x^{(j)}_i}\quad \|A Y_i A x^{(j)}_i - \xi x^{(j)}_{i-1}\|^2 + \eta_2\|x^{(j)}_i-x^{(j)}_{i-1}\|^2. \label{mm2}
-\end{align}
-The design of an ``X'' resonator with two perpendicular, degenerate modes is shown in Fig.~\ref{X pic}. The added complexity increases the total computation time to $5$ minutes for $40$ iterations of the algorithm. 
-\begin{figure}\centering
-\includegraphics[width=\textwidth]{p1/X}
-\caption{Inverse design of a doubly-resonant, degenerate ``X'' resonator produced by the complementary optimization method with unbounded $\epsilon$. As in Fig.~\ref{S pic} the initial value of $\epsilon$ was $1$ everywhere. The two initial target fields used are only slightly perturbed and are very similar to the two final actual target fields. Computationally, this design took $5$ minutes to complete on a $120\times 120$ grid and required $40$ iterations. This example shows that the complementary optimization strategy can be extended to produce dielectric structures with multiple resonances. Such an ``X'' resonator is useful for polarization-entangled single-photon sources for example\cite{Hen06}.}
-\label{X pic}
-\end{figure}
-
-\subsection{Design of Waveguiding Devices}
-The multi-mode inverse design method can also be applied to the design of waveguiding devices such as multiplexers/demultiplexers, waveguide couplers, crossbars and dispersion-tailored waveguides. This can be accomplished by treating a waveguiding device as a doubly-degenerate resonator at its operational frequencies and then enforcing opposite symmetries (even/odd or cosine/sine) in the degenerate modes. A single-to-dual beam waveguide coupler designed based on Eq.~\eqref{mm1} and \eqref{mm2} is shown in Fig.~\ref{wg pic}, and motivates how one might design other waveguiding devices such as channel-drop filters. 
-\begin{figure}[htbp]\centering
-\includegraphics[width=\textwidth]{p1/wg}
-\caption{Inverse design of a single-to-dual beam waveguide coupler using the complementary optimization method without bounds on $\epsilon$. Two degenerate modes with opposite symmetry (sine and cosine) are used as target fields. Only $4$ iterations ($14$ seconds) are needed to achieve this solution on a $240\times 55$ grid. This is a simple demonstration showing that the complementary optimization method can also be extended to design waveguiding devices.}
-\label{wg pic}
-\end{figure}
-In addition to macroscopic waveguiding devices, one should also be able to create novel periodic waveguiding structures. For instance, by controlling the frequency of a particular waveguiding mode at each of its $k$-vectors, one could create a waveguide with a customized dispersion characteristic, which would be useful in the design of slow-light waveguides.
-
-
-\section{Complementary Optimization with Bounded $\epsilon$ in 2D}\label{sec:2Dbounded}
 \subsection{Numerical Method}\label{sec:2Dnum}
 We now use the complementary optimization method to design resonators with discrete, binary $\epsilon$ in two dimensions. At the same time, the algorithm is modified so that we no longer specify an initial target field; instead, only an initial dielectric structure and the maximum desired mode volume (i.e. mode area in 2D) are specified. In addition, the optimization process attempts to maximize the Q-factor. Such an algorithm now consists of iteratively solving two convex optimization problems,
 \begin{align}

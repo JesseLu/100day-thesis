@@ -160,48 +160,58 @@
 % %     slot waveguide,'' Opt. Lett. \textbf{35}, 649-651 (2010).
 % % \bibitem{code} \url{www.github.com/JesseLu/objective-first}
 % \end{thebibliography}
-\chapter{Final Result}
-\section{Introduction}
-Currently, almost all nanophotonic components are designed 
-    by hand-tuning a small number of parameters 
-    (e.g. waveguide widths and gaps, hole and ring sizes).
-However, the realization of 
-    increasingly complex, dense, and robust on-chip optical networks
-    will require utilizing increasing numbers of parameters
-    when designing nanophotonic components.
-
-Opening the design space to include many more parameters
-    allows for smaller footprint, higher performance devices by definition,
-    since original designs are still included in this parameter space.
-Unfortunately, the lack of intuition for what such designs might look like and
-    the inability to manually search such a large parameter space
-    have greatly hindered the ability to achieve this.
-
-For this reason, we have developed and implemented a computational method
-    which is able to use the full parameter space 
-    to design linear nanophotonic components in three dimensions.
-Critically, our method requires no user intervention or manual tuning.
-Instead, a \emph{design-by-specification} scheme is used 
-    to produce designs based solely on a user's performance specification.
-
-We show that our method can indeed produce designs 
-    which are extremely compact, and, at the same time, highly efficient.
-Furthermore, we demonstrate that devices with novel functionality
-    are easily designed.
-We also show that our method can be used to produce designs
-    with extreme robustness to wavelength and temperature shift,
+\chapter{Nanophotonic computational design} \label{final}
+% \section{Introduction}
+% Currently, almost all nanophotonic components are designed 
+%     by hand-tuning a small number of parameters 
+%     (e.g. waveguide widths and gaps, hole and ring sizes).
+% However, the realization of 
+%     increasingly complex, dense, and robust on-chip optical networks
+%     will require utilizing increasing numbers of parameters
+%     when designing nanophotonic components.
+% 
+% Opening the design space to include many more parameters
+%     allows for smaller footprint, higher performance devices by definition,
+%     since original designs are still included in this parameter space.
+% Unfortunately, the lack of intuition for what such designs might look like and
+%     the inability to manually search such a large parameter space
+%     have greatly hindered the ability to achieve this.
+% 
+% For this reason, we have developed and implemented a computational method
+%     which is able to use the full parameter space 
+%     to design linear nanophotonic components in three dimensions.
+% Critically, our method requires no user intervention or manual tuning.
+% Instead, a \emph{design-by-specification} scheme is used 
+%     to produce designs based solely on a user's performance specification.
+% 
+% We show that our method can indeed produce designs 
+%     which are extremely compact, and, at the same time, highly efficient.
+% Furthermore, we demonstrate that devices with novel functionality
+%     are easily designed.
+% We also show that our method can be used to produce designs
+%     with extreme robustness to wavelength and temperature shift,
+%     as well as fabrication error.
+% 
+% Lastly, all our results are produced by simply specifying
+%     the functionality and performance of the desired device,
+%     which suggests that our method may indeed by able
+%     to design \emph{all} linear nanophotonic devices.
+% 
+\section{Problem formulation}
+We now develop a method which may indeed be capable of designing 
+    linear nanophotonic device which
+    are fully three-dimensional and multi-modal,
+    exhibit novel functionality,
+    have very compact footprints,
+    exhibit high efficiency, and
+    are manufacturable.
+In addition, we also demonstrate the ability to produce structures
+    which are strongly robust to wavelength and temperature shift,
     as well as fabrication error.
 
-Lastly, all our results are produced by simply specifying
-    the functionality and performance of the desired device,
-    which suggests that our method may indeed by able
-    to design \emph{all} linear nanophotonic devices.
-
-\section{Problem formulation}
-% Problem statement 
 In order to produce designs which utilize the full parameter space,
     and are based solely on the user's performance specification,
-    we formulate the design problem in the following way:
+    we use the following final formulation:
 \begin{subequations}\begin{align}
     \minimize & \sum_i^M \|A_i(z)x_i - b_i\|^2 \\
     \subto & \alpha_{ij} \le |c_{ij}\T x_i| \le \beta_{ij}, \quad
@@ -230,7 +240,7 @@ The explanation for the various terms in \eq{problem} follows:
     In contrast to typical schemes for optimizing physical structures,
         our formulation actually allows for non-zero physics residuals;
         which can be deduced since $A_i(z)x_i-b_i=0$ is not a hard constraint.
-    Instead, this formulation is what we call an \emph{objective-first} \cite{ob1_wg}
+    Instead, this formulation is what also an \emph{objective-first} \cite{ob1_wg}
         formulation in that the \emph{design objective} (explained below)
         is prioritized above satisfying physics.
 
@@ -283,7 +293,7 @@ The explanation for the various terms in \eq{problem} follows:
         of two discrete materials.
 \end{enumerate}
 
-\section{Method of solution}
+\section{Implementation}
 We employed the alternating directions method of multipliers (ADMM) algorithm 
     \cite{admm}
     in order to solve \eq{problem}.
@@ -308,6 +318,9 @@ In contrast to solving for $x_i$, solving for $z$ is much simpler since we
 Lastly, in order to arrive at fully discrete, manufacturable structures,
     we convert $z$ to a boundary parameterization\cite{levelset}
     and tune our structure using a steepest-descent method.
+
+The mathematical details of our implementation are given 
+    in appendix~\ref{maths}
 
 \section{Results}
 We demonstrate the effectiveness of our design method 
@@ -751,30 +764,27 @@ Note, however, that our method, as formulated, is also able to
     deal with temperature and fabrication shifts explicitly as well,
     although such results are not demonstrated here.
 
-\section{Conclusion}
-We have developed and implemented a method to design linear nanophotonic structures
-    which are fully three-dimensional and multi-modal,
-    have very compact footprints,
-    exhibit high efficiency, and
-    are manufacturable.
-We demonstrate this capability by designing various nanophotonic mode converters,
-    splitters, hubs, and fiber couplers.
-Critically, many, if not all, of these devices have never been demonstrated before
-    and cannot be designed by hand.
-In contrast, our method allows user to easily design such devices
-    by virtue of our design-by-specification scheme.
-
-In addition, we demonstrate the design of a broadband device 
-    which is strongly robust to wavelength and temperature shift,
-    as well as fabrication error.
-We show that such a device has stable operating wavelengths 
-    over temperature shifts as large as 905 K,
-    or over-/under-etching error of up to 8 nm.
-We suggest, based on this design, that wavelength tolerance
-    may be a good heuristic to the design of temperature and fabrication-error
-    tolerant nanophotonic devices. \\
-
-This work has been supported by the 
-    AFOSR MURI for Complex and Robust On-chip Nanophotonics 
-    (Dr. Gernot Pomrenke), grant number FA9550-09-1-0704.
+% \section{Conclusion}
+% We have developed and implemented a method to design linear nanophotonic structures
+%     which are fully three-dimensional and multi-modal,
+%     have very compact footprints,
+%     exhibit high efficiency, and
+%     are manufacturable.
+% We demonstrate this capability by designing various nanophotonic mode converters,
+%     splitters, hubs, and fiber couplers.
+% Critically, many, if not all, of these devices have never been demonstrated before
+%     and cannot be designed by hand.
+% In contrast, our method allows user to easily design such devices
+%     by virtue of our design-by-specification scheme.
+% 
+% In addition, we demonstrate the design of a broadband device 
+%     which is strongly robust to wavelength and temperature shift,
+%     as well as fabrication error.
+% We show that such a device has stable operating wavelengths 
+%     over temperature shifts as large as 905 K,
+%     or over-/under-etching error of up to 8 nm.
+% We suggest, based on this design, that wavelength tolerance
+%     may be a good heuristic to the design of temperature and fabrication-error
+%     tolerant nanophotonic devices. \\
+% 
 % \end{document}

@@ -2,6 +2,9 @@
 \usepackage{amsmath}
 % \usepackage[retainorgcmds]{IEEEtrantools}
 
+
+\newcommand{\E}[2]{\begin{align}#2\label{eq:#1}\end{align}}
+\newcommand{\curl}{\nabla\times}
 \newcommand{\myfig}[2]{
     \begin{figure}[!h]
     \begin{centering}
@@ -11,6 +14,12 @@
     \end{figure}
 }
 
+\newcommand{\grad}{\nabla}
+\newcommand{\cT}{\dagger}
+\newcommand{\pd}{\partial}
+\newcommand{\real}{{\mbox{\bf real}}}
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\Lag}{\mathcal{L}} % Lagrangian.
 \newcommand{\Eq}[1]{Eq.~\eqref{#1}}
 \newcommand{\Fig}[1]{Fig.~\ref{#1}}
 \newcommand{\eq}[1]{eq.~\eqref{#1}}

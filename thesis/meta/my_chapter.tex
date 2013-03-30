@@ -1,0 +1,121 @@
+% Some custom commands.
+\newcommand{\BE}{\begin{equation}}
+\newcommand{\EE}{\end{equation}}
+\newcommand{\BA}{\begin{eqnarray}}
+\newcommand{\EA}{\end{eqnarray}}
+\newcommand{\curl}{\nabla\times}
+\newcommand{\minimize}[1]{\JLUminimize_{#1}\;&}
+\newcommand{\subto}{\text{subject to}\;&}
+
+% Custom figures.
+% \newcommand{\myfig}[2]{\begin{figure}[!h]\includegraphics[width=0.95\textwidth]{fig/#1.jpg}\caption{#2}\label{fig:#1}\end{figure}}
+\newcommand{\myfig}[2]{\begin{figure}[!h]\includegraphics[width=0.95\textwidth]{fig/#1}\caption{#2}\label{fig:#1}\end{figure}}
+
+\newcommand{\BI}{\begin{itemize}\item}
+\renewcommand{\I}{\item}
+\newcommand{\EI}{\end{itemize}}
+
+\newcommand{\ER}[1]{\eqref{eq:#1}}
+\newcommand{\SR}[1]{Section~\ref{sec:#1}}
+\newcommand{\sR}[1]{section~\ref{sec:#1}}
+\newcommand{\FR}[1]{Figure~\ref{fig:#1}}
+\newcommand{\fR}[1]{figure~\ref{fig:#1}}
+\chapter{Objective-First Nanophotonic Design}
+\label{intro}
+
+\abstract{We introduce an ``objective-first'' strategy 
+    for designing nanophotonic devices,
+    and we demonstrate the design of nanophotonic
+    coupler, cloak, and mimic devices.}
+    
+
+Our initial foray into design methods for nanophotonic devices
+    began with a very simple and naive question: 
+    could we make an inverse solver which,
+    when given the electromagnetic fields we desire,
+    returns the nanophotonic structure that will produce them \cite{opex3}?
+In other words, since we already know how to solve for $E$ and $H$ 
+    in Maxwell's equations, why can't we solve for $\epsilon$
+    or even $\mu$ instead?
+
+Not surprisingly, it did not take us long to find that such
+    a simple strategy would inevitably run into many problems.
+
+Over the subsequent years, we were able to come up with a better solution,
+    which we call an ``objective-first'' strategy for nanophotonic design,
+    and which we present in this chapter.
+Although it is much more advanced than our original idea,
+    objective-first design still carries the same fundamental concept,
+    which is to specify the electromagnetic fields, and then
+    to solve for a structure to produce them.
+    
+In this chapter, we present the simple theoretical underpinnings of 
+    objective-first design in the first two sections,
+    and then show examples of the method in action in the rest of the chapter.
+We also include the source code that was used to generate
+    all results presented herein \cite{code}.
+    
+
+\input{wave_eq}
+\input{ob1}
+\input{wg}
+\input{cloak}
+\input{mimic}
+\input{extensions}
+
+\section{Conclusion}
+We have introduced an objective-first approach
+    to the design of nanophotonic components, and
+    applied it to the design of waveguide couplers,
+    optical cloaks, and optical mimics.
+In doing so, we hope to have exhibited both the simplicity
+    and the breadth of our method to the design of a broad
+    class of linear, single-mode devices.
+In addition to posting the source code for all the examples online \cite{code}, 
+    we have outlined the necessary extensions to our method in order
+    to design practical, three-dimensional devices.
+
+\section{Acknowledgements}
+This work has been supported by the 
+    AFOSR MURI for Complex and Robust On-chip Nanophotonics 
+    (Dr. Gernot Pomrenke), grant number FA9550-09-1-0704; 
+    and the Alexander von Humboldt Foundation.
+
+
+\begin{thebibliography}{99.}%
+\bibitem{boyd} S. Boyd, and L. Vandenberghe, 
+    \emph{Convex Optimization} 
+    (Cambridge University Press, 2004)
+\bibitem{cvx} M. Grant and S. Boyd, \emph{CVX: Matlab software for disciplined convex programming}, version 1.21. \verb+http://cvxr.com/cvx+, January 2011.
+\bibitem{admm} S. Boyd, N. Parikh, E. Chu, B. Peleato, and J. Eckstein, 
+    ``Distributed Optimization and Statistical
+    Learning via the Alternating Direction
+    Method of Multipliers,''
+    Foundations and Trends in Machine Learning, \textbf{3} 1–122 (2011).
+\bibitem{pml} S. G. Johnson, ``Notes on Perfectly Matched Layers (PMLs),''
+    http://math.mit.edu/~stevenj/18.369/pml.pdf, (2010). 
+\bibitem{opex1} J. Lu, and J. Vuckovic, 
+    ``Inverse design of nanophotonic structures using complementary convex optimization,''
+    Opt. Express \textbf{18}, 3793--3804 (2011). 
+% \bibitem{opex2} J. Lu, S. Boyd, and J. Vuckovic, 
+%     ``Inverse design of a three-dimensional nanophotonic resonator,''
+%     Opt. Express \textbf{19}, 10563--10750 (2011). 
+\bibitem{opex3} J.Lu, and J. Vuckovic,
+    ``Objective-first design of high-efficiency, small-footprint couplers between arbitrary nanophotonic waveguide modes,''
+    Opt. Express \textbf{20}, 7221--7236 (2012).
+\bibitem{code} https://github.com/JesseLu/objective-first
+\bibitem{miller} O. D. Miller, ``Photonic Design: From Fundamental Solar Cell Physics to Computational Inverse Design,''
+    U. C. Berkeley, (2012).
+\bibitem{shin} W. Shin, S. Fan, ``Choice of the perfectly matched layer boundary condition for frequency-domain Maxwell’s equations solvers,''
+    J. Comp. Phys. \textbf{231}, 3406--3431 (2012).
+\bibitem{simp} M. P. Bendsoe, and O. Sigmund, 
+    ``Material interpolation schemes in topology optimization,''
+    Archive of Applied Mechanics \textbf{69}, 635--654 (1999).
+\bibitem{taflove} A. Taflove, and S. C. Hagness, 
+    \emph{Computational Electrodynamics, Third Ed.}
+    Section 3.3.2, (Artech House, 2005).
+\bibitem{yee} K. S. Yee,
+    ``Numerical Solution of Initial Boundary Value Problems Involving
+    Maxwell's Equations in Isotropic Media,''
+    IEEE Trans. Antennas and Propagation \textbf{14}, 802--807 (1966).
+\end{thebibliography}

@@ -1,0 +1,137 @@
+\section{Optical mimic design}
+We now apply our objective-first strategy to the design of optical mimics.
+
+We define an optical mimic to be a linear nanophotonic device which 
+    mimics the output field of another device.
+In this sense optical mimics are the anti-cloaks;
+    whereas cloaks strive to make an object's electromagnetic presence vanish,
+    mimics strive to implement an object's presence without that 
+    object actually being there.
+
+As such, the design of optical mimics provides a tantalyzing approach
+    to the realization of practical metamaterial devices.
+That is to say, if one can reliably produce practical optical mimics,
+    then producing metamaterials (which are often based on fictitious materials)
+    can be accomplished by simply producing an optical mimic of that material.
+
+In a more general sense, 
+    designing optical mimics is really just a recasting of the thrust of 
+    the objective-first design strategy in its purest form:
+    the design of a nanophotonic device based purely 
+    on the electromagnetic fields one wishes to have it produce.
+As such, devices which perform well-known optical functions
+    (e.g. focusing, lithography) can also be designed.
+
+\subsection{Application of the objective-first strategy}
+The objective-first design of optical mimics proceeds in virtually
+    an identical way to the design of optical cloaks,
+    the only difference being that the output modes are 
+    specifically chosen to be those which produce the desired function.
+For most of the examples provided, the input illumination is still an incident plane wave.
+
+Lastly, instead of measuring efficiency, 
+    we measure the relative error of the simulated field
+    against that of a perfect target field
+    at a relevant plane of some distance away from the device.
+The location of this plane is identified as a dotted line in the subsequent figures.
+
+\subsection{Plasmonic cylinder mimic}
+Our first mimic is simply to mimic the plasmonic cylinder 
+    which we cloaked in the previous section.
+\myfig{mimic/m1}{Plasmonic cylinder mimic (see \fR{cloak/c6} for the original object). 
+                Error: 8.1\%,
+                device footprint: $40 \times 120$ grid points,
+                wavelength: 42 grid points.}
+
+\FR{mimic/m1} shows the result of the design.
+The final structure is shown in the upper right plot,
+    while the ideal field and the simulated field
+    are shown in the middle and bottom plots.
+Note that the ideal field is cut off to emphasize 
+    the fields to the right of the device (the output fields).
+Also, the magnitude of the fields are compared at the 
+    dotted black line at which point the relative error
+    is also calculated.
+For this simple, initial mimic, the simulated field is
+    quite closely imitates that produced by a single plasmonic cylinder.
+
+\subsection{Diffraction-limited lens mimic}
+We now design a mimic for a typical diffraction-limited lens.
+In this case, the object which we wish to mimic does not require simulation
+    since the fields of a lens can be readily computed.
+For the three figures below, 
+    the computed ideal fields are shown as the target fields.
+
+\FR{mimic/m3} shows the mimic of a lens with a moderate focus spot. 
+In such a lens, the focusing action is gradual and easily discernable
+    by eye.
+
+\myfig{mimic/m3}{Full-width-half-max at focus: 1.5 $\lambda$,
+                focus depth: 100 grid points.
+                Error: 12.0\%,
+                device footprint: $40 \times 120$ grid points (1.6 $\lambda$ thick),
+                wavelength: 25 grid points.}
+
+In constrast, \fR{mimic/m4} and \fR{mimic/m5} are both mimics of
+    a lens with a smaller half-wavelength spot size.
+Such a lens is much harder to design, 
+    because of the high-frequency spatial components involved;
+    and yet, we show that an objective-first strategy can 
+    produce successful designs with both smaller and larger focus depths.
+\myfig{mimic/m4}{Full-width-half-max at focus: 0.5 $\lambda$,
+                focus depth: 50 grid points.
+                Error: 5.6\%,
+                device footprint: $40 \times 120$ grid points (1.6 $\lambda$ thick),
+                wavelength: 25 grid points.}
+\myfig{mimic/m5}{Full-width-half-max at focus: 0.5 $\lambda$,
+                focus depth: 150 grid points.
+                Error: 1.4\%,
+                device footprint: $40 \times 120$ grid points (1.6 $\lambda$ thick),
+                wavelength: 25 grid points.}
+\clearpage
+
+\subsection{Sub-diffraction lens mimic}
+Our method is now employed to mimic the effect of a sub-diffraction lens.
+Since such a lens can be created using a negative-index material
+    this mimic can be viewed as an imitation of a negative-index material,
+    in that the following device recreates the sub-diffraction target-field 
+    at the output plane (dotted line)
+    when illuminated by the same target field at the input of the device.
+In other words,
+    this device is an image-specific sub-diffraction imager,
+    which is another way of saying that it is a single-mode imager.
+\myfig{mimic/m2}{Sub-diffraction lens mimic.
+                The target field has a full-width half-maximum of 0.14 $\lambda$.
+                Error: 28.6\%,
+                device footprint: $60 \times 120$ grid points (1.43 $\lambda$ thick),
+                wavelength: 42 grid points.}
+
+As \fR{mimic/m2} shows,
+   we are able to recreate the target field at the output.
+Note that the target field is created simply by placing 
+    the imaging field at the output plane.
+Also note that, as expected, 
+    the output field decays very quickly since,
+    for such a deeply subwavelength field,
+    it is composed primarily of evanescently decaying modes.
+
+\subsection{Sub-diffraction optical mask}
+Lastly, we extend the idea of a sub-diffraction lens mimic
+    one step further and
+    design a sub-diffraction optical mask.
+Such a device takes a plane wave as its input and
+    produces a sub-diffraction image at its output plane.
+Of course, akin to its lens counterpart,
+    this output plane must lie within the near-field 
+    of the device (specifically, two computational cells away)
+    because of its sub-wavelength nature.
+\myfig{mimic/m6}{Sub-diffraction optical mask.
+                The three central peaks in the target field are each
+                separated by 0.28 $\lambda$.
+                Error: 19.8\%,
+                device footprint: $40 \times 120$ grid points,
+                wavelength: 25 grid points.}
+
+\FR{mimic/m6} shows the design of a simple mask which 
+    successfully produces three peaks at its output.
+

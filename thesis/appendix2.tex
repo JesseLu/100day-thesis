@@ -1,1 +1,343 @@
-\chapter{Metamaterial-like objective-first results}\label{ob-1 meta}
+% Custom figures.
+% \newcommand{\myfig}[2]{\begin{figure}[!h]\includegraphics[width=0.95\textwidth]{fig/#1.jpg}\caption{#2}\label{fig:#1}\end{figure}}
+\renewcommand{\myfig}[2]{
+    \begin{figure}[!h]\begin{center}
+    \includegraphics[width=\textwidth]{meta/fig/#1}\caption{#2}\label{fig:#1}
+    \end{center}\end{figure}}
+% \newcommand{\myfiglarge}[2]{\begin{figure}[!h]\begin{center}\includegraphics[width=0.95\textwidth]{fig/#1}\caption{#2}\label{fig:#1}\end{center}\end{figure}}
+% \newcommand{\myfigthree}[2]{\begin{figure}[!h]\begin{center}\includegraphics[width=0.73\textwidth]{fig/#1}\caption{#2}\label{fig:#1}\end{center}\end{figure}}
+
+
+
+
+\newcommand{\ER}[1]{\eqref{eq:#1}}
+\newcommand{\SR}[1]{Section~\ref{sec:#1}}
+\newcommand{\sR}[1]{section~\ref{sec:#1}}
+\newcommand{\FR}[1]{Figure~\ref{fig:#1}}
+\newcommand{\fR}[1]{figure~\ref{fig:#1}}
+
+\chapter[Design of optical cloaks and mimics]{Objective-first design of optical cloaks and mimics}\label{ob-1 meta}
+------------------------------------------------------%
+\section{Optical Cloak Design}
+%---------------------------------------------------------%    
+We now extend the applicability of our method
+    to the design of metamaterial devices which operate in free-space.
+In particular,
+    we adapt the waveguide coupler algorithm to the 
+    to the design of optical cloaks.
+
+
+
+% %---------------------------------------------------------%
+% \subsection{Application of the Objective-first Strategy}
+% %---------------------------------------------------------%    
+
+Adapting the method used in chapter~\ref{ob-1} to the design of optical cloaks
+    really only requires one to change the simulation environment
+    to allow for free-space modes.
+This is accomplished by modifying the upper and lower boundaries
+    of the simulation domain from absorbing boundary conditions
+    to periodic boundary conditions,
+    which allows for plane-wave modes to propagate without loss
+    until reaching the left or right boundaries,
+    where absorbing boundary conditions are still maintained.
+
+In terms of the design objective, 
+    we allow the device to span the entire height of the simulation domain,
+    and thus consider only the leftmost and rightmost planes as boundary values.
+Specifically, for this section the input and output modes are plane waves
+    with normal incidence, 
+    as can be expected for good cloaking devices.
+The achieved results all yield high efficiency,
+    although we note that the cloaking effect is only measured
+    for a specific input mode.
+That is to say, just as the waveguide couplers previously designed
+    were single-mode devices,
+    so the cloaks designed in this section are also ``single-mode'' cloaks.
+An additional modification, as compared to chapter~\ref{ob-1}, is that
+    we now prevent the structure from being modified in certain areas
+    which contain the object to be cloaked.
+Each design is run for 400 iterations
+    with a uniform initial value of $p = 1/9$ for the structure
+    (where the structure is allowed to vary),
+    and the range of $p$ is limited to $1/12.25 \le p \le 1$,
+    implying a dielectric cloak.
+    
+    
+    
+%---------------------------------------------------------%
+\subsection{Anti-reflection Coating}
+%---------------------------------------------------------% 
+
+As a first example,
+    we attempt to design the simplest and most elementary ``cloaking'' device available,
+    which, we argue, is a simple anti-reflection coating;
+    in which case the object to be cloaked is nothing more than
+    the interface between two dielectric materials.
+In this case we use the interface between air and silicon, as shown in \FR{cloak/c1}
+\myfig{cloak/c1}{Anti-reflection coating.
+                Efficiency: 99.99\%,
+                device footprint: $60 \times 100$ grid points,
+                wavelength: 63 grid points.}
+
+Unsurprisingly for such a simple case, 
+    we achieve a very high efficiency device.
+Note also that the efficiency of the device can be deduced by eye,
+    based on the absence of reflections or standing waves 
+    in bottom two plots of \FR{cloak/c1}.
+
+
+
+%---------------------------------------------------------%
+\subsection{Wrap-around Cloak}
+%---------------------------------------------------------% 
+
+Next, we design a cloak for a plasmonic cylinder,
+    which is quite effective at scattering light
+    as can be seen from \FR{cloak/c6},
+    where we show that the uncloaked cylnder,
+    although subwavelength in size, scatters
+    the majority of light away from the desire output (plane-wave) mode.
+\myfig{cloak/c6}{Plasmonic cylinder to be cloaked. 
+                68.5\% of light is diverted away from the desired output mode.}
+
+In designing the wrap-around cloak,
+    we allow the structure to vary at all points within the design area
+    except in the immediate vicinity of the plasmonic cylinder.
+Application of the objective-first strategy results
+    in an efficient (greater than 99\%) device as seen in \FR{cloak/c2}.
+\myfig{cloak/c2}{Wrap-around cloak.
+                Efficiency: 99.99\%,
+                device footprint: $60 \times 100$ grid points,
+                wavelength: 42 grid points.}
+Note that our cloak employs only isotropic, non-magnetic materials,
+    and at the same time it is specific to a particular input
+    and to a particular object.
+That is to say, it is a single-frequency, single-mode, and single-object 
+    cloaking device.
+    
+    
+    
+%---------------------------------------------------------%
+\subsection{Open-channel Cloak}
+%---------------------------------------------------------%     
+    
+With a simple modification, from the previous example,
+    we can design a cloak which features an open channel
+    to the exterior electromagnetic environment (\FR{cloak/c4}).
+This simple modification creates an air gap that
+    connects the cylinder to the outside world
+    both from the front and back and
+    may be useful in the case where one would like to
+    remove or replace the cloaked object.
+
+\myfig{cloak/c4}{Open-channel cloak.
+                Efficiency: 99.8\%,
+                device footprint: $60 \times 100$ grid points,
+                wavelength: 42 grid points.}
+Such a design is still very efficient (greater than 99\% efficiency)
+    and demonstrates the usefulness of the objective-first strategy
+    in cases where other methods, such as transformation optics,
+    may require use of the entire space around the object
+    to be cloaked.
+    
+    
+
+%---------------------------------------------------------%
+\subsection{Channeling Cloak}
+%---------------------------------------------------------%     
+
+Our last cloaking example replaces the plasmonic cylinder 
+    with a thin metallic wall in which a sub-wavelength channel is etched.
+Such a metallic wall is very effective at blocking incoming light
+    (as can be seen from \FR{cloak/c7} where more than 99\%
+    of the incoming light is blocked) 
+    because of its large negative permittivity ($\epsilon = -20$),
+    meaning that any cloaking device would be forced to channel
+    all the input light into a very small aperture
+    and then to flatten that light out into a plane wave again.
+\myfig{cloak/c7}{Metallic wall with sub-wavelength channel to be cloaked.
+                99.9\% of the light is blocked from the desired output plane-wave.}
+
+Once again, our method is able to produce a design with efficiency greater
+    than 99\%, as shown in \FR{cloak/c5}.
+\myfig{cloak/c5}{Channeling cloak.
+                Efficiency: 99.9\%,
+                device footprint: $60 \times 100$ grid points,
+                wavelength: 42 grid points.}
+                
+                
+                
+%---------------------------------------------------------%
+\section{Optical Mimic Design}
+\label{sec:mimic}
+%---------------------------------------------------------%               
+                
+We now apply our objective-first strategy to the design of optical mimics.
+We define an optical mimic to be a linear nanophotonic device which 
+    mimics the output field of another device.
+In this sense optical mimics are anti-cloaks;
+    where cloaks strive to make an object's electromagnetic presence vanish,
+    mimics strive to implement an object's presence without that 
+    object actually being there.
+
+As such, the design of optical mimics provides a tantalyzing approach
+    to the realization of practical metamaterial devices.
+That is to say, if one can reliably produce practical optical mimics,
+    then producing metamaterials can be accomplished by 
+    simply producing an optical mimic of that material.
+In a more general sense, 
+    designing optical mimics is really just a recasting of the thrust of 
+    the objective-first design strategy in its purest form:
+    the design of a nanophotonic device based purely 
+    on the electromagnetic fields one wishes to produce.
+As such, devices which perform well-known optical functions
+    (e.g. focusing, lithography) can also be designed.                
+                
+                
+                
+% %---------------------------------------------------------%
+% \subsection{Application of the Objective-first Strategy}
+% %---------------------------------------------------------%                    
+%                 
+The objective-first design of optical mimics proceeds in virtually
+    an identical way to the design of optical cloaks,
+    the only difference being that the output modes are 
+    specifically chosen to be those that produce the desired function.
+For most of the examples provided, the input illumination is still an incident plane wave.
+Lastly, instead of measuring efficiency, 
+    we measure the relative error of the simulated field
+    against that of a perfect target field
+    at a relevant plane some distance away from the device.
+The location of this plane is identified as a dotted line in the subsequent figures.                
+                
+                
+
+%---------------------------------------------------------%
+\subsection{Plasmonic Cylinder Mimic}
+%---------------------------------------------------------% 
+
+Our first design is simply to mimic the plasmonic cylinder 
+    which we cloaked in the previous section.
+\FR{mimic/m1} shows the result of the design.
+
+The final structure is shown in the upper right plot,
+    while the ideal field and the simulated field
+    are shown in the middle and bottom plots.
+Note that the ideal field is cut off to emphasize 
+    the fields to the right of the device (the output fields).
+Also, the magnitude of the fields are compared at the 
+    dotted black line at which point the relative error
+    is also calculated.
+For this simple, initial mimic, the simulated field
+    quite closely imitates that produced by a single plasmonic cylinder (8.1\% error)
+    
+    \myfig{mimic/m1}{Plasmonic cylinder mimic (see \FR{cloak/c6} for the original object). 
+                Error: 8.1\%,
+                device footprint: $40 \times 120$ grid points,
+                wavelength: 42 grid points.}
+\clearpage
+
+
+%---------------------------------------------------------%
+\subsection{Diffraction-limited Lens Mimic}
+%---------------------------------------------------------% 
+
+We now design a mimic for a typical diffraction-limited lens.
+In this case, the object which we wish to mimic does not require simulation
+    since the fields of a lens can be readily computed.
+For the three figures below, 
+    the computed ideal fields are shown as the target fields.
+
+\FR{mimic/m3} shows the mimic of a lens with relatively moderate focusing. 
+In such a lens, the focusing action is gradual and easily discernible
+    by eye.
+The computed error in this case is 12.0\%.
+
+In constrast, \FR{mimic/m4} and \FR{mimic/m5} are both mimics of
+    a lens with a smaller half-wavelength spot size.
+Such a lens is much harder to design, 
+    because of the high-frequency spatial components involved;
+    and yet, we show that an objective-first strategy can 
+    produce successful designs (5.6\% and 1.4\% error)
+    and that this is achievable at both shorter and longer focal depths.
+\myfig{mimic/m3}{Full-width-half-max at focus: 1.5 $\lambda$,
+                focus depth: 100 grid points.
+                Error: 12.0\%,
+                device footprint: $40 \times 120$ grid points (1.6 $\lambda$ thick),
+                wavelength: 25 grid points.}
+
+
+\myfig{mimic/m4}{Full-width-half-max at focus: 0.5 $\lambda$,
+                focus depth: 50 grid points.
+                Error: 5.6\%,
+                device footprint: $40 \times 120$ grid points (1.6 $\lambda$ thick),
+                wavelength: 25 grid points.}
+\myfig{mimic/m5}{Full-width-half-max at focus: 0.5 $\lambda$,
+                focus depth: 150 grid points.
+                Error: 1.4\%,
+                device footprint: $40 \times 120$ grid points (1.6 $\lambda$ thick),
+                wavelength: 25 grid points.}
+\clearpage
+
+
+
+%---------------------------------------------------------%
+\subsection{Sub-diffraction Lens Mimic}
+%---------------------------------------------------------% 
+
+Our method is now employed to mimic the effect of a sub-diffraction lens.
+Since such a lens can be created using a negative-index material \cite{pendry}
+    this mimic can be viewed as an imitation of a negative-index material,
+    in that the following device recreates the sub-diffraction target-field 
+    at the output plane (dotted line)
+    when illuminated by the same target field at the input of the device.
+In other words,
+    this device is an image-specific sub-diffraction imager,
+    which is another way of saying that it is a single-mode imager.
+\myfig{mimic/m2}{Sub-diffraction lens mimic.
+                The target field has a full-width half-maximum of 0.14 $\lambda$.
+                Error: 28.6\%,
+                device footprint: $60 \times 120$ grid points (1.43 $\lambda$ thick),
+                wavelength: 42 grid points.}
+
+As \FR{mimic/m2} shows,
+   we are able to recreate the target field at the output,
+   albeit with higher error (28.6\%).
+Although the error in this example is larger,
+    the field produced by the device has a full-width half-maximum
+    nearly equal to that of the target field.
+
+Note that the target field is created simply by placing 
+    the imaging field at the output plane.
+Also note that, as expected, 
+    the output field decays very quickly since,
+    for such a deeply subwavelength field,
+    it is composed primarily of evanescently decaying modes.
+
+
+
+%---------------------------------------------------------%
+\subsection{Sub-diffraction Optical Mask}
+%---------------------------------------------------------% 
+
+Lastly, we extend the idea of a sub-diffraction lens mimic
+    one step further and
+    design a sub-diffraction optical mask.
+Such a device takes a plane wave as its input and
+    produces a sub-diffraction image at its output plane.
+Of course, akin to its lens counterpart,
+    this output plane must lie within the near-field 
+    of the device (specifically, two computational cells away)
+    because of its sub-wavelength nature.
+    \FR{mimic/m6} shows the design of a simple mask which 
+    successfully produces three peaks at its output
+    with an error of 19.8\%.
+\myfig{mimic/m6}{Sub-diffraction optical mask.
+                The three central peaks in the target field are each
+                separated by 0.28 $\lambda$.
+                Error: 19.8\%,
+                device footprint: $40 \times 120$ grid points,
+                wavelength: 25 grid points.}
+    
+ 

@@ -1,22 +1,44 @@
 \chapter{Introduction}
-Currently, nanophotonic devices are designed by tuning
+The twenty-first century has rightly been called the ``information age'',
+    as advances in computation have resulted in an explosion
+    in the amount of information created and communicated on a daily basis.
+
+The underlying communication fabric and key technological enabler
+    of our information age has been the high-bandwidth, long-distance
+    communication capability afforded by the optical network.
+
+First used to communicate between cities and across continents,
+    optical networks are now needed to simply communicate across rooms (datacenters)
+    because of the ballooning information creation and communication
+    abilities of single computers.
+As our appetite for information continues to grow,
+    the optical network will be used for even shorter distances
+    such as chip-to-chip and even core-to-core communication.
+The focus of this work is the design of nanophotonic components
+    to enable such future on-chip optical networks.
+
+Currently, on-chip networks consist of devices
+    which are designed by tuning
     a handful of design parameters (\fig{integrated_circuit}).
-The goal of this work is nanophotonic design software
-    so that this will no longer be the case.
+Much progress has been made on this front;
+    however, we note that the available design space is largely untouched (\fig{des_complexity}).
+
 \myfig{integrated_circuit}
     {Examples of hand-tuned nanophotonic devices.
     Device performance is tuned by varying the sizes of and spacing between
     a handful of elements (waveguides, resonators, gratings, \ldots).}
 
-Specifically, our goal is to be able to utilize the full parameter space
-    (which is enormous, \fig{des_complexity})
-    to enable compact, high-efficiency designs
-    which may even exhibit novel functionality.
-To achieve this, we have embarked on a quest 
-    to enable nanophotonic \emph{design-by-specification}--that is,
-    software which is able to design a nanophotonic device
-    solely based on the desired performance specification given to it.
-This thesis is a synopsis of the steps that we have taken to achieve this goal.
+To be precise, the motivation for this works stems from the twin realizations that
+    \begin{enumerate}
+    \item the fabrication of on-chip optical networks in semiconductor 
+    foundries enables virtually unlimited design complexity at no additional 
+    fabrication cost, and
+    \item component performance can only benefit by the addition and
+    consideration of these additional degrees of freedom.
+    \end{enumerate}
+The goal of this work, then, is to be able to take advantage
+    of the full available parameter space to design nanophotonic devices.
+
 \myfig{des_complexity}
     {The parameter space for nanophotonic design is enormous and largely untapped.
     Here, we show that, 
@@ -24,6 +46,48 @@ This thesis is a synopsis of the steps that we have taken to achieve this goal.
         a 1500 nm $\times$ 1500 nm area already contains $2^{225}$ 
         (an uncountable number) possible designs.}
 
+Along this line of reasoning
+    we expect to be able to produce devices which
+    \BI have very compact footprints,
+    \I  exhibit high efficiency performance,
+    \I  are multi-modal in their operation,
+    \I  are robust to shifts in wavelength and temperature,
+    \I  are robust to fabrication error,
+    \I  may even demonstrate novel, never-before-seen functionality. \EI
+Our final result (chapter~\ref{final}) indeed demonstrates
+    manufacturable, three-dimensional nanophotonic devices which
+    exhibit these properties.
+
+Of course, in this regime, the hand-tuning of parameters 
+    is no longer a tractable strategy.
+Instead, we use a \emph{design-by-specification} strategy
+    which simply means that our software produces nanophotonic designs
+    based solely based on the desired performance specification given to it,
+    and requires no intermediate hand tuning.
+
+We note, lastly, that the design-by-specification strategy
+    is unusually powerful in the sense that \emph{all} useful nanophotonic devices
+    can be designed in this way.
+Indeed, the apparent ease with which we are able to produce designs seems
+    to lend one to this conclusion.
+
 The organization of this thesis is straightforward: 
     chapters \ref{direct}-\ref{ob-1} detail the incremental steps in achieving
     our final result, which is presented in chapter \ref{final}.
+Futhermore, each section is broken into three major sections:
+    \begin{description}
+    \item[Problem formulation] where we show how we cast the design problem
+        in incrementally more sophisticated mathematics.
+    \item[Implementation] where we note how the formulated problem 
+        was solved computationally.
+    \item[Results] where we demonstrate the abilities (and weaknesses)
+        of each formulation.
+    \end{description}
+
+Additionally, appendices~\ref{ob-1 additional} and \ref{ob-1 meta} 
+    contain numerous examples of devices designed using our
+    so-called ``objective-first'' design formulation.
+Appendix~\ref{maths} contains the nitty-gritty mathematics
+    that was used to implement our final design tool, 
+    as outlined in chapter~\ref{final}.
+This appendix will be most useful to any wishing to reproduce our work.

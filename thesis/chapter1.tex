@@ -39,16 +39,20 @@ Specifically, that
     \BE \nabla \times \mu_0^{-1} \nabla \times E - \omega^2 \epsilon E = 
         -i\omega J \label{p1:wave} \EE
     is \emph{bi-linear} in both $E$ and $\epsilon$.
+Practically, this meant that solving for $\epsilon$ should be rather straightforward,
+    since we already now how to solve linear systems in general.
 
-We now make the following substitution in order to represent \eq{p1:wave}
-    in linear algebra notation:
+The language of linear algebra will make itself very useful
+    in eventually formulating our problem correctly and generally.
+To this end, we now make the following substitution in order to represent \eq{p1:wave}
+    in such linear algebra notation:
     \BI $E \to x$, 
     \I  $\epsilon \to z$,
     \I  $\nabla\times\mu_0^{-1}\nabla\times - \omega^2 \epsilon \to A(z)$, and
     \I  $-i\omega J \to b$. \EI
 The electromagnetic wave equation (\eq{p1:wave}) can now be expressed simply as
-    \BE A(z)x = b, \label{p1:axb} \EE
-    which is not only linear in $x$, but also in $z$, 
+    \BE A(z)x = b. \label{p1:axb} \EE
+We note once again that \eq{p1:wave} is not only linear in $x$, but also in $z$, 
     since $A(z)$ is linear with respect to $z$.
 
 The linearity of the electromagnetic wave equation with respect to
@@ -58,12 +62,13 @@ The linearity of the electromagnetic wave equation with respect to
     \item solve the electromagnetic wave equation for the structure variable. 
     \end{enumerate}
 
-In the language of physics, this amounts to computing
+In the language of physics, this amounts to a very simple computation;
+    namely,
     \BE \epsilon = (\nabla\times\mu_0^{-1}\nabla\times E + 
         i \omega J)/ \omega^2 E \EE
-    given $E$. 
+    given $E$! 
 
-In the language of linear algebra, we have formulated the following problem:
+In the language of linear algebra, the problem is formulation as follows:
     \BE \minimize_z \|A(z)x - b\|^2. \label{p1:problem}\EE
     
 \section{Implementation}
@@ -110,7 +115,12 @@ As the result in fig.~\ref{p1:direct} shows,
 
 \chapter{Regularized direct design}\label{regularized}
 \section{Problem formulation}
-The simplest way to produce a well-behaved dielectric structure is 
+We were previously quite excited to learn that solving for 
+    a dielectric structure ($\epsilon$ or $z$) given 
+    its electromagnetic field ($E$ or $x$) is actually quite simple,
+    but generally results in unrealizable structures.
+Along these lines, we also knew that the simplest way 
+    to produce a well-behaved dielectric structure is 
     to add a regularization term to our direct formulation (\eq{p1:axb}),
     \BE \minimize_z \|A(z)x - b\|^2 + \eta \|z - z_0\|^2. \label{reg:problem}\EE
 Here, the regularization term $\eta \|z - z_0\|^2$
@@ -119,7 +129,7 @@ The coefficient $\eta$, then, serves as a knob to control the
     strength of the regularization term.
 
 \section{Implementation}
-\Eq{reg:problem} can still be computed in one step
+Fortunately, \eq{reg:problem} can still be computed in one step
     since the regularization term does not add any computational complexity.
 Thus the implementation is only a slight modification
     from that of chapter~\ref{direct}.
@@ -130,10 +140,12 @@ We chose to constrain the values of $z$ ($\epsilon$)
     solved \eq{reg:problem} for $\eta=10^{-8}$, $10^{-6}$, and $10^{-4}$;
     the results of which are shown in fig.~\ref{regls pic}\cite{Lu10}.
     
-Critically, fig.~\ref{regls pic} shows that there seems
-    to be an inherent trade-off between 
-        constraining the structure ($z$) 
-        and accurately reproducing the field ($x$).
+Although our results seemed promising in producing well-behaved
+    dielectric structures;
+    critically, fig.~\ref{regls pic} shows that there seems
+    to be an unavoidable trade-off between 
+    constraining the structure ($z$) 
+    and accurately reproducing the field ($x$).
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/regularized}

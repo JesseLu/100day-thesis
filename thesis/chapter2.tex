@@ -1,10 +1,17 @@
 \chapter{Iterative design} \label{iterative}
 % \section{Motivation for a Complementary Optimization Strategy}
-The fundamental problem in the examples 
+Having started off with the exciting realization that one could easily 
+    solve for $z$ ($\epsilon$), we quickly ran into 
+    the problem revealed in fig.~\ref{regls pic}.
+It now seemed that a structure that was both well-behaved and high-performance
+    might not be possible!
+
+Further thought led us to conclude that
+    the fundamental problem in the examples 
     in chapters \ref{direct} and \ref{regularized}
     is actually not in the methods themselves, 
     but in the improper selection of a target field. 
-In fact, it is very difficult to select a suitable target field 
+In fact, we realizaed thtat it is very difficult to select a suitable target field 
     because not every field even has a manufacturable dielectric structure 
     that is able to reproduce it. 
 Furthermore, it is nearly impossible to select a multi-dimensional field 
@@ -18,7 +25,8 @@ What we realized was that a successful method
 This realization led us to an iterative design strategy for nanophotonic devices.
 
 \section{Problem formulation}
-We start with the same target field as in the previous examples 
+The problem formulation for our iterative design strategy
+    starts with the same target field as in the previous examples,
     but we now allow for it to be modified during the design process. 
 Specifically, we alternate between modifying $z$ (structure) 
     to better fit $x$ (field), 
@@ -39,13 +47,17 @@ In order to avoid the performance/manufacturability trade-off
     we decrease the values of $\eta_0$ and $\eta_1$ at each subsequent iteration.
 
 \section{Implementation}
-The most notable implementation difference is that,
+In terms of implementation,
+    the most notable implementation difference is that,
     in contrast to direct design,
     \eq{iterative problem} must be solved multiple times
     in order to arrive at a good design.
 Thus, design times now increase from seconds to minutes.
 
-Note that, in order to design two-dimensional structures,
+Since this strategy started to produce more successful results,
+    we shifted from one-dimensional structures to two-dimensional structures.
+In terms of implementation, we note that 
+    in order to design higher-dimensional structures,
     \eq{iterative problem} is only modified in the
     definition of its constituent vectors and matrices,
     the formulation remains the same.
@@ -53,7 +65,8 @@ Note that, in order to design two-dimensional structures,
 
 \section{Results}
 \subsection{1D}
-Fig.~\ref{comp pic} shows that the iterative algorithm, after $400$ iterations and with the correct choice of regularization parameters $\eta_0$ and $\eta_1$, results in a well-behaved structure that is able to closely reproduce the modified target field\cite{Lu10}. 
+Fig.~\ref{comp pic} shows that the iterative algorithm, after $400$ iterations and with the correct choice of regularization parameters $\eta_0$ and $\eta_1$, 
+    indeed results in a well-behaved structure that is able to closely reproduce the modified target field\cite{Lu10}!
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/complementary}
@@ -81,8 +94,12 @@ The final dielectric structure was produced after $50$ iterations which took $90
 
 \chapter{Iterative design with bounded $\epsilon$} \label{bounded}
 \section{Problem formulation}
-In order to achieve a more practical, discretely-valued dielectric structure, we can impose strict upper- and lower-bounds on the structure ($z$). 
-To this end, we can modify \eq{iterative problem} as such,
+Having achieved a measure of success with the iterative design strategy
+    outlined in the previous chapter,
+    we strove 
+    to achieve a more practical, discretely-valued dielectric structure. 
+To do this, we imposed strict upper- and lower-bounds on the structure variable $z$. 
+To this end, we modified \eq{iterative problem} as such,
     \begin{subequations}
     \begin{align} 
     \minimize & \|A(z)x - b\|^2 + \eta_1\|x - x_\text{prev}\|^2\\
@@ -92,15 +109,20 @@ To this end, we can modify \eq{iterative problem} as such,
 Here, the regularization term for $z$ has been replaced by hard constraints
     on the values that $z$ can take on.
 
-This modification takes us one step closer to producing manufacturable structures,
-    which must be discretely valued.
-
 \section{Implementation} 
-In this algorithm, \eq{bounded problem} is no longer linear in $z$
+In this formulation, \eq{bounded problem} is no longer linear in $z$
     but is still convex\cite{Boyd04}.
-For this reason, the \emph{CVX} package\cite{Grant09}, 
+
+Practically, this means that although it is no longer absolutely trivial
+    to solve \eq{bounded problem} for $z$, it can still be done reliably.
+By reliably, we mean that since \eq{bounded problem} is still convex in $z$,
+    there exists a single local optimum (which is also the global optimum)
+    and that there also exists software which can efficiently
+    discover this globally optimum point.
+
+Specifically, the \emph{CVX} package\cite{Grant09}, 
     a Matlab-based modeling system for convex optimization, 
-    is now used to solve \eq{bounded problem} for $z$.
+    is the software we used to solve \eq{bounded problem} for $z$.
 
 \section{Results}
 \subsection{1D}

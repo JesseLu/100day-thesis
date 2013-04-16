@@ -23,11 +23,11 @@
 \input defs
 \usepackage{suthesis-2e,graphicx,subfigure,setspace, topcapt,amssymb,amsmath}
 %\usepackage{site} %did not work with hyperref
-\usepackage{natbib} %works with hyperref
 \usepackage[pdftex,bookmarks=true, colorlinks=true,linkcolor=blue,
 pdfpagemode=UseOutlines, citecolor=blue, backref=page,
 linktocpage=true ]{hyperref}
 \usepackage[all]{hypcap} %to link to top of figure, not to top of caption
+\usepackage{natbib} %works with hyperref
 \bibpunct{[}{]}{,}{n}{,}{,} %settings for natbib
 \usepackage{pstricks}
 
@@ -91,7 +91,7 @@ linktocpage=true ]{hyperref}
 % \bibliographystyle{...}
 % \bibliography{mythesis}
 % or some other way of doing the bibliography
-% \include{bibliography}
+\include{bibliography}
 
 \end{document}
 

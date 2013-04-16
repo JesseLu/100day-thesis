@@ -53,7 +53,7 @@ Note that, in order to design two-dimensional structures,
 
 \section{Results}
 \subsection{1D}
-Fig.~\ref{comp pic} shows that the iterative algorithm, after $400$ iterations and with the correct choice of regularization parameters $\eta_0$ and $\eta_1$, results in a well-behaved structure that is able to closely reproduce the modified target field. 
+Fig.~\ref{comp pic} shows that the iterative algorithm, after $400$ iterations and with the correct choice of regularization parameters $\eta_0$ and $\eta_1$, results in a well-behaved structure that is able to closely reproduce the modified target field\cite{Lu10}. 
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/complementary}
@@ -63,7 +63,7 @@ Fig.~\ref{comp pic} shows that the iterative algorithm, after $400$ iterations a
 \end{figure}
 
 \subsection{2D}
-The iterative design method can also be extended to two dimensions.
+The iterative design method can also be extended to two dimensions\cite{Lu10}.
 We demonstrate this using an S-shaped target field 
     which is non-trivial to reproduce. 
 The design result is shown in fig.~\ref{S pic}. 
@@ -97,16 +97,16 @@ This modification takes us one step closer to producing manufacturable structure
 
 \section{Implementation} 
 In this algorithm, \eq{bounded problem} is no longer linear in $z$
-    but is still convex\cite{BV04}.
-For this reason, the \emph{CVX} package\cite{CVX}, 
+    but is still convex\cite{Boyd04}.
+For this reason, the \emph{CVX} package\cite{Grant09}, 
     a Matlab-based modeling system for convex optimization, 
     is now used to solve \eq{bounded problem} for $z$.
 
 \section{Results}
 \subsection{1D}
 Once again, we attempt the design of a one-dimensional resonator
-    and find thata nearly binary-valued dielectric structure is obtained,
-    as seen in fig.~\ref{bounded comp pic}.
+    and find that a nearly binary-valued dielectric structure is obtained,
+    as seen in fig.~\ref{bounded comp pic}\cite{Lu10}.
 Note that the the directly discreteness of $z$ was not enforced (since that would make the problem non-convex); 
     however, a discrete, binary-valued structure arose fortuitously. 
 Critically, this dielectric structure accurately produces the final target field. 
@@ -120,7 +120,7 @@ Critically, this dielectric structure accurately produces the final target field
 
 \subsection{2D}
 
-We now use the complementary optimization method to design resonators with discrete, binary $\epsilon$ in two dimensions. 
+We now use the complementary optimization method to design resonators with discrete, binary $\epsilon$ in two dimensions\cite{Lu10}.
 
 Fig.~\ref{circle pic} shows the design of a circular grating resonator. 
 The dielectric structure emerged from a very simple choice of initial structure, 
@@ -131,7 +131,7 @@ Additionally, the components of $\epsilon$ outside a specified circle
     for the duration of the design process. 
 The entire algorithm was run for $40$ iterations and took $7$ minutes.
 Interestingly, the central bowtie-like structure has emerged 
-    from previous genetic optimization methods as well\cite{Lip08}. 
+    from previous genetic optimization methods as well\cite{Gond08}. 
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/circle}
@@ -216,11 +216,11 @@ Unfortunately, to directly extend our previous method to full three-dimensional 
 E &= E(x,y,z).
 \end{align}
 
-Therefore, to make our problem more tractable, we formulate a 2.5-dimensional approximation of the electromagnetic fields of a planar three-dimensional nanophotonic device. As shown in Fig.~\ref{approx}a, this involves treating a planar three-dimensional nanophotonic device as a truncated holey fiber with identical dielectric structure. We take advantage of the planar nature of most nanophotonic devices in this way to produce a tractable, computationally-fast method. The $E$-field inside such a holey fiber is expressed as
+Therefore, to make our problem more tractable, we formulate a 2.5-dimensional approximation of the electromagnetic fields of a planar three-dimensional nanophotonic device\cite{Lu11}. As shown in Fig.~\ref{approx}a, this involves treating a planar three-dimensional nanophotonic device as a truncated holey fiber with identical dielectric structure. We take advantage of the planar nature of most nanophotonic devices in this way to produce a tractable, computationally-fast method. The $E$-field inside such a holey fiber is expressed as
 \begin{equation}
 E = E(x,y)e^{-i\beta z},
 \end{equation}
-where $\beta$ is the wave-vector along the fiber axis. Solving for Eq.~\ref{wave} now requires solving for a much smaller ($\sim 10^5 \times 10^5$) matrix, which can be accomplished using standard linear algebra packages. This simulation technique is thus very similar to a two-dimensional finite-difference frequency-domain solve.
+where $\beta$ is the wave-vector along the fiber axis. Solving for Eq.~\ref{wave} now requires solving for a much smaller ($\sim 10^5 \times 10^5$) matrix, which can be accomplished using standard linear algebra packages. This simulation technique is thus very similar to a two-dimensional finite-difference frequency-domain solver.
 
 As an example, in Fig.~\ref{approx}b, we compare the 2.5-dimensional electric field against the three-dimensional simulated electric field (at the central plane of the slab), given by a standard finite-difference time-domain (FDTD) software package, for an L3 photonic crystal resonator. We see that with the appropriate choice of $\beta$, which we obtain by fitting a sinusoid to the out-of-plane decay in the three-dimensional FDTD solution, our approximation captures most of the characteristics of the three-dimensional field at the center plane of the slab. 
 \begin{figure}[hbt]
@@ -228,7 +228,7 @@ As an example, in Fig.~\ref{approx}b, we compare the 2.5-dimensional electric fi
 \caption{(a) For computational feasibility, the resonant fields of a planar nanophotonic device are approximated as those of a truncated holey fiber with identical dielectric structure. (b) An example of our approximation using an L3 photonic crystal resonator. Most of the characteristics of the full three-dimensional field at the center of the slab appear in the approximate solution.}\label{approx}
 \end{figure}
 
-In this approximation, converting from a 2.5-dimensional structure to a full three-dimensional structure only requires the correct choice of slab thickness, $t$, since the in-plane values of $\epsilon$ remain the same. To estimate $t$ for the full three-dimensional device, we treat the resonant mode as a guided mode in a slab waveguide surrounded by a cladding of $n=1$. The expression for $t$ is then the thickness of the slab for the lowest-order TE mode of a slab waveguide with effective refractive index $n_\text{eff}$\cite{inan}:
+In this approximation, converting from a 2.5-dimensional structure to a full three-dimensional structure only requires the correct choice of slab thickness, $t$, since the in-plane values of $\epsilon$ remain the same. To estimate $t$ for the full three-dimensional device, we treat the resonant mode as a guided mode in a slab waveguide surrounded by a cladding of $n=1$. The expression for $t$ is then the thickness of the slab for the lowest-order TE mode of a slab waveguide with effective refractive index $n_\text{eff}$\cite{Inan00}:
 \begin{align}
 t &= \frac{2}{\beta}\tan^{-1}\frac{\alpha}{\beta},\label{t} \quad\text{where} \\
 \alpha &= \sqrt{k_x^2 - \left(\frac{\omega}{c}\right)^2}, \quad\text{and} \\
@@ -289,7 +289,7 @@ n_\text{eff} = \sqrt{\frac{\|\epsilon E^2\|}{\|E^2\|}}.
 % The second major modification from the original formulation is found in the constraint in Eq.~\ref{clim}. Since the combinatorial problem given by the original constraint in Eq.~\ref{a3} proved to be intractable, the constraint on the values of $\epsilon$ is relaxed to allow for any value in the range from $\epsilon_\text{air}$ to $\epsilon_\text{silicon}$. The sub-problem is now relatively straightforward to solve, although it is very unlikely that one obtains a completely binary structure. In practice various digitization schemes can be implemented\cite{digitize}; however, such schemes were not needed here since a nearly binary structure was produced fortuitously.
 % 
 % \section{Result}
-Using \eq{iterative problem}, along with our 2.5-dimensional approximation, the iterative design of a planar three-dimensional nanophotonic device is performed.
+Using \eq{iterative problem}, along with our 2.5-dimensional approximation, the iterative design of a planar three-dimensional nanophotonic device is performed\cite{Lu11}.
 
 In order to do so, the frequency, $\omega = 0.16 c/\Delta x$, and the out-of-plane wave vector, $\beta = 0.24 (\Delta x)^{-1}$, are chosen by the user. Here, $\Delta x$ is the grid spacing and $c$ is the speed of light in vacuum. Lastly, an initial dielectric structure consisting entirely of silion, $\epsilon = \epsilon_\text{silicon}$ everywhere on a $160 \times 160$ grid, is used as a starting point---although other initial structures (e.~g.~ air everywhere or random $\epsilon$) yield nearly identical structures in this case.
 

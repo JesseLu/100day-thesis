@@ -354,7 +354,7 @@ smaller print.
 \figurespagetrue \tablespagetrue
 
 
-\def\@standardsub{submitted to the department of \uppercase\expandafter{\@dept}\\
+\def\@standardsub{submitted to the department of \expandafter{\@dept}\\
                 and the committee on graduate studies}
 \def\@standardend{}
 
@@ -373,29 +373,29 @@ smaller print.
 \let\@whichend=\@dualend}
 
 
-\def\@committeesub{SUBMITTED TO THE COMMITTEE ON \uppercase\expandafter{\@dept}\\
-                AND THE COMMITTEE ON GRADUATE STUDIES}
-\def\@programsub{SUBMITTED TO THE PROGRAM IN \uppercase\expandafter{\@dept}\\
-                AND THE COMMITTEE ON GRADUATE STUDIES}
-\def\@educationsub{SUBMITTED TO THE SCHOOL OF EDUCATION\\
-                AND THE COMMITTEE ON GRADUATE STUDIES}
-\def\@businesssub{SUBMITTED TO THE GRADUATE SCHOOL OF BUSINESS\\ AND THE
-  COMMITTEE ON GRADUATE STUDIES}
-\def\@lawsub{SUBMITTED TO THE SCHOOL OF LAW\\
-                AND THE COMMITTEE ON GRADUATE STUDIES}
+\def\@committeesub{submitted to the committee on \expandafter{\@dept}\\
+                and the committee on graduate studies}
+\def\@programsub{submitted to the program in \expandafter{\@dept}\\
+                and the committee on graduate studies}
+\def\@educationsub{submitted to the school of education\\
+                and the committee on graduate studies}
+\def\@businesssub{submitted to the graduate school of business\\ and the
+  committee on graduate studies}
+\def\@lawsub{submitted to the school of law\\
+                and the committee on graduate studies}
 
-\def\@humanitiessub{SUBMITTED TO THE DEPARTMENT OF \uppercase\expandafter{\@dept},\\
-                THE GRADUATE PROGRAM IN HUMANITIES,\\
-                AND THE COMMITTEE ON GRADUATE STUDIES}
-\def\@humanitiesend{\\IN\\ \uppercase\expandafter{\@dept} AND HUMANITIES}
+\def\@humanitiessub{submitted to the department of \expandafter{\@dept},\\
+                the graduate program in humanities,\\
+                and the committee on graduate studies}
+\def\@humanitiesend{\\in\\ \expandafter{\@dept} and humanities}
 
-\def\@specialsub{SUBMITTED TO THE COMMITTEE ON GRADUATE STUDIES}
-\def\@specialend{\\IN\\ \uppercase\expandafter{\@dept}}
+\def\@specialsub{submitted to the committee on graduate studies}
+\def\@specialend{\\in\\ \expandafter{\@dept}}
 
 
-\def\@dualsub{SUBMITTED TO THE DEPARTMENT OF \uppercase\expandafter{\@dept}\\
-AND THE COMMITTEE ON GRADUATE STUDIES}
-\def\@dualend{\\IN\\ \uppercase\expandafter{\@languagemajor}}
+\def\@dualsub{submitted to the department of \expandafter{\@dept}\\
+and the committee on graduate studies}
+\def\@dualend{\\in\\ \expandafter{\@languagemajor}}
 
 
 \let\@whichend=\@standardend
@@ -406,7 +406,7 @@ AND THE COMMITTEE ON GRADUATE STUDIES}
         \thispagestyle{empty}%
         \null\vskip1in%
         \begin{center}
-                \large\uppercase\expandafter{\@title}
+                \large\expandafter{\@title}
         \end{center}
         \vfill
         \begin{center}
@@ -416,13 +416,13 @@ AND THE COMMITTEE ON GRADUATE STUDIES}
 %                of stanford university\\
 %                in partial fulfillment of the requirements\\
 %                for the degree of\\
-%                doctor of philosophy \uppercase\expandafter{\@whichend}
-                A DISSERTATION\\
-                \uppercase\expandafter{\@whichsub}\\
-                OF STANFORD UNIVERSITY\\
-                IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\
-                FOR THE DEGREE OF\\
-                DOCTOR OF PHILOSOPHY \uppercase\expandafter{\@whichend}
+%                doctor of philosophy \expandafter{\@whichend}
+                A dissertation\\
+                \expandafter{\@whichsub}\\
+                of Stanford University\\
+                in partial fulfillment of the requirements\\
+                for the degree of\\
+                doctor of philosophy \expandafter{\@whichend}
         \end{center}
         \vfill
         \begin{center}

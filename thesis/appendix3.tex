@@ -284,7 +284,7 @@ Although such a strategy is not technically global,
     even at the expense of non-zero physics residuals.
 
 The optimization paradigm utilizes 
-    the alternating directions method of multipliers\cite{ADMM} (ADMM) optimization technique, 
+    the alternating directions method of multipliers\cite{Boyd11} (ADMM) optimization technique, 
     which casts \eq{rigorous problem statement} in terms of the following augmented Lagrangians, 
     \E{}{\Lag(x, z, y) = \sum_i^N f_i(x_i) 
             + \frac{\rho}{2} \norm{A_i(z) x_i - b_i(z)}^2 

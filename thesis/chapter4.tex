@@ -199,7 +199,7 @@
 % 
 \section{Problem formulation}
 We now develop a method which may indeed be capable of designing 
-    linear nanophotonic device which
+    linear nanophotonic devices which
     are fully three-dimensional and multi-modal,
     exhibit novel functionality,
     have very compact footprints,
@@ -240,7 +240,7 @@ The explanation for the various terms in \eq{problem} follows:
     In contrast to typical schemes for optimizing physical structures,
         our formulation actually allows for non-zero physics residuals;
         which can be deduced since $A_i(z)x_i-b_i=0$ is not a hard constraint.
-    Instead, this formulation is what also an \emph{objective-first} \cite{ob1_wg}
+    Instead, this formulation is what also an \emph{objective-first} \cite{Lu12}
         formulation in that the \emph{design objective} (explained below)
         is prioritized above satisfying physics.
 
@@ -295,7 +295,7 @@ The explanation for the various terms in \eq{problem} follows:
 
 \section{Implementation}
 We employed the alternating directions method of multipliers (ADMM) algorithm 
-    \cite{admm}
+    \cite{Boyd11}
     in order to solve \eq{problem}.
 The ADMM algorithm solves \eq{problem} by iteratively solving for 
     $x_i$, $z$, and a dual variable $u_i$.
@@ -305,7 +305,7 @@ Since we are working in three dimensions, solving \eq{problem} for $x_i$
     requires solving for the ill-conditioned $A_i(z)$ matrix.
 For this reason, we use a home-built
     finite-difference frequency-domain (FDFD) solver which 
-    implements a hardware-accelerated iterative solver\cite{wonseok}
+    implements a hardware-accelerated iterative solver\cite{Shin12}
     on Amazon's Elastic Compute Cloud.
 Critically, our cloud-based solver allows us to scale to solve problems
     with arbitrarily-large number of modes,
@@ -316,7 +316,7 @@ In contrast to solving for $x_i$, solving for $z$ is much simpler since we
     thereby limiting $z$ to have only thousands of variables.
 
 Lastly, in order to arrive at fully discrete, manufacturable structures,
-    we convert $z$ to a boundary parameterization\cite{levelset}
+    we convert $z$ to a boundary parameterization\cite{Osher02}
     and tune our structure using a steepest-descent method.
 
 The mathematical details of our implementation are given 
@@ -324,7 +324,7 @@ The mathematical details of our implementation are given
 
 \section{Results}
 We demonstrate the effectiveness of our design method 
-    by producing designs for a variety of nanophotonic devices.
+    by producing designs for a variety of nanophotonic devices\cite{Lu13}.
 
 All of our results are in three dimensions
     and are planar structures, consisting of a 250 nm etched silicon slab
@@ -458,7 +458,7 @@ At the same time, we specify that the transmission into the other output mode
 We demonstrate what is, to our knowledge, 
     the first design for a three-dimensional
     nanophotonic spatial mode splitter 
-    (previous designs were restricted to two dimensions \cite{2dsplitter}).
+    (previous designs were restricted to two dimensions \cite{Jiao05}).
 Such a device is the key enabler for multi-mode on-chip optical circuits,
     and we show here that they can be designed to be highly efficient
     while utilizing a very small device footprint ($2.8\times2.8$ microns). 
@@ -603,7 +603,7 @@ The final result is shown in \fig{hub_2x2x2}.
 The capabilities of our method are further demonstrated
     in the design of nanophotonic fiber couplers,
     which couple light from an optical fiber at normal incidence
-    into an in-plane waveguide\cite{baets}.
+    into an in-plane waveguide\cite{Laere07}.
 
 The structure of the optical fibers used was a 2 micron diameter core with 
     refractive index $n_\text{core} = 1.6$,

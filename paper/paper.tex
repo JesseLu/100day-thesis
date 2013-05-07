@@ -117,11 +117,11 @@ Instead, we are able to design devices
 \bibitem{bendsoe} M. P. Bendsoe, O. Sigmund,
     ``Material interpolation schemes in topology optimization,''
     Archive of Applied Mechanics \textbf{69}, 635-654 (1999).
+\bibitem{ob1_wg} J. Lu, J. Vuckovic, ``Objective-first design of high-efficiency, small-footprint couplers between arbitrary nanophotonic waveguide modes,'' 
+    Opt. Express \textbf{20}, 7221-7236 (2012)
 \bibitem{miller} D. A. B. Miller, 
     ``All linear optical devices are mode converters,'' 
     Opt. Express \textbf{20}, 23985-23993 (2012).
-\bibitem{ob1_wg} J. Lu, J. Vuckovic, ``Objective-first design of high-efficiency, small-footprint couplers between arbitrary nanophotonic waveguide modes,'' 
-    Opt. Express \textbf{20}, 7221-7236 (2012)
 \bibitem{admm} S. Boyd, N. Parikh, E. Chu, B. Peleato, and J. Eckstein,
     ``Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers,''
     Foundations and Trends in Machine Learning \textbf{3}, 1-122 (2011). 
@@ -150,26 +150,28 @@ However, the realization of
     increasingly complex, dense, and robust on-chip optical networks
     will require utilizing increasing numbers of parameters
     when designing nanophotonic components.
-    
-Increasingly sophisticated optimization strategies for 
-    specific nanophotonic devices have been developed;
-    ranging from the use of genetic algorithms\cite{lipson},
-    level-set methods\cite{yablo}, 
-    tweaking the size and shape of specific canonical gemetric shapes\cite{levi,johnson},
-    and even utilizing the full parameter space\cite{sigmund1}.
-
-    \cite{jameson}
-    \cite{bendsoe}
-
+ 
 Opening the design space to include many more parameters
     allows for smaller footprint, higher performance devices by definition,
     since original designs are still included in this parameter space.
 Unfortunately, the lack of intuition for what such designs might look like and
     the inability to manually search such a large parameter space
     have greatly hindered the ability to achieve this.
+   
+To this end, increasingly sophisticated optimization strategies for 
+    specific nanophotonic devices have been developed
+    which are able to search this parameter space.
+These range from the use of genetic algorithms\cite{lipson},
+    level-set methods\cite{yablo}, 
+    and the optimization of specific geometric parameters\cite{levi,johnson}.
+Additionally, much success has been attained\cite{sigmund1}
+    through the use of topological design methods that
+    have traditionally been applied in other fields\cite{jameson,bendsoe}.
 
-For this reason, we have developed and implemented a computational method
-    which is able to use the full parameter space 
+In this work, we have endeavored to extend the current art
+    by developing and implementing a general computational method
+    for nanophotonic design which extends across all linear nanophotonic devices.
+Specifically, our method uses the full parameter space 
     to design linear nanophotonic components in three dimensions.
 Critically, our method requires no user intervention or manual tuning.
 Instead, a \emph{design-by-specification} scheme is used 
@@ -184,8 +186,10 @@ We also show that our method can be used to produce designs
     as well as fabrication error.
 
 Lastly, all our results are produced by simply specifying
-    the functionality and performance of the desired device,
-    which suggests that our method may indeed by able
+    the functionality and performance of the desired linear device
+    in terms of mode conversion\cite{miller}.
+The variety of successful designs presented 
+    suggests that our method may indeed by able
     to design \emph{all} linear nanophotonic devices.
 
 \section{Problem formulation}
@@ -258,6 +262,14 @@ The explanation for the various terms in \eq{problem} follows:
         where $c_{11}$ and $c_{12}$ are representative of 
         output patterns 1 and 2 respectively.
         
+    We note that although the performance description of nearly all
+        linear devices can be specified using such a constraint,
+        the constraint itself is \emph{not} linear (neither is it convex).
+    Other performance objectives are indeed possible which are nonlinear 
+        and nonconvex (such as optimizing for energy density or Q-factor)---convex 
+        objectives would be straightforward to implement,
+        while some non-convex objectives would require clever heurestics.
+
     Finally, we note again that the design objective in our formulation
         is actually a hard constraint.
     This means that it is \emph{always satisfied}, 
@@ -337,6 +349,14 @@ We show, through the design of mode converters for both the TE- and TM-polarized
 Additionally, the devices also demonstrate very small device footprints 
     ($1.6 \times 2.4$ microns for this device in particular
     operating at 1550 nm wavelength).
+Lastly, our devices convert between modes of opposing symmetry.
+
+This is in contrast to prior art\cite{mode1,mode2,mode3,forchel},
+    which is largely limited to two-dimensional designs,
+    where mode-coupling is between same-symmetry modes,
+    and devices are often larger in the transverse direction
+    because of the need for photonic crystal mirrors.
+    
 
 \subsubsection{TE mode converter}
 Our first result is a mode conversion device operating in the TE polarization,
@@ -376,7 +396,6 @@ Imperfect conversion may be due to evanescent modes ``interfering''
     while the power into the rejection mode (fundamental) is 0.7\%.
     Device footprint is $1.6\times2.4$ microns.
     Operating wavelength is 1550 nm.}
-
 
 \subsubsection{TM mode converter}
 
@@ -599,9 +618,7 @@ Such a device is said to be compact in that the functions
 
 Although the performance specification (\fig{3Db_fib_te})
     desired a coupling efficiency above 90\%,
-    only 51.5\% efficiency was achieved (\fig{fib_te});
-    however, this likely remains the highest efficiency demonstrated
-    in a compact fiber coupler.
+    only 51.5\% efficiency was achieved (\fig{fib_te}).
 
 \myfig{3Db_fib_te}
     {Compact fiber coupler performance specification.
@@ -718,7 +735,7 @@ Such a result is telling in that it demonstrates
 A analysis with regard to fabrication-error
     was also performed on the broadband wavelength splitter.
 The specific fabrication error was a general over- or under-etch
-    of the device (input and output waveguides unaffected).
+    of the device (input and output waveguides unaffected)\cite{robust1}.
 \Fig{analysis_fab_shift2} reveals that up to 8 nm of over- or under-etching
     can be sustained before performance falls below 70\%, at the central
     operating wavelengths.

@@ -15,8 +15,8 @@
 
 \newcommand{\Eq}[1]{Eq.~\eqref{#1}}
 \newcommand{\Fig}[1]{Fig.~\ref{#1}}
-\newcommand{\eq}[1]{eq.~\eqref{#1}}
-\newcommand{\fig}[1]{fig.~\ref{#1}}
+\newcommand{\eq}[1]{Eq.~\eqref{#1}}
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
 \newcommand{\BI}{\begin{itemize}\item}
 \newcommand{\I}{\item}
 \newcommand{\EI}{\end{itemize}}
@@ -66,9 +66,9 @@
 
 \begin{document}
 
-\title{Nanophotonic Computational Design}
+\title{Nanophotonic computational design}
 \author{Jesse Lu$^\ast$ and Jelena Vu\v{c}kovi\'{c}}
-\address{Stanford University, Stanford, California, USA.}
+\address{Ginzton Laboratory, Stanford University, Stanford, California, USA.}
 \email{jesselu@stanford.edu}
 
 \begin{abstract}
@@ -92,11 +92,11 @@ Critically, we show that our method
 Instead, we are able to design devices 
     solely based on the user's desired performance specification for the device.
 \end{abstract}
-\ocis{230.75370, 130.3990.}
+\ocis{350.4238 (Nanophotonics); 350.3950 (Micro-optics).}
 
 \begin{thebibliography}{99}
 \bibitem{lipson} 
-    A. Gondarenko, and M. Lipson, 
+    A. Gondarenko and M. Lipson, 
     ``Low modal volume dipole-like dielectric slab resonator,'' 
     Opt. Express \textbf{16} 17689-17694 (2008).  
 \bibitem{yablo} C.-Y. Kao, S. Osher, and E. Yablonovitch, 
@@ -111,19 +111,19 @@ Instead, we are able to design devices
     ``Design of robust and efficient photonic switches using topology optimization,''
     Photonics and Nanostructures - Fundamentals and Applications \textbf{10}, 
     153–165 (2012).
-\bibitem{jameson} L. Martinelli, and A. Jameson, 
-    ``Computational Aerodynamics: Solvers and Shape Optimization,''
+\bibitem{jameson} L. Martinelli and A. Jameson, 
+    ``Computational aerodynamics: solvers and shape optimization,''
     J. Heat Transfer \textbf{135}, 011002 (2013).
-\bibitem{bendsoe} M. P. Bendsoe, O. Sigmund,
+\bibitem{bendsoe} M. P. Bendsoe and O. Sigmund,
     ``Material interpolation schemes in topology optimization,''
     Archive of Applied Mechanics \textbf{69}, 635-654 (1999).
-\bibitem{ob1_wg} J. Lu, J. Vuckovic, ``Objective-first design of high-efficiency, small-footprint couplers between arbitrary nanophotonic waveguide modes,'' 
+\bibitem{ob1_wg} J. Lu and J. Vuckovic, ``Objective-first design of high-efficiency, small-footprint couplers between arbitrary nanophotonic waveguide modes,'' 
     Opt. Express \textbf{20}, 7221-7236 (2012)
 \bibitem{miller} D. A. B. Miller, 
     ``All linear optical devices are mode converters,'' 
     Opt. Express \textbf{20}, 23985-23993 (2012).
 \bibitem{admm} S. Boyd, N. Parikh, E. Chu, B. Peleato, and J. Eckstein,
-    ``Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers,''
+    ``Distributed optimization and statistical learning via the alternating direction method of multipliers,''
     Foundations and Trends in Machine Learning \textbf{3}, 1-122 (2011). 
 \bibitem{wonseok} W. Shin and S. Fan, ``Choice of the perfectly matched layer boundary condition for frequency-domain Maxwell’s equations solvers,''
     J. of Comp. Phys \textbf{231}, 3406-3431 (2012).
@@ -163,10 +163,10 @@ To this end, increasingly sophisticated optimization strategies for
     which are able to search this parameter space.
 These range from the use of genetic algorithms\cite{lipson},
     level-set methods\cite{yablo}, 
-    and the optimization of specific geometric parameters\cite{levi,johnson}.
+    and the optimization of specific geometric parameters \cite{levi,johnson}.
 Additionally, much success has been attained\cite{sigmund1}
     through the use of topological design methods that
-    have traditionally been applied in other fields\cite{jameson,bendsoe}.
+    have traditionally been applied in other fields \cite{jameson,bendsoe}.
 
 In this work, we have endeavored to extend the current art
     by developing and implementing a general computational method
@@ -187,7 +187,7 @@ We also show that our method can be used to produce designs
 
 Lastly, all our results are produced by simply specifying
     the functionality and performance of the desired linear device
-    in terms of mode conversion\cite{miller}.
+    in terms of mode conversion \cite{miller}.
 The variety of successful designs presented 
     suggests that our method may indeed by able
     to design \emph{all} linear nanophotonic devices.
@@ -225,7 +225,7 @@ The explanation for the various terms in \eq{problem} follows:
     In contrast to typical schemes for optimizing physical structures,
         our formulation actually allows for non-zero physics residuals;
         which can be deduced since $A_i(z)x_i-b_i=0$ is not a hard constraint.
-    Instead, this formulation is what we call an \emph{objective-first} \cite{ob1_wg}
+    Instead, this formulation is what we call an \emph{objective-first}\cite{ob1_wg}
         formulation in that the \emph{design objective} (explained below)
         is prioritized above satisfying physics.
 
@@ -600,7 +600,7 @@ The final result is shown in \fig{hub_2x2x2}.
 The capabilities of our method are further demonstrated
     in the design of nanophotonic fiber couplers,
     which couple light from an optical fiber at normal incidence
-    into an in-plane waveguide\cite{baets}.
+    into an in-plane waveguide \cite{baets}.
 
 The structure of the optical fibers used was a 2 micron diameter core with 
     refractive index $n_\text{core} = 1.6$,
@@ -735,7 +735,7 @@ Such a result is telling in that it demonstrates
 A analysis with regard to fabrication-error
     was also performed on the broadband wavelength splitter.
 The specific fabrication error was a general over- or under-etch
-    of the device (input and output waveguides unaffected)\cite{robust1}.
+    of the device (input and output waveguides unaffected) \cite{robust1}.
 \Fig{analysis_fab_shift2} reveals that up to 8 nm of over- or under-etching
     can be sustained before performance falls below 70\%, at the central
     operating wavelengths.
@@ -782,6 +782,7 @@ We suggest, based on this design, that wavelength tolerance
     may be a good heuristic to the design of temperature and fabrication-error
     tolerant nanophotonic devices. \\
 
+\section{Acknowledgments}
 This work has been supported by the 
     AFOSR MURI for Complex and Robust On-chip Nanophotonics 
     (Dr. Gernot Pomrenke), grant number FA9550-09-1-0704.

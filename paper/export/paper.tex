@@ -15,8 +15,8 @@
 
 \newcommand{\Eq}[1]{Eq.~\eqref{#1}}
 \newcommand{\Fig}[1]{Fig.~\ref{#1}}
-\newcommand{\eq}[1]{eq.~\eqref{#1}}
-\newcommand{\fig}[1]{fig.~\ref{#1}}
+\newcommand{\eq}[1]{Eq.~\eqref{#1}}
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
 \newcommand{\BI}{\begin{itemize}\item}
 \newcommand{\I}{\item}
 \newcommand{\EI}{\end{itemize}}
@@ -66,9 +66,9 @@
 
 \begin{document}
 
-\title{Nanophotonic Computational Design}
+\title{Nanophotonic computational design}
 \author{Jesse Lu$^\ast$ and Jelena Vu\v{c}kovi\'{c}}
-\address{Stanford University, Stanford, California, USA.}
+\address{Ginzton Laboratory, Stanford University, Stanford, California, USA.}
 \email{jesselu@stanford.edu}
 
 \begin{abstract}
@@ -92,73 +92,54 @@ Critically, we show that our method
 Instead, we are able to design devices 
     solely based on the user's desired performance specification for the device.
 \end{abstract}
-\ocis{230.75370, 130.3990.}
+\ocis{350.4238 (Nanophotonics); 350.3950 (Micro-optics).}
 
 \begin{thebibliography}{99}
-\bibitem{ob1_wg} J. Lu, J. Vuckovic, ``Objective-first design of high-efficiency, small-footprint couplers between arbitrary nanophotonic waveguide modes,'' 
+\bibitem{lipson} 
+    A. Gondarenko and M. Lipson, 
+    ``Low modal volume dipole-like dielectric slab resonator,'' 
+    Opt. Express \textbf{16} 17689-17694 (2008).  
+\bibitem{yablo} C.-Y. Kao, S. Osher, and E. Yablonovitch, 
+    ``Maximizing band gaps in two-dimensional photonic crystals by using level set methods,'' Appl. Phys. B \textbf{81}, 235-244 (2005).
+\bibitem{levi}
+    P. Seliger, M. Mahvash, C. Wang, and A. Levi,
+    ''Optimization of aperiodic dielectric structures,''
+    J. Appl. Phys. \textbf{100}, 34310-6 (2006).
+\bibitem{johnson} A. Oskooi, A. Mutapcic, S. Noda, J. D. Joannopoulos, S. P. Boyd, and S. G. Johnson, 
+    ``Robust optimization of adiabatic tapers for coupling to slow-light photonic-crystal waveguides,'' Opt. Express \textbf{20}, 21558-21575 (2012).
+\bibitem{sigmund1} Y. Elesin, B. S. Lazarov, J. S. Jensen, O. Sigmund, 
+    ``Design of robust and efficient photonic switches using topology optimization,''
+    Photonics and Nanostructures - Fundamentals and Applications \textbf{10}, 
+    153–165 (2012).
+\bibitem{jameson} L. Martinelli and A. Jameson, 
+    ``Computational aerodynamics: solvers and shape optimization,''
+    J. Heat Transfer \textbf{135}, 011002 (2013).
+\bibitem{bendsoe} M. P. Bendsoe and O. Sigmund,
+    ``Material interpolation schemes in topology optimization,''
+    Archive of Applied Mechanics \textbf{69}, 635-654 (1999).
+\bibitem{ob1_wg} J. Lu and J. Vuckovic, ``Objective-first design of high-efficiency, small-footprint couplers between arbitrary nanophotonic waveguide modes,'' 
     Opt. Express \textbf{20}, 7221-7236 (2012)
+\bibitem{miller} D. A. B. Miller, 
+    ``All linear optical devices are mode converters,'' 
+    Opt. Express \textbf{20}, 23985-23993 (2012).
 \bibitem{admm} S. Boyd, N. Parikh, E. Chu, B. Peleato, and J. Eckstein,
-    ``Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers,''
+    ``Distributed optimization and statistical learning via the alternating direction method of multipliers,''
     Foundations and Trends in Machine Learning \textbf{3}, 1-122 (2011). 
 \bibitem{wonseok} W. Shin and S. Fan, ``Choice of the perfectly matched layer boundary condition for frequency-domain Maxwell’s equations solvers,''
     J. of Comp. Phys \textbf{231}, 3406-3431 (2012).
 \bibitem{levelset} S. Osher and R. Fedkiw, \emph{Level Set Methods and Dynamic Implicit Surfaces: 1st Edition} (Springer, 2002).
 \bibitem{2dsplitter} Y. Jiao, S. Fan, and D. A. B. Miller, 
     ``Demonstrations of systematic photonic crystal design and optimization by low rank adjustment: an extremely compact mode separator'', Opt. Lett. \textbf{30}, 140-142 (2005).
+\bibitem{mode1} J. Castro, D. F. Geraghty, S. Honkanen, C. M. Greiner, D. Iazikov, and T. W. Mossberg, ``Demonstration of mode conversion using anti-symmetric waveguide Bragg gratings,'' Opt. Express \textbf{13}, 4180-4184 (2005).
+\bibitem{mode2} E. Khoo, A. Liu, and J. Wu, ``Nonuniform photonic crystal taper for high-efficiency mode coupling,'' Opt. Express \textbf{13}, 7748-7759 (2005).
+\bibitem{mode3} P. Sanchis, J. Marti, J. Blasco, A. Martinez, and A. Garcia, ``Mode matching technique for highly efficient coupling between dielectric waveguides and planar photonic crystal circuits,'' Opt. Express \textbf{10}, 1391-1397 (2002). 
+\bibitem{forchel} T. D. Happ, M. Kamp, and A. Forchel, 
+    ``Photonic crystal tapers for ultracompact mode conversion,'' 
+    Opt. Lett. \textbf{26}, 1102-1104 (2001) 
 \bibitem{baets}F. Van Laere, G. Roelkens, M. Ayre, J. Schrauwen, D. Taillaert, D. Van Thourhout, T. F. Krauss, and R. Baets,
     ``Compact and highly efficient grating couplers between optical fiber and nanophotonic waveguides,''
     J. of Lightwave Tech. \textbf{25}, 151-156 (2007).
-% \bibitem{fibergrating} Y. Tang, Z. Wang, L. Wosinski, U. Westergren, and S. He,
-%     ``Highly efficient nonuniform grating coupler for silicon-on-insulator 
-%     nanophotonic circuits,''
-%     Opt. Lett. \textbf{35}, 1290-1292 (2010).
-% \bibitem{ridge}  K. K. Lee, D. R. Lim, L.C. Kimerling, J. Shin, and F. Cerrina, 
-%     ``Fabrication of ultralow-loss Si/SiO2 waveguides by roughness reduction,''
-%     Opt. Lett. \textbf{26}, 1888-1890 (2001).
-% \bibitem{pcslow} Y. A. Vlasov, M. O'Boyle, H. F. Hamann, and S. J. McNab,
-%     ``Active control of slow light on a chip with photonic crystal waveguides,''
-%     Nature \textbf{438}, 65-69 (2005).
-% \bibitem{slotfocus} M. Lipson, 
-%     ``Guiding, modulating, and emitting light on 
-%     silicon-challenges and opportunities,'' 
-%     J. Lightwave Technol. \textbf{23}, 4222-4238 (2005).
-% \bibitem{active} J. Van Campenhout, P. Rojo Romeo, P. Regreny, C. Seassal, 
-%     D. Van Thourhout, S. Verstuyft, L. Di Cioccio, J.-M. Fedeli, 
-%     C. Lagahe, and R. Baets, 
-%     ``Electrically pumped InP-based microdisk lasers integrated with a 
-%     nanophotonic silicon-on-insulator waveguide circuit,'' 
-%     Opt. Express \textbf{15}, 6744-6749 (2007).
-% \bibitem{metallic} L. Tang, S. E. Kocabas, S. Latif, A. K. Okyay, 
-%     D. S. Ly-Gagnon, K. C. Saraswat, and D. A. B. Miller, 
-%     ``Nanometre-scale germanium photodetector enhanced by a 
-%     near-infrared dipole antenna,'' 
-%     Nature Photonics \textbf{2}, 226-229 (2008).
-% % \bibitem{fwadia} V. R. Almeida, R. R. Panepucci, and M. Lipson, 
-% %     ``Nanotaper for compact mode conversion,'' 
-% %     Opt. Lett. \textbf{28}, 1302-1304 (2003) 
-% % \bibitem{wwadia} S. G. Johnson, P. Bienstman,  M. A. Skorobogatiy, 
-% %     M. Ibanescu1, E. Lidorikis, and J. D. Joannopoulos,
-% %     ``Adiabatic theorem and continuous coupled-mode theory for 
-% %     efficient taper transitions in photonic crystals,''
-% %     Phys. Rev. E \textbf{66}, 066608 (2002)
-% % \bibitem{deriv} F. Wang, J. S. Jensen, O. Sigmund, 
-% %     ``Robust topology optimization of photonic crystal waveguides with 
-% %     tailored dispersion properties.'' 
-% %     J. Opt. Soc. Am. B \textbf{28}, 387-397 (2011)
-% % \bibitem{boydbook} S. Boyd, and L. Vandenberghe, 
-% %     \emph{Convex Optimization} 
-% %     (Cambridge University Press, 2004)
-% \bibitem{prevwork} J. Lu, S. Boyd, and J. Vuckovic, 
-%     ``Inverse design of a three-dimensional nanophotonic resonator,''
-%     Opt. Express \textbf{19}, 10563-10750 (2011). 
-% \bibitem{veronis} G. Veronis, and S. Fan, 
-%     ``Theoretical investigations of compact couplers between dielectric slab 
-%     waveguides and two-dimensional metal-dielectric-metal plasmonic waveguides,'' 
-%     Opt. Express \textbf{15}, 1211-1221 (2007).
-% \bibitem{yang} R. Yang, R. A. Wahsheh, Z. Lu, and M. A. G. Abushagur, 
-%     ``Efficient light coupling between dielectric slot waveguide and plasmonic
-%     slot waveguide,'' Opt. Lett. \textbf{35}, 649-651 (2010).
-% \bibitem{code} \url{www.github.com/JesseLu/objective-first}
+\bibitem{robust1} F. Wang, J. S. Jensen, and O. Sigmund, ``Robust topology optimization of photonic crystal waveguides with tailored dispersion properties,'' J. Opt. Soc. Am. B \textbf{28}, 387-397 (2011).
 \end{thebibliography}
 
 \section{Introduction}
@@ -169,16 +150,28 @@ However, the realization of
     increasingly complex, dense, and robust on-chip optical networks
     will require utilizing increasing numbers of parameters
     when designing nanophotonic components.
-
+ 
 Opening the design space to include many more parameters
     allows for smaller footprint, higher performance devices by definition,
     since original designs are still included in this parameter space.
 Unfortunately, the lack of intuition for what such designs might look like and
     the inability to manually search such a large parameter space
     have greatly hindered the ability to achieve this.
+   
+To this end, increasingly sophisticated optimization strategies for 
+    specific nanophotonic devices have been developed
+    which are able to search this parameter space.
+These range from the use of genetic algorithms\cite{lipson},
+    level-set methods\cite{yablo}, 
+    and the optimization of specific geometric parameters \cite{levi,johnson}.
+Additionally, much success has been attained\cite{sigmund1}
+    through the use of topological design methods that
+    have traditionally been applied in other fields \cite{jameson,bendsoe}.
 
-For this reason, we have developed and implemented a computational method
-    which is able to use the full parameter space 
+In this work, we have endeavored to extend the current art
+    by developing and implementing a general computational method
+    for nanophotonic design which extends across all linear nanophotonic devices.
+Specifically, our method uses the full parameter space 
     to design linear nanophotonic components in three dimensions.
 Critically, our method requires no user intervention or manual tuning.
 Instead, a \emph{design-by-specification} scheme is used 
@@ -193,8 +186,10 @@ We also show that our method can be used to produce designs
     as well as fabrication error.
 
 Lastly, all our results are produced by simply specifying
-    the functionality and performance of the desired device,
-    which suggests that our method may indeed by able
+    the functionality and performance of the desired linear device
+    in terms of mode conversion \cite{miller}.
+The variety of successful designs presented 
+    suggests that our method may indeed by able
     to design \emph{all} linear nanophotonic devices.
 
 \section{Problem formulation}
@@ -230,7 +225,7 @@ The explanation for the various terms in \eq{problem} follows:
     In contrast to typical schemes for optimizing physical structures,
         our formulation actually allows for non-zero physics residuals;
         which can be deduced since $A_i(z)x_i-b_i=0$ is not a hard constraint.
-    Instead, this formulation is what we call an \emph{objective-first} \cite{ob1_wg}
+    Instead, this formulation is what we call an \emph{objective-first}\cite{ob1_wg}
         formulation in that the \emph{design objective} (explained below)
         is prioritized above satisfying physics.
 
@@ -267,6 +262,14 @@ The explanation for the various terms in \eq{problem} follows:
         where $c_{11}$ and $c_{12}$ are representative of 
         output patterns 1 and 2 respectively.
         
+    We note that although the performance description of nearly all
+        linear devices can be specified using such a constraint,
+        the constraint itself is \emph{not} linear (neither is it convex).
+    Other performance objectives are indeed possible which are nonlinear 
+        and nonconvex (such as optimizing for energy density or Q-factor)---convex 
+        objectives would be straightforward to implement,
+        while some non-convex objectives would require clever heurestics.
+
     Finally, we note again that the design objective in our formulation
         is actually a hard constraint.
     This means that it is \emph{always satisfied}, 
@@ -346,6 +349,14 @@ We show, through the design of mode converters for both the TE- and TM-polarized
 Additionally, the devices also demonstrate very small device footprints 
     ($1.6 \times 2.4$ microns for this device in particular
     operating at 1550 nm wavelength).
+Lastly, our devices convert between modes of opposing symmetry.
+
+This is in contrast to prior art\cite{mode1,mode2,mode3,forchel},
+    which is largely limited to two-dimensional designs,
+    where mode-coupling is between same-symmetry modes,
+    and devices are often larger in the transverse direction
+    because of the need for photonic crystal mirrors.
+    
 
 \subsubsection{TE mode converter}
 Our first result is a mode conversion device operating in the TE polarization,
@@ -385,7 +396,6 @@ Imperfect conversion may be due to evanescent modes ``interfering''
     while the power into the rejection mode (fundamental) is 0.7\%.
     Device footprint is $1.6\times2.4$ microns.
     Operating wavelength is 1550 nm.}
-
 
 \subsubsection{TM mode converter}
 
@@ -590,7 +600,7 @@ The final result is shown in \fig{hub_2x2x2}.
 The capabilities of our method are further demonstrated
     in the design of nanophotonic fiber couplers,
     which couple light from an optical fiber at normal incidence
-    into an in-plane waveguide\cite{baets}.
+    into an in-plane waveguide \cite{baets}.
 
 The structure of the optical fibers used was a 2 micron diameter core with 
     refractive index $n_\text{core} = 1.6$,
@@ -608,9 +618,7 @@ Such a device is said to be compact in that the functions
 
 Although the performance specification (\fig{3Db_fib_te})
     desired a coupling efficiency above 90\%,
-    only 51.5\% efficiency was achieved (\fig{fib_te});
-    however, this likely remains the highest efficiency demonstrated
-    in a compact fiber coupler.
+    only 51.5\% efficiency was achieved (\fig{fib_te}).
 
 \myfig{3Db_fib_te}
     {Compact fiber coupler performance specification.
@@ -727,7 +735,7 @@ Such a result is telling in that it demonstrates
 A analysis with regard to fabrication-error
     was also performed on the broadband wavelength splitter.
 The specific fabrication error was a general over- or under-etch
-    of the device (input and output waveguides unaffected).
+    of the device (input and output waveguides unaffected) \cite{robust1}.
 \Fig{analysis_fab_shift2} reveals that up to 8 nm of over- or under-etching
     can be sustained before performance falls below 70\%, at the central
     operating wavelengths.
@@ -774,6 +782,7 @@ We suggest, based on this design, that wavelength tolerance
     may be a good heuristic to the design of temperature and fabrication-error
     tolerant nanophotonic devices. \\
 
+\section{Acknowledgments}
 This work has been supported by the 
     AFOSR MURI for Complex and Robust On-chip Nanophotonics 
     (Dr. Gernot Pomrenke), grant number FA9550-09-1-0704.

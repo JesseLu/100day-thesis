@@ -35,10 +35,16 @@
 This work was originally sparked by the realization that 
     the electromagnetic wave equation was not only linear in the field variable,
     but also in the structure variable.
-Specifically, that
+Specifically, that both $E$ and $\epsilon$ are \emph{bi-linear} in
+    the electromagnetic wave equation which is
     \BE \nabla \times \mu_0^{-1} \nabla \times E - \omega^2 \epsilon E = 
-        -i\omega J \label{p1:wave} \EE
-    is \emph{bi-linear} in both $E$ and $\epsilon$.
+        -i\omega J, \label{p1:wave} \EE
+    where
+    \BI $E$ is the electric-field,
+    \I  $J$ is the excitation current density,
+    \I  $\omega$ is the angular frequency,
+    \I  $\mu_0$ is the permeability of vacuum, and
+    \I  $\epsilon$ is the space-dependent permittivity. \EI
 Practically, this meant that solving for $\epsilon$ should be rather straightforward,
     since we already now how to solve linear systems in general.
 
@@ -116,8 +122,8 @@ As the result in fig.~\ref{p1:direct} shows,
 \chapter{Regularized direct design}\label{regularized}
 \section{Problem formulation}
 We were previously quite excited to learn that solving for 
-    a dielectric structure ($\epsilon$ or $z$) given 
-    its electromagnetic field ($E$ or $x$) is actually quite simple,
+    a dielectric structure ($\epsilon$, i.e.~$z$) given 
+    its electromagnetic field ($E$, i.e.~$x$) is actually quite simple,
     but generally results in unrealizable structures.
 Along these lines, we also knew that the simplest way 
     to produce a well-behaved dielectric structure is 
@@ -141,8 +147,8 @@ We chose to constrain the values of $z$ ($\epsilon$)
     the results of which are shown in fig.~\ref{regls pic}\cite{Lu10}.
     
 Although our results seemed promising in producing well-behaved
-    dielectric structures;
-    critically, fig.~\ref{regls pic} shows that there seems
+    dielectric structures,
+    fig.~\ref{regls pic} shows that there seems
     to be an unavoidable trade-off between 
     constraining the structure ($z$) 
     and accurately reproducing the field ($x$).

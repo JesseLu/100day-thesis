@@ -17,14 +17,15 @@ As our appetite for information continues to grow,
 The focus of this work is the design of nanophotonic components
     to enable such future on-chip optical networks.
 
+
 Currently, on-chip networks consist of devices
     which are designed by tuning
-    a handful of design parameters (\fig{integrated_circuit}).
+    a handful of design parameters\cite{pic1,pic2} (\fig{integrated_circuit}).
 Much progress has been made on this front;
     however, we note that the available design space is largely untouched (\fig{des_complexity}).
 
 \myfig{integrated_circuit}
-    {Examples of hand-tuned nanophotonic devices.
+    {Examples of hand-tuned nanophotonic devices\cite{pic1,pic2}.
     Device performance is tuned by varying the sizes of and spacing between
     a handful of elements (waveguides, resonators, gratings, \ldots).}
 
@@ -36,6 +37,9 @@ To be precise, the motivation for this works stems from the twin realizations th
     \item component performance can only benefit by the addition and
     consideration of these additional degrees of freedom.
     \end{enumerate}
+Unfortunately, the lack of intuition for what such designs might look like and
+    the inability to manually search such a large parameter space
+    have greatly hindered the ability to achieve a full-parameter space design.
 The goal of this work, then, is to be able to take advantage
     of the full available parameter space to design nanophotonic devices.
 
@@ -45,9 +49,23 @@ The goal of this work, then, is to be able to take advantage
         limited to including or excluding 100 nm square areas,
         a 1500 nm $\times$ 1500 nm area already contains $2^{225}$ 
         (an uncountable number) possible designs.}
+  
+Previously, design algorithms featuring a large number of parameters
+    have been applied to the design of individual devices.
+These range from the use of genetic algorithms\cite{lipson},
+    level-set methods\cite{yablo}, 
+    and the optimization of specific geometric parameters\cite{levi,johnson}
+    to design nanophotonic devices.
+Additionally, much success in this field has been attained\cite{sigmund1}
+    through the use of topological design methods that
+    have traditionally been applied in other fields \cite{jameson,bendsoe}.
 
-Along this line of reasoning
-    we expect to be able to produce devices which
+Built upon this prior art,
+    this work's aim is to produce a design method 
+    that not only produces designs for a single device,
+    but for a wide range of devices.
+Specifically,
+    we desired to be able to produce devices which
     \BI have very compact footprints,
     \I  exhibit high efficiency performance,
     \I  are multi-modal in their operation,
@@ -58,14 +76,12 @@ Our final result (chapter~\ref{final}) indeed demonstrates
     manufacturable, three-dimensional nanophotonic devices which
     exhibit these properties.
 
-Of course, in this regime, the hand-tuning of parameters 
-    is no longer a tractable strategy.
-Instead, we use a \emph{design-by-specification} strategy
+Not only was a large parameter space used to achieve such designs,
+    but we employed a \emph{design-by-specification} strategy
     which simply means that our software produces nanophotonic designs
-    based solely based on the desired performance specification given to it,
+    based solely on the desired performance specification given to it,
     and requires no intermediate hand tuning.
-
-We note, lastly, that the design-by-specification strategy
+We note that such a design-by-specification strategy
     is unusually powerful in the sense that \emph{all} useful nanophotonic devices
     can be designed in this way.
 Indeed, the apparent ease with which we are able to produce designs seems
@@ -91,3 +107,16 @@ Appendix~\ref{maths} contains the nitty-gritty mathematics
     that was used to implement our final design tool, 
     as outlined in chapter~\ref{final}.
 This appendix will be most useful to any wishing to reproduce our work.
+
+The work presented here is based on the following publications:
+\begin{itemize}
+\item chapters~\ref{direct}-\ref{bounded}: ``Inverse design of nanophotonic structures using complementary convex optimization,'' Opt. Express (2010),
+\item chapter~\ref{bounded}:
+    ``Inverse design of a three-dimensional nanophotonic resonator,''
+    Opt. Express (2011), 
+\item chapter~\ref{ob-1}: ``Objective-first design of high-efficiency, small-footprint couplers between arbitrary nanophotonic waveguide modes,'' 
+    Opt. Express (2012),
+\item chapter~\ref{final}: ``Nanophotonic computational design,'' Opt. Express (2013).
+\end{itemize}
+
+

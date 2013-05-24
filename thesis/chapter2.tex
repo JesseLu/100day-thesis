@@ -11,7 +11,7 @@ Further thought led us to conclude that
     in chapters \ref{direct} and \ref{regularized}
     is actually not in the methods themselves, 
     but in the improper selection of a target field. 
-In fact, we realizaed thtat it is very difficult to select a suitable target field 
+In fact, we realized thtat it is very difficult to select a suitable target field 
     because not every field even has a manufacturable dielectric structure 
     that is able to reproduce it. 
 Furthermore, it is nearly impossible to select a multi-dimensional field 
@@ -66,7 +66,7 @@ In terms of implementation, we note that
 \section{Results}
 \subsection{1D}
 Fig.~\ref{comp pic} shows that the iterative algorithm, after $400$ iterations and with the correct choice of regularization parameters $\eta_0$ and $\eta_1$, 
-    indeed results in a well-behaved structure that is able to closely reproduce the modified target field\cite{Lu10}!
+    indeed results in a well-behaved structure that is able to closely reproduce the modified target field\cite{Lu10}.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{p1/complementary}
@@ -75,7 +75,7 @@ Fig.~\ref{comp pic} shows that the iterative algorithm, after $400$ iterations a
 \label{comp pic}
 \end{figure}
 
-\subsection{2D}
+\subsection{Iterative design in 2D}
 The iterative design method can also be extended to two dimensions\cite{Lu10}.
 We demonstrate this using an S-shaped target field 
     which is non-trivial to reproduce. 
@@ -230,7 +230,7 @@ The parameters used in this design are identical
 % 
 % Instead, an inverse design method in which the user only specifies the desired electromagnetic field, or characteristics thereof, and then leaves the computer to find a dielectric structure satisfying these requirements, would be a much more intuitive and computationally efficient design strategy. Furthermore, such a method may even be the only feasible option available for the design of more complex multi-wavelength and multi-functional nanophotonic devices needed for on-chip integration\cite{miller}.
 % 
-\subsection{2.5D}
+\subsection{Iterative design in 2.5D}
 % \section{2.5-dimensional approximation}
 Unfortunately, to directly extend our previous method to full three-dimensional space requires solving for a very large ($\sim 10^7 \times 10^7$) and ill-conditioned matrix, namely that given by the time-harmonic Maxwell's equation in three dimensions, which for the electric ($E$) field is
 \begin{align}
@@ -254,9 +254,9 @@ In this approximation, converting from a 2.5-dimensional structure to a full thr
 \begin{align}
 t &= \frac{2}{\beta}\tan^{-1}\frac{\alpha}{\beta},\label{t} \quad\text{where} \\
 \alpha &= \sqrt{k_x^2 - \left(\frac{\omega}{c}\right)^2}, \quad\text{and} \\
-k_x &= \sqrt{\left(\frac{n_\text{eff}\omega}{c}\right)^2 - \beta^2}.
+k_x &= \sqrt{\left(\frac{n_\text{eff}\omega}{c}\right)^2 - \beta^2},
 \end{align}
-Here, $\alpha$ is the wave-vector which determines the evanescent decay of the slab waveguide mode into air, while $k_x$ is an approximated in-plane k-vector. To determine $n_\text{eff}$, the effective refractive index, we use the following approximation,
+Here, $\alpha$ is the wave-vector which determines the evanescent decay of the slab waveguide mode into air, while $k_x$ is an approximated in-plane k-vector, and $x$ is the speed of light. To determine $n_\text{eff}$, the effective refractive index, we use the following approximation,
 \begin{equation}
 n_\text{eff} = \sqrt{\frac{\|\epsilon E^2\|}{\|E^2\|}}.
 \end{equation}

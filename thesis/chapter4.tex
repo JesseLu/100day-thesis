@@ -160,7 +160,7 @@
 % %     slot waveguide,'' Opt. Lett. \textbf{35}, 649-651 (2010).
 % % \bibitem{code} \url{www.github.com/JesseLu/objective-first}
 % \end{thebibliography}
-\chapter{Nanophotonic computational design} \label{final}
+\chapter{Nanophotonic computational design in 3D} \label{final}
 % \section{Introduction}
 % Currently, almost all nanophotonic components are designed 
 %     by hand-tuning a small number of parameters 
@@ -198,7 +198,8 @@
 %     to design \emph{all} linear nanophotonic devices.
 % 
 \section{Problem formulation}
-We now develop a method which may indeed be capable of designing 
+In this central chapter of this work, 
+    we present a method which may indeed be capable of designing 
     linear nanophotonic devices which
     are fully three-dimensional and multi-modal,
     exhibit novel functionality,
@@ -276,6 +277,14 @@ The explanation for the various terms in \eq{problem} follows:
         and then $0.0 \le |c_{12}\T x_1| \le 0.01$ for the latter;
         where $c_{11}$ and $c_{12}$ are representative of 
         output patterns 1 and 2 respectively.
+
+    We note that although the performance description of nearly all
+        linear devices can be specified using such a constraint,
+        the constraint itself is \emph{not} linear (neither is it convex).
+    Other performance objectives are indeed possible which are nonlinear 
+        and nonconvex (such as optimizing for energy density or Q-factor)---convex 
+        objectives would be straightforward to implement,
+        while some non-convex objectives would require clever heurestics.
         
     Finally, we note again that the design objective in our formulation
         is actually a hard constraint.
@@ -326,9 +335,9 @@ The mathematical details of our implementation are given
 We demonstrate the effectiveness of our design method 
     by producing designs for a variety of nanophotonic devices\cite{Lu13}.
 
-All of our results are in three dimensions
+\emph{All of our results are in three dimensions
     and are planar structures, consisting of a 250 nm etched silicon slab
-    completely surrounded by silica.
+    completely surrounded by silica.}
 The permittivity values of silicon and silica used
     were $\epsilon_\text{Si} = 12.25$ and $\epsilon_\text{SiO$_2$} = 2.25$
     respectively.
@@ -374,9 +383,9 @@ At the same time, we specified that no more than 1\% of the input power
 
 \myfig{3Db_wgc_te2}
     {Perfomance specification of the TE mode converter.
-    Input mode is the fundamental TE-polarized mode on the left.
-    Primary output mode is the second-order mode on the right.
-    Output power in the transmitted fundamental mode 
+    Input mode is the fundamental TE-polarized mode on the top-left.
+    Primary output mode is the second-order mode on the top-right.
+    Output power in the transmitted fundamental mode (bottom-right) 
     should be no more than 1\%.
     The structure shown is the final three-dimensional design
     (the same holds for all the following figures in the article).
@@ -419,10 +428,10 @@ Specifically, we still design for
 
 \myfig{3Db_wgc_tm}
     {Perfomance specification of the TM mode converter.
-    Input mode is the fundamental TM-polarized mode on the left.
-    Primary output mode is the second-order mode on the right.
-    Output power in the transmitted fundamental mode on the right 
-    above 1\% is to be rejected.
+    Input mode is the fundamental TM-polarized mode on the top-left.
+    Primary output mode is the second-order mode on the top-right.
+    Output power in the transmitted fundamental mode on the bottom-right 
+    should be under 1\%.
     The structure shown is the final three-dimensional design.}
     
 The performance of the device is shown in \fig{wgc_tm}.
@@ -574,6 +583,7 @@ The performance specification is shown in \fig{3Db_hub_4x4},
     The conversion efficiencies into the selected output arms
         are 85.9\%, 88.1\%, 85.4\%, and 84.3\% for
         input arms 1, 2, 3, and 4 respectively (top to bottom).}
+\clearpage
 
 \subsubsection{2$\times$2$\times$2 hub}
 We can now design a hub that performs 
@@ -598,6 +608,7 @@ The final result is shown in \fig{hub_2x2x2}.
     The conversion efficiencies at the 1550 nm wavelength 
         are 77.6\% and 73.7\% respectively for the top and bottom inputs.
     At 1310 nm, the respective efficiencies are 75.7\% and 75.2\%.}
+\clearpage 
 
 \subsection{Fiber couplers}
 The capabilities of our method are further demonstrated
@@ -621,9 +632,7 @@ Such a device is said to be compact in that the functions
 
 Although the performance specification (\fig{3Db_fib_te})
     desired a coupling efficiency above 90\%,
-    only 51.5\% efficiency was achieved (\fig{fib_te});
-    however, this likely remains the highest efficiency demonstrated
-    in a compact fiber coupler.
+    only 51.5\% efficiency was achieved (\fig{fib_te}).
 
 \myfig{3Db_fib_te}
     {Compact fiber coupler performance specification.
@@ -740,7 +749,7 @@ Such a result is telling in that it demonstrates
 A analysis with regard to fabrication-error
     was also performed on the broadband wavelength splitter.
 The specific fabrication error was a general over- or under-etch
-    of the device (input and output waveguides unaffected).
+    of the device (input and output waveguides unaffected)\cite{robust1}.
 \Fig{analysis_fab_shift2} reveals that up to 8 nm of over- or under-etching
     can be sustained before performance falls below 70\%, at the central
     operating wavelengths.

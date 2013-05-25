@@ -1,1 +1,90 @@
 \chapter{Conclusion and future work}\label{conclusion}
+
+We have presented a general design method
+    for linear nanophotonic devices,
+    as well as the intermediary results, difficulties, and realizations
+    that enabled us to achieve this final result.
+
+The ability to design essentially \emph{any} linear nanophotonic device
+    simply by specifying its desired performance
+    is a simple, powerful, and necessary tool for future 
+    on-chip networks.
+As such, this work represents only an existence proof
+    that such computational capabilities are possible 
+    and can be achieved.
+Specifically, that it is possible to design nanophotonic devices which
+    \BI are fully three-dimensional,
+    \I  are manufacturable,
+    \I  have very compact footprints,
+    \I  exhibit high efficiency performance,
+    \I  are multi-modal in their operation,
+    \I  are robust to shifts in wavelength and temperature,
+    \I  are robust to fabrication error,
+    \I  demonstrate novel, never-before-seen functionality, \EI
+    simply by giving a computer a design specification for the device.
+
+In this vein, there exist numerous opportunities 
+    to \emph{vastly} improve and extend the work we have presented.
+
+\section{Additional fabrication constraints}
+Improving the ease of manufacturability of optimized designs
+    is an area where many gains should be realized.
+
+While our final results are considered to be within
+    the current limits of nanofabrication,
+    they are by no means \emph{easy} to manufacture.
+Additional or modified optimization steps
+    where the structure is constrained to simple shapes (e.g.~circles only)
+    or where the minimum feature size is maximized
+    would significantly boost the manufacturability of the resulting designs.
+    
+Such capability is actually already implemented (though not utilized), 
+    to a large extent,
+    in the final method presented in chapter~\ref{final},
+    in that $g(z)$ in eq.~\eqref{eq:rigorous problem statement}
+    can incorporate arbitrary constraints on the structure.
+Additionally, the parameterization of the structure can be modified
+    to describe the position and size of simple, 
+    rather than arbitrary, shapes.
+
+\section{Exploration of the solution space}
+Our final result, and indeed nearly all of our results,
+    were achieved utilizing simple initial structures
+    of uniform permittivity.
+This was chosen for simplicity of implementation,
+    and to show that working designs could still be achieved
+    from completely non-functional initial structures.
+At the same time, because of the non-convex nature of our problem,
+    we expect different initial structures to arrive at different designs;
+    an aspect that we have yet to explore at all.
+
+For this reason, 
+    an investigation into the various methods and choices of initial structures 
+    would be a necessary and useful pursuit.
+Additional parameters, such as the size and shape of the optimization area,
+    should also be modified in an attempt to understand their effect
+    on produced designs.
+
+In theory, such investigations should not be computationally demanding
+    since one could execute multiple design runs with different initial conditions
+    in an embarrassingly parallel manner.
+Practically, however, the speed of the underlying simulation engine
+    can dictate whether or not this is feasible in a research environment.
+
+\section{Enhanced simulation capabilities}
+Solving for the matrix corresponding to the electromagnetic wave equation
+    is the primary computational burden of our method.
+Therefore, simulation code which is faster, and can handle larger, higher
+    resolution grids
+    has a direct and significant impact on the design capabilities of our method.
+
+Currently, although our use of the method described in \cite{Shin12} seems optimal,
+    improvements (whether in algorithm or implementation)
+    should be eagerly investigated.
+Just as the currently used method was the key technology in achieving 
+    the final results presented here,
+    a new advance in the capabilities of the simulation engine
+    may very well be the stepping stone
+    to an entirely new set of capabilities.
+
+
